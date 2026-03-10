@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0533"/>
+      <stop offset="100%" style="stop-color:#0d001a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e879f9"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="glow1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e879f9;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0"/>
+    </linearGradient>
+    <radialGradient id="orb1" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#e879f9;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#e879f9;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Orbs -->
+  <ellipse cx="950" cy="200" rx="380" ry="380" fill="url(#orb1)"/>
+  <ellipse cx="800" cy="500" rx="280" ry="280" fill="url(#orb2)"/>
+  <!-- Hexagon grid pattern -->
+  <g opacity="0.06" stroke="#e879f9" stroke-width="1" fill="none">
+    <polygon points="850,80 900,108 900,165 850,193 800,165 800,108"/>
+    <polygon points="950,80 1000,108 1000,165 950,193 900,165 900,108"/>
+    <polygon points="1050,80 1100,108 1100,165 1050,193 1000,165 1000,108"/>
+    <polygon points="900,165 950,193 950,250 900,278 850,250 850,193"/>
+    <polygon points="1000,165 1050,193 1050,250 1000,278 950,250 950,193"/>
+    <polygon points="950,250 1000,278 1000,335 950,363 900,335 900,278"/>
+    <polygon points="850,250 900,278 900,335 850,363 800,335 800,278"/>
+    <polygon points="1050,250 1100,278 1100,335 1050,363 1000,335 1000,278"/>
+    <polygon points="900,335 950,363 950,420 900,448 850,420 850,363"/>
+    <polygon points="1000,335 1050,363 1050,420 1000,448 950,420 950,363"/>
+  </g>
+  <!-- DNA helix suggestion -->
+  <g opacity="0.15" fill="none" stroke="#e879f9" stroke-width="2">
+    <path d="M 1080 100 Q 1120 160 1080 220 Q 1040 280 1080 340 Q 1120 400 1080 460 Q 1040 520 1080 580"/>
+    <path d="M 1130 100 Q 1090 160 1130 220 Q 1170 280 1130 340 Q 1090 400 1130 460 Q 1170 520 1130 580"/>
+    <line x1="1080" y1="130" x2="1130" y2="145" stroke-width="1.5"/>
+    <line x1="1080" y1="190" x2="1130" y2="175" stroke-width="1.5"/>
+    <line x1="1080" y1="250" x2="1130" y2="265" stroke-width="1.5"/>
+    <line x1="1080" y1="310" x2="1130" y2="295" stroke-width="1.5"/>
+    <line x1="1080" y1="370" x2="1130" y2="385" stroke-width="1.5"/>
+    <line x1="1080" y1="430" x2="1130" y2="415" stroke-width="1.5"/>
+    <line x1="1080" y1="490" x2="1130" y2="505" stroke-width="1.5"/>
+    <line x1="1080" y1="550" x2="1130" y2="535" stroke-width="1.5"/>
+  </g>
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
+  <!-- Category pill -->
+  <rect x="80" y="185" width="220" height="34" rx="17" fill="#e879f9" opacity="0.15"/>
+  <rect x="80" y="185" width="220" height="34" rx="17" fill="none" stroke="#e879f9" stroke-width="1" opacity="0.4"/>
+  <text x="190" y="207" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#e879f9" text-anchor="middle" letter-spacing="2">AESTHETICS &amp; ANTI-AGING</text>
+  <!-- Title -->
+  <text x="80" y="275" font-family="system-ui,sans-serif" font-size="46" font-weight="800" fill="white">Looksmaxxing</text>
+  <text x="80" y="335" font-family="system-ui,sans-serif" font-size="46" font-weight="800" fill="white">&amp; Peptides</text>
+  <!-- Accent line -->
+  <rect x="80" y="358" width="120" height="3" rx="1.5" fill="url(#accent)"/>
+  <!-- Subtitle -->
+  <text x="80" y="400" font-family="system-ui,sans-serif" font-size="19" fill="rgba(255,255,255,0.5)">The Complete Science-Backed Guide 2026</text>
+  <!-- Molecules -->
+  <g opacity="0.2" fill="#e879f9">
+    <circle cx="80" cy="480" r="5"/>
+    <circle cx="120" cy="460" r="4"/>
+    <circle cx="155" cy="490" r="6"/>
+    <circle cx="190" cy="465" r="4"/>
+    <circle cx="230" cy="485" r="5"/>
+    <line x1="80" y1="480" x2="120" y2="460" stroke="#e879f9" stroke-width="1.5"/>
+    <line x1="120" y1="460" x2="155" y2="490" stroke="#e879f9" stroke-width="1.5"/>
+    <line x1="155" y1="490" x2="190" y2="465" stroke="#e879f9" stroke-width="1.5"/>
+    <line x1="190" y1="465" x2="230" y2="485" stroke="#e879f9" stroke-width="1.5"/>
+  </g>
+  <!-- Brand -->
+  <text x="80" y="580" font-family="system-ui,sans-serif" font-size="15" fill="rgba(255,255,255,0.3)" letter-spacing="3">PEPTIDELAB.COM</text>
+</svg>

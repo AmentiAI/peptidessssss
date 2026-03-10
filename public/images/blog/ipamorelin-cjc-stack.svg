@@ -1,20 +1,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#060612"/>
-      <stop offset="100%" style="stop-color:#0c0c20"/>
+      <stop offset="0%" style="stop-color:#00081a"/>
+      <stop offset="100%" style="stop-color:#000410"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#8b5cf6"/>
-      <stop offset="100%" style="stop-color:#7c3aed"/>
+      <stop offset="0%" style="stop-color:#6366f1"/>
+      <stop offset="100%" style="stop-color:#06b6d4"/>
     </linearGradient>
+    <radialGradient id="orb1" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#6366f1;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0"/>
+    </radialGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect x="0" y="0" width="1200" height="3" fill="url(#accent)"/>
-  <circle cx="900" cy="315" r="400" fill="#8b5cf6" opacity="0.04"/>
-  <circle cx="1050" cy="150" r="200" fill="#7c3aed" opacity="0.04"/>
-  <text x="80" y="270" font-family="system-ui,sans-serif" font-size="44" font-weight="bold" fill="white">Ipamorelin CJC-1295 Stack Guide</text>
-  <text x="80" y="330" font-family="system-ui,sans-serif" font-size="44" font-weight="bold" fill="white"></text>
-  <rect x="80" y="365" width="100" height="3" rx="1.5" fill="url(#accent)"/>
-  <text x="80" y="420" font-family="system-ui,sans-serif" font-size="18" fill="rgba(255,255,255,0.4)">PeptideLab Research Blog</text>
+  <ellipse cx="1000" cy="200" rx="380" ry="380" fill="url(#orb1)"/>
+  <ellipse cx="850" cy="480" rx="260" ry="260" fill="url(#orb2)"/>
+  <g opacity="0.15" stroke="#6366f1" stroke-width="2.5" fill="none">
+    <path d="M700,315 C740,315 760,180 800,180 C840,180 860,315 900,315 C940,315 960,160 1000,160 C1040,160 1060,315 1100,315 C1140,315 1160,200 1200,200"/>
+  </g>
+  <g opacity="0.1" stroke="#06b6d4" stroke-width="2" fill="none">
+    <path d="M700,315 C730,315 750,220 780,220 C810,220 830,315 860,315 C890,315 910,200 940,200 C970,200 990,315 1020,315 C1050,315 1070,230 1100,230"/>
+  </g>
+  <g opacity="0.08" stroke="#6366f1" stroke-width="1" fill="none">
+    <ellipse cx="1050" cy="250" rx="80" ry="60"/>
+    <ellipse cx="1050" cy="250" rx="55" ry="40" stroke="#06b6d4" stroke-width="1.5"/>
+    <ellipse cx="1050" cy="250" rx="30" ry="22"/>
+  </g>
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
+  <rect x="80" y="185" width="250" height="34" rx="17" fill="none" stroke="#6366f1" stroke-width="1" opacity="0.4"/>
+  <text x="205" y="207" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#6366f1" text-anchor="middle" letter-spacing="2">GROWTH HORMONE PEPTIDES</text>
+  <text x="80" y="278" font-family="system-ui,sans-serif" font-size="44" font-weight="800" fill="white">Ipamorelin + CJC-1295</text>
+  <text x="80" y="338" font-family="system-ui,sans-serif" font-size="36" font-weight="700" fill="rgba(255,255,255,0.85)">The Gold Standard GH</text>
+  <text x="80" y="386" font-family="system-ui,sans-serif" font-size="36" font-weight="700" fill="rgba(255,255,255,0.85)">Research Stack</text>
+  <rect x="80" y="406" width="120" height="3" rx="1.5" fill="url(#accent)"/>
+  <text x="80" y="446" font-family="system-ui,sans-serif" font-size="18" fill="rgba(255,255,255,0.45)">8-10x Synergistic GH Pulse Amplification</text>
+  <text x="80" y="580" font-family="system-ui,sans-serif" font-size="15" fill="rgba(255,255,255,0.3)" letter-spacing="3">PEPTIDELAB.COM</text>
 </svg>
