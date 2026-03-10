@@ -1,4 +1,5 @@
 import { staticProducts, staticCategories, AFFILIATE_URL } from "@/lib/static-products"
+import { staticBlogPosts, staticGuides } from "@/lib/static-content"
 
 export { AFFILIATE_URL }
 
@@ -212,76 +213,87 @@ export async function getAllCategorySlugs(): Promise<string[]> {
 export async function getAllBlogPosts(): Promise<BlogPost[]> {
   try {
     const db = await getDb()
-    if (!db) return []
-    return (await db.blogPost.findMany({ orderBy: { date: "desc" } })) as BlogPost[]
+    if (!db) return staticBlogPosts
+    const results = await db.blogPost.findMany({ orderBy: { date: "desc" } })
+    if (results.length === 0) return staticBlogPosts
+    return results as BlogPost[]
   } catch {
-    return []
+    return staticBlogPosts
   }
 }
 
 export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
   try {
     const db = await getDb()
-    if (!db) return null
-    return (await db.blogPost.findUnique({ where: { slug } })) as BlogPost | null
+    if (!db) return staticBlogPosts.find((p) => p.slug === slug) ?? null
+    const result = await db.blogPost.findUnique({ where: { slug } })
+    if (!result) return staticBlogPosts.find((p) => p.slug === slug) ?? null
+    return result as BlogPost
   } catch {
-    return null
+    return staticBlogPosts.find((p) => p.slug === slug) ?? null
   }
 }
 
 export async function getAllBlogSlugs(): Promise<string[]> {
   try {
     const db = await getDb()
-    if (!db) return []
+    if (!db) return staticBlogPosts.map((p) => p.slug)
     const posts = await db.blogPost.findMany({ select: { slug: true } })
+    if (posts.length === 0) return staticBlogPosts.map((p) => p.slug)
     return posts.map((p) => p.slug)
   } catch {
-    return []
+    return staticBlogPosts.map((p) => p.slug)
   }
 }
 
 export async function getFeaturedBlogPosts(): Promise<BlogPost[]> {
   try {
     const db = await getDb()
-    if (!db) return []
+    if (!db) return staticBlogPosts.filter((p) => p.isFeatured).slice(0, 3)
     const results = await db.blogPost.findMany({
       where: { isFeatured: true },
       take: 3,
       orderBy: { date: "desc" },
     })
+    if (results.length === 0) return staticBlogPosts.filter((p) => p.isFeatured).slice(0, 3)
     return results as BlogPost[]
   } catch {
-    return []
+    return staticBlogPosts.filter((p) => p.isFeatured).slice(0, 3)
   }
 }
 
 export async function getAllGuides(): Promise<Guide[]> {
   try {
     const db = await getDb()
-    if (!db) return []
-    return (await db.guide.findMany({ orderBy: { date: "desc" } })) as Guide[]
+    if (!db) return staticGuides
+    const results = await db.guide.findMany({ orderBy: { date: "desc" } })
+    if (results.length === 0) return staticGuides
+    return results as Guide[]
   } catch {
-    return []
+    return staticGuides
   }
 }
 
 export async function getGuideBySlug(slug: string): Promise<Guide | null> {
   try {
     const db = await getDb()
-    if (!db) return null
-    return (await db.guide.findUnique({ where: { slug } })) as Guide | null
+    if (!db) return staticGuides.find((g) => g.slug === slug) ?? null
+    const result = await db.guide.findUnique({ where: { slug } })
+    if (!result) return staticGuides.find((g) => g.slug === slug) ?? null
+    return result as Guide
   } catch {
-    return null
+    return staticGuides.find((g) => g.slug === slug) ?? null
   }
 }
 
 export async function getAllGuideSlugs(): Promise<string[]> {
   try {
     const db = await getDb()
-    if (!db) return []
+    if (!db) return staticGuides.map((g) => g.slug)
     const guides = await db.guide.findMany({ select: { slug: true } })
+    if (guides.length === 0) return staticGuides.map((g) => g.slug)
     return guides.map((g) => g.slug)
   } catch {
-    return []
+    return staticGuides.map((g) => g.slug)
   }
 }

@@ -8,7 +8,9 @@
       "Bash(cat /mnt/c/Users/Wilso/peptidessssss/app/blog/\\\\[slug\\\\]/page.tsx)",
       "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('data/blog-posts.json','utf8'\\)\\); console.log\\('JSON valid'\\)\")",
       "Bash(npx tsc:*)",
-      "Bash(node -e \"const d=require\\('./data/blog-posts.json'\\); console.log\\(d.posts.length + ' posts'\\); d.posts.forEach\\(p=>console.log\\('-', p.slug\\)\\)\")"
+      "Bash(node -e \"const d=require\\('./data/blog-posts.json'\\); console.log\\(d.posts.length + ' posts'\\); d.posts.forEach\\(p=>console.log\\('-', p.slug\\)\\)\")",
+      "Bash(node -e \"const t=require\\('./tsconfig.json'\\); console.log\\('resolveJsonModule:', t.compilerOptions.resolveJsonModule\\)\")",
+      "Bash(node -e \"\nconst blogData = require\\('./data/blog-posts.json'\\);\nconst guideData = require\\('./data/guides.json'\\);\nconsole.log\\('Blog posts:', blogData.posts.length\\);\nblogData.posts.forEach\\(p => console.log\\(' -', p.slug, '| featured:', p.featured\\)\\);\nconsole.log\\('Guides:', guideData.guides.length\\);\n\")"
     ]
   }
 }
