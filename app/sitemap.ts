@@ -7,29 +7,36 @@ import {
 
 const BASE_URL = "https://peptidelab.com"
 
-export default function sitemap() {
-  const productPages = getAllProductSlugs().map((slug) => ({
+export default async function sitemap() {
+  const [productSlugs, categorySlugs, blogSlugs, guideSlugs] = await Promise.all([
+    getAllProductSlugs(),
+    getAllCategorySlugs(),
+    getAllBlogSlugs(),
+    getAllGuideSlugs(),
+  ])
+
+  const productPages = productSlugs.map((slug) => ({
     url: `${BASE_URL}/products/${slug}`,
     lastModified: new Date("2026-03-01"),
     changeFrequency: "weekly" as const,
     priority: 0.8,
   }))
 
-  const categoryPages = getAllCategorySlugs().map((slug) => ({
+  const categoryPages = categorySlugs.map((slug) => ({
     url: `${BASE_URL}/categories/${slug}`,
     lastModified: new Date("2026-03-01"),
     changeFrequency: "weekly" as const,
     priority: 0.75,
   }))
 
-  const blogPages = getAllBlogSlugs().map((slug) => ({
+  const blogPages = blogSlugs.map((slug) => ({
     url: `${BASE_URL}/blog/${slug}`,
     lastModified: new Date("2026-02-28"),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }))
 
-  const guidePages = getAllGuideSlugs().map((slug) => ({
+  const guidePages = guideSlugs.map((slug) => ({
     url: `${BASE_URL}/guides/${slug}`,
     lastModified: new Date("2026-02-15"),
     changeFrequency: "monthly" as const,

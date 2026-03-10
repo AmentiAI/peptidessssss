@@ -5,16 +5,10 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "www.peptidesciences.com",
-      },
-      {
-        protocol: "https",
-        hostname: "peptidesciences.com",
+        hostname: "pantheonpeptides.com",
+        pathname: "/wp-content/uploads/**",
       },
     ],
-    dangerouslyAllowSVG: true,
-    contentDispositionType: "attachment",
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 }
 

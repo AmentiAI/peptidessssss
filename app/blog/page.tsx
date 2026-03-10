@@ -3,71 +3,90 @@ import Link from "next/link"
 import Image from "next/image"
 import { ArrowRight, Clock, BookOpen } from "lucide-react"
 import { PageLayout } from "@/components/peptide-hub/page-layout"
-import { blogPosts } from "@/lib/peptide-data"
+import { getAllBlogPosts } from "@/lib/peptide-data"
 
 export const metadata: Metadata = {
-  title: "Peptide Research Blog — In-Depth Guides & Reviews 2026 | PeptideLab",
+  title: "Peptide Research Blog — In-Depth Guides & Reviews | PeptideLab",
   description:
-    "In-depth research articles on BPC-157, TB-500, Ipamorelin, Epithalon, Semax, and more. Evidence-based peptide guides written by the PeptideLab research team.",
+    "In-depth research articles on BPC-157, TB-500, Tirzepatide, Epithalon, Semax, and more. Evidence-based peptide guides from the PeptideLab research team.",
   alternates: { canonical: "https://peptidelab.com/blog" },
 }
 
-export default function BlogPage() {
-  const [featured, ...rest] = blogPosts.sort(
+export default async function BlogPage() {
+  const blogPosts = await getAllBlogPosts()
+  const sorted = [...blogPosts].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   )
+  const [featured, ...rest] = sorted
 
   return (
     <PageLayout>
       {/* Hero */}
-      <section className="py-16 border-b border-[rgba(0,212,255,0.08)]">
+      <section className="py-16 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-3 mb-4">
-            <BookOpen className="w-6 h-6 text-[#00d4ff]" />
-            <p className="text-xs font-bold text-[#00d4ff] uppercase tracking-widest">Research Blog</p>
+            <BookOpen className="w-6 h-6 text-blue-600" />
+            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest">Research Blog</p>
           </div>
-          <h1 className="text-5xl font-bold text-white mb-3">Peptide Research Articles</h1>
-          <p className="text-[rgba(255,255,255,0.55)] text-lg max-w-2xl">
-            Evidence-based research articles, mechanism deep-dives, and protocol guides from the PeptideLab research team.
+          <h1 className="text-5xl font-bold text-slate-900 mb-3">Peptide Research Articles</h1>
+          <p className="text-slate-500 text-lg max-w-2xl">
+            Evidence-based research articles, mechanism deep-dives, and protocol guides from the PeptideLab
+            research team.
           </p>
         </div>
       </section>
 
       <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6">
+        {blogPosts.length === 0 && (
+          <div className="text-center py-24 text-slate-500">
+            <BookOpen className="w-12 h-12 mx-auto mb-4 text-slate-300" />
+            <h2 className="text-xl font-semibold text-slate-700 mb-2">Blog posts coming soon</h2>
+            <p className="text-sm">In-depth research articles are being prepared.</p>
+            <Link href="/products" className="inline-flex items-center gap-2 mt-6 text-blue-600 font-semibold hover:text-blue-800">
+              Browse our peptide catalog <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        )}
+
         {/* Featured post */}
         {featured && (
           <div className="mb-10">
-            <p className="text-xs font-bold text-[#00d4ff] uppercase tracking-widest mb-4">Featured Article</p>
+            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">
+              Featured Article
+            </p>
             <Link
               href={`/blog/${featured.slug}`}
-              className="group grid grid-cols-1 md:grid-cols-2 rounded-2xl overflow-hidden border border-[rgba(255,255,255,0.07)] hover:border-[rgba(0,212,255,0.25)] transition-all duration-300"
-              style={{ background: "rgba(12,12,32,0.8)" }}
+              className="group grid grid-cols-1 md:grid-cols-2 rounded-2xl overflow-hidden border border-slate-200 hover:border-slate-400 hover:shadow-md transition-all duration-300 bg-white"
             >
-              <div className="relative aspect-video md:aspect-auto overflow-hidden bg-[rgba(255,255,255,0.03)]">
-                <Image
-                  src={featured.image}
-                  alt={featured.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  priority
-                />
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent to-[rgba(12,12,32,0.3)]" />
-              </div>
+              {featured.imageUrl && (
+                <div className="relative aspect-video md:aspect-auto overflow-hidden bg-slate-50">
+                  <Image
+                    src={featured.imageUrl}
+                    alt={featured.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    priority
+                  />
+                </div>
+              )}
               <div className="p-8 flex flex-col justify-center">
-                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold text-black mb-4"
-                  style={{ background: "linear-gradient(135deg, #00d4ff, #7c3aed)" }}>
+                <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-slate-900 text-white mb-4 w-fit">
                   {featured.category}
                 </span>
-                <h2 className="text-2xl font-bold text-white mb-3 group-hover:text-[#00d4ff] transition-colors leading-snug">
+                <h2 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-600 transition-colors leading-snug">
                   {featured.title}
                 </h2>
-                <p className="text-[rgba(255,255,255,0.6)] mb-5 leading-relaxed">{featured.description}</p>
-                <div className="flex items-center gap-4 text-xs text-[rgba(255,255,255,0.4)]">
-                  <span>{featured.date}</span>
-                  <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{featured.read_time} read</span>
+                <p className="text-slate-500 mb-5 leading-relaxed">{featured.description}</p>
+                <div className="flex items-center gap-4 text-xs text-slate-400">
+                  <span>{new Date(featured.date).toLocaleDateString()}</span>
+                  {featured.readTime && (
+                    <span className="flex items-center gap-1">
+                      <Clock className="w-3 h-3" />{featured.readTime} read
+                    </span>
+                  )}
                 </div>
-                <span className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-[#00d4ff]">
+                <span className="inline-flex items-center gap-1.5 mt-5 text-sm font-semibold text-blue-600">
                   Read Article <ArrowRight className="w-4 h-4" />
                 </span>
               </div>
@@ -76,47 +95,54 @@ export default function BlogPage() {
         )}
 
         {/* Rest of posts */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {rest.map((post) => (
-            <Link
-              key={post.slug}
-              href={`/blog/${post.slug}`}
-              className="group flex flex-col rounded-2xl overflow-hidden border border-[rgba(255,255,255,0.07)] hover:border-[rgba(0,212,255,0.25)] transition-all duration-300 hover:-translate-y-1"
-              style={{ background: "rgba(12,12,32,0.7)" }}
-            >
-              <div className="relative aspect-[16/9] overflow-hidden bg-[rgba(255,255,255,0.03)]">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(12,12,32,0.7)] to-transparent" />
-                <div className="absolute top-3 left-3">
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-bold text-black"
-                    style={{ background: "linear-gradient(135deg, #00d4ff, #7c3aed)" }}>
-                    {post.category}
+        {rest.length > 0 && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {rest.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="group flex flex-col rounded-2xl overflow-hidden border border-slate-200 hover:border-slate-400 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 bg-white"
+              >
+                {post.imageUrl && (
+                  <div className="relative aspect-[16/9] overflow-hidden bg-slate-50">
+                    <Image
+                      src={post.imageUrl}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-900 text-white">
+                        {post.category}
+                      </span>
+                    </div>
+                  </div>
+                )}
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="flex items-center gap-3 text-xs text-slate-400 mb-3">
+                    <span>{new Date(post.date).toLocaleDateString()}</span>
+                    {post.readTime && (
+                      <>
+                        <span>·</span>
+                        <span>{post.readTime} read</span>
+                      </>
+                    )}
+                  </div>
+                  <h3 className="font-bold text-slate-900 leading-snug mb-2 group-hover:text-blue-600 transition-colors line-clamp-2 flex-1">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-slate-500 line-clamp-2 leading-relaxed">
+                    {post.description}
+                  </p>
+                  <span className="inline-flex items-center gap-1 mt-4 text-xs font-semibold text-blue-600">
+                    Read <ArrowRight className="w-3 h-3" />
                   </span>
                 </div>
-              </div>
-              <div className="p-5 flex flex-col flex-1">
-                <div className="flex items-center gap-3 text-xs text-[rgba(255,255,255,0.4)] mb-3">
-                  <span>{post.date}</span>
-                  <span>·</span>
-                  <span>{post.read_time} read</span>
-                </div>
-                <h3 className="font-bold text-white leading-snug mb-2 group-hover:text-[#00d4ff] transition-colors line-clamp-2 flex-1">
-                  {post.title}
-                </h3>
-                <p className="text-sm text-[rgba(255,255,255,0.5)] line-clamp-2 leading-relaxed">{post.description}</p>
-                <span className="inline-flex items-center gap-1 mt-4 text-xs font-semibold text-[#00d4ff]">
-                  Read <ArrowRight className="w-3 h-3" />
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </section>
     </PageLayout>
   )

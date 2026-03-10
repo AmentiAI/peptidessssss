@@ -1,0 +1,178 @@
+import "dotenv/config"
+import { PrismaClient } from "@prisma/client"
+import { PrismaPg } from "@prisma/adapter-pg"
+
+const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL! })
+const prisma = new PrismaClient({ adapter } as never)
+
+const AFFILIATE_URL = "https://pantheonpeptides.com/partner/AmentiAI/"
+
+function generateSlug(name: string): string {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
+}
+
+function isBundle(name: string): boolean {
+  return name.includes("+") || name.toLowerCase().includes("cycle")
+}
+
+const FEATURED_NAMES = new Set([
+  "BPC-157",
+  "TB-500",
+  "Ipamorelin",
+  "CJC-1295 + Ipamorelin",
+  "Epithalon",
+  "GHK-CU",
+  "Semax",
+  "Tirzepatide",
+  "Wolverine Cycle",
+  "Glow Plus Cycle",
+])
+
+const RAW_PRODUCTS = [
+  { name: "BPC-157", product_url: "https://pantheonpeptides.com/product/bpc-157/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/BPC-157-2mg-scaled.jpg", description: "Speeds tissue & muscle repair. Accelerates recovery from injuries. Improves blood circulation. Reduces inflammation. Supports gut health. Improves joint health & mobility. Enhances physical resilience. Supports brain and nerve regeneration.", category: "All Peptides, Skin/Tissue/Bone, Muscle Growth" },
+  { name: "TB-500", product_url: "https://pantheonpeptides.com/product/tb-500/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/TD-500-2mg-scaled.jpg", description: "Muscle Recovery, Tissue Repair and Wound Healing, Reduced Inflammation, Improved Joint and Tendon Health, Increased Flexibility and Range of Motion.", category: "All Peptides, Muscle Growth, Skin/Tissue/Bone" },
+  { name: "BPC-157 + TB-500", product_url: "https://pantheonpeptides.com/product/bpc-157-tb-500/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/BPC157TB500-5mg-scaled.jpg", description: "Accelerates Muscle Recovery, Tissue Repair and Wound Healing, Promotes Tendon and Ligament Healing, Supports Gut Health, Reduces Inflammation, Increased Flexibility and Range of Motion, Enhances Brain and Nerve Repair.", category: "All Peptides, Muscle Growth, Skin/Tissue/Bone" },
+  { name: "Ipamorelin", product_url: "https://pantheonpeptides.com/product/ipamorelin/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/IPAMORELIN-2mg-scaled.jpg", description: "Promotes Muscle Growth, Enhances Fat Loss, Accelerates tissue repair and regeneration, Improves Sleep Quality, Boosts Skin Elasticity.", category: "All Peptides, Muscle Growth, Anti-Aging" },
+  { name: "CJC-1295 (with DAC)", product_url: "https://pantheonpeptides.com/product/cjc-1295-with-dac/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/CJC1295-DAC-2mg-scaled.jpg", description: "Promotes lean muscle growth, Boosts metabolism, Accelerates recovery, Improves sleep quality, Anti-aging effects.", category: "All Peptides, Muscle Growth, Anti-Aging" },
+  { name: "CJC-1295 (without DAC)", product_url: "https://pantheonpeptides.com/product/cjc-1295-without-dac/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/CJC1295-2mg-scaled.jpg", description: "Promotes lean muscle growth, Accelerates recovery, Boosts metabolism, Improves sleep quality, Anti-aging effects.", category: "All Peptides, Muscle Growth, Anti-Aging" },
+  { name: "GHRP-2 (Acetate)", product_url: "https://pantheonpeptides.com/product/ghrp-2-acetate/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/GHRP-2-5mg-scaled.jpg", description: "Enhances muscle growth, accelerates recovery, supports fat loss by boosting metabolism, improves sleep quality, strengthens immune function.", category: "All Peptides, Muscle Growth" },
+  { name: "Sermorelin Acetate", product_url: "https://pantheonpeptides.com/product/sermorelin-acetate/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/SERMORELIN-2mg-scaled.jpg", description: "Boosts muscle growth, Reduce body fat, Increases energy and vitality, Improves sleep quality, Supports anti-aging.", category: "All Peptides, Muscle Growth, Anti-Aging" },
+  { name: "Tesamorelin", product_url: "https://pantheonpeptides.com/product/tesamorelin/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/TESAMORELIN-2mg-scaled.jpg", description: "Reduces abdominal fat, enhances metabolic function, supports muscle maintenance, improves skin elasticity, enhance mental clarity.", category: "All Peptides, Weight Loss, Muscle Growth" },
+  { name: "Retatrutide", product_url: "https://pantheonpeptides.com/product/retatrutide/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/08/Retatrutide-5mg-scaled.jpg", description: "Supports weight loss, helps preserve lean muscle, reduces food cravings, aids metabolic health, lowers blood pressure, improves blood sugar control.", category: "All Peptides, Weight Loss" },
+  { name: "Tirzepatide", product_url: "https://pantheonpeptides.com/product/tirzeptide/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/TIRZEPTIDE-5mg-scaled.jpg", description: "Weight management, Diabetes control, Cardiovascular health, Improves insulin sensitivity, Supports metabolic health.", category: "All Peptides, Weight Loss" },
+  { name: "Mazdutide", product_url: "https://pantheonpeptides.com/product/mazdutide/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/10/Mazdutide-5mg-1-scaled.jpg", description: "Promotes sustainable weight reduction. Curbs appetite and food cravings. Enhances metabolic efficiency and energy expenditure (GLP-1/glucagon dual action). Helps preserve lean muscle during fat loss.", category: "All Peptides, Weight Loss" },
+  { name: "Cagrilintide", product_url: "https://pantheonpeptides.com/product/cagrilintide/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/10/Cagrilintide-5mg-scaled.jpg", description: "Supports sustainable weight loss, reduces appetite and food cravings, enhances metabolic efficiency, preserves muscle mass during fat loss.", category: "All Peptides, Weight Loss" },
+  { name: "AOD9604", product_url: "https://pantheonpeptides.com/product/aod9604/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/10/AOD9604-2mg-scaled.jpg", description: "Reduces Abdominal Fat, Improves metabolism, Supports Joint and Cartilage Health.", category: "All Peptides, Weight Loss" },
+  { name: "5-AMINO-1MQ", product_url: "https://pantheonpeptides.com/product/5-amino-1mq/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/10/5-AMINO-1MQ-5mg-scaled.jpg", description: "Promotes fat loss by increasing fat breakdown. Supports weight management by enhancing metabolism. Preserves lean muscle mass. Improves Insulin Sensitivity. Boosts cellular energy.", category: "All Peptides, Weight Loss" },
+  { name: "MK-677 Oral (Capsules)", product_url: "https://pantheonpeptides.com/product/mk-677-capsules/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/12/MK-677-15mg-Oral-1.jpg", description: "Enhanced Muscle Growth and Recovery. Improved Bone Density. Better Sleep Quality. Fat Metabolism and Body Composition. Anti-Aging Benefits.", category: "All Peptides, Muscle Growth, Anti-Aging" },
+  { name: "PT-141 (Bremelanotide)", product_url: "https://pantheonpeptides.com/product/pt-141/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/PT141-10mg-scaled.jpg", description: "Enhances libido in men and women. Supports Treatment of Sexual Dysfunction, Non-vascular Mechanism, Improves Mood and Well-being.", category: "All Peptides, Libido" },
+  { name: "Kisspeptin-10", product_url: "https://pantheonpeptides.com/product/kisspeptin-10/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/KISSPEPTINE-5mg-scaled.jpg", description: "Enhance libido, Enhances fertility in both men and women. Mood support due to hormone balance.", category: "All Peptides, Libido" },
+  { name: "MT-2 (Melanotan 2 Acetate)", product_url: "https://pantheonpeptides.com/product/mt-2-melanotan-2-acetate/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/MT2-10mg-scaled.jpg", description: "Sunless skin tan by stimulating melanin production, reduce sunburn risk, enhance libido, support weight loss through appetite suppression, protect against UV damage.", category: "All Peptides, Libido, Skin/Tissue/Bone" },
+  { name: "GHK-CU", product_url: "https://pantheonpeptides.com/product/ghk-cu/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/GHKCU-50mg-scaled.jpg", description: "Stimulates collagen production, Skin Regeneration and Wound Healing, Anti-Aging, Anti-Inflammatory and Antioxidant, Promotes Hair Growth, Protects against oxidative stress, Supports Brain Health, Improves nervous system health, Chronic Disease Management.", category: "All Peptides, Skin/Tissue/Bone, Anti-Aging" },
+  { name: "Epithalon", product_url: "https://pantheonpeptides.com/product/epithalon/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/EPITALON-10mg-scaled.jpg", description: "Anti-aging benefits by stimulating telomerase, improvements to sleep quality, immune system support, antioxidant properties, potential cancer prevention capabilities.", category: "All Peptides, Anti-Aging" },
+  { name: "MOTS-C", product_url: "https://pantheonpeptides.com/product/mots-c/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/MOTSC-10mg-scaled.jpg", description: "Enhances insulin sensitivity, Promotes glucose metabolism, Anti-inflammatory properties, Supports mitochondrial health, Slow down aging processes.", category: "All Peptides, Anti-Aging, Weight Loss" },
+  { name: "Semax", product_url: "https://pantheonpeptides.com/product/semax/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/SEMAX-10mg-scaled.jpg", description: "Improves focus, memory, and mental clarity, Reduces mental fatigue, Neuroprotection and neuroregeneration, Antidepressant and anti-anxiety, Non-Stimulant.", category: "All Peptides, Brain/Nerve" },
+  { name: "Selank", product_url: "https://pantheonpeptides.com/product/selank/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/SELANK-5mg-scaled.jpg", description: "Reduces Anxiety, Enhances Cognitive Function, Supports Mood Stabilization, Immune System Support, Improves Sleep.", category: "All Peptides, Brain/Nerve" },
+  { name: "Selank + Semax", product_url: "https://pantheonpeptides.com/product/selank-semax/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/04/selank-semax-scaled.jpg", description: "Reduces anxiety and mood stabilization, Enhances overall cognitive function, Neuroprotection and neuroregeneration, Reduces mental fatigue, Improves Sleep, Boosts Immune Function.", category: "All Peptides, Brain/Nerve" },
+  { name: "Cerebrolysin", product_url: "https://pantheonpeptides.com/product/cerebrolysin/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/11/CEREBROLYSIN-60mg-scaled.jpg", description: "Enhances cognitive function, promotes growth and repair of neurons, supports recovery from brain injury, reduces neuroinflammation, boosts brain resilience and longevity.", category: "All Peptides, Brain/Nerve" },
+  { name: "Thymosin Alpha-1", product_url: "https://pantheonpeptides.com/product/thymosin-alpha-1/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/THYMOSIN-ALPHA1-2mg-1-scaled.jpg", description: "Enhances immune function, Reduces chronic inflammation, Aids in recovery from illness, Increase infection resistance, Stimulates T-cell production, Improves outcomes in chronic conditions.", category: "All Peptides, Immunity" },
+  { name: "Thymulin", product_url: "https://pantheonpeptides.com/product/thymulin/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/THYMULIN-10mg-scaled.jpg", description: "Strengthen immune system, Anti-inflammatory effects, Supports autoimmune health, Improves infection resistance, Promotes tissue repair.", category: "All Peptides, Immunity" },
+  { name: "LL-37", product_url: "https://pantheonpeptides.com/product/ll37/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/10/LL37-5mg-scaled.jpg", description: "Strengthens the immune system, Reduce chronic inflammation, Promotes wound healing, Supports gut health, Improves skin health.", category: "All Peptides, Immunity, Skin/Tissue/Bone" },
+  { name: "DSIP (Delta Sleep-Inducing Peptide)", product_url: "https://pantheonpeptides.com/product/dsip-copy/", image_url: null, description: "Delta Sleep-Inducing Peptide.", category: "All Peptides, Sleep" },
+  { name: "AICAR", product_url: "https://pantheonpeptides.com/product/aicar/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/image_2024_09_14T03_02_18_646Z.png", description: "Enhances endurance, Improves cardiovascular health, Promotes weight management, Supports metabolic health, Boosts overall vitality.", category: "All Peptides, Muscle Growth, Weight Loss" },
+  { name: "ACE-031", product_url: "https://pantheonpeptides.com/product/ace-031/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/image_2024_09_14T03_02_12_168Z.png", description: "Promotes Muscle Growth, Enhances Muscle Recovery, Improves Bone Density, Reduces Fat Accumulation, Supports Physical Performance.", category: "All Peptides, Muscle Growth" },
+  { name: "IGF-1LR3", product_url: "https://pantheonpeptides.com/product/igf-1lr3/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/image_2024_10_24T01_11_01_146Z.png", description: "Promotes muscle growth, Reduce body fat, Accelerates injury recovery, Improves bone density, Enhances cellular regeneration.", category: "All Peptides, Muscle Growth" },
+  { name: "BPC-157 Oral (Tablets 500MCG)", product_url: "https://pantheonpeptides.com/product/bpc-157-oral/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/11/BPC-157-500mcg-Oral-1.jpg", description: "Accelerates Muscle Recovery, Promotes Tendon and Ligament Healing, Supports Gut Health, Reduces Inflammation, Enhances Brain and Nerve Repair.", category: "All Peptides, Skin/Tissue/Bone, Muscle Growth" },
+  { name: "Epithalon + 5-Amino-1MQ", product_url: "https://pantheonpeptides.com/product/epithalon5-amino-1mq/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/03/Epithalon-10ml5-Amino-1mq-5ml-scaled.jpg", description: "Cellular Longevity & Repair, Metabolic Boost, Synergistic Anti-Aging, Cognitive Support, Enhanced Mitochondrial Function, Potential Longevity Benefits.", category: "All Peptides, Anti-Aging, Weight Loss" },
+  { name: "Ipamorelin + Sermorelin", product_url: "https://pantheonpeptides.com/product/ipamorelin-sermorelin/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/IPAMORELINSERMORELIN-scaled.jpg", description: "Promotes muscle growth, enhancing fat loss, and accelerating recovery from exercise or injury. Supports better sleep, improves skin elasticity, and aids in overall tissue repair.", category: "All Peptides, Muscle Growth, Anti-Aging" },
+  { name: "CJC-1295 + Ipamorelin", product_url: "https://pantheonpeptides.com/product/cjc-1295-ipamorelin/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/CJC1295IPAMORELIN-scaled.jpg", description: "Boost growth hormone secretion, promoting muscle growth, fat loss, and improved recovery. Supports collagen production, enhances skin health, and may improve sleep quality.", category: "All Peptides, Muscle Growth, Anti-Aging" },
+  { name: "Tesamorelin + CJC-1295 + Ipamorelin", product_url: "https://pantheonpeptides.com/product/tesamorelin-cjc-1295-ipamorelin/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/TESAMORELINCJC1295IPAMORELIN-scaled.jpg", description: "Stimulates release of growth hormone, particularly effective in reducing abdominal fat, improving metabolism, and enhancing muscle mass.", category: "All Peptides, Muscle Growth, Weight Loss" },
+  { name: "Ipamorelin + Tesamorelin", product_url: "https://pantheonpeptides.com/product/ipamorelin-tesamorelin/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/IPAMORELINTESAMORELIN-scaled.jpg", description: "Promotes muscle growth, Enhances fat loss, Accelerates tissue repair and regeneration, Improves Sleep Quality, Boosts Skin Elasticity, Reduces abdominal fat, Enhances metabolic function, Enhance mental clarity.", category: "All Peptides, Muscle Growth, Weight Loss" },
+  { name: "CJC-1295 + GHRP-2", product_url: "https://pantheonpeptides.com/product/cjc-1295-ghrp-2/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/CJC1295GHRP2-scaled.jpg", description: "Boosts growth hormone secretion, promotes muscle growth, fat loss, and improved recovery. Supports collagen production, enhances skin health, and may improve sleep quality.", category: "All Peptides, Muscle Growth" },
+  { name: "Sermorelin + GHRP-2", product_url: "https://pantheonpeptides.com/product/sermorelin-ghrp-2/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/SERMORELINGHRP2-scaled.jpg", description: "Enhances muscle growth, accelerates recovery, supports fat loss by boosting metabolism, improves sleep quality, strengthens immune function.", category: "All Peptides, Muscle Growth" },
+  { name: "Ipamorelin + CJC-1295 + GHRP-2", product_url: "https://pantheonpeptides.com/product/ipamorelin-cjc-1295-ghrp-2/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/IPAMORELINCJC1295GHRP2-scaled.jpg", description: "Stimulates the release of growth hormone, promoting muscle growth, enhancing fat loss, and accelerating recovery from exercise or injury.", category: "All Peptides, Muscle Growth" },
+  { name: "Bacteriostatic Water", product_url: "https://pantheonpeptides.com/product/bacteriostatic-water/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/03/BAC-10ml-1-scaled.jpg", description: "Sterile & non-pyrogenic ensuring purity. Contains 0.9% benzyl alcohol to prevent bacterial growth. Extended shelf life for multiple uses after opening. Ideal for peptide reconstitution.", category: "Supplies" },
+  { name: "Injection Syringes", product_url: "https://pantheonpeptides.com/product/injection-syringes/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/03/Sterile-Disposable-Injection-Syringes-4-scaled.jpg", description: "Ultra-thin needle (1ml - 31G - 8mm). Sterile & Individually wrapped. Ideal for Peptides. Disposable.", category: "Supplies" },
+  { name: "Reconstitution Syringes", product_url: "https://pantheonpeptides.com/product/reconstitution-syringes/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/03/syringes-3ml-21g-1-reconstitution-scaled.jpg", description: "3mL - 21G x 1\" Medical-grade (Sterile). Individually wrapped. Ideal for Peptides Reconstitution. Disposable.", category: "Supplies" },
+  { name: "Alcohol Pads", product_url: "https://pantheonpeptides.com/product/alcohol-pads/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/03/alcohal-pads-scaled.jpg", description: "70% Isopropyl Alcohol. 100 pads per box. For cleaning injection sites. For cleaning vials.", category: "Supplies" },
+  { name: "Syringe Tips (Vial Vent)", product_url: "https://pantheonpeptides.com/product/syringe-tips/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/03/Valves-Needles-scaled.jpg", description: "27G-0.5\" Syringe tips Medical-grade (sterile). Functions as a vent to release pressure in vials. Individually bagged.", category: "Supplies" },
+  { name: "Starter Kit", product_url: "https://pantheonpeptides.com/product/starter-kit/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/03/starter-kit-scaled.jpg", description: "Contains: 2 Bacteriostatic Water Vials (10ml), 30 Injection Syringes (1ml – 8mm), 5 Reconstitution Syringes (3ml – 1\"), 5 Syringe Tips (Vent for Reconstitution - 0.5\"), 1 Box Alcohol Pads (x100).", category: "Supplies" },
+  { name: "Wolverine Cycle", product_url: "https://pantheonpeptides.com/product/wolverine-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/09/WOLVERINE-MAIN3.jpg", description: "FAST HEALING, RECOVERY, AND PERFORMANCE. Accelerates Muscle Growth and Recovery. Tissue Repair and Wound Healing. Promotes Tendon and Ligament Healing.", category: "Peptides Cycles, Peptides Bundles" },
+  { name: "Eros Stamina Cycle", product_url: "https://pantheonpeptides.com/product/eros-stamina-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/09/EROS-CYCLE-MAIN5.jpg", description: "Restore sexual health through enhanced libido, hormone support, improved blood flow, erectile performance enhancement, and better sleep quality.", category: "Peptides Cycles, Peptides Bundles, Libido" },
+  { name: "T-Force Immunity Cycle", product_url: "https://pantheonpeptides.com/product/t-force-immunity-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2026/01/T-FORCE-3-Main5.jpg", description: "Supports immunity, accelerates recovery, and optimizes sleep. Boosts viral and bacterial immunity, supports immune readiness and response, enhances T-cell activity and immune surveillance.", category: "Peptides Cycles, Peptides Bundles, Immunity" },
+  { name: "T-Force Immunity Plus Cycle", product_url: "https://pantheonpeptides.com/product/t-force-immunity-plus-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2026/01/T-FORCE-PLUS-Main-8.jpg", description: "Advanced cycle for deep, sustained immune resilience. Dual thymic peptides: Thymosin Alpha-1 + Thymulin. Supports immune signaling, regulation, and resilience.", category: "Peptides Cycles, Peptides Bundles, Immunity" },
+  { name: "Alpha Mind Cycle", product_url: "https://pantheonpeptides.com/product/alpha-mind-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2026/01/ALPHAMIND-CYCLE-MAIN2.jpg", description: "Advanced cognitive support for Alzheimer's, Dementia, Stroke and Brain Injury. Enhances neurogenesis and synaptic plasticity. Stimulates brain-derived growth factors. Supports telomere health and longevity signaling.", category: "Peptides Cycles, Peptides Bundles, Brain/Nerve" },
+  { name: "Nova Mind Cycle", product_url: "https://pantheonpeptides.com/product/nova-mind-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/09/NOVAMIND-10-WEEK-CYCLE-MAIN.jpg", description: "Brain optimization, emotional balance, & cognitive resilience. Promotes calm, reduces anxiety, enhances focus and mental clarity, supports memory and learning, neuroprotection, restores sleep quality.", category: "Peptides Cycles, Peptides Bundles, Brain/Nerve" },
+  { name: "Glow Cycle", product_url: "https://pantheonpeptides.com/product/glow-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/12/GLOW-CYCLE-MAIN2.jpg", description: "Regenerative formula for skin, hair, & connective tissue. Boosts collagen production, supports skin regeneration, enhances hair thickness and shine, and strengthens joints and tissues.", category: "Peptides Cycles, Peptides Bundles, Skin/Tissue/Bone" },
+  { name: "Glow Plus Cycle", product_url: "https://pantheonpeptides.com/product/glow-plus-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/09/GLOWPLUS-CYCLE-MAIN5.jpg", description: "Anti-aging program for skin, hair, and total body rejuvenation. Boosts collagen production, supports skin regeneration, enhances hair thickness, promotes cellular health and cognitive function.", category: "Peptides Cycles, Peptides Bundles, Skin/Tissue/Bone, Anti-Aging" },
+  { name: "Prime Metabolic 6-Week Cycle", product_url: "https://pantheonpeptides.com/product/prime-metabolic-6-week-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/10/Prime-Metabolic-6-Week-Cycle-Main7.jpg", description: "TOTAL METABOLIC SUPPORT FOR ENERGY, WEIGHT LOSS, AND RECOVERY. Promotes Metabolic Efficiency. Boosts Cellular Energy. Supports Sustained Weight Loss. Strengthens Tissue Repair & Resilience.", category: "Peptides Cycles, Peptides Bundles, Weight Loss" },
+  { name: "Prime Metabolic 12-Week Cycle", product_url: "https://pantheonpeptides.com/product/prime-metabolic-12-week-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/10/PRIME-METABOLIC-CYCLE-MAIN5.jpg", description: "Total metabolic support for energy, weight loss, recovery, & body composition. Promotes metabolic efficiency, boosts cellular energy, supports sustained weight loss, and strengthens tissue repair.", category: "Peptides Cycles, Peptides Bundles, Weight Loss" },
+  { name: "Slim Peptides Cycle", product_url: "https://pantheonpeptides.com/product/slim-peptides-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/10/SLIMPEPTIDES-Main6.jpg", description: "Drives effective fat loss. Tames hunger and reduces cravings. Improves insulin sensitivity and glucose regulation. Boosts energy and cellular performance.", category: "Peptides Cycles, Peptides Bundles, Weight Loss" },
+  { name: "Stack Up 10-Week Cycle", product_url: "https://pantheonpeptides.com/product/stack-up-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/10/stack-up-main2.jpg", description: "Builds and preserves lean muscle. Burns fat and supports muscle definition. Supports deep sleep and improves recovery. Boosts vitality and cellular energy. Promotes natural growth hormone release.", category: "Peptides Cycles, Peptides Bundles, Muscle Growth" },
+  { name: "Stack Up 5-Week Cycle", product_url: "https://pantheonpeptides.com/product/stack-up-5-week-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/10/stack-up-5-week-main.jpg", description: "Builds and preserves lean muscle. Burns fat and supports muscle definition. Supports deep sleep and improves recovery. Boosts vitality and cellular energy. Promotes natural growth hormone release.", category: "Peptides Cycles, Peptides Bundles, Muscle Growth" },
+  { name: "Kiss Peptides Cycle", product_url: "https://pantheonpeptides.com/product/kiss-peptides-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/10/KISS-PEPTIDES-MAIN2.jpg", description: "Enhances libido & deepens sexual intimacy for her and him. Enhances libido, increases sexual desire through brain pathways, enhances erectile function, promotes healthy reproductive hormone balancing, enhances blood flow, supports natural testosterone production.", category: "Peptides Cycles, Peptides Bundles, Libido" },
+]
+
+const CATEGORIES_DATA = [
+  { name: "Muscle Growth", slug: "muscle-growth", icon: "TrendingUp", color: "#2563eb", description: "Peptides that promote lean muscle growth, enhance recovery, and support GH secretion.", heroDescription: "Research peptides for muscle growth and body composition optimization.", seoDescription: "Research peptides for muscle growth including Ipamorelin, CJC-1295, BPC-157, and more.", sortOrder: 0 },
+  { name: "Recovery & Repair", slug: "recovery-repair", icon: "Zap", color: "#16a34a", description: "Peptides that accelerate tissue healing, reduce inflammation, and speed recovery.", heroDescription: "The most studied tissue repair peptides for injury recovery and healing.", seoDescription: "Recovery peptides including BPC-157, TB-500, and more for tissue repair.", sortOrder: 1 },
+  { name: "Anti-Aging", slug: "anti-aging", icon: "Clock", color: "#9333ea", description: "Peptides that combat cellular aging, activate telomerase, and promote longevity.", heroDescription: "Research peptides targeting the fundamental hallmarks of aging.", seoDescription: "Anti-aging peptides including Epithalon, GHK-CU, and MOTS-C.", sortOrder: 2 },
+  { name: "Weight Loss", slug: "weight-loss", icon: "Flame", color: "#ea580c", description: "Peptides that support fat metabolism, reduce appetite, and improve body composition.", heroDescription: "Research peptides for weight management and metabolic health.", seoDescription: "Weight loss peptides including Tirzepatide, AOD9604, Retatrutide and more.", sortOrder: 3 },
+  { name: "Brain/Nerve", slug: "brain-nerve", icon: "Brain", color: "#0891b2", description: "Nootropic peptides that enhance cognition, memory, and neuroprotection.", heroDescription: "Research peptides for cognitive enhancement and neuroprotection.", seoDescription: "Brain peptides including Semax, Selank, Cerebrolysin, and more.", sortOrder: 4 },
+  { name: "Immunity", slug: "immunity", icon: "Shield", color: "#15803d", description: "Peptides that strengthen immune function, reduce inflammation, and fight infection.", heroDescription: "Immune-boosting research peptides for enhanced immune function.", seoDescription: "Immune peptides including Thymosin Alpha-1, Thymulin, and LL-37.", sortOrder: 5 },
+  { name: "Libido", slug: "libido", icon: "Heart", color: "#e11d48", description: "Peptides that support sexual health, enhance libido, and improve reproductive function.", heroDescription: "Research peptides for sexual health and libido enhancement.", seoDescription: "Libido peptides including PT-141, Kisspeptin-10, MT-2, and Kiss Peptides Cycle.", sortOrder: 6 },
+  { name: "Skin/Tissue/Bone", slug: "skin-tissue-bone", icon: "Star", color: "#d97706", description: "Peptides for skin regeneration, collagen synthesis, hair growth, and bone health.", heroDescription: "Research peptides for skin, tissue, and bone regeneration.", seoDescription: "Skin and tissue peptides including GHK-CU, BPC-157, LL-37, and more.", sortOrder: 7 },
+  { name: "Peptides Cycles", slug: "peptides-cycles", icon: "Package", color: "#7c3aed", description: "Pre-built synergistic peptide cycles for comprehensive results.", heroDescription: "Complete peptide cycles for focused research goals.", seoDescription: "Peptide cycles including Wolverine Cycle, Glow Plus Cycle, Nova Mind Cycle, and more.", sortOrder: 8 },
+  { name: "Supplies", slug: "supplies", icon: "Package2", color: "#6b7280", description: "Reconstitution supplies: bacteriostatic water, syringes, alcohol pads, and starter kits.", heroDescription: "Everything you need to prepare and administer research peptides.", seoDescription: "Peptide research supplies including bacteriostatic water, syringes, and starter kits.", sortOrder: 9 },
+]
+
+async function main() {
+  console.log("Seeding database...")
+
+  // Upsert categories
+  for (const cat of CATEGORIES_DATA) {
+    await prisma.category.upsert({
+      where: { slug: cat.slug },
+      update: cat,
+      create: {
+        ...cat,
+        stats: [],
+        content: `## About ${cat.name} Peptides\n\nDiscover our selection of ${cat.name.toLowerCase()} research peptides from Pantheon Peptides. All products are for research use only.\n\n## Research Applications\n\nThese peptides have been studied in various research contexts related to ${cat.name.toLowerCase()}.`,
+        faq: [
+          { question: `What are ${cat.name} peptides?`, answer: `${cat.name} peptides are research compounds that have been studied for their effects on ${cat.name.toLowerCase()}-related pathways.` },
+          { question: "Are these peptides safe?", answer: "All products are for research use only. Not for human consumption. Consult a qualified physician before any use." },
+        ],
+      },
+    })
+  }
+  console.log(`Seeded ${CATEGORIES_DATA.length} categories`)
+
+  // Upsert products
+  for (let i = 0; i < RAW_PRODUCTS.length; i++) {
+    const p = RAW_PRODUCTS[i]
+    const slug = generateSlug(p.name)
+    const cats = p.category.split(",").map((c: string) => c.trim()).filter((c: string) => c !== "All Peptides" && c !== "Peptides Bundles")
+    const descParts = p.description.split(".")
+    const shortDescription = descParts[0] ? descParts[0].trim() + "." : p.description.slice(0, 120)
+
+    await prisma.product.upsert({
+      where: { slug },
+      update: {
+        name: p.name,
+        imageUrl: p.image_url,
+        productUrl: AFFILIATE_URL,
+        description: p.description,
+        shortDescription,
+        categories: cats,
+        isFeatured: FEATURED_NAMES.has(p.name),
+        isBundle: isBundle(p.name),
+        sortOrder: i,
+      },
+      create: {
+        name: p.name,
+        slug,
+        imageUrl: p.image_url,
+        productUrl: AFFILIATE_URL,
+        description: p.description,
+        shortDescription,
+        categories: cats,
+        isFeatured: FEATURED_NAMES.has(p.name),
+        isBundle: isBundle(p.name),
+        isInStock: true,
+        sortOrder: i,
+      },
+    })
+  }
+  console.log(`Seeded ${RAW_PRODUCTS.length} products`)
+
+  console.log("Database seeded successfully!")
+}
+
+main()
+  .catch((e) => {
+    console.error(e)
+    process.exit(1)
+  })
+  .finally(async () => {
+    await prisma.$disconnect()
+  })

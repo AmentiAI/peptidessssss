@@ -2,18 +2,18 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import {
-  FlaskConical,
   ArrowRight,
   Shield,
-  Award,
   TrendingUp,
   Zap,
   Brain,
   Clock,
   Flame,
   Heart,
-  CheckCircle,
-  ExternalLink,
+  Star,
+  Package,
+  Package2,
+  FlaskConical,
   BookOpen,
 } from "lucide-react"
 import { PageLayout } from "@/components/peptide-hub/page-layout"
@@ -21,39 +21,47 @@ import { ProductCard } from "@/components/peptide-hub/product-card"
 import { HeroCarousel } from "@/components/peptide-hub/hero-carousel"
 import {
   getFeaturedProducts,
-  categories,
+  getAllCategories,
   getFeaturedBlogPosts,
 } from "@/lib/peptide-data"
+import { staticProducts } from "@/lib/static-products"
 
 export const metadata: Metadata = {
-  title: "PeptideLab — Premium Research Peptides | BPC-157, TB-500, Ipamorelin & More",
+  title: "PeptideLab — Research Peptides from Pantheon Peptides | BPC-157, Tirzepatide & More",
   description:
-    "The definitive source for research peptides. Compare BPC-157, TB-500, Ipamorelin, CJC-1295, Epithalon, Semax, and 15+ more. ≥99% purity, third-party tested, COA available.",
+    "The definitive research peptide resource. Browse 60+ peptides from Pantheon Peptides — BPC-157, TB-500, Tirzepatide, Epithalon, Semax, and more.",
   alternates: { canonical: "https://peptidelab.com" },
-  openGraph: {
-    title: "PeptideLab — Premium Research Peptides",
-    description: "The definitive research peptide resource. 20+ compounds, ≥99% purity, expert guides.",
-    url: "https://peptidelab.com",
-    images: [{ url: "/og-image.webp", width: 1200, height: 630 }],
-  },
 }
 
+const AFFILIATE_URL =
+  process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
+
 const ICON_MAP: Record<string, React.ElementType> = {
-  Zap, TrendingUp, Clock, Brain, Flame, Heart, Shield,
+  Zap,
+  TrendingUp,
+  Clock,
+  Brain,
+  Flame,
+  Heart,
+  Shield,
+  Star,
+  Package,
+  Package2,
+  FlaskConical,
 }
 
 const SITE_STATS = [
-  { label: "Research Compounds", value: "20+" },
-  { label: "Min. Purity", value: "≥99%" },
-  { label: "Third-Party Tested", value: "100%" },
+  { label: "Research Peptides", value: "62+" },
+  { label: "Peptide Cycles", value: "15+" },
+  { label: "Trusted Supplier", value: "Pantheon" },
   { label: "Research Studies", value: "5,000+" },
 ]
 
 const TRUST_SIGNALS = [
-  { icon: Shield, label: "HPLC Verified", desc: "Every batch tested" },
-  { icon: Award, label: "COA Provided", desc: "Mass spec confirmed" },
-  { icon: CheckCircle, label: "In-Stock Guarantee", desc: "Ships within 24hrs" },
-  { icon: FlaskConical, label: "Research Grade", desc: "≥99% purity standard" },
+  { icon: Shield, label: "Pantheon Peptides", desc: "Trusted supplier" },
+  { icon: TrendingUp, label: "62+ Products", desc: "Full catalog" },
+  { icon: Brain, label: "Research Grade", desc: "For lab use only" },
+  { icon: FlaskConical, label: "Affiliate Disclosure", desc: "We earn commissions" },
 ]
 
 const jsonLd = {
@@ -66,7 +74,10 @@ const jsonLd = {
       name: "PeptideLab",
       potentialAction: {
         "@type": "SearchAction",
-        target: { "@type": "EntryPoint", urlTemplate: "https://peptidelab.com/blog?q={search_term_string}" },
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: "https://peptidelab.com/products?q={search_term_string}",
+        },
         "query-input": "required name=search_term_string",
       },
     },
@@ -75,14 +86,20 @@ const jsonLd = {
       "@id": "https://peptidelab.com/#organization",
       name: "PeptideLab",
       url: "https://peptidelab.com",
-      description: "Premier research peptide information and affiliate resource",
+      description: "Premier research peptide information and affiliate resource for Pantheon Peptides",
     },
   ],
 }
 
-export default function HomePage() {
-  const featuredProducts = getFeaturedProducts()
-  const featuredPosts = getFeaturedBlogPosts()
+export default async function HomePage() {
+  const [featuredProducts, categories, featuredPosts] = await Promise.all([
+    getFeaturedProducts(),
+    getAllCategories(),
+    getFeaturedBlogPosts(),
+  ])
+
+  // Use first 6 featured for carousel
+  const carouselProducts = featuredProducts.slice(0, 6)
 
   return (
     <PageLayout>
@@ -91,40 +108,35 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* ── HERO CAROUSEL ── */}
-      <HeroCarousel />
+      {/* HERO CAROUSEL */}
+      <HeroCarousel products={carouselProducts} />
 
-      {/* ── SITE STATS ── */}
-      <section className="py-8 max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          {SITE_STATS.map((stat) => (
-            <div key={stat.label} className="text-center p-4 rounded-xl border border-[rgba(0,212,255,0.1)] bg-[rgba(0,212,255,0.04)]">
-              <div className="text-2xl font-bold" style={{
-                background: "linear-gradient(135deg, #00d4ff, #7c3aed)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}>
-                {stat.value}
+      {/* SITE STATS */}
+      <section className="py-8 border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            {SITE_STATS.map((stat) => (
+              <div key={stat.label} className="text-center p-4 rounded-xl border border-slate-100 bg-slate-50">
+                <div className="text-2xl font-bold text-slate-900">{stat.value}</div>
+                <div className="text-xs text-slate-500 mt-1">{stat.label}</div>
               </div>
-              <div className="text-xs text-[rgba(255,255,255,0.5)] mt-1">{stat.label}</div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ── TRUST SIGNALS ── */}
-      <section className="py-8 border-y border-[rgba(0,212,255,0.08)]" style={{ background: "rgba(12,12,32,0.5)" }}>
+      {/* TRUST SIGNALS */}
+      <section className="py-6 border-b border-slate-100 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {TRUST_SIGNALS.map(({ icon: Icon, label, desc }) => (
               <div key={label} className="flex items-center gap-3 justify-center sm:justify-start">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 border border-[rgba(0,212,255,0.2)]" style={{ background: "rgba(0,212,255,0.08)" }}>
-                  <Icon className="w-5 h-5 text-[#00d4ff]" />
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 bg-white border border-slate-200">
+                  <Icon className="w-5 h-5 text-slate-700" />
                 </div>
                 <div>
-                  <p className="text-sm font-semibold text-white">{label}</p>
-                  <p className="text-xs text-[rgba(255,255,255,0.45)]">{desc}</p>
+                  <p className="text-sm font-semibold text-slate-900">{label}</p>
+                  <p className="text-xs text-slate-500">{desc}</p>
                 </div>
               </div>
             ))}
@@ -132,15 +144,22 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── FEATURED PRODUCTS ── */}
+      {/* FEATURED PRODUCTS */}
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <p className="text-xs font-bold text-[#00d4ff] uppercase tracking-widest mb-2">Featured Compounds</p>
-            <h2 className="text-4xl font-bold text-white">Top Research Peptides</h2>
-            <p className="text-[rgba(255,255,255,0.5)] mt-2">Hand-picked for research quality, purity, and documentation.</p>
+            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">
+              Featured Compounds
+            </p>
+            <h2 className="text-4xl font-bold text-slate-900">Top Research Peptides</h2>
+            <p className="text-slate-500 mt-2">
+              Hand-picked from Pantheon Peptides catalog for research quality and documentation.
+            </p>
           </div>
-          <Link href="/products" className="hidden sm:flex items-center gap-2 text-sm font-semibold text-[#00d4ff] hover:text-white transition-colors">
+          <Link
+            href="/products"
+            className="hidden sm:flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors"
+          >
             View all <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -154,45 +173,60 @@ export default function HomePage() {
         <div className="text-center mt-10">
           <Link
             href="/products"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-black transition-all duration-200 hover:-translate-y-0.5"
-            style={{ background: "linear-gradient(135deg, #00d4ff, #7c3aed)", boxShadow: "0 0 20px rgba(0,212,255,0.2)" }}
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
           >
-            Browse All 20+ Research Peptides <ArrowRight className="w-4 h-4" />
+            Browse All 62+ Research Peptides <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
 
-      {/* ── CATEGORIES ── */}
-      <section className="py-20 border-t border-[rgba(0,212,255,0.08)]">
+      {/* CATEGORIES */}
+      <section className="py-20 border-t border-slate-100 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-[#00d4ff] uppercase tracking-widest mb-2">Browse by Goal</p>
-            <h2 className="text-4xl font-bold text-white">Research Categories</h2>
-            <p className="text-[rgba(255,255,255,0.5)] mt-2 max-w-xl mx-auto">
-              Every peptide categorized by research application — from recovery to longevity.
+            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">
+              Browse by Goal
+            </p>
+            <h2 className="text-4xl font-bold text-slate-900">Research Categories</h2>
+            <p className="text-slate-500 mt-2 max-w-xl mx-auto">
+              Every peptide categorized by research application — from recovery to longevity to weight loss.
             </p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {categories.map((cat) => {
-              const Icon = ICON_MAP[cat.icon] ?? FlaskConical
+            {categories.filter((c) => c.name !== "Supplies").map((cat) => {
+              const Icon = ICON_MAP[cat.icon ?? ""] ?? FlaskConical
+              const catCount = staticProducts.filter((p) => p.categories.includes(cat.name)).length
               return (
                 <Link
                   key={cat.slug}
                   href={`/categories/${cat.slug}`}
-                  className="group flex items-start gap-4 p-6 rounded-2xl border border-[rgba(255,255,255,0.07)] hover:border-[rgba(0,212,255,0.3)] transition-all duration-300 hover:-translate-y-1"
-                  style={{ background: "rgba(12,12,32,0.7)" }}
+                  className="group flex items-start gap-4 p-6 rounded-2xl border border-slate-200 bg-white hover:border-slate-400 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5"
                 >
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
-                    style={{ background: `${cat.color}15`, border: `1px solid ${cat.color}30` }}
+                    style={{ background: `${cat.color}18`, border: `1px solid ${cat.color}35` }}
                   >
-                    <Icon className="w-6 h-6" style={{ color: cat.color }} />
+                    <Icon className="w-6 h-6" style={{ color: cat.color ?? "#0f172a" }} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <h3 className="font-bold text-white mb-1 group-hover:text-[#00d4ff] transition-colors">{cat.name}</h3>
-                    <p className="text-sm text-[rgba(255,255,255,0.5)] line-clamp-2 leading-relaxed">{cat.description}</p>
-                    <span className="inline-flex items-center gap-1 mt-3 text-xs font-semibold transition-colors" style={{ color: cat.color }}>
+                    <div className="flex items-center justify-between mb-1">
+                      <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors">
+                        {cat.name}
+                      </h3>
+                      {catCount > 0 && (
+                        <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-slate-100 text-slate-600">
+                          {catCount}
+                        </span>
+                      )}
+                    </div>
+                    <p className="text-sm text-slate-500 line-clamp-2 leading-relaxed">
+                      {cat.description}
+                    </p>
+                    <span
+                      className="inline-flex items-center gap-1 mt-3 text-xs font-semibold transition-colors"
+                      style={{ color: cat.color ?? "#2563eb" }}
+                    >
                       Explore {cat.name} <ArrowRight className="w-3 h-3" />
                     </span>
                   </div>
@@ -203,130 +237,143 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ── STACKS CTA BANNER ── */}
-      <section className="py-16 mx-4 sm:mx-6 my-4 rounded-3xl overflow-hidden relative border border-[rgba(0,212,255,0.15)]"
-        style={{ background: "linear-gradient(135deg, rgba(0,212,255,0.06) 0%, rgba(124,58,237,0.08) 100%)" }}>
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full opacity-30"
-            style={{ background: "radial-gradient(ellipse, rgba(0,212,255,0.1) 0%, transparent 70%)" }} />
-        </div>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[rgba(0,212,255,0.2)] bg-[rgba(0,212,255,0.08)] mb-6">
-            <TrendingUp className="w-3.5 h-3.5 text-[#00d4ff]" />
-            <span className="text-xs font-semibold text-[#00d4ff] uppercase tracking-wider">Research Stacks</span>
+      {/* CYCLES CTA BANNER */}
+      <section className="py-16 bg-slate-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-700 bg-slate-800 mb-6">
+            <TrendingUp className="w-3.5 h-3.5 text-slate-300" />
+            <span className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
+              Peptide Cycles
+            </span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Pre-Built Research{" "}
-            <span style={{
-              background: "linear-gradient(135deg, #00d4ff, #7c3aed)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}>Protocols</span>
+            Pre-Built Peptide Cycles
           </h2>
-          <p className="text-lg text-[rgba(255,255,255,0.6)] max-w-xl mx-auto mb-8">
-            Synergistic peptide combinations curated by our research team — the recovery stack, GH protocol, longevity stack, and more.
+          <p className="text-lg text-slate-400 max-w-xl mx-auto mb-8">
+            Synergistic peptide combinations curated for specific research goals — Wolverine Cycle, Glow Cycle,
+            Nova Mind, Prime Metabolic, and more.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/stacks"
-              className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-black transition-all hover:-translate-y-0.5"
-              style={{ background: "linear-gradient(135deg, #00d4ff, #7c3aed)", boxShadow: "0 0 25px rgba(0,212,255,0.25)" }}
+              className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold bg-white text-slate-900 hover:bg-slate-100 transition-colors"
             >
-              View Research Stacks <ArrowRight className="w-4 h-4" />
+              View Peptide Cycles <ArrowRight className="w-4 h-4" />
             </Link>
-            <Link href="/guides" className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-white border border-[rgba(255,255,255,0.15)] hover:border-[rgba(0,212,255,0.4)] transition-all">
-              Research Guides <BookOpen className="w-4 h-4" />
+            <Link
+              href={AFFILIATE_URL}
+              target="_blank"
+              rel="nofollow sponsored noopener noreferrer"
+              className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-white border border-slate-700 hover:border-slate-500 transition-all"
+            >
+              Shop on Pantheon <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* ── BLOG POSTS ── */}
-      <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="flex items-end justify-between mb-10">
-          <div>
-            <p className="text-xs font-bold text-[#00d4ff] uppercase tracking-widest mb-2">Latest Science</p>
-            <h2 className="text-4xl font-bold text-white">Research Blog</h2>
-            <p className="text-[rgba(255,255,255,0.5)] mt-2">In-depth guides, mechanism breakdowns, and research reviews.</p>
-          </div>
-          <Link href="/blog" className="hidden sm:flex items-center gap-2 text-sm font-semibold text-[#00d4ff] hover:text-white transition-colors">
-            All Posts <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {featuredPosts.map((post) => (
+      {/* BLOG POSTS */}
+      {featuredPosts.length > 0 && (
+        <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex items-end justify-between mb-10">
+            <div>
+              <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">
+                Latest Science
+              </p>
+              <h2 className="text-4xl font-bold text-slate-900">Research Blog</h2>
+              <p className="text-slate-500 mt-2">
+                In-depth guides, mechanism breakdowns, and research reviews.
+              </p>
+            </div>
             <Link
-              key={post.slug}
-              href={`/blog/${post.slug}`}
-              className="group flex flex-col rounded-2xl overflow-hidden border border-[rgba(255,255,255,0.07)] hover:border-[rgba(0,212,255,0.25)] transition-all duration-300 hover:-translate-y-1"
-              style={{ background: "rgba(12,12,32,0.7)" }}
+              href="/blog"
+              className="hidden sm:flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors"
             >
-              <div className="relative aspect-[16/9] overflow-hidden bg-[rgba(255,255,255,0.03)]">
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                  className="object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[rgba(12,12,32,0.8)] to-transparent" />
-                <div className="absolute top-3 left-3">
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-bold text-black"
-                    style={{ background: "linear-gradient(135deg, #00d4ff, #7c3aed)" }}>
-                    {post.category}
+              All Posts <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {featuredPosts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="group flex flex-col rounded-2xl overflow-hidden border border-slate-200 hover:border-slate-400 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 bg-white"
+              >
+                {post.imageUrl && (
+                  <div className="relative aspect-[16/9] overflow-hidden bg-slate-50">
+                    <Image
+                      src={post.imageUrl}
+                      alt={post.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-3 left-3">
+                      <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-900 text-white">
+                        {post.category}
+                      </span>
+                    </div>
+                  </div>
+                )}
+                <div className="p-5 flex flex-col flex-1">
+                  <div className="flex items-center gap-3 text-xs text-slate-400 mb-3">
+                    <span>{new Date(post.date).toLocaleDateString()}</span>
+                    {post.readTime && (
+                      <>
+                        <span>·</span>
+                        <span>{post.readTime} read</span>
+                      </>
+                    )}
+                  </div>
+                  <h3 className="font-bold text-slate-900 leading-snug mb-2 group-hover:text-blue-600 transition-colors line-clamp-2 flex-1">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-slate-500 line-clamp-2 leading-relaxed">
+                    {post.description}
+                  </p>
+                  <span className="inline-flex items-center gap-1 mt-4 text-xs font-semibold text-blue-600">
+                    Read Article <ArrowRight className="w-3 h-3" />
                   </span>
                 </div>
-              </div>
-              <div className="p-5 flex flex-col flex-1">
-                <div className="flex items-center gap-3 text-xs text-[rgba(255,255,255,0.4)] mb-3">
-                  <span>{post.date}</span>
-                  <span>·</span>
-                  <span>{post.read_time} read</span>
-                </div>
-                <h3 className="font-bold text-white leading-snug mb-2 group-hover:text-[#00d4ff] transition-colors line-clamp-2">
-                  {post.title}
-                </h3>
-                <p className="text-sm text-[rgba(255,255,255,0.5)] line-clamp-2 leading-relaxed flex-1">
-                  {post.description}
-                </p>
-                <span className="inline-flex items-center gap-1 mt-4 text-xs font-semibold text-[#00d4ff]">
-                  Read Article <ArrowRight className="w-3 h-3" />
-                </span>
-              </div>
-            </Link>
-          ))}
-        </div>
-      </section>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
 
-      {/* ── FINAL CTA ── */}
-      <section className="py-24 border-t border-[rgba(0,212,255,0.08)]">
+      {/* FINAL CTA */}
+      <section className="py-24 border-t border-slate-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-xs font-bold text-[#00d4ff] uppercase tracking-widest mb-4">Start Your Research</p>
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
+          <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">
+            Start Your Research
+          </p>
+          <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
             Ready to Explore the Science?
           </h2>
-          <p className="text-lg text-[rgba(255,255,255,0.6)] mb-10 max-w-xl mx-auto">
-            Browse 20+ research-grade peptides with ≥99% purity, complete COA documentation, and expert research guides.
+          <p className="text-lg text-slate-500 mb-10 max-w-xl mx-auto">
+            Browse 62+ research-grade peptides from Pantheon Peptides with complete product documentation
+            and expert research guides.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/products"
-              className="flex items-center justify-center gap-2 px-10 py-5 rounded-xl text-lg font-bold text-black transition-all hover:-translate-y-1"
-              style={{
-                background: "linear-gradient(135deg, #00d4ff, #7c3aed)",
-                boxShadow: "0 0 40px rgba(0,212,255,0.3), 0 0 80px rgba(124,58,237,0.15)",
-              }}
+              href={AFFILIATE_URL}
+              target="_blank"
+              rel="nofollow sponsored noopener noreferrer"
+              className="flex items-center justify-center gap-2 px-10 py-5 rounded-xl text-lg font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
             >
-              Shop Research Peptides <ExternalLink className="w-5 h-5" />
+              Shop Pantheon Peptides <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link href="/guides" className="flex items-center justify-center gap-2 px-10 py-5 rounded-xl text-lg font-semibold text-white border border-[rgba(255,255,255,0.15)] hover:border-[rgba(0,212,255,0.4)] hover:bg-[rgba(0,212,255,0.05)] transition-all">
-              Research Guides
+            <Link
+              href="/products"
+              className="flex items-center justify-center gap-2 px-10 py-5 rounded-xl text-lg font-semibold text-slate-900 border-2 border-slate-900 hover:bg-slate-900 hover:text-white transition-all"
+            >
+              Browse Catalog
             </Link>
           </div>
-          <p className="mt-12 text-xs text-[rgba(255,255,255,0.3)] max-w-2xl mx-auto leading-relaxed">
-            ⚗️ All products are for research use only. Not for human consumption. PeptideLab earns affiliate commissions at no extra cost to you. Consult a qualified physician before any use.
+          <p className="mt-12 text-xs text-slate-400 max-w-2xl mx-auto leading-relaxed">
+            All products are for research use only. Not for human consumption. PeptideLab earns affiliate
+            commissions at no extra cost to you. Consult a qualified physician before any use.
           </p>
         </div>
       </section>
