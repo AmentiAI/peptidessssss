@@ -4,7 +4,11 @@
       "WebFetch(domain:pantheonpeptides.com)",
       "Bash(npm install:*)",
       "Bash(npx prisma:*)",
-      "Bash(npm run:*)"
+      "Bash(npm run:*)",
+      "Bash(cat /mnt/c/Users/Wilso/peptidessssss/app/blog/\\\\[slug\\\\]/page.tsx)",
+      "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('data/blog-posts.json','utf8'\\)\\); console.log\\('JSON valid'\\)\")",
+      "Bash(npx tsc:*)",
+      "Bash(node -e \"const d=require\\('./data/blog-posts.json'\\); console.log\\(d.posts.length + ' posts'\\); d.posts.forEach\\(p=>console.log\\('-', p.slug\\)\\)\")"
     ]
   }
 }

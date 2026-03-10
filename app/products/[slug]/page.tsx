@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ShoppingCart, ArrowRight, CheckCircle, Shield, ChevronRight } from "lucide-react"
+import { ShoppingCart, ArrowRight, CheckCircle, Shield, ChevronRight, FlaskConical } from "lucide-react"
 import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { ProductCard } from "@/components/peptide-hub/product-card"
 import {
@@ -10,6 +10,7 @@ import {
   getAllProductSlugs,
   getRelatedProducts,
 } from "@/lib/peptide-data"
+import { productResearch } from "@/lib/product-research"
 
 const AFFILIATE_URL =
   process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
@@ -53,6 +54,7 @@ export default async function ProductPage({
   if (!product) notFound()
 
   const related = await getRelatedProducts(slug)
+  const researchContent = productResearch[slug] ?? null
 
   // Parse description into benefits list
   const benefits = product.description
@@ -60,6 +62,41 @@ export default async function ProductPage({
     .map((s) => s.trim())
     .filter((s) => s.length > 10)
     .slice(0, 6)
+
+  function renderResearch(content: string) {
+    return content.split("\n").map((line, i) => {
+      if (line.startsWith("## "))
+        return (
+          <h2 key={i} className="text-2xl font-bold text-slate-900 mt-10 mb-4 pb-3 border-b border-slate-200">
+            {line.slice(3)}
+          </h2>
+        )
+      if (line.startsWith("### "))
+        return (
+          <h3 key={i} className="text-lg font-semibold text-slate-800 mt-6 mb-3">
+            {line.slice(4)}
+          </h3>
+        )
+      if (line.startsWith("- "))
+        return (
+          <li key={i} className="text-slate-600 leading-relaxed ml-4 mb-1 list-disc">
+            {line.slice(2)}
+          </li>
+        )
+      if (line.startsWith("**") && line.endsWith("**"))
+        return (
+          <p key={i} className="font-semibold text-slate-900 leading-relaxed mb-2">
+            {line.slice(2, -2)}
+          </p>
+        )
+      if (line.trim() === "") return <div key={i} className="mb-3" />
+      return (
+        <p key={i} className="text-slate-600 leading-[1.85] mb-3">
+          {line}
+        </p>
+      )
+    })
+  }
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -216,19 +253,56 @@ export default async function ProductPage({
         </div>
       </section>
 
-      {/* Full Description */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-12">
+      {/* Research Content Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-16">
         <div className="max-w-4xl">
-          <h2 className="text-2xl font-bold text-slate-900 mb-4">About {product.name}</h2>
-          <p className="text-slate-600 leading-relaxed">{product.description}</p>
+          {researchContent ? (
+            <>
+              {/* Research label */}
+              <div className="flex items-center gap-2 mb-6">
+                <FlaskConical className="w-5 h-5 text-blue-600" />
+                <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">
+                  Research Overview
+                </span>
+              </div>
+              {/* Rich research content */}
+              <div className="prose-peptide">
+                {renderResearch(researchContent)}
+              </div>
+            </>
+          ) : (
+            <>
+              <h2 className="text-2xl font-bold text-slate-900 mb-4">About {product.name}</h2>
+              <p className="text-slate-600 leading-relaxed">{product.description}</p>
+            </>
+          )}
 
           {/* Research disclaimer */}
-          <div className="mt-6 p-4 rounded-xl border border-amber-200 bg-amber-50">
+          <div className="mt-8 p-4 rounded-xl border border-amber-200 bg-amber-50">
             <p className="text-xs text-amber-800 leading-relaxed">
               <strong className="text-amber-900">Research Use Only:</strong> This product is for laboratory
               research purposes only. Not intended for human consumption. Not approved by the FDA for any
               therapeutic use. Consult a qualified physician before any use.
             </p>
+          </div>
+
+          {/* Second CTA */}
+          <div className="mt-8 p-6 rounded-2xl border border-slate-200 bg-gradient-to-r from-slate-50 to-blue-50">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div>
+                <p className="font-bold text-slate-900 text-lg">Ready to order {product.name}?</p>
+                <p className="text-sm text-slate-500">Research-grade purity from Pantheon Peptides.</p>
+              </div>
+              <a
+                href={product.productUrl}
+                target="_blank"
+                rel="nofollow sponsored noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors whitespace-nowrap"
+              >
+                <ShoppingCart className="w-4 h-4" />
+                Order Now
+              </a>
+            </div>
           </div>
         </div>
       </section>
