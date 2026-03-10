@@ -1,0 +1,160 @@
+@import "tailwindcss";
+
+:root {
+  --primary: #00d4ff;
+  --primary-dark: #0099cc;
+  --primary-glow: rgba(0, 212, 255, 0.3);
+  --accent: #7c3aed;
+  --accent-glow: rgba(124, 58, 237, 0.3);
+  --gold: #f59e0b;
+  --background: #060612;
+  --surface: #0c0c20;
+  --surface-2: #12122a;
+  --border: rgba(0, 212, 255, 0.12);
+  --border-hover: rgba(0, 212, 255, 0.35);
+  --text-muted: rgba(255, 255, 255, 0.55);
+  --text-secondary: rgba(255, 255, 255, 0.75);
+
+  --font-sans: var(--font-outfit);
+  --font-display: var(--font-bebas);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: white;
+  font-family: var(--font-outfit), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-hover);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animated glow border */
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(0, 212, 255, 0.2); }
+  50% { border-color: rgba(0, 212, 255, 0.5); }
+}
+
+/* Pulse animation for badges */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(0,212,255,0.4); }
+  50% { box-shadow: 0 0 20px rgba(0,212,255,0.8); }
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Prose styles for blog/guide content */
+.prose-peptide h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.prose-peptide h3 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-peptide p {
+  color: rgba(255,255,255,0.72);
+  line-height: 1.85;
+  margin-bottom: 1.1rem;
+}
+
+.prose-peptide ul, .prose-peptide ol {
+  color: rgba(255,255,255,0.72);
+  padding-left: 1.5rem;
+  margin-bottom: 1.1rem;
+}
+
+.prose-peptide li {
+  margin-bottom: 0.4rem;
+  line-height: 1.75;
+}
+
+.prose-peptide table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.prose-peptide th {
+  background: var(--surface-2);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--primary);
+  border: 1px solid var(--border);
+}
+
+.prose-peptide td {
+  padding: 0.65rem 1rem;
+  color: rgba(255,255,255,0.72);
+  border: 1px solid var(--border);
+}
+
+.prose-peptide tr:nth-child(even) td {
+  background: rgba(255,255,255,0.025);
+}
+
+.prose-peptide strong {
+  color: white;
+  font-weight: 600;
+}
+
+.prose-peptide a {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

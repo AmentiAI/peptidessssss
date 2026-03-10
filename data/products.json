@@ -1,0 +1,580 @@
+{
+  "vendor": {
+    "name": "Peptide Sciences",
+    "url": "https://www.peptidesciences.com",
+    "address": "USA",
+    "free_shipping_threshold": "$200",
+    "disclaimer": "For research use only. Not for human consumption. Consult a physician before use."
+  },
+  "products": [
+    {
+      "name": "BPC-157 5mg",
+      "sku": "BPC157-5",
+      "price": 45.0,
+      "price_formatted": "$45.00",
+      "url": "https://www.peptidesciences.com/bpc-157-5mg",
+      "image_url": "/images/products/bpc-157-5mg.svg",
+      "categories": [
+        "Recovery & Repair",
+        "Anti-Inflammatory"
+      ],
+      "description": "BPC-157 (Body Protective Compound-157) is a synthetic pentadecapeptide consisting of 15 amino acids. Extensively studied for its remarkable tissue-healing and cytoprotective properties, BPC-157 has shown significant promise in preclinical research for accelerating recovery from muscle, tendon, ligament, and gut injuries. Research suggests it promotes angiogenesis, upregulates growth hormone receptors, and activates the nitric oxide system.",
+      "short_description": "Premier tissue repair peptide \u2014 accelerates healing of muscles, tendons, ligaments, and gut.",
+      "benefits": [
+        "Accelerated tissue repair",
+        "Anti-inflammatory properties",
+        "Gut healing support",
+        "Tendon & ligament recovery"
+      ],
+      "purity": "99.1%",
+      "sequence": "Gly-Glu-Pro-Pro-Pro-Gly-Lys-Pro-Ala-Asp-Asp-Ala-Gly-Leu-Val",
+      "molecular_weight": "1419.5 Da",
+      "in_stock": true,
+      "stock": 250,
+      "featured": true,
+      "badge": "#1 Recovery Pick",
+      "rating": 4.9,
+      "reviews": 1847
+    },
+    {
+      "name": "TB-500 5mg",
+      "sku": "TB500-5",
+      "price": 65.0,
+      "price_formatted": "$65.00",
+      "url": "https://www.peptidesciences.com/tb-500-5mg",
+      "image_url": "/images/products/tb-500-5mg.svg",
+      "categories": [
+        "Recovery & Repair",
+        "Anti-Inflammatory"
+      ],
+      "description": "TB-500 is a synthetic version of the naturally occurring peptide Thymosin Beta-4. It plays a critical role in building new blood vessels, muscle tissue fibers, cell migration, and promoting cell survival and differentiation. TB-500 is highly studied for systemic healing properties, making it a popular research compound for accelerating recovery from injuries and reducing inflammation throughout the body.",
+      "short_description": "Systemic healing peptide \u2014 promotes tissue regeneration and reduces inflammation body-wide.",
+      "benefits": [
+        "Systemic healing",
+        "Reduced inflammation",
+        "Improved flexibility",
+        "Enhanced blood vessel formation"
+      ],
+      "purity": "99.3%",
+      "sequence": "Ac-Ser-Asp-Lys-Pro-Asp-Met-Ala-Glu-Ile-Glu-Lys-Phe-Asp-Lys-Ser-Lys-Leu-Lys-Lys-Thr-Glu-Thr-Gln-Glu-Lys-Asn-Pro-Leu-Pro-Ser-Lys-Glu-Thr-Ile-Glu-Gln-Glu-Lys-Gln-Ala-Gly-Glu-Ser",
+      "molecular_weight": "4963.5 Da",
+      "in_stock": true,
+      "stock": 180,
+      "featured": true,
+      "badge": "Editor's Choice",
+      "rating": 4.8,
+      "reviews": 1423
+    },
+    {
+      "name": "Ipamorelin 5mg",
+      "sku": "IPA-5",
+      "price": 38.0,
+      "price_formatted": "$38.00",
+      "url": "https://www.peptidesciences.com/ipamorelin-5mg",
+      "image_url": "/images/products/ipamorelin-5mg.svg",
+      "categories": [
+        "Growth Hormone Peptides",
+        "Anti-Aging & Longevity"
+      ],
+      "description": "Ipamorelin is a selective growth hormone secretagogue and ghrelin receptor agonist. It stimulates the pituitary gland to release growth hormone in a highly selective manner, without significantly affecting cortisol, prolactin, or other hormones. Research indicates potential benefits for lean muscle preservation, fat metabolism, sleep quality, and recovery \u2014 all with a clean stimulation profile.",
+      "short_description": "Clean GH secretagogue \u2014 selectively stimulates growth hormone release without unwanted hormone spikes.",
+      "benefits": [
+        "Selective GH stimulation",
+        "Lean muscle support",
+        "Improved sleep quality",
+        "Fat metabolism support"
+      ],
+      "purity": "99.2%",
+      "sequence": "Aib-His-D-2-Nal-D-Phe-Lys-NH2",
+      "molecular_weight": "711.9 Da",
+      "in_stock": true,
+      "stock": 320,
+      "featured": true,
+      "badge": "Best Seller",
+      "rating": 4.9,
+      "reviews": 2156
+    },
+    {
+      "name": "CJC-1295 Without DAC 5mg",
+      "sku": "CJC-NODAC-5",
+      "price": 42.0,
+      "price_formatted": "$42.00",
+      "url": "https://www.peptidesciences.com/cjc-1295-without-dac-5mg",
+      "image_url": "/images/products/cjc-1295-without-dac-5mg.svg",
+      "categories": [
+        "Growth Hormone Peptides"
+      ],
+      "description": "CJC-1295 Without DAC (also known as Modified GRF 1-29) is a growth hormone-releasing hormone (GHRH) analogue. Without the Drug Affinity Complex (DAC), it has a shorter half-life that mimics natural pulsatile GH release patterns. Typically combined with Ipamorelin for synergistic GH stimulation. Research shows potential benefits for body composition, recovery, and sleep quality.",
+      "short_description": "Pulsatile GHRH analogue \u2014 pairs perfectly with Ipamorelin for synergistic GH release.",
+      "benefits": [
+        "Pulsatile GH release",
+        "Synergistic with Ipamorelin",
+        "Body composition support",
+        "Recovery enhancement"
+      ],
+      "purity": "99.0%",
+      "sequence": "Tyr-D-Ala-Asp-Ala-Ile-Phe-Thr-Gln-Ser-Tyr-Arg-Lys-Val-Leu-Ala-Gln-Leu-Ser-Ala-Arg-Lys-Leu-Leu-Gln-Asp-Ile-Leu-Ser-Arg-NH2",
+      "molecular_weight": "3367.9 Da",
+      "in_stock": true,
+      "stock": 290,
+      "featured": false,
+      "badge": null,
+      "rating": 4.8,
+      "reviews": 1678
+    },
+    {
+      "name": "CJC-1295 With DAC 5mg",
+      "sku": "CJC-DAC-5",
+      "price": 55.0,
+      "price_formatted": "$55.00",
+      "url": "https://www.peptidesciences.com/cjc-1295-with-dac-5mg",
+      "image_url": "/images/products/cjc-1295-with-dac-5mg.svg",
+      "categories": [
+        "Growth Hormone Peptides",
+        "Anti-Aging & Longevity"
+      ],
+      "description": "CJC-1295 With DAC features a Drug Affinity Complex that dramatically extends its half-life to 6-8 days via albumin binding. This allows for less frequent dosing while maintaining elevated GH levels. Research suggests it may provide sustained growth hormone stimulation, supporting body composition goals, recovery, and longevity-related pathways over extended periods.",
+      "short_description": "Long-acting GHRH analogue \u2014 once or twice weekly dosing for sustained GH elevation.",
+      "benefits": [
+        "Extended 6-8 day half-life",
+        "Less frequent dosing",
+        "Sustained GH elevation",
+        "Longevity support"
+      ],
+      "purity": "99.1%",
+      "sequence": "Tyr-D-Ala-Asp-Ala-Ile-Phe-Thr-Gln-Ser-Tyr-Arg-Lys-Val-Leu-Ala-Gln-Leu-Ser-Ala-Arg-Lys-Leu-Leu-Gln-Asp-Ile-Leu-Ser-Arg-Lys(Maleimidopropionamide)-OH",
+      "molecular_weight": "3646.3 Da",
+      "in_stock": true,
+      "stock": 145,
+      "featured": false,
+      "badge": null,
+      "rating": 4.7,
+      "reviews": 987
+    },
+    {
+      "name": "Sermorelin 5mg",
+      "sku": "SERM-5",
+      "price": 48.0,
+      "price_formatted": "$48.00",
+      "url": "https://www.peptidesciences.com/sermorelin-5mg",
+      "image_url": "/images/products/sermorelin-5mg.svg",
+      "categories": [
+        "Growth Hormone Peptides",
+        "Anti-Aging & Longevity"
+      ],
+      "description": "Sermorelin is a synthetic analogue of growth hormone-releasing hormone (GHRH), consisting of the first 29 amino acids of endogenous GHRH. As the most clinically studied GHRH analogue, sermorelin has been extensively researched for its ability to stimulate pituitary GH secretion. Research highlights potential benefits for anti-aging, body composition, bone density, and sleep quality.",
+      "short_description": "Most clinically studied GHRH analogue \u2014 anti-aging and body composition research staple.",
+      "benefits": [
+        "Clinically studied",
+        "Natural GH stimulation",
+        "Anti-aging properties",
+        "Bone density support"
+      ],
+      "purity": "99.4%",
+      "sequence": "Tyr-Ala-Asp-Ala-Ile-Phe-Thr-Asn-Ser-Tyr-Arg-Lys-Val-Leu-Gly-Gln-Leu-Ser-Ala-Arg-Lys-Leu-Leu-Gln-Asp-Ile-Met-Ser-Arg-NH2",
+      "molecular_weight": "3357.9 Da",
+      "in_stock": true,
+      "stock": 200,
+      "featured": true,
+      "badge": "Top Anti-Aging",
+      "rating": 4.8,
+      "reviews": 1245
+    },
+    {
+      "name": "GHRP-2 5mg",
+      "sku": "GHRP2-5",
+      "price": 35.0,
+      "price_formatted": "$35.00",
+      "url": "https://www.peptidesciences.com/ghrp-2-5mg",
+      "image_url": "/images/products/ghrp-2-5mg.svg",
+      "categories": [
+        "Growth Hormone Peptides"
+      ],
+      "description": "GHRP-2 (Growth Hormone Releasing Peptide-2) is a synthetic hexapeptide that acts as a ghrelin receptor agonist, stimulating potent GH release from the pituitary. It is one of the most studied GH secretagogues, showing dose-dependent GH stimulation with research applications in muscle wasting conditions, growth deficiencies, and body composition optimization.",
+      "short_description": "Potent GH secretagogue \u2014 dose-dependent growth hormone stimulation for research applications.",
+      "benefits": [
+        "Dose-dependent GH release",
+        "Muscle preservation",
+        "Appetite stimulation",
+        "Strong GH pulse"
+      ],
+      "purity": "99.0%",
+      "sequence": "D-Ala-D-\u03b2-Nal-Ala-Trp-D-Phe-Lys-NH2",
+      "molecular_weight": "817.9 Da",
+      "in_stock": true,
+      "stock": 175,
+      "featured": false,
+      "badge": null,
+      "rating": 4.7,
+      "reviews": 876
+    },
+    {
+      "name": "GHRP-6 5mg",
+      "sku": "GHRP6-5",
+      "price": 32.0,
+      "price_formatted": "$32.00",
+      "url": "https://www.peptidesciences.com/ghrp-6-5mg",
+      "image_url": "/images/products/ghrp-6-5mg.svg",
+      "categories": [
+        "Growth Hormone Peptides"
+      ],
+      "description": "GHRP-6 is one of the original growth hormone releasing peptides, acting on both ghrelin receptors and GHRH receptors to stimulate GH release. Notable for its strong appetite-stimulating effects alongside GH secretion, making it particularly interesting for research on muscle building and recovery protocols. One of the most cost-effective GH secretagogues available.",
+      "short_description": "Classic GH releasing peptide \u2014 strong GH pulse with appetite stimulation research model.",
+      "benefits": [
+        "Strong GH stimulation",
+        "Appetite enhancement",
+        "Muscle recovery support",
+        "Cost-effective"
+      ],
+      "purity": "98.8%",
+      "sequence": "His-D-Trp-Ala-Trp-D-Phe-Lys-NH2",
+      "molecular_weight": "873.0 Da",
+      "in_stock": true,
+      "stock": 210,
+      "featured": false,
+      "badge": "Best Value",
+      "rating": 4.6,
+      "reviews": 1102
+    },
+    {
+      "name": "Hexarelin 5mg",
+      "sku": "HEX-5",
+      "price": 45.0,
+      "price_formatted": "$45.00",
+      "url": "https://www.peptidesciences.com/hexarelin-5mg",
+      "image_url": "/images/products/hexarelin-5mg.svg",
+      "categories": [
+        "Growth Hormone Peptides"
+      ],
+      "description": "Hexarelin is among the most potent GH secretagogues, producing the largest GH pulse of any synthetic GHRP. Beyond its GH-releasing properties, hexarelin has been studied for direct cardioprotective effects through GH secretagogue receptor binding in cardiac tissue. Research applications include body composition, recovery, and cardiovascular health models.",
+      "short_description": "Most potent GH secretagogue \u2014 largest GH pulse amplitude with cardioprotective research potential.",
+      "benefits": [
+        "Maximum GH pulse",
+        "Cardioprotective properties",
+        "Muscle building support",
+        "Potent GH stimulation"
+      ],
+      "purity": "99.0%",
+      "sequence": "His-D-2-MeTrp-Ala-Trp-D-Phe-Lys-NH2",
+      "molecular_weight": "887.1 Da",
+      "in_stock": true,
+      "stock": 120,
+      "featured": false,
+      "badge": null,
+      "rating": 4.8,
+      "reviews": 743
+    },
+    {
+      "name": "Epithalon 10mg",
+      "sku": "EPIT-10",
+      "price": 60.0,
+      "price_formatted": "$60.00",
+      "url": "https://www.peptidesciences.com/epithalon-10mg",
+      "image_url": "/images/products/epithalon-10mg.svg",
+      "categories": [
+        "Anti-Aging & Longevity"
+      ],
+      "description": "Epithalon (Epitalon) is a synthetic tetrapeptide (Ala-Glu-Asp-Gly) derived from the pineal gland peptide Epithalamin. It is one of the most extensively studied longevity peptides, with research spanning over 35 years by Russian scientist Dr. Vladimir Khavinson. Studies suggest epithalon activates telomerase, elongates telomeres, and may slow cellular aging processes \u2014 making it the premier anti-aging research peptide.",
+      "short_description": "Premier longevity peptide \u2014 35+ years of research on telomere extension and cellular anti-aging.",
+      "benefits": [
+        "Telomere elongation",
+        "Telomerase activation",
+        "Circadian rhythm regulation",
+        "Antioxidant properties"
+      ],
+      "purity": "99.5%",
+      "sequence": "Ala-Glu-Asp-Gly",
+      "molecular_weight": "390.35 Da",
+      "in_stock": true,
+      "stock": 160,
+      "featured": true,
+      "badge": "Top Longevity",
+      "rating": 4.9,
+      "reviews": 1567
+    },
+    {
+      "name": "GHK-Cu 50mg",
+      "sku": "GHKCU-50",
+      "price": 40.0,
+      "price_formatted": "$40.00",
+      "url": "https://www.peptidesciences.com/ghk-cu-50mg",
+      "image_url": "/images/products/ghk-cu-50mg.svg",
+      "categories": [
+        "Anti-Aging & Longevity",
+        "Recovery & Repair"
+      ],
+      "description": "GHK-Cu (Copper Peptide GHK) is a naturally occurring tripeptide-copper complex found in human plasma. It has demonstrated remarkable properties in research including stimulation of collagen synthesis, wound healing, anti-inflammatory activity, and antioxidant effects. GHK-Cu activates over 4,000 genes including those involved in tissue remodeling, stem cell activity, and anti-aging pathways.",
+      "short_description": "Copper-bound anti-aging tripeptide \u2014 activates 4,000+ genes for skin, hair, and tissue regeneration.",
+      "benefits": [
+        "Collagen synthesis",
+        "Wound healing acceleration",
+        "Hair follicle stimulation",
+        "Activates 4000+ genes"
+      ],
+      "purity": "99.3%",
+      "sequence": "Gly-His-Lys : Cu2+",
+      "molecular_weight": "340.38 Da",
+      "in_stock": true,
+      "stock": 300,
+      "featured": true,
+      "badge": "Editor's Choice",
+      "rating": 4.8,
+      "reviews": 2034
+    },
+    {
+      "name": "Thymosin Alpha-1 5mg",
+      "sku": "TA1-5",
+      "price": 75.0,
+      "price_formatted": "$75.00",
+      "url": "https://www.peptidesciences.com/thymosin-alpha-1-5mg",
+      "image_url": "/images/products/thymosin-alpha-1-5mg.svg",
+      "categories": [
+        "Anti-Aging & Longevity",
+        "Anti-Inflammatory"
+      ],
+      "description": "Thymosin Alpha-1 is a 28-amino acid peptide derived from Thymosin Fraction 5, first isolated from thymic tissue. It is a potent immune modulator with decades of clinical research across viral infections, cancer, and immunodeficiency conditions. TA-1 activates dendritic cells, T-cells, and NK cells while also exhibiting anti-inflammatory properties \u2014 making it one of the most well-studied immune peptides.",
+      "short_description": "FDA-approved immune modulator \u2014 decades of clinical research on immune system optimization.",
+      "benefits": [
+        "Immune system optimization",
+        "Antiviral properties",
+        "T-cell activation",
+        "Anti-inflammatory"
+      ],
+      "purity": "99.4%",
+      "sequence": "Ac-Ser-Asp-Ala-Ala-Val-Asp-Thr-Ser-Ser-Glu-Ile-Thr-Thr-Lys-Asp-Leu-Lys-Glu-Lys-Lys-Glu-Val-Val-Glu-Glu-Ala-Glu-Asn-OH",
+      "molecular_weight": "3108.4 Da",
+      "in_stock": true,
+      "stock": 130,
+      "featured": false,
+      "badge": null,
+      "rating": 4.9,
+      "reviews": 892
+    },
+    {
+      "name": "KPV 5mg",
+      "sku": "KPV-5",
+      "price": 45.0,
+      "price_formatted": "$45.00",
+      "url": "https://www.peptidesciences.com/kpv-5mg",
+      "image_url": "/images/products/kpv-5mg.svg",
+      "categories": [
+        "Anti-Inflammatory",
+        "Recovery & Repair"
+      ],
+      "description": "KPV is a tripeptide (Lys-Pro-Val) derived from the C-terminal sequence of alpha-MSH (\u03b1-Melanocyte-Stimulating Hormone). Research has shown KPV to be a potent anti-inflammatory peptide that works via inhibition of pro-inflammatory signaling pathways including NF-\u03baB. Particularly studied for its applications in gut inflammation, skin conditions, and systemic inflammatory research models.",
+      "short_description": "Potent anti-inflammatory tripeptide \u2014 derived from \u03b1-MSH for gut and systemic inflammation research.",
+      "benefits": [
+        "Gut inflammation reduction",
+        "NF-\u03baB inhibition",
+        "Skin anti-inflammatory",
+        "Systemic anti-inflammatory"
+      ],
+      "purity": "99.1%",
+      "sequence": "Lys-Pro-Val",
+      "molecular_weight": "341.41 Da",
+      "in_stock": true,
+      "stock": 195,
+      "featured": false,
+      "badge": null,
+      "rating": 4.7,
+      "reviews": 654
+    },
+    {
+      "name": "Semax 5mg",
+      "sku": "SEMAX-5",
+      "price": 55.0,
+      "price_formatted": "$55.00",
+      "url": "https://www.peptidesciences.com/semax-5mg",
+      "image_url": "/images/products/semax-5mg.svg",
+      "categories": [
+        "Cognitive & Nootropic"
+      ],
+      "description": "Semax is a synthetic peptide analogue of the ACTH(4-7) fragment, developed in Russia for cognitive and neuroprotective applications. Research demonstrates significant BDNF (Brain-Derived Neurotrophic Factor) upregulation, enhanced attention, memory, and learning. Semax has been used clinically in Russia for stroke recovery and cognitive disorders, making it one of the most validated nootropic peptides.",
+      "short_description": "Clinically used nootropic peptide \u2014 significantly boosts BDNF for memory, focus, and neuroprotection.",
+      "benefits": [
+        "BDNF upregulation",
+        "Enhanced memory & learning",
+        "Neuroprotective effects",
+        "Attention & focus"
+      ],
+      "purity": "99.2%",
+      "sequence": "Met-Glu-His-Phe-Pro-Gly-Pro-Pro",
+      "molecular_weight": "887.0 Da",
+      "in_stock": true,
+      "stock": 140,
+      "featured": true,
+      "badge": "#1 Nootropic",
+      "rating": 4.9,
+      "reviews": 1876
+    },
+    {
+      "name": "Selank 5mg",
+      "sku": "SELANK-5",
+      "price": 50.0,
+      "price_formatted": "$50.00",
+      "url": "https://www.peptidesciences.com/selank-5mg",
+      "image_url": "/images/products/selank-5mg.svg",
+      "categories": [
+        "Cognitive & Nootropic"
+      ],
+      "description": "Selank is a synthetic heptapeptide analogue of the immunomodulatory peptide tuftsin, developed by the Institute of Molecular Genetics of the Russian Academy of Sciences. Research highlights its anxiolytic, nootropic, and immunomodulatory properties. Unlike benzodiazepines, Selank works through GABA-A receptor modulation without dependency risk, while also enhancing BDNF expression and neurotransmitter balance.",
+      "short_description": "Anxiolytic nootropic peptide \u2014 reduces anxiety and enhances cognition without dependency risk.",
+      "benefits": [
+        "Anxiolytic effects",
+        "Cognitive enhancement",
+        "GABA modulation",
+        "No dependency risk"
+      ],
+      "purity": "99.0%",
+      "sequence": "Thr-Lys-Pro-Arg-Pro-Gly-Pro",
+      "molecular_weight": "751.9 Da",
+      "in_stock": true,
+      "stock": 155,
+      "featured": false,
+      "badge": null,
+      "rating": 4.8,
+      "reviews": 1123
+    },
+    {
+      "name": "Dihexa 25mg",
+      "sku": "DIH-25",
+      "price": 85.0,
+      "price_formatted": "$85.00",
+      "url": "https://www.peptidesciences.com/dihexa-25mg",
+      "image_url": "/images/products/dihexa-25mg.svg",
+      "categories": [
+        "Cognitive & Nootropic"
+      ],
+      "description": "Dihexa (N-hexanoic-Tyr-Ile-(6) aminohexanoic amide) is a novel hexapeptide derived from Angiotensin IV, developed at Washington State University. Research suggests it is several orders of magnitude more potent than BDNF itself at promoting synaptogenesis and hippocampal neurogenesis. Studies on Alzheimer's and cognitive decline models show exceptional promise for memory restoration and cognitive enhancement.",
+      "short_description": "Next-generation cognitive peptide \u2014 millions of times more potent than BDNF for synaptogenesis.",
+      "benefits": [
+        "Synaptogenesis promotion",
+        "Memory restoration",
+        "Hippocampal neurogenesis",
+        "Alzheimer's research model"
+      ],
+      "purity": "99.1%",
+      "sequence": "N-hexanoic-Tyr-Ile-(6) aminohexanoic amide",
+      "molecular_weight": "595.8 Da",
+      "in_stock": true,
+      "stock": 85,
+      "featured": true,
+      "badge": "Most Potent",
+      "rating": 4.9,
+      "reviews": 743
+    },
+    {
+      "name": "SS-31 5mg",
+      "sku": "SS31-5",
+      "price": 95.0,
+      "price_formatted": "$95.00",
+      "url": "https://www.peptidesciences.com/ss-31-5mg",
+      "image_url": "/images/products/ss-31-5mg.svg",
+      "categories": [
+        "Anti-Aging & Longevity"
+      ],
+      "description": "SS-31 (Elamipretide) is a Szeto-Schiller peptide that selectively targets the inner mitochondrial membrane, where it binds to cardiolipin. Research shows SS-31 dramatically reduces mitochondrial ROS production, protects against oxidative stress, and restores mitochondrial function. Studies demonstrate benefits for age-related mitochondrial decline, heart failure models, and various conditions involving mitochondrial dysfunction.",
+      "short_description": "Mitochondria-targeted anti-aging peptide \u2014 restores mitochondrial function and reduces oxidative stress.",
+      "benefits": [
+        "Mitochondrial protection",
+        "ROS reduction",
+        "Energy metabolism support",
+        "Cardioprotective"
+      ],
+      "purity": "99.3%",
+      "sequence": "D-Arg-Dmt-Lys-Phe-NH2",
+      "molecular_weight": "639.8 Da",
+      "in_stock": true,
+      "stock": 75,
+      "featured": false,
+      "badge": "Premium",
+      "rating": 4.9,
+      "reviews": 456
+    },
+    {
+      "name": "AOD-9604 5mg",
+      "sku": "AOD-5",
+      "price": 48.0,
+      "price_formatted": "$48.00",
+      "url": "https://www.peptidesciences.com/aod-9604-5mg",
+      "image_url": "/images/products/aod-9604-5mg.svg",
+      "categories": [
+        "Body Composition"
+      ],
+      "description": "AOD-9604 is a modified fragment of human growth hormone (hGH176-191) that has been specifically modified with a tyrosine component at the N-terminal end. Developed by Monash University, AOD-9604 has TGA approval in Australia and is extensively studied for its fat-burning properties without the negative effects associated with full HGH. Research shows it stimulates lipolysis and inhibits lipogenesis without affecting IGF-1 levels.",
+      "short_description": "TGA-approved HGH fragment \u2014 targets fat burning without IGF-1 elevation or anabolic side effects.",
+      "benefits": [
+        "Targeted fat burning",
+        "No IGF-1 elevation",
+        "TGA approved",
+        "Lipolysis stimulation"
+      ],
+      "purity": "99.2%",
+      "sequence": "Tyr-Leu-Arg-Ile-Val-Gln-Cys-Arg-Ser-Val-Glu-Gly-Ser-Cys-Gly-Phe",
+      "molecular_weight": "1815.1 Da",
+      "in_stock": true,
+      "stock": 220,
+      "featured": true,
+      "badge": "Top Fat Loss",
+      "rating": 4.8,
+      "reviews": 1456
+    },
+    {
+      "name": "PT-141 (Bremelanotide) 10mg",
+      "sku": "PT141-10",
+      "price": 65.0,
+      "price_formatted": "$65.00",
+      "url": "https://www.peptidesciences.com/pt-141-10mg",
+      "image_url": "/images/products/pt-141-bremelanotide-10mg.svg",
+      "categories": [
+        "Sexual Health"
+      ],
+      "description": "PT-141 (Bremelanotide) is a synthetic peptide analogue of alpha-MSH acting on melanocortin receptors (MC3R and MC4R) in the central nervous system. Unlike traditional sexual health compounds that target the cardiovascular system, PT-141 works centrally to enhance sexual arousal and desire. FDA-approved as Vyleesi for hypoactive sexual desire disorder in women, PT-141 is extensively studied in both male and female research models.",
+      "short_description": "FDA-approved melanocortin receptor agonist \u2014 centrally-acting sexual health research compound.",
+      "benefits": [
+        "Central arousal pathway",
+        "FDA-approved mechanism",
+        "Both male & female research",
+        "Non-cardiovascular pathway"
+      ],
+      "purity": "99.1%",
+      "sequence": "Ac-Nle-cyclo[Asp-His-D-Phe-Arg-Trp-Lys]-OH",
+      "molecular_weight": "1025.2 Da",
+      "in_stock": true,
+      "stock": 165,
+      "featured": false,
+      "badge": null,
+      "rating": 4.8,
+      "reviews": 1234
+    },
+    {
+      "name": "Melanotan II 10mg",
+      "sku": "MT2-10",
+      "price": 45.0,
+      "price_formatted": "$45.00",
+      "url": "https://www.peptidesciences.com/melanotan-2-10mg",
+      "image_url": "/images/products/melanotan-ii-10mg.svg",
+      "categories": [
+        "Body Composition",
+        "Sexual Health"
+      ],
+      "description": "Melanotan II is a synthetic analogue of alpha-melanocyte-stimulating hormone (\u03b1-MSH), acting on melanocortin receptors 1, 3, 4, and 5. Research demonstrates tanning effects via melanogenesis stimulation, appetite suppression via MC4R activation, and sexual arousal effects. Developed at the University of Arizona, it remains one of the most studied multi-receptor melanocortin peptides.",
+      "short_description": "Multi-receptor melanocortin peptide \u2014 tanning, appetite suppression, and libido research compound.",
+      "benefits": [
+        "Melanogenesis stimulation",
+        "Appetite suppression",
+        "Multi-receptor activity",
+        "Tanning enhancement"
+      ],
+      "purity": "99.0%",
+      "sequence": "Ac-Nle-cyclo[Asp-His-D-Phe-Arg-Trp-Lys]-NH2",
+      "molecular_weight": "1024.2 Da",
+      "in_stock": true,
+      "stock": 185,
+      "featured": false,
+      "badge": null,
+      "rating": 4.7,
+      "reviews": 1567
+    }
+  ]
+}

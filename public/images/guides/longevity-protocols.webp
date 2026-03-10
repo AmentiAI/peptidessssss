@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#060612" />
+      <stop offset="100%" style="stop-color:#0c0c20" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#f59e0b" />
+      <stop offset="100%" style="stop-color:#7c3aed" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
+  <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+    <circle cx="1" cy="1" r="0.8" fill="#f59e0b" opacity="0.05"/>
+  </pattern>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+  <circle cx="900" cy="315" r="350" fill="#f59e0b" opacity="0.04"/>
+  <text x="80" y="280" font-family="system-ui, sans-serif" font-size="42" font-weight="bold" fill="white" opacity="0.9">Longevity Peptide Protocols 2026</text>
+  <text x="80" y="340" font-family="system-ui, sans-serif" font-size="42" font-weight="bold" fill="white" opacity="0.9"></text>
+  <rect x="80" y="390" width="120" height="4" rx="2" fill="url(#accent)"/>
+  <text x="80" y="440" font-family="system-ui, sans-serif" font-size="20" fill="rgba(255,255,255,0.45)">PeptideLab Research Blog</text>
+</svg>
