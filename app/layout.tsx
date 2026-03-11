@@ -100,12 +100,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/icon.png", type: "image/png" },
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
     ],
     apple: [
-      { url: "/apple-icon.png", type: "image/png" },
+      { url: "/apple-icon.png", type: "image/png", sizes: "180x180" },
     ],
-    shortcut: "/icon.png",
+    shortcut: "/favicon.ico",
   },
   alternates: {
     canonical: "https://www.peptidesmaxxing.com",
@@ -126,9 +127,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${syne.variable}`}>
       <head>
-        <link rel="icon" href="/images/site-logo.png" type="image/png" />
-        <link rel="shortcut icon" href="/images/site-logo.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/images/site-logo.png" />
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="icon" href="/icon.png" type="image/png" sizes="512x512" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://pantheonpeptides.com" />
       </head>
