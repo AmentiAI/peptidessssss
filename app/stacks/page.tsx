@@ -6,15 +6,20 @@ import { getAllProducts } from "@/lib/peptide-data"
 import { ProductCard } from "@/components/peptide-hub/product-card"
 
 export const metadata: Metadata = {
-  title: "Peptide Cycles & Stacks — Pantheon Peptides | PeptideLab",
+  title: "Peptide Cycles & Stacks — Wolverine, Glow Plus, Nova Mind & More | PeptidesMaxxing",
   description:
-    "Pre-built peptide cycles and stacks from Pantheon Peptides: Wolverine Cycle, Glow Plus Cycle, Nova Mind Cycle, Prime Metabolic, and more. Complete synergistic research protocols.",
-  alternates: { canonical: "https://peptidelab.com/stacks" },
+    "Pre-built peptide cycles from Pantheon Peptides: Wolverine Cycle (recovery), Glow Plus Cycle (anti-aging), Nova Mind Cycle (cognitive), Prime Metabolic (weight loss), T-Force Immunity, Eros Stamina, and more.",
+  alternates: { canonical: "https://peptidesmaxxing.com/stacks" },
   openGraph: {
-    title: "Peptide Cycles & Stacks | PeptideLab",
-    description:
-      "Pre-built synergistic peptide cycles from Pantheon Peptides for recovery, anti-aging, cognitive, and weight loss research.",
-    url: "https://peptidelab.com/stacks",
+    title: "Peptide Cycles & Stacks | PeptidesMaxxing",
+    description: "Synergistic pre-built peptide cycles — Wolverine, Glow Plus, Nova Mind, Prime Metabolic, T-Force, Eros Stamina, Kiss Peptides, and Stack Up cycles.",
+    url: "https://peptidesmaxxing.com/stacks",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Peptide Cycles & Research Stacks | PeptidesMaxxing",
+    description: "Pre-built synergistic cycles for recovery, anti-aging, cognitive, weight loss, immunity, and sexual health research.",
   },
 }
 

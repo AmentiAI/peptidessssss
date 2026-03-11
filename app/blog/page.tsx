@@ -6,10 +6,21 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { getAllBlogPosts } from "@/lib/peptide-data"
 
 export const metadata: Metadata = {
-  title: "Peptide Research Blog — In-Depth Guides & Reviews | PeptideLab",
+  title: "Peptide Research Blog — Science-Backed Guides on BPC-157, Tirzepatide & More",
   description:
-    "In-depth research articles on BPC-157, TB-500, Tirzepatide, Epithalon, Semax, and more. Evidence-based peptide guides from the PeptideLab research team.",
-  alternates: { canonical: "https://peptidelab.com/blog" },
+    "In-depth research articles on BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, looksmaxxing peptides, and more. Evidence-based peptide science from the PeptidesMaxxing research team.",
+  alternates: { canonical: "https://peptidesmaxxing.com/blog" },
+  openGraph: {
+    title: "Peptide Research Blog | PeptidesMaxxing",
+    description: "Science-backed guides on BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, and looksmaxxing peptides.",
+    url: "https://peptidesmaxxing.com/blog",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Research Peptide Blog | PeptidesMaxxing",
+    description: "Evidence-based peptide articles — BPC-157, Tirzepatide, Epithalon, Semax, looksmaxxing & more.",
+  },
 }
 
 export default async function BlogPage() {
@@ -30,7 +41,7 @@ export default async function BlogPage() {
           </div>
           <h1 className="text-5xl font-bold text-slate-900 mb-3">Peptide Research Articles</h1>
           <p className="text-slate-500 text-lg max-w-2xl">
-            Evidence-based research articles, mechanism deep-dives, and protocol guides from the PeptideLab
+            Evidence-based research articles, mechanism deep-dives, and protocol guides from the PeptidesMaxxing
             research team.
           </p>
         </div>

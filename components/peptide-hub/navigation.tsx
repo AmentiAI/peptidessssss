@@ -40,7 +40,7 @@ export function Navigation() {
             <FlaskConical className="w-4 h-4 text-white" />
           </div>
           <span className="text-xl font-bold tracking-tight text-slate-900">
-            Peptide<span className="text-blue-600">Lab</span>
+            Peptides<span className="text-blue-600">Maxxing</span>
           </span>
         </Link>
 

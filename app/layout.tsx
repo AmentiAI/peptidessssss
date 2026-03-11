@@ -16,33 +16,87 @@ const syne = Syne({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://peptidelab.com"),
+  metadataBase: new URL("https://peptidesmaxxing.com"),
   title: {
-    template: "%s | PeptideLab",
-    default: "PeptideLab — Research Peptides from Pantheon Peptides",
+    template: "%s | PeptidesMaxxing",
+    default:
+      "PeptidesMaxxing — Research Peptides, Cycles & Science from Pantheon Peptides",
   },
   description:
-    "The definitive research peptide resource. Browse 60+ peptides from Pantheon Peptides — BPC-157, Tirzepatide, Epithalon, Semax, and more.",
+    "The definitive research peptide resource. Browse 62+ research-grade peptides from Pantheon Peptides — BPC-157, Tirzepatide, Retatrutide, Epithalon, Semax, GHK-Cu, and complete peptide cycles.",
   keywords: [
     "research peptides",
     "BPC-157",
+    "TB-500",
     "Tirzepatide",
+    "Retatrutide",
     "Epithalon",
     "Semax",
-    "Pantheon Peptides",
-    "peptide cycles",
-    "TB-500",
+    "Selank",
+    "GHK-Cu",
     "Ipamorelin",
-    "GHK-CU",
+    "CJC-1295",
+    "Thymosin Alpha-1",
+    "AOD9604",
+    "PT-141",
+    "Kisspeptin",
+    "Cerebrolysin",
+    "MOTS-C",
+    "peptide cycles",
+    "Wolverine Cycle",
+    "Glow Plus Cycle",
+    "Nova Mind Cycle",
+    "Pantheon Peptides",
+    "peptide stacks",
+    "research peptide supplier",
+    "looksmaxxing peptides",
+    "anti-aging peptides",
+    "weight loss peptides",
+    "muscle growth peptides",
+    "cognitive peptides",
   ],
-  robots: { index: true, follow: true },
+  authors: [{ name: "PeptidesMaxxing Research Team", url: "https://peptidesmaxxing.com" }],
+  creator: "PeptidesMaxxing",
+  publisher: "PeptidesMaxxing",
+  category: "Research & Science",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
   openGraph: {
     type: "website",
-    siteName: "PeptideLab",
-    title: "PeptideLab — Research Peptides from Pantheon Peptides",
+    siteName: "PeptidesMaxxing",
+    title:
+      "PeptidesMaxxing — Research Peptides, Cycles & Science from Pantheon Peptides",
     description:
-      "The definitive research peptide resource. Browse 60+ peptides from Pantheon Peptides.",
-    url: "https://peptidelab.com",
+      "The definitive research peptide resource. 62+ peptides from Pantheon Peptides including BPC-157, Tirzepatide, Epithalon, complete cycles, and expert research guides.",
+    url: "https://peptidesmaxxing.com",
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@peptidesmaxxing",
+    creator: "@peptidesmaxxing",
+    title:
+      "PeptidesMaxxing — Research Peptides & Cycles from Pantheon Peptides",
+    description:
+      "62+ research-grade peptides, pre-built cycles, and expert science guides. BPC-157, Tirzepatide, Epithalon, Semax & more.",
+  },
+  alternates: {
+    canonical: "https://peptidesmaxxing.com",
+  },
+  verification: {
+    google: "",
+  },
+  other: {
+    "msvalidate.01": "",
   },
 }
 
@@ -53,6 +107,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${syne.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://pantheonpeptides.com" />
+      </head>
       <body className="antialiased">
         {children}
         <Analytics />

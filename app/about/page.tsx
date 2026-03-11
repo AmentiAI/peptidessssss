@@ -7,10 +7,16 @@ const AFFILIATE_URL =
   process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
 
 export const metadata: Metadata = {
-  title: "About PeptideLab — Research Peptide Affiliate Site | PeptideLab",
+  title: "About PeptidesMaxxing — Research Peptide Resource & Affiliate Disclosure",
   description:
-    "About PeptideLab — our mission, affiliate disclosure, research philosophy, and commitment to accurate peptide information.",
-  alternates: { canonical: "https://peptidelab.com/about" },
+    "About PeptidesMaxxing — our mission, affiliate disclosure, research philosophy, and commitment to accurate, science-backed peptide information.",
+  alternates: { canonical: "https://peptidesmaxxing.com/about" },
+  openGraph: {
+    title: "About PeptidesMaxxing",
+    description: "Our mission: providing accurate, evidence-based research peptide information. Affiliate disclosure and research philosophy.",
+    url: "https://peptidesmaxxing.com/about",
+    type: "website",
+  },
 }
 
 export default function AboutPage() {
@@ -23,20 +29,20 @@ export default function AboutPage() {
               <FlaskConical className="w-6 h-6 text-white" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold text-slate-900">About PeptideLab</h1>
+              <h1 className="text-4xl font-bold text-slate-900">About PeptidesMaxxing</h1>
               <p className="text-slate-500">The definitive research peptide resource</p>
             </div>
           </div>
 
           <div className="space-y-6 text-slate-600 leading-relaxed">
             <p className="text-lg">
-              PeptideLab was created by peptide researchers for peptide researchers. Our mission is to provide
+              PeptidesMaxxing was created by peptide researchers for peptide researchers. Our mission is to provide
               the most accurate, up-to-date, and scientifically grounded information on research peptides
               available anywhere online.
             </p>
             <p>
               We review, compare, and evaluate peptides based on published research literature, purity
-              standards, and supplier quality. Every product recommendation on PeptideLab has been vetted
+              standards, and supplier quality. Every product recommendation on PeptidesMaxxing has been vetted
               for research quality, purity documentation, and supplier reliability.
             </p>
             <p>
@@ -57,7 +63,7 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-4 text-slate-600 leading-relaxed">
             <p>
-              PeptideLab is an affiliate marketing website. We earn commissions from qualifying purchases
+              PeptidesMaxxing is an affiliate marketing website. We earn commissions from qualifying purchases
               made through links on this site — at no extra cost to you.
             </p>
             <p>
@@ -70,7 +76,7 @@ export default function AboutPage() {
               >
                 Pantheon Peptides
               </a>{" "}
-              and PeptideLab may receive a commission on your purchase.
+              and PeptidesMaxxing may receive a commission on your purchase.
             </p>
             <p>
               This compensation does not influence our recommendations. We only recommend products that meet
@@ -93,7 +99,7 @@ export default function AboutPage() {
           <div className="space-y-4 text-slate-600 leading-relaxed">
             <p>
               <strong className="text-slate-900">
-                All peptides listed on PeptideLab are sold strictly for laboratory research purposes only.
+                All peptides listed on PeptidesMaxxing are sold strictly for laboratory research purposes only.
               </strong>
             </p>
             <ul className="list-disc list-inside space-y-2 text-sm">

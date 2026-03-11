@@ -28,18 +28,23 @@ export async function generateMetadata({
   const { slug } = await params
   const product = await getProductBySlug(slug)
   if (!product) return {}
+  const desc = (product.shortDescription ?? product.description?.slice(0, 140) ?? "") + " Research use only. From Pantheon Peptides."
   return {
-    title: `${product.name} — Research Peptide | PeptideLab`,
-    description:
-      (product.shortDescription ?? product.description?.slice(0, 140)) +
-      " For research use only.",
-    keywords: [product.name, ...product.categories, "research peptide", "Pantheon Peptides"],
-    alternates: { canonical: `https://peptidelab.com/products/${slug}` },
+    title: `${product.name} — Research Peptide Guide, Mechanisms & Benefits`,
+    description: desc,
+    keywords: [product.name, ...product.categories, "research peptide", "Pantheon Peptides", "buy " + product.name, product.name + " benefits"],
+    alternates: { canonical: `https://peptidesmaxxing.com/products/${slug}` },
     openGraph: {
-      title: `${product.name} | PeptideLab`,
-      description: product.shortDescription ?? product.description?.slice(0, 140),
-      url: `https://peptidelab.com/products/${slug}`,
-      images: product.imageUrl ? [{ url: product.imageUrl, width: 800, height: 800 }] : [],
+      title: `${product.name} — Research Peptide | PeptidesMaxxing`,
+      description: product.shortDescription ?? product.description?.slice(0, 155) ?? "",
+      url: `https://peptidesmaxxing.com/products/${slug}`,
+      type: "article",
+      images: product.imageUrl ? [{ url: product.imageUrl, width: 800, height: 800, alt: product.name }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${product.name} — Research Peptide | PeptidesMaxxing`,
+      description: product.shortDescription ?? product.description?.slice(0, 155) ?? "",
     },
   }
 }
@@ -98,32 +103,45 @@ export default async function ProductPage({
     })
   }
 
-  const jsonLd = {
+  const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
+    "@id": `https://peptidesmaxxing.com/products/${slug}`,
     name: product.name,
     description: product.description,
     image: product.imageUrl,
+    url: `https://peptidesmaxxing.com/products/${slug}`,
+    brand: { "@type": "Brand", name: "Pantheon Peptides" },
+    category: product.categories[0],
     offers: {
       "@type": "Offer",
       availability: product.isInStock
         ? "https://schema.org/InStock"
         : "https://schema.org/OutOfStock",
       url: AFFILIATE_URL,
-      seller: { "@type": "Organization", name: "Pantheon Peptides" },
+      priceCurrency: "USD",
+      seller: { "@type": "Organization", name: "Pantheon Peptides", url: "https://pantheonpeptides.com" },
     },
+  }
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://peptidesmaxxing.com" },
+      { "@type": "ListItem", position: 2, name: "Products", item: "https://peptidesmaxxing.com/products" },
+      { "@type": "ListItem", position: 3, name: product.name, item: `https://peptidesmaxxing.com/products/${slug}` },
+    ],
   }
 
   return (
     <PageLayout>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
 
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8">
-        <nav className="flex items-center gap-2 text-xs text-slate-400">
+        <nav className="flex items-center gap-2 text-xs text-slate-400" aria-label="Breadcrumb">
           <Link href="/" className="hover:text-slate-700 transition-colors">
             Home
           </Link>
@@ -232,7 +250,7 @@ export default async function ProductPage({
                 Buy {product.name} on Pantheon Peptides
               </a>
               <p className="text-xs text-center text-slate-400">
-                Affiliate disclosure: PeptideLab earns a commission at no cost to you.
+                Affiliate disclosure: PeptidesMaxxing earns a commission at no cost to you.
               </p>
             </div>
 

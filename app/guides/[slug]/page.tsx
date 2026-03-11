@@ -24,14 +24,20 @@ export async function generateMetadata({
   const guide = await getGuideBySlug(slug)
   if (!guide) return {}
   return {
-    title: `${guide.title} | PeptideLab Guides`,
+    title: guide.title,
     description: guide.description,
-    alternates: { canonical: `https://peptidelab.com/guides/${slug}` },
+    alternates: { canonical: `https://peptidesmaxxing.com/guides/${slug}` },
     openGraph: {
       title: guide.title,
       description: guide.description,
-      url: `https://peptidelab.com/guides/${slug}`,
+      url: `https://peptidesmaxxing.com/guides/${slug}`,
       type: "article",
+      images: guide.imageUrl ? [{ url: guide.imageUrl, width: 1200, height: 630, alt: guide.title }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: guide.title,
+      description: guide.description,
     },
   }
 }
@@ -83,11 +89,49 @@ export default async function GuidePage({
     })
   }
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `https://peptidesmaxxing.com/guides/${slug}`,
+    headline: guide.title,
+    description: guide.description,
+    url: `https://peptidesmaxxing.com/guides/${slug}`,
+    datePublished: guide.date?.toISOString(),
+    dateModified: guide.updatedAt?.toISOString() ?? guide.date?.toISOString(),
+    author: {
+      "@type": "Organization",
+      name: guide.author ?? "PeptidesMaxxing Research Team",
+      url: "https://peptidesmaxxing.com",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "PeptidesMaxxing",
+      url: "https://peptidesmaxxing.com",
+      logo: { "@type": "ImageObject", url: "https://peptidesmaxxing.com/images/logo.png" },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://peptidesmaxxing.com/guides/${slug}` },
+    ...(guide.imageUrl ? { image: { "@type": "ImageObject", url: guide.imageUrl, width: 1200, height: 630 } } : {}),
+    inLanguage: "en-US",
+  }
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://peptidesmaxxing.com" },
+      { "@type": "ListItem", position: 2, name: "Research Guides", item: "https://peptidesmaxxing.com/guides" },
+      { "@type": "ListItem", position: 3, name: guide.title, item: `https://peptidesmaxxing.com/guides/${slug}` },
+    ],
+  }
+
   return (
     <PageLayout>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8">
-        <nav className="flex items-center gap-2 text-xs text-slate-400">
+        <nav className="flex items-center gap-2 text-xs text-slate-400" aria-label="Breadcrumb">
           <Link href="/" className="hover:text-slate-700 transition-colors">Home</Link>
           <ChevronRight className="w-3 h-3" />
           <Link href="/guides" className="hover:text-slate-700 transition-colors">Guides</Link>

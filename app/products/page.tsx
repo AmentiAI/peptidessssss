@@ -6,14 +6,20 @@ import { FlaskConical, Filter } from "lucide-react"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "All Research Peptides — Pantheon Peptides Catalog | PeptideLab",
+  title: "All Research Peptides — Full Catalog | BPC-157, Tirzepatide, Epithalon & 60+ More",
   description:
-    "Browse all 62+ research peptides from Pantheon Peptides. BPC-157, TB-500, Tirzepatide, Epithalon, Semax, GHK-CU, and more. Full catalog with research information.",
-  alternates: { canonical: "https://peptidelab.com/products" },
+    "Browse all 62+ research peptides from Pantheon Peptides. BPC-157, TB-500, Tirzepatide, Retatrutide, Epithalon, Semax, GHK-Cu, PT-141, Cerebrolysin, and more.",
+  alternates: { canonical: "https://peptidesmaxxing.com/products" },
   openGraph: {
-    title: "All Research Peptides | PeptideLab",
-    description: "62+ research-grade peptides from Pantheon Peptides.",
-    url: "https://peptidelab.com/products",
+    title: "All Research Peptides — Full Catalog | PeptidesMaxxing",
+    description: "62+ research-grade peptides from Pantheon Peptides — BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, complete peptide cycles.",
+    url: "https://peptidesmaxxing.com/products",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "All Research Peptides — 62+ Compounds | PeptidesMaxxing",
+    description: "Browse the full Pantheon Peptides catalog — BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, and more.",
   },
 }
 
@@ -74,7 +80,7 @@ export default async function ProductsPage() {
         <div className="p-4 rounded-xl border border-amber-200 bg-amber-50">
           <p className="text-xs text-amber-800 leading-relaxed">
             <strong className="text-amber-900">Research Use Only:</strong> All peptides are sold strictly for
-            laboratory research purposes. Not for human consumption. Not for veterinary use. PeptideLab earns
+            laboratory research purposes. Not for human consumption. Not for veterinary use. PeptidesMaxxing earns
             affiliate commissions at no extra cost to you.
           </p>
         </div>

@@ -5,10 +5,21 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { getAllCategories, getAllProducts } from "@/lib/peptide-data"
 
 export const metadata: Metadata = {
-  title: "Peptide Categories — Browse by Research Goal | PeptideLab",
+  title: "Research Peptide Categories — Muscle Growth, Anti-Aging, Weight Loss & More",
   description:
-    "Browse research peptides by category: Muscle Growth, Recovery & Repair, Anti-Aging, Weight Loss, Brain/Nerve, Immunity, Libido, Skin/Tissue/Bone, and Peptide Cycles.",
-  alternates: { canonical: "https://peptidelab.com/categories" },
+    "Browse research peptides by goal: Muscle Growth, Recovery & Repair, Anti-Aging, Weight Loss, Brain/Nerve, Immunity, Libido, Skin/Tissue/Bone, and Peptide Cycles. Find the right peptide for your research.",
+  alternates: { canonical: "https://peptidesmaxxing.com/categories" },
+  openGraph: {
+    title: "Research Peptide Categories | PeptidesMaxxing",
+    description: "Browse 62+ peptides by goal — muscle growth, anti-aging, weight loss, brain health, immunity, libido, and skin/tissue.",
+    url: "https://peptidesmaxxing.com/categories",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Peptide Categories by Research Goal | PeptidesMaxxing",
+    description: "Find the right research peptide — muscle, anti-aging, weight loss, brain, immune, libido, and skin categories.",
+  },
 }
 
 const ICON_MAP: Record<string, React.ElementType> = {

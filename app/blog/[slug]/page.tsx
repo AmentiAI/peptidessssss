@@ -26,15 +26,24 @@ export async function generateMetadata({
   const post = await getBlogPostBySlug(slug)
   if (!post) return {}
   return {
-    title: `${post.title} | PeptideLab Blog`,
+    title: post.title,
     description: post.description,
     keywords: post.tags,
-    alternates: { canonical: `https://peptidelab.com/blog/${slug}` },
+    authors: [{ name: post.author ?? "PeptidesMaxxing Research Team" }],
+    alternates: { canonical: `https://peptidesmaxxing.com/blog/${slug}` },
     openGraph: {
       title: post.title,
       description: post.description,
-      url: `https://peptidelab.com/blog/${slug}`,
+      url: `https://peptidesmaxxing.com/blog/${slug}`,
       type: "article",
+      publishedTime: post.date?.toISOString(),
+      authors: [post.author ?? "PeptidesMaxxing Research Team"],
+      images: post.imageUrl ? [{ url: post.imageUrl, width: 1200, height: 630, alt: post.title }] : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
     },
   }
 }
@@ -88,11 +97,57 @@ export default async function BlogPostPage({
     })
   }
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `https://peptidesmaxxing.com/blog/${slug}`,
+    headline: post.title,
+    description: post.description,
+    url: `https://peptidesmaxxing.com/blog/${slug}`,
+    datePublished: post.date?.toISOString(),
+    dateModified: post.updatedAt?.toISOString() ?? post.date?.toISOString(),
+    author: {
+      "@type": "Organization",
+      name: post.author ?? "PeptidesMaxxing Research Team",
+      url: "https://peptidesmaxxing.com",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "PeptidesMaxxing",
+      url: "https://peptidesmaxxing.com",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://peptidesmaxxing.com/images/logo.png",
+      },
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://peptidesmaxxing.com/blog/${slug}`,
+    },
+    ...(post.imageUrl ? { image: { "@type": "ImageObject", url: post.imageUrl, width: 1200, height: 630 } } : {}),
+    keywords: post.tags?.join(", "),
+    articleSection: post.category,
+    inLanguage: "en-US",
+  }
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://peptidesmaxxing.com" },
+      { "@type": "ListItem", position: 2, name: "Research Blog", item: "https://peptidesmaxxing.com/blog" },
+      { "@type": "ListItem", position: 3, name: post.title, item: `https://peptidesmaxxing.com/blog/${slug}` },
+    ],
+  }
+
   return (
     <PageLayout>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8">
-        <nav className="flex items-center gap-2 text-xs text-slate-400">
+        <nav className="flex items-center gap-2 text-xs text-slate-400" aria-label="Breadcrumb">
           <Link href="/" className="hover:text-slate-700 transition-colors">Home</Link>
           <ChevronRight className="w-3 h-3" />
           <Link href="/blog" className="hover:text-slate-700 transition-colors">Blog</Link>

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation"
 import { ArrowRight, ChevronRight } from "lucide-react"
 import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { ProductCard } from "@/components/peptide-hub/product-card"
+import { CategoryFeatures } from "@/components/peptide-hub/category-features"
 import {
   getCategoryBySlug,
   getAllCategorySlugs,
@@ -27,13 +28,19 @@ export async function generateMetadata({
   const cat = await getCategoryBySlug(slug)
   if (!cat) return {}
   return {
-    title: `${cat.name} Peptides — Research Guide | PeptideLab`,
-    description: cat.seoDescription ?? `Browse ${cat.name} research peptides from Pantheon Peptides.`,
-    alternates: { canonical: `https://peptidelab.com/categories/${slug}` },
+    title: `${cat.name} Peptides — Mechanisms, Research & Protocols`,
+    description: cat.seoDescription ?? `Browse ${cat.name} research peptides from Pantheon Peptides. Mechanisms, protocols, and complete product catalog.`,
+    alternates: { canonical: `https://peptidesmaxxing.com/categories/${slug}` },
     openGraph: {
-      title: `${cat.name} Research Peptides | PeptideLab`,
+      title: `${cat.name} Research Peptides | PeptidesMaxxing`,
       description: cat.seoDescription ?? `Browse ${cat.name} research peptides from Pantheon Peptides.`,
-      url: `https://peptidelab.com/categories/${slug}`,
+      url: `https://peptidesmaxxing.com/categories/${slug}`,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${cat.name} Research Peptides | PeptidesMaxxing`,
+      description: cat.seoDescription ?? `Browse ${cat.name} research peptides from Pantheon Peptides.`,
     },
   }
 }
@@ -141,6 +148,9 @@ export default async function CategoryPage({
           </div>
         </section>
       )}
+
+      {/* Unique category feature components */}
+      <CategoryFeatures slug={slug} />
 
       {/* Mid-page CTA */}
       <section className="my-4 mx-4 sm:mx-6 py-10 rounded-2xl border border-slate-200 bg-slate-50">

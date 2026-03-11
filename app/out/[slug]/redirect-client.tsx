@@ -35,7 +35,7 @@ export function RedirectClient({
           .
         </p>
         <p className="text-xs text-slate-400">
-          Affiliate disclosure: PeptideLab earns a commission at no extra cost to you.
+          Affiliate disclosure: PeptidesMaxxing earns a commission at no extra cost to you.
         </p>
         <Link
           href="/products"

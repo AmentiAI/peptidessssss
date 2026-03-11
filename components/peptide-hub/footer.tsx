@@ -17,7 +17,7 @@ const PRODUCT_LINKS = [
 const RESOURCE_LINKS = [
   { href: "/blog", label: "Research Blog" },
   { href: "/guides", label: "Research Guides" },
-  { href: "/about", label: "About PeptideLab" },
+  { href: "/about", label: "About PeptidesMaxxing" },
 ]
 
 export function Footer() {
@@ -56,7 +56,7 @@ export function Footer() {
               <FlaskConical className="w-4 h-4 text-white" />
             </div>
             <span className="text-xl font-bold text-slate-900">
-              Peptide<span className="text-blue-600">Lab</span>
+              Peptides<span className="text-blue-600">Maxxing</span>
             </span>
           </Link>
           <p className="text-sm text-slate-500 leading-relaxed mb-4">
@@ -130,10 +130,10 @@ export function Footer() {
       <div className="border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-slate-400 text-center sm:text-left">
-            © {new Date().getFullYear()} PeptideLab. All rights reserved. For research use only.
+            © {new Date().getFullYear()} PeptidesMaxxing. All rights reserved. For research use only.
           </p>
           <p className="text-xs text-slate-400 text-center sm:text-right">
-            PeptideLab is an affiliate site. We earn commissions from purchases at no extra cost to you.
+            PeptidesMaxxing is an affiliate site. We earn commissions from purchases at no extra cost to you.
           </p>
         </div>
       </div>
