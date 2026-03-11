@@ -32,14 +32,14 @@ export async function generateMetadata({
     description: cat.seoDescription ?? `Browse ${cat.name} research peptides from Pantheon Peptides. Mechanisms, protocols, and complete product catalog.`,
     alternates: { canonical: `https://www.peptidesmaxxing.com/categories/${slug}` },
     openGraph: {
-      title: `${cat.name} Research Peptides | PeptidesMaxxing`,
+      title: `${cat.name} Research Peptides`,
       description: cat.seoDescription ?? `Browse ${cat.name} research peptides from Pantheon Peptides.`,
       url: `https://www.peptidesmaxxing.com/categories/${slug}`,
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${cat.name} Research Peptides | PeptidesMaxxing`,
+      title: `${cat.name} Research Peptides`,
       description: cat.seoDescription ?? `Browse ${cat.name} research peptides from Pantheon Peptides.`,
     },
   }

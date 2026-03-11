@@ -18,7 +18,7 @@ const syne = Syne({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.peptidesmaxxing.com"),
   title: {
-    template: "%s | PeptidesMaxxing",
+    template: "%s",
     default:
       "PeptidesMaxxing — Research Peptides, Cycles & Science from Pantheon Peptides",
   },

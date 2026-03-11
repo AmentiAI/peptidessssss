@@ -11,14 +11,14 @@ export const metadata: Metadata = {
     "Browse all 62+ research peptides from Pantheon Peptides. BPC-157, TB-500, Tirzepatide, Retatrutide, Epithalon, Semax, GHK-Cu, PT-141, Cerebrolysin, and more.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/products" },
   openGraph: {
-    title: "All Research Peptides — Full Catalog | PeptidesMaxxing",
+    title: "All Research Peptides — Full Catalog",
     description: "62+ research-grade peptides from Pantheon Peptides — BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, complete peptide cycles.",
     url: "https://www.peptidesmaxxing.com/products",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "All Research Peptides — 62+ Compounds | PeptidesMaxxing",
+    title: "All Research Peptides — 62+ Compounds",
     description: "Browse the full Pantheon Peptides catalog — BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, and more.",
   },
 }

@@ -35,7 +35,7 @@ export async function generateMetadata({
     keywords: [product.name, ...product.categories, "research peptide", "Pantheon Peptides", "buy " + product.name, product.name + " benefits"],
     alternates: { canonical: `https://www.peptidesmaxxing.com/products/${slug}` },
     openGraph: {
-      title: `${product.name} — Research Peptide | PeptidesMaxxing`,
+      title: `${product.name} — Research Peptide`,
       description: product.shortDescription ?? product.description?.slice(0, 155) ?? "",
       url: `https://www.peptidesmaxxing.com/products/${slug}`,
       type: "article",
@@ -43,7 +43,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${product.name} — Research Peptide | PeptidesMaxxing`,
+      title: `${product.name} — Research Peptide`,
       description: product.shortDescription ?? product.description?.slice(0, 155) ?? "",
     },
   }
