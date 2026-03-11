@@ -6,19 +6,19 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { getAllBlogPosts } from "@/lib/peptide-data"
 
 export const metadata: Metadata = {
-  title: "Peptide Research Blog — Science-Backed Guides on BPC-157, Tirzepatide & More",
+  title: "Peptide Blog — Science-Backed Guides on BPC-157, Tirzepatide & More",
   description:
-    "In-depth research articles on BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, looksmaxxing peptides, and more. Evidence-based peptide science from the PeptidesMaxxing research team.",
+    "In-depth articles on BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, looksmaxxing peptides, and more. Evidence-based peptide science from the PeptidesMaxxing team.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/blog" },
   openGraph: {
-    title: "Peptide Research Blog",
+    title: "Peptide Blog — BPC-157, Tirzepatide & More",
     description: "Science-backed guides on BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, and looksmaxxing peptides.",
     url: "https://www.peptidesmaxxing.com/blog",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Research Peptide Blog",
+    title: "Peptide Blog — Science-Backed Guides",
     description: "Evidence-based peptide articles — BPC-157, Tirzepatide, Epithalon, Semax, looksmaxxing & more.",
   },
 }

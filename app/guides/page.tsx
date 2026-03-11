@@ -6,20 +6,20 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { getAllGuides } from "@/lib/peptide-data"
 
 export const metadata: Metadata = {
-  title: "Peptide Research Guides — Reconstitution, Storage, Protocols & Science",
+  title: "Peptide Guides — Reconstitution, Storage, Protocols & Science",
   description:
-    "Complete research peptide guides: storage & reconstitution, GH stacking protocols, purity verification, longevity stacks. Expert guides for peptide researchers.",
+    "Complete peptide guides: storage & reconstitution, GH stacking protocols, purity verification, longevity stacks. Expert guides for anyone working with peptides.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/guides" },
   openGraph: {
-    title: "Research Peptide Guides",
+    title: "Peptide Guides — Reconstitution, Storage, Protocols & Science",
     description: "Complete guides to peptide reconstitution, storage, GH stacking, purity, and longevity protocols.",
     url: "https://www.peptidesmaxxing.com/guides",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Research Peptide Guides",
-    description: "Reconstitution, storage, stacking, and longevity protocol guides for research peptides.",
+    title: "Peptide Guides — Storage, Stacking & Protocols",
+    description: "Reconstitution, storage, stacking, and longevity protocol guides for peptides.",
   },
 }
 

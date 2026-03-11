@@ -20,12 +20,12 @@ export const metadata: Metadata = {
   title: {
     template: "%s",
     default:
-      "PeptidesMaxxing — Research Peptides, Cycles & Science from Pantheon Peptides",
+      "PeptidesMaxxing — Peptides, Cycles & Science from Pantheon Peptides",
   },
   description:
-    "The definitive research peptide resource. Browse 62+ research-grade peptides from Pantheon Peptides — BPC-157, Tirzepatide, Retatrutide, Epithalon, Semax, GHK-Cu, and complete peptide cycles.",
+    "The definitive peptide resource. Browse 62+ peptides from Pantheon Peptides — BPC-157, Tirzepatide, Retatrutide, Epithalon, Semax, GHK-Cu, and complete peptide cycles.",
   keywords: [
-    "research peptides",
+    "peptides",
     "BPC-157",
     "TB-500",
     "Tirzepatide",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     "Nova Mind Cycle",
     "Pantheon Peptides",
     "peptide stacks",
-    "research peptide supplier",
+    "peptide supplier",
     "looksmaxxing peptides",
     "anti-aging peptides",
     "weight loss peptides",
@@ -74,9 +74,9 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "PeptidesMaxxing",
     title:
-      "PeptidesMaxxing — Research Peptides, Cycles & Science from Pantheon Peptides",
+      "PeptidesMaxxing — Peptides, Cycles & Science from Pantheon Peptides",
     description:
-      "The definitive research peptide resource. 62+ peptides from Pantheon Peptides including BPC-157, Tirzepatide, Epithalon, complete cycles, and expert research guides.",
+      "The definitive peptide resource. 62+ peptides from Pantheon Peptides including BPC-157, Tirzepatide, Epithalon, complete cycles, and expert guides.",
     url: "https://www.peptidesmaxxing.com",
     locale: "en_US",
     images: [
@@ -84,7 +84,7 @@ export const metadata: Metadata = {
         url: "https://www.peptidesmaxxing.com/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "PeptidesMaxxing — Research Peptides & Cycles from Pantheon Peptides",
+        alt: "PeptidesMaxxing — Peptides & Cycles from Pantheon Peptides",
       },
     ],
   },
@@ -93,9 +93,9 @@ export const metadata: Metadata = {
     site: "@peptidesmaxxing",
     creator: "@peptidesmaxxing",
     title:
-      "PeptidesMaxxing — Research Peptides & Cycles from Pantheon Peptides",
+      "PeptidesMaxxing — Peptides & Cycles from Pantheon Peptides",
     description:
-      "62+ research-grade peptides, pre-built cycles, and expert science guides. BPC-157, Tirzepatide, Epithalon, Semax & more.",
+      "62+ peptides, pre-built cycles, and expert science guides. BPC-157, Tirzepatide, Epithalon, Semax & more.",
     images: ["https://www.peptidesmaxxing.com/opengraph-image"],
   },
   icons: {

@@ -27,14 +27,14 @@ import {
 import { staticProducts } from "@/lib/static-products"
 
 export const metadata: Metadata = {
-  title: "PeptidesMaxxing — Research Peptides, Cycles & Science | BPC-157, Tirzepatide, Epithalon",
+  title: "PeptidesMaxxing — Peptides, Cycles & Science | BPC-157, Tirzepatide, Epithalon",
   description:
-    "The definitive research peptide resource. Browse 62+ peptides from Pantheon Peptides — BPC-157, TB-500, Tirzepatide, Retatrutide, Epithalon, Semax, GHK-Cu, and complete pre-built peptide cycles.",
+    "The definitive peptide resource. Browse 62+ peptides from Pantheon Peptides — BPC-157, TB-500, Tirzepatide, Retatrutide, Epithalon, Semax, GHK-Cu, and complete pre-built peptide cycles.",
   alternates: { canonical: "https://www.peptidesmaxxing.com" },
   openGraph: {
-    title: "PeptidesMaxxing — Research Peptides & Cycles from Pantheon Peptides",
+    title: "PeptidesMaxxing — Peptides & Cycles from Pantheon Peptides",
     description:
-      "62+ research-grade peptides, pre-built cycles, and expert science guides. BPC-157, Tirzepatide, Epithalon, Semax & more.",
+      "62+ peptides, pre-built cycles, and expert science guides. BPC-157, Tirzepatide, Epithalon, Semax & more.",
     url: "https://www.peptidesmaxxing.com",
     type: "website",
   },
@@ -80,7 +80,7 @@ const jsonLd = {
       url: "https://www.peptidesmaxxing.com",
       name: "PeptidesMaxxing",
       description:
-        "The definitive research peptide resource. 62+ peptides, pre-built cycles, and expert research guides from Pantheon Peptides.",
+        "The definitive peptide resource. 62+ peptides, pre-built cycles, and expert research guides from Pantheon Peptides.",
       inLanguage: "en-US",
       potentialAction: {
         "@type": "SearchAction",
@@ -103,7 +103,7 @@ const jsonLd = {
         height: 512,
       },
       description:
-        "Premier research peptide information and affiliate resource for Pantheon Peptides. BPC-157, Tirzepatide, Epithalon, peptide cycles, and research guides.",
+        "Premier peptide information and affiliate resource for Pantheon Peptides. BPC-157, Tirzepatide, Epithalon, peptide cycles, and research guides.",
       sameAs: [
         "https://www.peptidesmaxxing.com",
       ],
@@ -111,8 +111,8 @@ const jsonLd = {
     {
       "@type": "ItemList",
       "@id": "https://www.peptidesmaxxing.com/#categories",
-      name: "Research Peptide Categories",
-      description: "Browse research peptides by category",
+      name: "Peptide Categories",
+      description: "Browse peptides by category",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Muscle Growth Peptides", url: "https://www.peptidesmaxxing.com/categories/muscle-growth" },
         { "@type": "ListItem", position: 2, name: "Anti-Aging Peptides", url: "https://www.peptidesmaxxing.com/categories/anti-aging" },
@@ -185,7 +185,7 @@ export default async function HomePage() {
             <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">
               Featured Compounds
             </p>
-            <h2 className="text-4xl font-bold text-slate-900">Top Research Peptides</h2>
+            <h2 className="text-4xl font-bold text-slate-900">Top Peptides</h2>
             <p className="text-slate-500 mt-2">
               Hand-picked from Pantheon Peptides catalog for research quality and documentation.
             </p>
@@ -209,7 +209,7 @@ export default async function HomePage() {
             href="/products"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl text-base font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
           >
-            Browse All 62+ Research Peptides <ArrowRight className="w-4 h-4" />
+            Browse All 62+ Peptides <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
@@ -386,7 +386,7 @@ export default async function HomePage() {
             Ready to Explore the Science?
           </h2>
           <p className="text-lg text-slate-500 mb-10 max-w-xl mx-auto">
-            Browse 62+ research-grade peptides from Pantheon Peptides with complete product documentation
+            Browse 62+ peptides from Pantheon Peptides with complete product documentation
             and expert research guides.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -6,19 +6,19 @@ import { FlaskConical, Filter } from "lucide-react"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "All Research Peptides — Full Catalog | BPC-157, Tirzepatide, Epithalon & 60+ More",
+  title: "All Peptides — Full Catalog | BPC-157, Tirzepatide, Epithalon & 60+ More",
   description:
-    "Browse all 62+ research peptides from Pantheon Peptides. BPC-157, TB-500, Tirzepatide, Retatrutide, Epithalon, Semax, GHK-Cu, PT-141, Cerebrolysin, and more.",
+    "Browse all 62+ peptides from Pantheon Peptides. BPC-157, TB-500, Tirzepatide, Retatrutide, Epithalon, Semax, GHK-Cu, PT-141, Cerebrolysin, and more.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/products" },
   openGraph: {
-    title: "All Research Peptides — Full Catalog",
-    description: "62+ research-grade peptides from Pantheon Peptides — BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, complete peptide cycles.",
+    title: "All Peptides — Full Catalog | BPC-157, Tirzepatide, Epithalon & 60+ More",
+    description: "62+ peptides from Pantheon Peptides — BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, complete peptide cycles.",
     url: "https://www.peptidesmaxxing.com/products",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "All Research Peptides — 62+ Compounds",
+    title: "All Peptides — 62+ Compounds from Pantheon Peptides",
     description: "Browse the full Pantheon Peptides catalog — BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, and more.",
   },
 }

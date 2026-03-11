@@ -7,13 +7,13 @@ const AFFILIATE_URL =
   process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
 
 export const metadata: Metadata = {
-  title: "About PeptidesMaxxing — Research Peptide Resource & Affiliate Disclosure",
+  title: "About PeptidesMaxxing — Affiliate Disclosure & Our Mission",
   description:
-    "About PeptidesMaxxing — our mission, affiliate disclosure, research philosophy, and commitment to accurate, science-backed peptide information.",
+    "About PeptidesMaxxing — our mission, affiliate disclosure, and commitment to accurate, science-backed peptide information.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/about" },
   openGraph: {
     title: "About PeptidesMaxxing",
-    description: "Our mission: providing accurate, evidence-based research peptide information. Affiliate disclosure and research philosophy.",
+    description: "Our mission: providing accurate, evidence-based peptide information. Affiliate disclosure and philosophy.",
     url: "https://www.peptidesmaxxing.com/about",
     type: "website",
   },

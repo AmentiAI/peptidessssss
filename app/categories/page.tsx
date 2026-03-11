@@ -5,20 +5,20 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { getAllCategories, getAllProducts } from "@/lib/peptide-data"
 
 export const metadata: Metadata = {
-  title: "Research Peptide Categories — Muscle Growth, Anti-Aging, Weight Loss & More",
+  title: "Peptide Categories — Muscle Growth, Anti-Aging, Weight Loss & More",
   description:
-    "Browse research peptides by goal: Muscle Growth, Recovery & Repair, Anti-Aging, Weight Loss, Brain/Nerve, Immunity, Libido, Skin/Tissue/Bone, and Peptide Cycles. Find the right peptide for your research.",
+    "Browse peptides by goal: Muscle Growth, Recovery & Repair, Anti-Aging, Weight Loss, Brain/Nerve, Immunity, Libido, Skin/Tissue/Bone, and Peptide Cycles. Find the right peptide for you.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/categories" },
   openGraph: {
-    title: "Research Peptide Categories",
+    title: "Peptide Categories — Muscle Growth, Anti-Aging, Weight Loss & More",
     description: "Browse 62+ peptides by goal — muscle growth, anti-aging, weight loss, brain health, immunity, libido, and skin/tissue.",
     url: "https://www.peptidesmaxxing.com/categories",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Peptide Categories by Research Goal",
-    description: "Find the right research peptide — muscle, anti-aging, weight loss, brain, immune, libido, and skin categories.",
+    title: "Peptide Categories — Shop by Goal",
+    description: "Find the right peptide — muscle, anti-aging, weight loss, brain, immune, libido, and skin categories.",
   },
 }
 

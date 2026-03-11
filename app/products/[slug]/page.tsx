@@ -30,12 +30,12 @@ export async function generateMetadata({
   if (!product) return {}
   const desc = (product.shortDescription ?? product.description?.slice(0, 140) ?? "") + " Research use only. From Pantheon Peptides."
   return {
-    title: `${product.name} — Research Peptide Guide, Mechanisms & Benefits`,
+    title: `${product.name} — Peptide Guide, Mechanisms & Benefits`,
     description: desc,
     keywords: [product.name, ...product.categories, "research peptide", "Pantheon Peptides", "buy " + product.name, product.name + " benefits"],
     alternates: { canonical: `https://www.peptidesmaxxing.com/products/${slug}` },
     openGraph: {
-      title: `${product.name} — Research Peptide`,
+      title: `${product.name} — Peptide Guide`,
       description: product.shortDescription ?? product.description?.slice(0, 155) ?? "",
       url: `https://www.peptidesmaxxing.com/products/${slug}`,
       type: "article",
@@ -43,7 +43,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${product.name} — Research Peptide`,
+      title: `${product.name} — Peptide Guide`,
       description: product.shortDescription ?? product.description?.slice(0, 155) ?? "",
     },
   }
