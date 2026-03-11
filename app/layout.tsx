@@ -81,10 +81,10 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "https://peptidesmaxxing.com/images/logo.png",
-        width: 1024,
-        height: 1024,
-        alt: "PeptidesMaxxing",
+        url: "https://peptidesmaxxing.com/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "PeptidesMaxxing — Research Peptides & Cycles from Pantheon Peptides",
       },
     ],
   },
@@ -96,7 +96,7 @@ export const metadata: Metadata = {
       "PeptidesMaxxing — Research Peptides & Cycles from Pantheon Peptides",
     description:
       "62+ research-grade peptides, pre-built cycles, and expert science guides. BPC-157, Tirzepatide, Epithalon, Semax & more.",
-    images: ["https://peptidesmaxxing.com/images/logo.png"],
+    images: ["https://peptidesmaxxing.com/opengraph-image"],
   },
   icons: {
     icon: [
@@ -126,6 +126,9 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${syne.variable}`}>
       <head>
+        <link rel="icon" href="/images/site-logo.png" type="image/png" />
+        <link rel="shortcut icon" href="/images/site-logo.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/images/site-logo.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://pantheonpeptides.com" />
       </head>
