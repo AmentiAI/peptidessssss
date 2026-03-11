@@ -171,7 +171,7 @@ export const staticCategories: StaticCategory[] = [
     icon: "TrendingUp",
     color: "#2563eb",
     description: "Peptides that promote lean muscle growth, enhance recovery, and support GH secretion.",
-    heroDescription: "Research peptides for muscle growth and body composition optimization.",
+    heroDescription: "Ipamorelin, CJC-1295, GHRP-2, IGF-1 LR3, and ACE-031 are among the most studied peptides for lean muscle development, GH secretion, and body composition. These compounds work by stimulating the pituitary-GH-IGF-1 axis — the same hormonal pathway that drives anabolic adaptation — producing increases in lean mass, accelerated recovery, and improved fat metabolism without the side effect profile of exogenous hormones.",
     seoDescription: "Buy muscle growth peptides — Ipamorelin, CJC-1295, BPC-157, GHRP-2, IGF-1LR3, ACE-031, TB-500. Boost lean mass, accelerate recovery, and optimize GH levels from Pantheon Peptides.",
     stats: [],
     content: `## The Science of Peptide-Driven Muscle Growth
@@ -220,7 +220,7 @@ For research purposes, secretagogue combinations consistently outperform single-
     icon: "Zap",
     color: "#16a34a",
     description: "Peptides that accelerate tissue healing, reduce inflammation, and speed recovery.",
-    heroDescription: "The most studied tissue repair peptides for injury recovery and healing.",
+    heroDescription: "BPC-157 and TB-500 are the most studied peptides for tissue repair — individually powerful, together one of the most referenced healing stacks in all of peptide research. BPC-157 drives angiogenesis and GH receptor upregulation at injury sites while TB-500 promotes the cell migration and actin polymerization needed to rebuild damaged tissue. Together they address every phase of healing: inflammation resolution, cellular proliferation, and extracellular matrix remodeling.",
     seoDescription: "Buy recovery peptides — BPC-157 (tendon, gut, nerve repair), TB-500 (systemic muscle healing), BPC-157 + TB-500 stack. The best healing peptides for injury recovery from Pantheon Peptides.",
     stats: [],
     content: `## Peptide Science for Tissue Repair and Recovery
@@ -276,7 +276,7 @@ For acute musculoskeletal injury research, the injectable BPC-157 + TB-500 combi
     icon: "Clock",
     color: "#9333ea",
     description: "Peptides that combat cellular aging, activate telomerase, and promote longevity.",
-    heroDescription: "Research peptides targeting the fundamental hallmarks of aging.",
+    heroDescription: "Epithalon activates telomerase to rebuild telomere length. GHK-Cu modulates over 4,000 genes toward repair and rejuvenation. MOTS-C restores mitochondrial signaling and metabolic youth. These peptides target the molecular hallmarks of aging — telomere attrition, mitochondrial dysfunction, and declining gene expression — in ways that no single supplement or lifestyle intervention can match.",
     seoDescription: "Buy anti-aging peptides — Epithalon (telomerase, melatonin), GHK-Cu (collagen, 4000+ genes), MOTS-C (mitochondria, AMPK), Sermorelin (GH restoration). Longevity peptides from Pantheon Peptides.",
     stats: [],
     content: `## The Molecular Hallmarks of Aging
@@ -335,7 +335,7 @@ This combination pairs telomere restoration with metabolic rejuvenation. 5-Amino
     icon: "Flame",
     color: "#ea580c",
     description: "Peptides that support fat metabolism, reduce appetite, and improve body composition.",
-    heroDescription: "Research peptides for weight management and metabolic health.",
+    heroDescription: "Tirzepatide, Retatrutide, Mazdutide, and Cagrilintide represent the cutting edge of metabolic peptide research — with clinical trials documenting weight reductions of 20-24% that were unthinkable a decade ago. These GLP-1, GIP, and glucagon receptor agonists work at the hormonal root of weight regulation rather than simply suppressing appetite. AOD9604 and 5-Amino-1MQ add targeted lipolysis and NNMT inhibition to the arsenal.",
     seoDescription: "Buy weight loss peptides — Tirzepatide (GLP-1/GIP dual agonist), Retatrutide (triple agonist), AOD9604 (fat metabolism), Cagrilintide, Mazdutide, 5-Amino-1MQ. Fat loss peptides from Pantheon Peptides.",
     stats: [],
     content: `## The Peptide Revolution in Metabolic Research
@@ -392,7 +392,7 @@ MOTS-C improves insulin sensitivity and glucose metabolism through mitochondrial
     icon: "Brain",
     color: "#0891b2",
     description: "Nootropic peptides that enhance cognition, memory, and neuroprotection.",
-    heroDescription: "Research peptides for cognitive enhancement and neuroprotection.",
+    heroDescription: "Semax dramatically upregulates BDNF and dopaminergic tone for sharper focus and memory. Selank modulates GABA-A receptors to eliminate anxiety without sedation or addiction. Cerebrolysin delivers a full spectrum of neurotrophic factors — BDNF, NGF, GDNF — used clinically for stroke and neurodegeneration in over 50 countries. These neuropeptides operate at a fundamentally deeper level than conventional nootropics.",
     seoDescription: "Buy cognitive peptides — Semax (BDNF, dopamine, focus), Selank (anxiety, GABA, resilience), Cerebrolysin (neuroregeneration), DSIP (sleep), Selank + Semax stack. Brain peptides from Pantheon Peptides.",
     stats: [],
     content: `## Neuropeptides and Cognitive Research
@@ -455,7 +455,7 @@ For general cognitive enhancement and anxiety reduction, the Semax + Selank comb
     icon: "Shield",
     color: "#15803d",
     description: "Peptides that strengthen immune function, reduce inflammation, and fight infection.",
-    heroDescription: "Immune-boosting research peptides for enhanced immune function.",
+    heroDescription: "Thymosin Alpha-1 is approved in 35+ countries for hepatitis, cancer, and sepsis — one of the most clinically validated immunomodulatory peptides in existence. LL-37, the only human cathelicidin, provides broad-spectrum antimicrobial defense and wound-healing signals at the innate immunity level. Thymulin restores thymic signaling for T-cell maturation as immune function declines with age.",
     seoDescription: "Buy immune peptides — Thymosin Alpha-1 (T-cell modulation, adaptive immunity), LL-37 (antimicrobial, innate immunity), Thymulin (immune regulation). Immunity-boosting peptides from Pantheon Peptides.",
     stats: [],
     content: `## The Immune System and Peptide Research
@@ -511,7 +511,7 @@ The T-Force Immunity Cycle and T-Force Immunity Plus Cycle combine thymic peptid
     icon: "Heart",
     color: "#e11d48",
     description: "Peptides that support sexual health, enhance libido, and improve reproductive function.",
-    heroDescription: "Research peptides for sexual health and libido enhancement.",
+    heroDescription: "PT-141 (Bremelanotide) is FDA-approved and acts in the brain through melanocortin receptors to enhance desire and arousal — not just blood flow. Kisspeptin-10 activates the HPG axis at its source, restoring the LH and testosterone signaling that drives hormonal drive in both men and women. Melanotan II adds UV-independent tanning and appetite suppression alongside its libido effects.",
     seoDescription: "Buy libido peptides — PT-141 / Bremelanotide (melanocortin libido), Kisspeptin-10 (hormone axis), MT-2 / Melanotan 2 (libido + tanning), Kiss Peptides Cycle. Sexual health peptides from Pantheon Peptides.",
     stats: [],
     content: `## Sexual Health and the Peptide Axis
@@ -565,7 +565,7 @@ PT-141 and MT-2 both activate melanocortin receptors centrally but differ in sel
     icon: "Star",
     color: "#d97706",
     description: "Peptides for skin regeneration, collagen synthesis, hair growth, and bone health.",
-    heroDescription: "Research peptides for skin, tissue, and bone regeneration.",
+    heroDescription: "GHK-Cu modulates over 4,000 genes to stimulate collagen, elastin, and hair follicle renewal — and its blood levels drop 60% between ages 20 and 60. BPC-157 accelerates wound closure, tendon tensile strength restoration, and bone remodeling across dozens of animal models. LL-37 addresses the antimicrobial and angiogenic requirements of hard-to-heal wounds where other therapies fail.",
     seoDescription: "Buy skin and tissue peptides — GHK-Cu (collagen, wrinkles, hair growth), BPC-157 (wound healing, gut), LL-37 (skin repair, antimicrobial), MT-2 (melanin, tanning). Skin peptides from Pantheon Peptides.",
     stats: [],
     content: `## The Biology of Structural Tissue Renewal
@@ -624,7 +624,7 @@ BPC-157 has shown positive effects in fracture healing models, accelerating call
     icon: "Package",
     color: "#7c3aed",
     description: "Pre-built synergistic peptide cycles for comprehensive results.",
-    heroDescription: "Complete peptide cycles for focused research goals.",
+    heroDescription: "Pre-built peptide cycles combine complementary compounds around a unified research goal — so you're not guessing at compatibility, ratios, or sequencing. The Wolverine Cycle pairs BPC-157 + TB-500 for total tissue repair. The Nova Mind Cycle stacks Semax + Selank for cognitive and emotional optimization. The Stack Up, Prime Metabolic, and Glow Plus Cycles cover muscle, fat loss, and rejuvenation with fully structured protocols.",
     seoDescription: "Buy peptide cycles — Wolverine (BPC-157 + TB-500 healing), Glow Plus (anti-aging), Nova Mind (cognitive), Prime Metabolic (fat loss), T-Force Immunity, Eros Stamina (libido), Stack Up (muscle). From Pantheon Peptides.",
     stats: [],
     content: `## Why Research Cycles Outperform Single Peptides
@@ -681,7 +681,7 @@ The Stack Up Cycles (5-week and 10-week) are engineered for lean muscle research
     icon: "Package2",
     color: "#6b7280",
     description: "Reconstitution supplies: bacteriostatic water, syringes, alcohol pads, and starter kits.",
-    heroDescription: "Everything you need to prepare and administer research peptides.",
+    heroDescription: "Lyophilized peptides must be reconstituted with sterile bacteriostatic water before use — and the quality of your supplies directly determines solution sterility, peptide stability, and dosing accuracy. Pantheon Peptides carries pharmaceutical-grade bacteriostatic water, 31G injection syringes, 21G reconstitution syringes, vial vents, alcohol pads, and complete starter kits so every protocol begins with the right foundation.",
     seoDescription: "Peptide supplies — bacteriostatic water for reconstitution, injection syringes (31G 1ml), reconstitution syringes (21G 3ml), alcohol pads, syringe tips, and complete starter kits from Pantheon Peptides.",
     stats: [],
     content: `## Proper Preparation is Essential for Research Integrity
