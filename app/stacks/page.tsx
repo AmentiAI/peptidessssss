@@ -7,19 +7,19 @@ import { ProductCard } from "@/components/peptide-hub/product-card"
 import { getAllStackGuides } from "@/lib/stack-guides"
 
 export const metadata: Metadata = {
-  title: "Peptide Cycles & Stacks — Wolverine, Glow Plus, Nova Mind & More",
+  title: "Best Peptide Stacks — Healing, GH Optimization, Anti-Aging & Fat Loss",
   description:
     "Wolverine Cycle (BPC-157 + TB-500 healing), Glow Plus (anti-aging), Nova Mind (Semax + Selank cognitive), Prime Metabolic (fat loss), T-Force Immunity, Eros Stamina (libido), Stack Up — pre-built peptide cycles from Pantheon Peptides.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/stacks" },
   openGraph: {
-    title: "Peptide Cycles & Stacks — Wolverine, Glow Plus, Nova Mind & More",
+    title: "Best Peptide Stacks — Healing, GH Optimization, Anti-Aging & Fat Loss",
     description: "Wolverine (recovery), Glow Plus (anti-aging), Nova Mind (cognitive), Prime Metabolic (fat loss), T-Force Immunity, Eros Stamina (libido) — complete peptide cycle programs from Pantheon Peptides.",
     url: "https://www.peptidesmaxxing.com/stacks",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Peptide Cycles & Stacks — Wolverine, Glow Plus, Nova Mind & More",
+    title: "Best Peptide Stacks — Healing, GH Optimization, Anti-Aging & Fat Loss",
     description: "BPC-157 + TB-500 healing stacks, GHK-Cu anti-aging, Semax + Selank cognitive, Tirzepatide fat loss, and immune cycles — expert stack guides with full protocols.",
   },
 }

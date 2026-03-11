@@ -28,18 +28,18 @@ export async function generateMetadata({
   const cat = await getCategoryBySlug(slug)
   if (!cat) return {}
   return {
-    title: `${cat.name} Peptides — Mechanisms & Protocols`,
+    title: `Best ${cat.name} Peptides — Benefits, Dosing & Where to Buy`,
     description: cat.seoDescription ?? `Browse ${cat.name} peptides from Pantheon Peptides. Mechanisms, protocols, and complete product catalog.`,
     alternates: { canonical: `https://www.peptidesmaxxing.com/categories/${slug}` },
     openGraph: {
-      title: `${cat.name} Peptides — Mechanisms & Protocols`,
+      title: `Best ${cat.name} Peptides — Benefits, Dosing & Where to Buy`,
       description: cat.seoDescription ?? `Browse ${cat.name} peptides from Pantheon Peptides.`,
       url: `https://www.peptidesmaxxing.com/categories/${slug}`,
       type: "website",
     },
     twitter: {
       card: "summary_large_image",
-      title: `${cat.name} Peptides — Mechanisms & Protocols`,
+      title: `Best ${cat.name} Peptides — Benefits, Dosing & Where to Buy`,
       description: cat.seoDescription ?? `Browse ${cat.name} peptides from Pantheon Peptides.`,
     },
   }

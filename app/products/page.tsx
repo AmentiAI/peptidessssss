@@ -6,19 +6,19 @@ import { FlaskConical, Filter } from "lucide-react"
 import Link from "next/link"
 
 export const metadata: Metadata = {
-  title: "All Peptides — Full Catalog | BPC-157, Tirzepatide, Epithalon & 60+ More",
+  title: "Buy BPC-157, Tirzepatide, Epithalon, Ipamorelin, GHK-Cu & 60+ Peptides",
   description:
     "Buy BPC-157, TB-500, Tirzepatide, Retatrutide, Epithalon, Semax, GHK-Cu, PT-141, Ipamorelin, CJC-1295, Cerebrolysin, MOTS-C — full catalog of 62+ peptides from Pantheon Peptides for muscle, fat loss, anti-aging, and cognitive goals.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/products" },
   openGraph: {
-    title: "All Peptides — Full Catalog | BPC-157, Tirzepatide, Epithalon & 60+ More",
+    title: "Buy BPC-157, Tirzepatide, Epithalon, Ipamorelin, GHK-Cu & 60+ Peptides",
     description: "Buy BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin — 62+ peptides from Pantheon Peptides for muscle growth, fat loss, anti-aging, and cognitive goals.",
     url: "https://www.peptidesmaxxing.com/products",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "All Peptides — 62+ Compounds from Pantheon Peptides",
+    title: "Buy BPC-157, Tirzepatide, Epithalon & 60+ Peptides — Full Catalog",
     description: "Full catalog: BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, CJC-1295, TB-500, PT-141, Cerebrolysin — 62+ peptides from Pantheon Peptides.",
   },
 }

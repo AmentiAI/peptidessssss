@@ -7,12 +7,12 @@ const AFFILIATE_URL =
   process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
 
 export const metadata: Metadata = {
-  title: "About PeptidesMaxxing — Affiliate Disclosure & Our Mission",
+  title: "About PeptidesMaxxing — Pantheon Peptides Affiliate & Sourcing Standards",
   description:
     "PeptidesMaxxing is an affiliate resource for Pantheon Peptides — featuring BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, and 62+ peptides. Full affiliate disclosure and sourcing philosophy.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/about" },
   openGraph: {
-    title: "About PeptidesMaxxing",
+    title: "About PeptidesMaxxing — Sourcing Standards & Affiliate Disclosure",
     description: "PeptidesMaxxing provides detailed guides on BPC-157, Tirzepatide, Ipamorelin, Epithalon, GHK-Cu, and 62+ peptides from Pantheon Peptides. Affiliate resource — full commission disclosure.",
     url: "https://www.peptidesmaxxing.com/about",
     type: "website",

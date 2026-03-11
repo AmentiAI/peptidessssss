@@ -27,12 +27,12 @@ import {
 import { staticProducts } from "@/lib/static-products"
 
 export const metadata: Metadata = {
-  title: "PeptidesMaxxing — Peptides, Cycles & Science | BPC-157, Tirzepatide, Epithalon",
+  title: "PeptidesMaxxing — BPC-157, Tirzepatide, Epithalon, Semax & 60+ Peptides",
   description:
     "BPC-157, TB-500, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, CJC-1295, Retatrutide — 62+ peptides from Pantheon Peptides. Buy muscle growth, anti-aging, fat loss, and cognitive peptides with complete cycle guides.",
   alternates: { canonical: "https://www.peptidesmaxxing.com" },
   openGraph: {
-    title: "PeptidesMaxxing — Peptides & Cycles from Pantheon Peptides",
+    title: "PeptidesMaxxing — Buy BPC-157, Tirzepatide, Epithalon & 60+ Peptides",
     description:
       "62+ peptides, pre-built cycles, and expert science guides. BPC-157, Tirzepatide, Epithalon, Semax & more.",
     url: "https://www.peptidesmaxxing.com",

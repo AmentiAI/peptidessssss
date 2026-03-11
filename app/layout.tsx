@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   title: {
     template: "%s",
     default:
-      "PeptidesMaxxing — Peptides, Cycles & Science from Pantheon Peptides",
+      "PeptidesMaxxing — BPC-157, Tirzepatide, Epithalon & 60+ Peptides",
   },
   description:
     "BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, CJC-1295, TB-500 — browse 62+ peptides from Pantheon Peptides. Muscle growth, fat loss, anti-aging, cognitive, and longevity stacks.",
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "PeptidesMaxxing",
     title:
-      "PeptidesMaxxing — Peptides, Cycles & Science from Pantheon Peptides",
+      "PeptidesMaxxing — BPC-157, Tirzepatide, Epithalon & 60+ Peptides",
     description:
       "The definitive peptide resource. 62+ peptides from Pantheon Peptides including BPC-157, Tirzepatide, Epithalon, complete cycles, and expert guides.",
     url: "https://www.peptidesmaxxing.com",
