@@ -1,8 +1,9 @@
 "use client"
 import { useState, useRef } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Menu, X, ChevronDown, FlaskConical, ExternalLink } from "lucide-react"
+import { Menu, X, ChevronDown, ExternalLink } from "lucide-react"
 import { staticCategories } from "@/lib/static-products"
 
 const NAV_LINKS = [
@@ -35,10 +36,15 @@ export function Navigation() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center">
-            <FlaskConical className="w-4 h-4 text-white" />
-          </div>
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <Image
+            src="/images/site-logo.png"
+            alt="PeptidesMaxxing"
+            width={36}
+            height={36}
+            className="rounded-lg"
+            priority
+          />
           <span className="text-xl font-bold tracking-tight text-slate-900">
             Peptides<span className="text-blue-600">Maxxing</span>
           </span>

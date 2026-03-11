@@ -1,5 +1,6 @@
 import Link from "next/link"
-import { FlaskConical, Shield, Award, ExternalLink } from "lucide-react"
+import Image from "next/image"
+import { Shield, Award, ExternalLink } from "lucide-react"
 import { staticCategories } from "@/lib/static-products"
 
 const AFFILIATE_URL =
@@ -30,7 +31,7 @@ export function Footer() {
             {[
               { icon: Shield, label: "Research Grade", sub: "For laboratory use only" },
               { icon: Award, label: "Pantheon Peptides", sub: "Trusted supplier" },
-              { icon: FlaskConical, label: "60+ Products", sub: "Full catalog available" },
+              { icon: ExternalLink, label: "62+ Products", sub: "Full catalog available" },
               { icon: ExternalLink, label: "Affiliate Site", sub: "We earn commissions" },
             ].map(({ icon: Icon, label, sub }) => (
               <div key={label} className="flex items-center gap-3">
@@ -51,10 +52,14 @@ export function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
         {/* Brand */}
         <div className="col-span-2 md:col-span-1">
-          <Link href="/" className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center">
-              <FlaskConical className="w-4 h-4 text-white" />
-            </div>
+          <Link href="/" className="flex items-center gap-2.5 mb-4">
+            <Image
+              src="/images/site-logo.png"
+              alt="PeptidesMaxxing"
+              width={36}
+              height={36}
+              className="rounded-lg"
+            />
             <span className="text-xl font-bold text-slate-900">
               Peptides<span className="text-blue-600">Maxxing</span>
             </span>
