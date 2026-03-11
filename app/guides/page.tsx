@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Peptide Research Guides — Reconstitution, Storage, Protocols & Science",
   description:
     "Complete research peptide guides: storage & reconstitution, GH stacking protocols, purity verification, longevity stacks. Expert guides for peptide researchers.",
-  alternates: { canonical: "https://peptidesmaxxing.com/guides" },
+  alternates: { canonical: "https://www.peptidesmaxxing.com/guides" },
   openGraph: {
     title: "Research Peptide Guides | PeptidesMaxxing",
     description: "Complete guides to peptide reconstitution, storage, GH stacking, purity, and longevity protocols.",
-    url: "https://peptidesmaxxing.com/guides",
+    url: "https://www.peptidesmaxxing.com/guides",
     type: "website",
   },
   twitter: {

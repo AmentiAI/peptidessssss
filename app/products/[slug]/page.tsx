@@ -33,11 +33,11 @@ export async function generateMetadata({
     title: `${product.name} — Research Peptide Guide, Mechanisms & Benefits`,
     description: desc,
     keywords: [product.name, ...product.categories, "research peptide", "Pantheon Peptides", "buy " + product.name, product.name + " benefits"],
-    alternates: { canonical: `https://peptidesmaxxing.com/products/${slug}` },
+    alternates: { canonical: `https://www.peptidesmaxxing.com/products/${slug}` },
     openGraph: {
       title: `${product.name} — Research Peptide | PeptidesMaxxing`,
       description: product.shortDescription ?? product.description?.slice(0, 155) ?? "",
-      url: `https://peptidesmaxxing.com/products/${slug}`,
+      url: `https://www.peptidesmaxxing.com/products/${slug}`,
       type: "article",
       images: product.imageUrl ? [{ url: product.imageUrl, width: 800, height: 800, alt: product.name }] : [],
     },
@@ -106,11 +106,11 @@ export default async function ProductPage({
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "@id": `https://peptidesmaxxing.com/products/${slug}`,
+    "@id": `https://www.peptidesmaxxing.com/products/${slug}`,
     name: product.name,
     description: product.description,
     image: product.imageUrl,
-    url: `https://peptidesmaxxing.com/products/${slug}`,
+    url: `https://www.peptidesmaxxing.com/products/${slug}`,
     brand: { "@type": "Brand", name: "Pantheon Peptides" },
     category: product.categories[0],
     offers: {
@@ -128,9 +128,9 @@ export default async function ProductPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://peptidesmaxxing.com" },
-      { "@type": "ListItem", position: 2, name: "Products", item: "https://peptidesmaxxing.com/products" },
-      { "@type": "ListItem", position: 3, name: product.name, item: `https://peptidesmaxxing.com/products/${slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.peptidesmaxxing.com" },
+      { "@type": "ListItem", position: 2, name: "Products", item: "https://www.peptidesmaxxing.com/products" },
+      { "@type": "ListItem", position: 3, name: product.name, item: `https://www.peptidesmaxxing.com/products/${slug}` },
     ],
   }
 

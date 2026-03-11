@@ -34,7 +34,7 @@ export default async function OgImage() {
 
         {/* Logo image */}
         <img
-          src="https://peptidesmaxxing.com/images/site-logo.png"
+          src="https://www.peptidesmaxxing.com/images/site-logo.png"
           width={120}
           height={120}
           style={{ borderRadius: 24, marginBottom: 28 }}

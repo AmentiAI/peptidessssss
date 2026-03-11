@@ -30,12 +30,12 @@ export const metadata: Metadata = {
   title: "PeptidesMaxxing — Research Peptides, Cycles & Science | BPC-157, Tirzepatide, Epithalon",
   description:
     "The definitive research peptide resource. Browse 62+ peptides from Pantheon Peptides — BPC-157, TB-500, Tirzepatide, Retatrutide, Epithalon, Semax, GHK-Cu, and complete pre-built peptide cycles.",
-  alternates: { canonical: "https://peptidesmaxxing.com" },
+  alternates: { canonical: "https://www.peptidesmaxxing.com" },
   openGraph: {
     title: "PeptidesMaxxing — Research Peptides & Cycles from Pantheon Peptides",
     description:
       "62+ research-grade peptides, pre-built cycles, and expert science guides. BPC-157, Tirzepatide, Epithalon, Semax & more.",
-    url: "https://peptidesmaxxing.com",
+    url: "https://www.peptidesmaxxing.com",
     type: "website",
   },
 }
@@ -76,8 +76,8 @@ const jsonLd = {
   "@graph": [
     {
       "@type": "WebSite",
-      "@id": "https://peptidesmaxxing.com/#website",
-      url: "https://peptidesmaxxing.com",
+      "@id": "https://www.peptidesmaxxing.com/#website",
+      url: "https://www.peptidesmaxxing.com",
       name: "PeptidesMaxxing",
       description:
         "The definitive research peptide resource. 62+ peptides, pre-built cycles, and expert research guides from Pantheon Peptides.",
@@ -86,40 +86,40 @@ const jsonLd = {
         "@type": "SearchAction",
         target: {
           "@type": "EntryPoint",
-          urlTemplate: "https://peptidesmaxxing.com/products?q={search_term_string}",
+          urlTemplate: "https://www.peptidesmaxxing.com/products?q={search_term_string}",
         },
         "query-input": "required name=search_term_string",
       },
     },
     {
       "@type": "Organization",
-      "@id": "https://peptidesmaxxing.com/#organization",
+      "@id": "https://www.peptidesmaxxing.com/#organization",
       name: "PeptidesMaxxing",
-      url: "https://peptidesmaxxing.com",
+      url: "https://www.peptidesmaxxing.com",
       logo: {
         "@type": "ImageObject",
-        url: "https://peptidesmaxxing.com/images/logo.png",
+        url: "https://www.peptidesmaxxing.com/images/logo.png",
         width: 512,
         height: 512,
       },
       description:
         "Premier research peptide information and affiliate resource for Pantheon Peptides. BPC-157, Tirzepatide, Epithalon, peptide cycles, and research guides.",
       sameAs: [
-        "https://peptidesmaxxing.com",
+        "https://www.peptidesmaxxing.com",
       ],
     },
     {
       "@type": "ItemList",
-      "@id": "https://peptidesmaxxing.com/#categories",
+      "@id": "https://www.peptidesmaxxing.com/#categories",
       name: "Research Peptide Categories",
       description: "Browse research peptides by category",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Muscle Growth Peptides", url: "https://peptidesmaxxing.com/categories/muscle-growth" },
-        { "@type": "ListItem", position: 2, name: "Anti-Aging Peptides", url: "https://peptidesmaxxing.com/categories/anti-aging" },
-        { "@type": "ListItem", position: 3, name: "Weight Loss Peptides", url: "https://peptidesmaxxing.com/categories/weight-loss" },
-        { "@type": "ListItem", position: 4, name: "Brain & Nerve Peptides", url: "https://peptidesmaxxing.com/categories/brain-nerve" },
-        { "@type": "ListItem", position: 5, name: "Immunity Peptides", url: "https://peptidesmaxxing.com/categories/immunity" },
-        { "@type": "ListItem", position: 6, name: "Skin, Tissue & Bone Peptides", url: "https://peptidesmaxxing.com/categories/skin-tissue-bone" },
+        { "@type": "ListItem", position: 1, name: "Muscle Growth Peptides", url: "https://www.peptidesmaxxing.com/categories/muscle-growth" },
+        { "@type": "ListItem", position: 2, name: "Anti-Aging Peptides", url: "https://www.peptidesmaxxing.com/categories/anti-aging" },
+        { "@type": "ListItem", position: 3, name: "Weight Loss Peptides", url: "https://www.peptidesmaxxing.com/categories/weight-loss" },
+        { "@type": "ListItem", position: 4, name: "Brain & Nerve Peptides", url: "https://www.peptidesmaxxing.com/categories/brain-nerve" },
+        { "@type": "ListItem", position: 5, name: "Immunity Peptides", url: "https://www.peptidesmaxxing.com/categories/immunity" },
+        { "@type": "ListItem", position: 6, name: "Skin, Tissue & Bone Peptides", url: "https://www.peptidesmaxxing.com/categories/skin-tissue-bone" },
       ],
     },
   ],

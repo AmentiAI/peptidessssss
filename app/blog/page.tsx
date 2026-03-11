@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Peptide Research Blog — Science-Backed Guides on BPC-157, Tirzepatide & More",
   description:
     "In-depth research articles on BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, looksmaxxing peptides, and more. Evidence-based peptide science from the PeptidesMaxxing research team.",
-  alternates: { canonical: "https://peptidesmaxxing.com/blog" },
+  alternates: { canonical: "https://www.peptidesmaxxing.com/blog" },
   openGraph: {
     title: "Peptide Research Blog | PeptidesMaxxing",
     description: "Science-backed guides on BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, and looksmaxxing peptides.",
-    url: "https://peptidesmaxxing.com/blog",
+    url: "https://www.peptidesmaxxing.com/blog",
     type: "website",
   },
   twitter: {

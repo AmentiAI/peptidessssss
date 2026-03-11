@@ -5,7 +5,7 @@ import {
   getAllGuideSlugs,
 } from "@/lib/peptide-data"
 
-const BASE_URL = "https://peptidesmaxxing.com"
+const BASE_URL = "https://www.peptidesmaxxing.com"
 const TODAY = new Date("2026-03-10")
 
 export default async function sitemap() {

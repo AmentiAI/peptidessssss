@@ -26,11 +26,11 @@ export async function generateMetadata({
   return {
     title: guide.title,
     description: guide.description,
-    alternates: { canonical: `https://peptidesmaxxing.com/guides/${slug}` },
+    alternates: { canonical: `https://www.peptidesmaxxing.com/guides/${slug}` },
     openGraph: {
       title: guide.title,
       description: guide.description,
-      url: `https://peptidesmaxxing.com/guides/${slug}`,
+      url: `https://www.peptidesmaxxing.com/guides/${slug}`,
       type: "article",
       images: guide.imageUrl ? [{ url: guide.imageUrl, width: 1200, height: 630, alt: guide.title }] : [],
     },
@@ -92,24 +92,24 @@ export default async function GuidePage({
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "@id": `https://peptidesmaxxing.com/guides/${slug}`,
+    "@id": `https://www.peptidesmaxxing.com/guides/${slug}`,
     headline: guide.title,
     description: guide.description,
-    url: `https://peptidesmaxxing.com/guides/${slug}`,
+    url: `https://www.peptidesmaxxing.com/guides/${slug}`,
     datePublished: guide.date?.toISOString(),
     dateModified: guide.updatedAt?.toISOString() ?? guide.date?.toISOString(),
     author: {
       "@type": "Organization",
       name: guide.author ?? "PeptidesMaxxing Research Team",
-      url: "https://peptidesmaxxing.com",
+      url: "https://www.peptidesmaxxing.com",
     },
     publisher: {
       "@type": "Organization",
       name: "PeptidesMaxxing",
-      url: "https://peptidesmaxxing.com",
-      logo: { "@type": "ImageObject", url: "https://peptidesmaxxing.com/images/logo.png" },
+      url: "https://www.peptidesmaxxing.com",
+      logo: { "@type": "ImageObject", url: "https://www.peptidesmaxxing.com/images/logo.png" },
     },
-    mainEntityOfPage: { "@type": "WebPage", "@id": `https://peptidesmaxxing.com/guides/${slug}` },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `https://www.peptidesmaxxing.com/guides/${slug}` },
     ...(guide.imageUrl ? { image: { "@type": "ImageObject", url: guide.imageUrl, width: 1200, height: 630 } } : {}),
     inLanguage: "en-US",
   }
@@ -118,9 +118,9 @@ export default async function GuidePage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://peptidesmaxxing.com" },
-      { "@type": "ListItem", position: 2, name: "Research Guides", item: "https://peptidesmaxxing.com/guides" },
-      { "@type": "ListItem", position: 3, name: guide.title, item: `https://peptidesmaxxing.com/guides/${slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.peptidesmaxxing.com" },
+      { "@type": "ListItem", position: 2, name: "Research Guides", item: "https://www.peptidesmaxxing.com/guides" },
+      { "@type": "ListItem", position: 3, name: guide.title, item: `https://www.peptidesmaxxing.com/guides/${slug}` },
     ],
   }
 

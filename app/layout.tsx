@@ -16,7 +16,7 @@ const syne = Syne({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://peptidesmaxxing.com"),
+  metadataBase: new URL("https://www.peptidesmaxxing.com"),
   title: {
     template: "%s | PeptidesMaxxing",
     default:
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     "muscle growth peptides",
     "cognitive peptides",
   ],
-  authors: [{ name: "PeptidesMaxxing Research Team", url: "https://peptidesmaxxing.com" }],
+  authors: [{ name: "PeptidesMaxxing Research Team", url: "https://www.peptidesmaxxing.com" }],
   creator: "PeptidesMaxxing",
   publisher: "PeptidesMaxxing",
   category: "Research & Science",
@@ -77,11 +77,11 @@ export const metadata: Metadata = {
       "PeptidesMaxxing — Research Peptides, Cycles & Science from Pantheon Peptides",
     description:
       "The definitive research peptide resource. 62+ peptides from Pantheon Peptides including BPC-157, Tirzepatide, Epithalon, complete cycles, and expert research guides.",
-    url: "https://peptidesmaxxing.com",
+    url: "https://www.peptidesmaxxing.com",
     locale: "en_US",
     images: [
       {
-        url: "https://peptidesmaxxing.com/opengraph-image",
+        url: "https://www.peptidesmaxxing.com/opengraph-image",
         width: 1200,
         height: 630,
         alt: "PeptidesMaxxing — Research Peptides & Cycles from Pantheon Peptides",
@@ -96,7 +96,7 @@ export const metadata: Metadata = {
       "PeptidesMaxxing — Research Peptides & Cycles from Pantheon Peptides",
     description:
       "62+ research-grade peptides, pre-built cycles, and expert science guides. BPC-157, Tirzepatide, Epithalon, Semax & more.",
-    images: ["https://peptidesmaxxing.com/opengraph-image"],
+    images: ["https://www.peptidesmaxxing.com/opengraph-image"],
   },
   icons: {
     icon: [
@@ -108,7 +108,7 @@ export const metadata: Metadata = {
     shortcut: "/icon.png",
   },
   alternates: {
-    canonical: "https://peptidesmaxxing.com",
+    canonical: "https://www.peptidesmaxxing.com",
   },
   verification: {
     google: "",

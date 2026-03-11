@@ -30,11 +30,11 @@ export async function generateMetadata({
   return {
     title: `${cat.name} Peptides — Mechanisms, Research & Protocols`,
     description: cat.seoDescription ?? `Browse ${cat.name} research peptides from Pantheon Peptides. Mechanisms, protocols, and complete product catalog.`,
-    alternates: { canonical: `https://peptidesmaxxing.com/categories/${slug}` },
+    alternates: { canonical: `https://www.peptidesmaxxing.com/categories/${slug}` },
     openGraph: {
       title: `${cat.name} Research Peptides | PeptidesMaxxing`,
       description: cat.seoDescription ?? `Browse ${cat.name} research peptides from Pantheon Peptides.`,
-      url: `https://peptidesmaxxing.com/categories/${slug}`,
+      url: `https://www.peptidesmaxxing.com/categories/${slug}`,
       type: "website",
     },
     twitter: {

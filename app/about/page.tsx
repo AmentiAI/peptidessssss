@@ -10,11 +10,11 @@ export const metadata: Metadata = {
   title: "About PeptidesMaxxing — Research Peptide Resource & Affiliate Disclosure",
   description:
     "About PeptidesMaxxing — our mission, affiliate disclosure, research philosophy, and commitment to accurate, science-backed peptide information.",
-  alternates: { canonical: "https://peptidesmaxxing.com/about" },
+  alternates: { canonical: "https://www.peptidesmaxxing.com/about" },
   openGraph: {
     title: "About PeptidesMaxxing",
     description: "Our mission: providing accurate, evidence-based research peptide information. Affiliate disclosure and research philosophy.",
-    url: "https://peptidesmaxxing.com/about",
+    url: "https://www.peptidesmaxxing.com/about",
     type: "website",
   },
 }

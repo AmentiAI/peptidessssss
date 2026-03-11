@@ -16,7 +16,7 @@ export default function robots() {
         allow: "/",
       },
     ],
-    sitemap: "https://peptidesmaxxing.com/sitemap.xml",
-    host: "https://peptidesmaxxing.com",
+    sitemap: "https://www.peptidesmaxxing.com/sitemap.xml",
+    host: "https://www.peptidesmaxxing.com",
   }
 }

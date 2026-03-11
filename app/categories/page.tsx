@@ -8,11 +8,11 @@ export const metadata: Metadata = {
   title: "Research Peptide Categories — Muscle Growth, Anti-Aging, Weight Loss & More",
   description:
     "Browse research peptides by goal: Muscle Growth, Recovery & Repair, Anti-Aging, Weight Loss, Brain/Nerve, Immunity, Libido, Skin/Tissue/Bone, and Peptide Cycles. Find the right peptide for your research.",
-  alternates: { canonical: "https://peptidesmaxxing.com/categories" },
+  alternates: { canonical: "https://www.peptidesmaxxing.com/categories" },
   openGraph: {
     title: "Research Peptide Categories | PeptidesMaxxing",
     description: "Browse 62+ peptides by goal — muscle growth, anti-aging, weight loss, brain health, immunity, libido, and skin/tissue.",
-    url: "https://peptidesmaxxing.com/categories",
+    url: "https://www.peptidesmaxxing.com/categories",
     type: "website",
   },
   twitter: {
