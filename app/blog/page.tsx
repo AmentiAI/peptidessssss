@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     description: "BPC-157 benefits, Tirzepatide dosing, Epithalon telomeres, Semax BDNF, GHK-Cu collagen, Ipamorelin GH — peptide science guides from PeptidesMaxxing.",
     url: "https://www.peptidesmaxxing.com/blog",
     type: "website",
+    images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",

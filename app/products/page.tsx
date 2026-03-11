@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     description: "Buy BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin — 62+ peptides from Pantheon Peptides for muscle growth, fat loss, anti-aging, and cognitive goals.",
     url: "https://www.peptidesmaxxing.com/products",
     type: "website",
+    images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",

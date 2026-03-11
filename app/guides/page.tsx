@@ -15,6 +15,7 @@ export const metadata: Metadata = {
     description: "BPC-157 storage, Ipamorelin + CJC-1295 GH stacking, HPLC purity testing, Epithalon longevity protocols — complete peptide guides from PeptidesMaxxing.",
     url: "https://www.peptidesmaxxing.com/guides",
     type: "website",
+    images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",

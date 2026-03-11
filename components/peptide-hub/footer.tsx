@@ -19,6 +19,7 @@ const RESOURCE_LINKS = [
   { href: "/blog", label: "Research Blog" },
   { href: "/guides", label: "Research Guides" },
   { href: "/about", label: "About PeptidesMaxxing" },
+  { href: "/sitemap.xml", label: "Sitemap" },
 ]
 
 export function Footer() {

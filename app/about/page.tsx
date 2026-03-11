@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     description: "PeptidesMaxxing provides detailed guides on BPC-157, Tirzepatide, Ipamorelin, Epithalon, GHK-Cu, and 62+ peptides from Pantheon Peptides. Affiliate resource — full commission disclosure.",
     url: "https://www.peptidesmaxxing.com/about",
     type: "website",
+    images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],
   },
 }
 

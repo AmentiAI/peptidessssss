@@ -4,9 +4,10 @@ import {
   getAllBlogSlugs,
   getAllGuideSlugs,
 } from "@/lib/peptide-data"
+import { getAllStackGuides } from "@/lib/stack-guides"
 
 const BASE_URL = "https://www.peptidesmaxxing.com"
-const TODAY = new Date("2026-03-10")
+const TODAY = new Date("2026-03-11")
 
 export default async function sitemap() {
   const [productSlugs, categorySlugs, blogSlugs, guideSlugs] = await Promise.all([
@@ -15,6 +16,7 @@ export default async function sitemap() {
     getAllBlogSlugs(),
     getAllGuideSlugs(),
   ])
+  const stackGuides = getAllStackGuides()
 
   const productPages = productSlugs.map((slug) => ({
     url: `${BASE_URL}/products/${slug}`,
@@ -42,6 +44,13 @@ export default async function sitemap() {
     lastModified: TODAY,
     changeFrequency: "monthly" as const,
     priority: 0.75,
+  }))
+
+  const stackGuidePages = stackGuides.map((s) => ({
+    url: `${BASE_URL}/stacks/${s.slug}`,
+    lastModified: TODAY,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
   }))
 
   return [
@@ -89,6 +98,7 @@ export default async function sitemap() {
     },
     ...productPages,
     ...categoryPages,
+    ...stackGuidePages,
     ...blogPages,
     ...guidePages,
   ]

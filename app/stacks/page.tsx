@@ -16,6 +16,7 @@ export const metadata: Metadata = {
     description: "Wolverine (recovery), Glow Plus (anti-aging), Nova Mind (cognitive), Prime Metabolic (fat loss), T-Force Immunity, Eros Stamina (libido) — complete peptide cycle programs from Pantheon Peptides.",
     url: "https://www.peptidesmaxxing.com/stacks",
     type: "website",
+    images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
