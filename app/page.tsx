@@ -29,7 +29,7 @@ import { staticProducts } from "@/lib/static-products"
 export const metadata: Metadata = {
   title: "PeptidesMaxxing — Peptides, Cycles & Science | BPC-157, Tirzepatide, Epithalon",
   description:
-    "The definitive peptide resource. Browse 62+ peptides from Pantheon Peptides — BPC-157, TB-500, Tirzepatide, Retatrutide, Epithalon, Semax, GHK-Cu, and complete pre-built peptide cycles.",
+    "BPC-157, TB-500, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, CJC-1295, Retatrutide — 62+ peptides from Pantheon Peptides. Buy muscle growth, anti-aging, fat loss, and cognitive peptides with complete cycle guides.",
   alternates: { canonical: "https://www.peptidesmaxxing.com" },
   openGraph: {
     title: "PeptidesMaxxing — Peptides & Cycles from Pantheon Peptides",
@@ -80,7 +80,7 @@ const jsonLd = {
       url: "https://www.peptidesmaxxing.com",
       name: "PeptidesMaxxing",
       description:
-        "The definitive peptide resource. 62+ peptides, pre-built cycles, and expert research guides from Pantheon Peptides.",
+        "62+ peptides from Pantheon Peptides — BPC-157, Tirzepatide, Epithalon, Ipamorelin, GHK-Cu, Semax, TB-500. Muscle growth, fat loss, anti-aging, cognitive, and longevity peptide cycles.",
       inLanguage: "en-US",
       potentialAction: {
         "@type": "SearchAction",

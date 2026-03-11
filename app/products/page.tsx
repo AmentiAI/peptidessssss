@@ -8,18 +8,18 @@ import Link from "next/link"
 export const metadata: Metadata = {
   title: "All Peptides — Full Catalog | BPC-157, Tirzepatide, Epithalon & 60+ More",
   description:
-    "Browse all 62+ peptides from Pantheon Peptides. BPC-157, TB-500, Tirzepatide, Retatrutide, Epithalon, Semax, GHK-Cu, PT-141, Cerebrolysin, and more.",
+    "Buy BPC-157, TB-500, Tirzepatide, Retatrutide, Epithalon, Semax, GHK-Cu, PT-141, Ipamorelin, CJC-1295, Cerebrolysin, MOTS-C — full catalog of 62+ peptides from Pantheon Peptides for muscle, fat loss, anti-aging, and cognitive goals.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/products" },
   openGraph: {
     title: "All Peptides — Full Catalog | BPC-157, Tirzepatide, Epithalon & 60+ More",
-    description: "62+ peptides from Pantheon Peptides — BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, complete peptide cycles.",
+    description: "Buy BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin — 62+ peptides from Pantheon Peptides for muscle growth, fat loss, anti-aging, and cognitive goals.",
     url: "https://www.peptidesmaxxing.com/products",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "All Peptides — 62+ Compounds from Pantheon Peptides",
-    description: "Browse the full Pantheon Peptides catalog — BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, and more.",
+    description: "Full catalog: BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, CJC-1295, TB-500, PT-141, Cerebrolysin — 62+ peptides from Pantheon Peptides.",
   },
 }
 

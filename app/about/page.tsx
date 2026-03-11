@@ -9,11 +9,11 @@ const AFFILIATE_URL =
 export const metadata: Metadata = {
   title: "About PeptidesMaxxing — Affiliate Disclosure & Our Mission",
   description:
-    "About PeptidesMaxxing — our mission, affiliate disclosure, and commitment to accurate, science-backed peptide information.",
+    "PeptidesMaxxing is an affiliate resource for Pantheon Peptides — featuring BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, and 62+ peptides. Full affiliate disclosure and sourcing philosophy.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/about" },
   openGraph: {
     title: "About PeptidesMaxxing",
-    description: "Our mission: providing accurate, evidence-based peptide information. Affiliate disclosure and philosophy.",
+    description: "PeptidesMaxxing provides detailed guides on BPC-157, Tirzepatide, Ipamorelin, Epithalon, GHK-Cu, and 62+ peptides from Pantheon Peptides. Affiliate resource — full commission disclosure.",
     url: "https://www.peptidesmaxxing.com/about",
     type: "website",
   },

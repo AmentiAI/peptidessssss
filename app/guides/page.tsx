@@ -8,18 +8,18 @@ import { getAllGuides } from "@/lib/peptide-data"
 export const metadata: Metadata = {
   title: "Peptide Guides — Reconstitution, Storage, Protocols & Science",
   description:
-    "Complete peptide guides: storage & reconstitution, GH stacking protocols, purity verification, longevity stacks. Expert guides for anyone working with peptides.",
+    "How to reconstitute BPC-157, stack Ipamorelin + CJC-1295, verify peptide purity, and run longevity protocols with Epithalon + GHK-Cu — complete peptide handling and stacking guides.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/guides" },
   openGraph: {
     title: "Peptide Guides — Reconstitution, Storage, Protocols & Science",
-    description: "Complete guides to peptide reconstitution, storage, GH stacking, purity, and longevity protocols.",
+    description: "BPC-157 storage, Ipamorelin + CJC-1295 GH stacking, HPLC purity testing, Epithalon longevity protocols — complete peptide guides from PeptidesMaxxing.",
     url: "https://www.peptidesmaxxing.com/guides",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Peptide Guides — Storage, Stacking & Protocols",
-    description: "Reconstitution, storage, stacking, and longevity protocol guides for peptides.",
+    description: "Peptide reconstitution, storage, GH stacking (Ipamorelin + CJC-1295), purity verification, and Epithalon + GHK-Cu longevity stacks — full protocol guides.",
   },
 }
 

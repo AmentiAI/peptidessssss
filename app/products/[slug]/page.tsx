@@ -28,7 +28,7 @@ export async function generateMetadata({
   const { slug } = await params
   const product = await getProductBySlug(slug)
   if (!product) return {}
-  const desc = (product.shortDescription ?? product.description?.slice(0, 140) ?? "") + " Research use only. From Pantheon Peptides."
+  const desc = (product.shortDescription ?? product.description?.slice(0, 140) ?? "") + " Buy from Pantheon Peptides — mechanisms, dosing, and benefits."
   return {
     title: `${product.name} — Peptide Guide, Mechanisms & Benefits`,
     description: desc,

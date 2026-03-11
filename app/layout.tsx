@@ -23,7 +23,7 @@ export const metadata: Metadata = {
       "PeptidesMaxxing — Peptides, Cycles & Science from Pantheon Peptides",
   },
   description:
-    "The definitive peptide resource. Browse 62+ peptides from Pantheon Peptides — BPC-157, Tirzepatide, Retatrutide, Epithalon, Semax, GHK-Cu, and complete peptide cycles.",
+    "BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, CJC-1295, TB-500 — browse 62+ peptides from Pantheon Peptides. Muscle growth, fat loss, anti-aging, cognitive, and longevity stacks.",
   keywords: [
     "peptides",
     "BPC-157",
