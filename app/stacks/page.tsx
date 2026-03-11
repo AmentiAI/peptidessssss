@@ -4,6 +4,7 @@ import { ArrowRight, FlaskConical, Package } from "lucide-react"
 import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { getAllProducts } from "@/lib/peptide-data"
 import { ProductCard } from "@/components/peptide-hub/product-card"
+import { getAllStackGuides } from "@/lib/stack-guides"
 
 export const metadata: Metadata = {
   title: "Peptide Cycles & Stacks — Wolverine, Glow Plus, Nova Mind & More",
@@ -29,6 +30,7 @@ const AFFILIATE_URL =
 export default async function StacksPage() {
   const allProducts = await getAllProducts()
   const bundleProducts = allProducts.filter((p) => p.isBundle)
+  const stackGuides = getAllStackGuides()
 
   // Separate cycles from compound combos
   const cycles = bundleProducts.filter((p) => p.name.toLowerCase().includes("cycle"))
@@ -46,12 +48,61 @@ export default async function StacksPage() {
             </span>
           </div>
           <h1 className="text-5xl sm:text-6xl font-bold text-slate-900 mb-4">
-            Research Cycles & Stacks
+            Peptide Cycles & Stacks
           </h1>
           <p className="text-lg text-slate-500 max-w-2xl mx-auto">
             Pre-built synergistic peptide combinations from Pantheon Peptides — designed for specific
-            research goals with complementary mechanisms.
+            goals with complementary mechanisms.
           </p>
+        </div>
+      </section>
+
+      {/* Stack Guides */}
+      <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="mb-10">
+          <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">
+            Expert Stack Guides
+          </p>
+          <h2 className="text-3xl font-bold text-slate-900">Synergistic Peptide Stacks</h2>
+          <p className="text-slate-500 mt-1">
+            In-depth guides on the most effective peptide combinations — mechanisms, protocols, and full benefit breakdowns.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+          {stackGuides.map((stack) => (
+            <Link
+              key={stack.slug}
+              href={`/stacks/${stack.slug}`}
+              className="group flex flex-col p-5 rounded-2xl border border-slate-200 bg-white hover:border-slate-400 hover:shadow-md transition-all duration-200"
+            >
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-3xl">{stack.emoji}</span>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-bold text-slate-900 leading-tight group-hover:text-blue-600 transition-colors">
+                    {stack.name}
+                  </p>
+                </div>
+              </div>
+              <p className="text-xs text-slate-500 mb-3">{stack.tagline}</p>
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                {stack.peptides.map((p) => (
+                  <span key={p} className="px-2 py-0.5 rounded-md text-xs font-semibold bg-slate-100 text-slate-700">
+                    {p}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-auto flex flex-wrap gap-1">
+                {stack.tags.slice(0, 2).map((tag) => (
+                  <span key={tag} className="px-2 py-0.5 rounded-full text-xs text-blue-600 bg-blue-50 border border-blue-100">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div className="mt-4 flex items-center text-xs font-semibold text-slate-900 group-hover:text-blue-600 transition-colors">
+                View Stack Guide <ArrowRight className="w-3.5 h-3.5 ml-1" />
+              </div>
+            </Link>
+          ))}
         </div>
       </section>
 
