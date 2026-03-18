@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import { Inter, Syne } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import Script from "next/script"
 import "./globals.css"
 
 const inter = Inter({
@@ -132,6 +133,18 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://pantheonpeptides.com" />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-0YQPTV1LG9"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-0YQPTV1LG9');
+          `}
+        </Script>
       </head>
       <body className="antialiased">
         {children}
