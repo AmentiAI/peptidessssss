@@ -16,6 +16,12 @@ export const metadata: Metadata = {
     description: "Reconstitution calculator, dosage calculator, and peptide finder. Free tools for peptide researchers.",
     url: "https://www.peptidesmaxxing.com/tools",
     type: "website",
+    images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Peptide Research Tools — Calculators & Peptide Finder",
+    description: "Free peptide tools: Reconstitution Calculator, Dosage Calculator, and Peptide Finder quiz. Match peptides to your research goals.",
   },
 }
 

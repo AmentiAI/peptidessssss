@@ -7,22 +7,41 @@ const AFFILIATE_URL =
   process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
 
 export const metadata: Metadata = {
-  title: "About PeptidesMaxxing — Pantheon Peptides Affiliate & Sourcing Standards",
+  title: "About PeptidesMaxxing — Affiliate & Research Standards",
   description:
-    "PeptidesMaxxing is an affiliate resource for Pantheon Peptides — featuring BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, and 62+ peptides. Full affiliate disclosure and sourcing philosophy.",
+    "PeptidesMaxxing is a Pantheon Peptides affiliate featuring 62+ research peptides. Read our affiliate disclosure, sourcing standards, and research philosophy.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/about" },
   openGraph: {
-    title: "About PeptidesMaxxing — Sourcing Standards & Affiliate Disclosure",
-    description: "PeptidesMaxxing provides detailed guides on BPC-157, Tirzepatide, Ipamorelin, Epithalon, GHK-Cu, and 62+ peptides from Pantheon Peptides. Affiliate resource — full commission disclosure.",
+    title: "About PeptidesMaxxing — Affiliate & Research Standards",
+    description: "PeptidesMaxxing is a Pantheon Peptides affiliate featuring 62+ research peptides. Read our affiliate disclosure, sourcing standards, and research philosophy.",
     url: "https://www.peptidesmaxxing.com/about",
     type: "website",
     images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "About PeptidesMaxxing — Affiliate & Research Standards",
+    description: "PeptidesMaxxing is a Pantheon Peptides affiliate featuring 62+ research peptides. Full affiliate disclosure and sourcing philosophy.",
+  },
+}
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://www.peptidesmaxxing.com/#organization",
+  name: "PeptidesMaxxing",
+  url: "https://www.peptidesmaxxing.com",
+  description: "PeptidesMaxxing is an affiliate information resource for Pantheon Peptides, covering 62+ research peptides including BPC-157, Tirzepatide, Epithalon, Semax, and GHK-Cu.",
+  sameAs: [
+    "https://www.reddit.com/r/PeptidesMaxxing",
+    "https://x.com/peptidesmaxxing",
+  ],
 }
 
 export default function AboutPage() {
   return (
     <PageLayout>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
       <section className="py-20 border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-4 mb-6">

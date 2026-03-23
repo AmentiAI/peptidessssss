@@ -4,8 +4,8 @@ import { ArrowRight, FlaskConical, Search } from "lucide-react"
 import { PageLayout } from "@/components/peptide-hub/page-layout"
 
 export const metadata: Metadata = {
-  title: "Page Not Found — PeptidesMaxxing",
-  description: "The page you were looking for doesn't exist. Browse 62+ research peptides from Pantheon Peptides.",
+  title: "Page Not Found — PeptidesMaxxing Research Peptides",
+  description: "The page you're looking for doesn't exist. Browse 62+ research peptides from Pantheon Peptides — BPC-157, Tirzepatide, Epithalon, Semax & more.",
   robots: { index: false, follow: true },
 }
 

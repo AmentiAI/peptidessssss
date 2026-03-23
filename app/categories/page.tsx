@@ -5,13 +5,13 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { getAllCategories, getAllProducts } from "@/lib/peptide-data"
 
 export const metadata: Metadata = {
-  title: "Peptide Categories — Muscle Growth, Fat Loss, Anti-Aging, Brain & Longevity",
+  title: "Peptide Categories — Muscle, Fat Loss & Anti-Aging",
   description:
-    "Shop peptides by goal — muscle growth (BPC-157, Ipamorelin, CJC-1295), anti-aging (Epithalon, GHK-Cu), fat loss (Tirzepatide, AOD9604), cognitive (Semax, Selank), immunity, libido, and skin peptides from Pantheon Peptides.",
+    "Browse 62+ peptides by research goal. Muscle growth, anti-aging, fat loss, cognitive, immunity, libido, and skin categories — all from Pantheon Peptides.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/categories" },
   openGraph: {
-    title: "Peptide Categories — Muscle Growth, Fat Loss, Anti-Aging, Brain & Longevity",
-    description: "Muscle growth, anti-aging, weight loss, brain, immunity, libido, and skin peptides — 62+ options from Pantheon Peptides including BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, and more.",
+    title: "Peptide Categories — Muscle, Fat Loss & Anti-Aging",
+    description: "Browse 62+ peptides by research goal. Muscle growth, anti-aging, fat loss, cognitive, immunity, libido, and skin categories — all from Pantheon Peptides.",
     url: "https://www.peptidesmaxxing.com/categories",
     type: "website",
     images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],

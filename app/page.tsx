@@ -27,9 +27,9 @@ import {
 import { staticProducts } from "@/lib/static-products"
 
 export const metadata: Metadata = {
-  title: "PeptidesMaxxing — BPC-157, Tirzepatide, Epithalon, Semax & 60+ Peptides",
+  title: "PeptidesMaxxing — BPC-157, Tirzepatide & 60+ Peptides",
   description:
-    "BPC-157, TB-500, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, CJC-1295, Retatrutide — 62+ peptides from Pantheon Peptides. Buy muscle growth, anti-aging, fat loss, and cognitive peptides with complete cycle guides.",
+    "62+ research peptides from Pantheon Peptides. BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu — muscle growth, anti-aging, fat loss, and cognitive stacks with complete cycle guides.",
   alternates: { canonical: "https://www.peptidesmaxxing.com" },
   openGraph: {
     title: "PeptidesMaxxing — Buy BPC-157, Tirzepatide, Epithalon & 60+ Peptides",
@@ -82,14 +82,6 @@ const jsonLd = {
       description:
         "62+ peptides from Pantheon Peptides — BPC-157, Tirzepatide, Epithalon, Ipamorelin, GHK-Cu, Semax, TB-500. Muscle growth, fat loss, anti-aging, cognitive, and longevity peptide cycles.",
       inLanguage: "en-US",
-      potentialAction: {
-        "@type": "SearchAction",
-        target: {
-          "@type": "EntryPoint",
-          urlTemplate: "https://www.peptidesmaxxing.com/products?q={search_term_string}",
-        },
-        "query-input": "required name=search_term_string",
-      },
     },
     {
       "@type": "Organization",
@@ -142,6 +134,9 @@ export default async function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+
+      {/* SEO H1 — screen-reader accessible site heading */}
+      <h1 className="sr-only">PeptidesMaxxing — Research Peptides from Pantheon Peptides</h1>
 
       {/* HERO CAROUSEL */}
       <HeroCarousel products={carouselProducts} />

@@ -13,9 +13,9 @@ const CATEGORY_HIGHLIGHTS = [
 ]
 
 export const metadata: Metadata = {
-  title: "Buy BPC-157, Tirzepatide, Epithalon, Ipamorelin, GHK-Cu & 60+ Peptides",
+  title: "Buy BPC-157, Tirzepatide, Epithalon & 60+ Peptides",
   description:
-    "Buy BPC-157, TB-500, Tirzepatide, Retatrutide, Epithalon, Semax, GHK-Cu, PT-141, Ipamorelin, CJC-1295, Cerebrolysin, MOTS-C — full catalog of 62+ peptides from Pantheon Peptides for muscle, fat loss, anti-aging, and cognitive goals.",
+    "62+ research peptides from Pantheon Peptides. Browse by goal: muscle growth, fat loss, anti-aging, cognitive, immunity, and libido peptides. BPC-157, Tirzepatide, Epithalon & more.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/products" },
   openGraph: {
     title: "Buy BPC-157, Tirzepatide, Epithalon, Ipamorelin, GHK-Cu & 60+ Peptides",
