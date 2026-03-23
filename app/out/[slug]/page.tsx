@@ -1,9 +1,14 @@
 import { getAllProductSlugs } from "@/lib/peptide-data"
+import { getAllStackGuides } from "@/lib/stack-guides"
 import { RedirectClient } from "./redirect-client"
 
 export async function generateStaticParams() {
-  const slugs = await getAllProductSlugs()
-  return slugs.map((slug) => ({ slug }))
+  const [productSlugs, stackGuides] = await Promise.all([
+    getAllProductSlugs(),
+    Promise.resolve(getAllStackGuides()),
+  ])
+  const stackSlugs = stackGuides.map((s) => s.slug)
+  return [...productSlugs, ...stackSlugs].map((slug) => ({ slug }))
 }
 
 const AFFILIATE_URL =

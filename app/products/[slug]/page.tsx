@@ -279,15 +279,14 @@ export default async function ProductPage({
                   <span className="text-sm font-semibold text-green-700">Trusted Supplier</span>
                 </div>
               </div>
-              <a
-                href={AFFILIATE_URL}
+              <Link
+                href={`/out/${slug}`}
                 target="_blank"
-                rel="nofollow sponsored noopener noreferrer"
                 className="flex items-center justify-center gap-3 w-full py-4 rounded-xl text-base font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors mb-3"
               >
                 <ShoppingCart className="w-5 h-5" />
                 Buy {product.name} on Pantheon Peptides
-              </a>
+              </Link>
               <p className="text-xs text-center text-slate-400">
                 Affiliate disclosure: PeptidesMaxxing earns a commission at no cost to you.
               </p>
@@ -368,15 +367,14 @@ export default async function ProductPage({
                 <p className="font-bold text-slate-900 text-lg">Ready to order {product.name}?</p>
                 <p className="text-sm text-slate-500">Research-grade purity from Pantheon Peptides.</p>
               </div>
-              <a
-                href={product.productUrl}
+              <Link
+                href={`/out/${slug}`}
                 target="_blank"
-                rel="nofollow sponsored noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors whitespace-nowrap"
               >
                 <ShoppingCart className="w-4 h-4" />
                 Order Now
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -416,15 +414,14 @@ export default async function ProductPage({
           <p className="text-slate-500 mb-6">
             Get {product.name} directly from Pantheon Peptides.
           </p>
-          <a
-            href={AFFILIATE_URL}
+          <Link
+            href={`/out/${slug}`}
             target="_blank"
-            rel="nofollow sponsored noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
           >
             <ShoppingCart className="w-5 h-5" />
             Buy {product.name} on Pantheon
-          </a>
+          </Link>
         </div>
       </section>
     </PageLayout>

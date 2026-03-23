@@ -88,9 +88,8 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
             <span className="text-sm font-semibold text-blue-600">Check Price</span>
           )}
           <Link
-            href={AFFILIATE_URL}
+            href={`/out/${product.slug}`}
             target="_blank"
-            rel="nofollow sponsored noopener noreferrer"
             className="ml-auto flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
           >
             <ShoppingCart className="w-3.5 h-3.5" />

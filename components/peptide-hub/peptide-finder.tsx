@@ -175,9 +175,8 @@ export function PeptideFinder() {
                     <ArrowRight className="w-3 h-3" />
                   </a>
                   <a
-                    href={AFFILIATE_URL}
+                    href={`/out/${p.slug}`}
                     target="_blank"
-                    rel="nofollow sponsored noopener noreferrer"
                     className="flex items-center gap-1 px-3 py-1.5 rounded-lg border border-slate-200 text-slate-600 text-xs font-medium hover:border-blue-400 hover:text-blue-600 transition-colors whitespace-nowrap"
                   >
                     Buy
