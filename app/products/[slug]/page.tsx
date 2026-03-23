@@ -1,3 +1,4 @@
+import React from "react"
 import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
@@ -68,6 +69,29 @@ export default async function ProductPage({
     .filter((s) => s.length > 10)
     .slice(0, 6)
 
+  function parseInline(text: string): React.ReactNode {
+    const linkRegex = /\[([^\]]+)\]\(([^)]+)\)/g
+    const parts: React.ReactNode[] = []
+    let lastIndex = 0
+    let match: RegExpExecArray | null
+    while ((match = linkRegex.exec(text)) !== null) {
+      if (match.index > lastIndex) parts.push(text.slice(lastIndex, match.index))
+      const [, label, href] = match
+      if (href.startsWith("/")) {
+        parts.push(
+          <Link key={match.index} href={href} className="text-blue-600 hover:text-blue-800 underline underline-offset-2 font-medium transition-colors">
+            {label}
+          </Link>
+        )
+      } else {
+        parts.push(<a key={match.index} href={href} className="text-blue-600 hover:text-blue-800 underline underline-offset-2 transition-colors">{label}</a>)
+      }
+      lastIndex = match.index + match[0].length
+    }
+    if (lastIndex < text.length) parts.push(text.slice(lastIndex))
+    return parts.length === 0 ? text : parts.length === 1 ? parts[0] : <>{parts}</>
+  }
+
   function renderResearch(content: string) {
     return content.split("\n").map((line, i) => {
       if (line.startsWith("## "))
@@ -85,7 +109,7 @@ export default async function ProductPage({
       if (line.startsWith("- "))
         return (
           <li key={i} className="text-slate-600 leading-relaxed ml-4 mb-1 list-disc">
-            {line.slice(2)}
+            {parseInline(line.slice(2))}
           </li>
         )
       if (line.startsWith("**") && line.endsWith("**"))
@@ -97,7 +121,7 @@ export default async function ProductPage({
       if (line.trim() === "") return <div key={i} className="mb-3" />
       return (
         <p key={i} className="text-slate-600 leading-[1.85] mb-3">
-          {line}
+          {parseInline(line)}
         </p>
       )
     })
