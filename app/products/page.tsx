@@ -2,8 +2,15 @@ import type { Metadata } from "next"
 import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { ProductCard } from "@/components/peptide-hub/product-card"
 import { getAllProducts, getAllCategories } from "@/lib/peptide-data"
-import { FlaskConical, Filter } from "lucide-react"
+import { FlaskConical, Filter, Shield, Zap, TrendingUp, Brain } from "lucide-react"
 import Link from "next/link"
+
+const CATEGORY_HIGHLIGHTS = [
+  { icon: TrendingUp, label: "Muscle Growth", href: "/categories/muscle-growth", color: "#2563eb" },
+  { icon: Zap, label: "Weight Loss", href: "/categories/weight-loss", color: "#dc2626" },
+  { icon: Shield, label: "Anti-Aging", href: "/categories/anti-aging", color: "#7c3aed" },
+  { icon: Brain, label: "Brain & Nerve", href: "/categories/brain-nerve", color: "#059669" },
+]
 
 export const metadata: Metadata = {
   title: "Buy BPC-157, Tirzepatide, Epithalon, Ipamorelin, GHK-Cu & 60+ Peptides",
@@ -24,6 +31,14 @@ export const metadata: Metadata = {
   },
 }
 
+const itemListJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "Research Peptides Catalog",
+  description: "62+ research-grade peptides from Pantheon Peptides",
+  url: "https://www.peptidesmaxxing.com/products",
+}
+
 export default async function ProductsPage() {
   const [products, categories] = await Promise.all([getAllProducts(), getAllCategories()])
 
@@ -33,6 +48,7 @@ export default async function ProductsPage() {
 
   return (
     <PageLayout>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
       {/* Hero */}
       <section className="py-16 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -63,6 +79,36 @@ export default async function ProductsPage() {
                 </Link>
               )
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Category shortcuts + intro */}
+      <section className="py-10 border-b border-slate-100 bg-slate-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
+            {CATEGORY_HIGHLIGHTS.map(({ icon: Icon, label, href, color }) => (
+              <Link
+                key={href}
+                href={href}
+                className="flex items-center gap-3 p-4 rounded-xl bg-white border border-slate-200 hover:border-slate-400 hover:shadow-sm transition-all"
+              >
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center flex-shrink-0" style={{ background: `${color}15` }}>
+                  <Icon className="w-4 h-4" style={{ color }} />
+                </div>
+                <span className="text-sm font-semibold text-slate-800">{label}</span>
+              </Link>
+            ))}
+          </div>
+          <div className="max-w-3xl">
+            <p className="text-sm text-slate-600 leading-relaxed">
+              PeptidesMaxxing catalogs 62+ research-grade peptides from{" "}
+              <a href="https://pantheonpeptides.com/partner/AmentiAI/" target="_blank" rel="nofollow sponsored noopener noreferrer" className="text-blue-600 hover:underline">Pantheon Peptides</a>{" "}
+              — covering muscle growth (Ipamorelin, CJC-1295, IGF-1 LR3), fat loss (Tirzepatide, Retatrutide, AOD9604), anti-aging (Epithalon, GHK-Cu, MOTS-C), cognitive enhancement (Semax, Selank, Cerebrolysin), immunity (Thymosin Alpha-1, LL-37), and libido (PT-141, Kisspeptin-10).
+              Use the{" "}
+              <Link href="/tools" className="text-blue-600 hover:underline">Research Tools</Link>{" "}
+              to calculate reconstitution volumes or find the right peptide for your goals. All compounds are for laboratory research use only.
+            </p>
           </div>
         </div>
       </section>

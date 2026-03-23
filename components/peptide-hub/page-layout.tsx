@@ -5,7 +5,7 @@ export function PageLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      <main className="pt-16">{children}</main>
+      <main id="main-content" className="pt-16">{children}</main>
       <Footer />
     </div>
   )

@@ -28,7 +28,7 @@ export async function generateMetadata({
       title: stack.seoTitle,
       description: stack.seoDescription,
       url: `https://www.peptidesmaxxing.com/stacks/${slug}`,
-      type: "article",
+      type: "website",
       images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],
     },
     twitter: {

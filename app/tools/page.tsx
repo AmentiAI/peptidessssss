@@ -7,9 +7,9 @@ import { DosageCalculator } from "@/components/peptide-hub/dosage-calculator"
 import { PeptideFinder } from "@/components/peptide-hub/peptide-finder"
 
 export const metadata: Metadata = {
-  title: "Peptide Research Tools — Reconstitution Calculator, Dosage Calculator & Peptide Finder | PeptidesMaxxing",
+  title: "Peptide Research Tools — Calculators & Peptide Finder",
   description:
-    "Free peptide research tools: Reconstitution Calculator (BAC water + vial → concentration), Dosage Calculator (body weight dosing), and Peptide Finder quiz to match peptides to your goals.",
+    "Free peptide tools: Reconstitution Calculator (vial + BAC water → concentration), Dosage Calculator (body-weight dosing), and Peptide Finder quiz to match peptides to your goals.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/tools" },
   openGraph: {
     title: "Peptide Research Tools — PeptidesMaxxing",

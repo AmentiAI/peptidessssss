@@ -6,12 +6,12 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { getAllGuides } from "@/lib/peptide-data"
 
 export const metadata: Metadata = {
-  title: "How to Use Peptides — Storage, Reconstitution, Stacking & Dosing Guides",
+  title: "Peptide Research Guides — Dosing, Storage & Stacking",
   description:
-    "How to reconstitute BPC-157, stack Ipamorelin + CJC-1295, verify peptide purity, and run longevity protocols with Epithalon + GHK-Cu — complete peptide handling and stacking guides.",
+    "How to reconstitute peptides, stack Ipamorelin + CJC-1295, verify purity, and run longevity protocols with Epithalon + GHK-Cu. Complete handling and stacking guides.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/guides" },
   openGraph: {
-    title: "How to Use Peptides — Storage, Reconstitution, Stacking & Dosing Guides",
+    title: "Peptide Research Guides — Dosing, Storage & Stacking",
     description: "BPC-157 storage, Ipamorelin + CJC-1295 GH stacking, HPLC purity testing, Epithalon longevity protocols — complete peptide guides from PeptidesMaxxing.",
     url: "https://www.peptidesmaxxing.com/guides",
     type: "website",

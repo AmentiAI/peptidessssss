@@ -45,8 +45,8 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
             priority={priority}
           />
         ) : (
-          <div className="w-full h-full flex items-center justify-center">
-            <span className="text-5xl">🧪</span>
+          <div className="w-full h-full flex items-center justify-center" role="img" aria-label={`${product.name} placeholder`}>
+            <span className="text-5xl" aria-hidden="true">🧪</span>
           </div>
         )}
       </div>

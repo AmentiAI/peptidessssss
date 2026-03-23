@@ -7,7 +7,7 @@ import {
 import { getAllStackGuides } from "@/lib/stack-guides"
 
 const BASE_URL = "https://www.peptidesmaxxing.com"
-const TODAY = new Date("2026-03-11")
+const TODAY = new Date()
 
 export default async function sitemap() {
   const [productSlugs, categorySlugs, blogSlugs, guideSlugs] = await Promise.all([
@@ -89,6 +89,12 @@ export default async function sitemap() {
       lastModified: TODAY,
       changeFrequency: "weekly" as const,
       priority: 0.85,
+    },
+    {
+      url: `${BASE_URL}/tools`,
+      lastModified: TODAY,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
     },
     {
       url: `${BASE_URL}/about`,

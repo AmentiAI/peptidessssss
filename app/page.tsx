@@ -105,7 +105,8 @@ const jsonLd = {
       description:
         "Premier peptide information and affiliate resource for Pantheon Peptides. BPC-157, Tirzepatide, Epithalon, peptide cycles, and research guides.",
       sameAs: [
-        "https://www.peptidesmaxxing.com",
+        "https://www.reddit.com/r/PeptidesMaxxing",
+        "https://x.com/peptidesmaxxing",
       ],
     },
     {

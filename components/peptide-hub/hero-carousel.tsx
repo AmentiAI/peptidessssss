@@ -97,7 +97,7 @@ export function HeroCarousel({ products }: { products: Product[] }) {
                 priority
               />
             ) : (
-              <div className="w-full h-full flex items-center justify-center text-8xl">🧪</div>
+              <div className="w-full h-full flex items-center justify-center text-8xl" role="img" aria-label={`${slide.name} peptide placeholder`}>🧪</div>
             )}
           </div>
 

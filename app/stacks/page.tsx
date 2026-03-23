@@ -7,21 +7,21 @@ import { ProductCard } from "@/components/peptide-hub/product-card"
 import { getAllStackGuides } from "@/lib/stack-guides"
 
 export const metadata: Metadata = {
-  title: "Best Peptide Stacks — Healing, GH Optimization, Anti-Aging & Fat Loss",
+  title: "Peptide Cycles & Stacks — Pre-Built Research Protocols",
   description:
-    "Wolverine Cycle (BPC-157 + TB-500 healing), Glow Plus (anti-aging), Nova Mind (Semax + Selank cognitive), Prime Metabolic (fat loss), T-Force Immunity, Eros Stamina (libido), Stack Up — pre-built peptide cycles from Pantheon Peptides.",
+    "Pre-built peptide cycles: Wolverine (healing), Glow Plus (anti-aging), Nova Mind (cognitive), Prime Metabolic (fat loss), T-Force (immunity), Eros (libido). Full protocols from Pantheon Peptides.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/stacks" },
   openGraph: {
-    title: "Best Peptide Stacks — Healing, GH Optimization, Anti-Aging & Fat Loss",
-    description: "Wolverine (recovery), Glow Plus (anti-aging), Nova Mind (cognitive), Prime Metabolic (fat loss), T-Force Immunity, Eros Stamina (libido) — complete peptide cycle programs from Pantheon Peptides.",
+    title: "Peptide Cycles & Stacks — Pre-Built Research Protocols",
+    description: "Pre-built peptide cycles: Wolverine (healing), Glow Plus (anti-aging), Nova Mind (cognitive), Prime Metabolic (fat loss), T-Force (immunity), Eros (libido). Full protocols.",
     url: "https://www.peptidesmaxxing.com/stacks",
     type: "website",
     images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Best Peptide Stacks — Healing, GH Optimization, Anti-Aging & Fat Loss",
-    description: "BPC-157 + TB-500 healing stacks, GHK-Cu anti-aging, Semax + Selank cognitive, Tirzepatide fat loss, and immune cycles — expert stack guides with full protocols.",
+    title: "Peptide Cycles & Stacks — Pre-Built Research Protocols",
+    description: "Pre-built peptide cycles: Wolverine (healing), Glow Plus (anti-aging), Nova Mind (cognitive), Prime Metabolic (fat loss), T-Force (immunity), Eros (libido).",
   },
 }
 

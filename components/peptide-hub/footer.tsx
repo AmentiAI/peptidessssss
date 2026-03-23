@@ -18,6 +18,7 @@ const PRODUCT_LINKS = [
 const RESOURCE_LINKS = [
   { href: "/blog", label: "Research Blog" },
   { href: "/guides", label: "Research Guides" },
+  { href: "/tools", label: "Research Tools" },
   { href: "/about", label: "About PeptidesMaxxing" },
   { href: "/sitemap.xml", label: "Sitemap" },
 ]

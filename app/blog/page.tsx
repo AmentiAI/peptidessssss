@@ -6,13 +6,13 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { getAllBlogPosts } from "@/lib/peptide-data"
 
 export const metadata: Metadata = {
-  title: "Peptide Science Blog — BPC-157, Tirzepatide, Epithalon, Semax & More",
+  title: "Peptide Research Blog — Science, Dosing & Stacking Guides",
   description:
-    "Peptide guides on BPC-157 healing, Tirzepatide weight loss, Epithalon longevity, Semax cognition, GHK-Cu skin, Ipamorelin GH stacking, looksmaxxing peptides, and more — evidence-based science from PeptidesMaxxing.",
+    "Evidence-based peptide guides: BPC-157 healing, Tirzepatide weight loss, Epithalon longevity, Semax cognition, GHK-Cu skin, Ipamorelin GH stacking, and looksmaxxing peptides.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/blog" },
   openGraph: {
-    title: "Peptide Science Blog — BPC-157, Tirzepatide, Epithalon & More",
-    description: "BPC-157 benefits, Tirzepatide dosing, Epithalon telomeres, Semax BDNF, GHK-Cu collagen, Ipamorelin GH — peptide science guides from PeptidesMaxxing.",
+    title: "Peptide Research Blog — Science, Dosing & Stacking Guides",
+    description: "Evidence-based peptide guides: BPC-157 healing, Tirzepatide weight loss, Epithalon longevity, Semax cognition, GHK-Cu skin, and Ipamorelin GH stacking.",
     url: "https://www.peptidesmaxxing.com/blog",
     type: "website",
     images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],

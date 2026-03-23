@@ -12,6 +12,7 @@ import {
   getRelatedProducts,
 } from "@/lib/peptide-data"
 import { productResearch } from "@/lib/product-research"
+import { getProductFAQs } from "@/lib/product-faqs"
 
 const AFFILIATE_URL =
   process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
@@ -39,8 +40,10 @@ export async function generateMetadata({
       title: `Buy ${product.name} — Benefits & How It Works`,
       description: product.shortDescription ?? product.description?.slice(0, 155) ?? "",
       url: `https://www.peptidesmaxxing.com/products/${slug}`,
-      type: "article",
-      images: product.imageUrl ? [{ url: product.imageUrl, width: 800, height: 800, alt: product.name }] : [],
+      type: "website",
+      images: product.imageUrl
+        ? [{ url: product.imageUrl, width: 800, height: 800, alt: product.name }]
+        : [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630, alt: product.name }],
     },
     twitter: {
       card: "summary_large_image",
@@ -127,6 +130,17 @@ export default async function ProductPage({
     })
   }
 
+  const faqs = getProductFAQs(slug, product.name, product.description, product.categories)
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  }
+
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -162,6 +176,7 @@ export default async function ProductPage({
     <PageLayout>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8">
@@ -318,6 +333,24 @@ export default async function ProductPage({
               <p className="text-slate-600 leading-relaxed">{product.description}</p>
             </>
           )}
+
+          {/* FAQ Section */}
+          <div className="mt-12">
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
+            <div className="divide-y divide-slate-200 border border-slate-200 rounded-xl overflow-hidden">
+              {faqs.map((faq, i) => (
+                <details key={i} className="group bg-white">
+                  <summary className="flex items-center justify-between px-5 py-4 cursor-pointer list-none hover:bg-slate-50 transition-colors">
+                    <span className="font-semibold text-slate-900 text-sm pr-4">{faq.question}</span>
+                    <span className="text-slate-400 text-lg flex-shrink-0 group-open:rotate-45 transition-transform duration-200">+</span>
+                  </summary>
+                  <div className="px-5 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+                    {faq.answer}
+                  </div>
+                </details>
+              ))}
+            </div>
+          </div>
 
           {/* Research disclaimer */}
           <div className="mt-8 p-4 rounded-xl border border-amber-200 bg-amber-50">
