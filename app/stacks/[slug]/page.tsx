@@ -226,7 +226,7 @@ export default async function StackGuidePage({
             <div className="p-5 rounded-2xl border border-slate-200 bg-slate-50">
               <p className="text-sm font-bold text-slate-900 mb-1">Source This Stack</p>
               <p className="text-xs text-slate-500 mb-4">
-                All peptides available from Pantheon Peptides.
+                All peptides available from our trusted supplier.
               </p>
               <Link
                 href={`/out/${slug}`}
@@ -237,7 +237,7 @@ export default async function StackGuidePage({
                 Shop All Stack Peptides
               </Link>
               <p className="text-xs text-center text-slate-400">
-                Affiliate disclosure: we earn a commission.
+                PeptidesMaxxing may earn compensation from purchases at no extra cost to you.
               </p>
             </div>
 
@@ -315,7 +315,7 @@ export default async function StackGuidePage({
             Ready to Order the {stack.name}?
           </h2>
           <p className="text-slate-500 mb-8">
-            {stack.peptides.join(" + ")} — all available directly from Pantheon Peptides.
+            {stack.peptides.join(" + ")} — all available research grade.
           </p>
           <a
             href={AFFILIATE_URL}
@@ -324,7 +324,7 @@ export default async function StackGuidePage({
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
           >
             <ShoppingCart className="w-5 h-5" />
-            Shop All Stack Peptides on Pantheon
+            Shop All Stack Peptides
           </a>
         </div>
       </section>

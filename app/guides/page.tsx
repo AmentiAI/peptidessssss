@@ -105,7 +105,7 @@ export default async function GuidesPage() {
         {/* CTA */}
         <div className="mt-12 p-8 rounded-2xl border border-slate-200 bg-slate-50 text-center">
           <h2 className="text-2xl font-bold text-slate-900 mb-3">Ready to Start Your Research?</h2>
-          <p className="text-slate-500 mb-6">Browse our full range of research peptides from Pantheon Peptides.</p>
+          <p className="text-slate-500 mb-6">Browse our full range of research peptides.</p>
           <Link
             href="/products"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"

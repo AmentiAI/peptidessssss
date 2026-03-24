@@ -9,7 +9,7 @@ import { getAllStackGuides } from "@/lib/stack-guides"
 export const metadata: Metadata = {
   title: "Peptide Cycles & Stacks — Pre-Built Research Protocols",
   description:
-    "Pre-built peptide cycles: Wolverine (healing), Glow Plus (anti-aging), Nova Mind (cognitive), Prime Metabolic (fat loss), T-Force (immunity), Eros (libido). Full protocols from Pantheon Peptides.",
+    "Pre-built peptide cycles: Wolverine (healing), Glow Plus (anti-aging), Nova Mind (cognitive), Prime Metabolic (fat loss), T-Force (immunity), Eros (libido). Full research protocols.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/stacks" },
   openGraph: {
     title: "Peptide Cycles & Stacks — Pre-Built Research Protocols",
@@ -52,7 +52,7 @@ export default async function StacksPage() {
             Peptide Cycles & Stacks
           </h1>
           <p className="text-lg text-slate-500 max-w-2xl mx-auto">
-            Pre-built synergistic peptide combinations from Pantheon Peptides — designed for specific
+            Pre-built synergistic peptide combinations designed for specific
             goals with complementary mechanisms.
           </p>
         </div>
@@ -173,7 +173,7 @@ export default async function StacksPage() {
               rel="nofollow sponsored noopener noreferrer"
               className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-slate-900 border-2 border-slate-900 hover:bg-slate-900 hover:text-white transition-all"
             >
-              Shop on Pantheon <ArrowRight className="w-4 h-4" />
+              Shop Research Peptides <ArrowRight className="w-4 h-4" />
             </a>
           </div>
           <p className="mt-6 text-xs text-slate-400">

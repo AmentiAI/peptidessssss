@@ -197,7 +197,7 @@ export default async function GuidePage({
           <aside className="space-y-6">
             <div className="p-5 rounded-2xl border border-slate-200 bg-slate-50">
               <p className="text-sm font-bold text-slate-900 mb-3">Ready to Research?</p>
-              <p className="text-xs text-slate-500 mb-4">Browse research peptides from Pantheon Peptides.</p>
+              <p className="text-xs text-slate-500 mb-4">Browse research peptides.</p>
               <Link
                 href="/products"
                 className="flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"

@@ -7,21 +7,21 @@ const AFFILIATE_URL =
   process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
 
 export const metadata: Metadata = {
-  title: "About PeptidesMaxxing — Affiliate & Research Standards",
+  title: "About PeptidesMaxxing — Research Standards & Mission",
   description:
-    "PeptidesMaxxing is a Pantheon Peptides affiliate featuring 62+ research peptides. Read our affiliate disclosure, sourcing standards, and research philosophy.",
+    "PeptidesMaxxing is an independent research authority covering 62+ research peptides. Read our transparency disclosure, sourcing standards, and research philosophy.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/about" },
   openGraph: {
-    title: "About PeptidesMaxxing — Affiliate & Research Standards",
-    description: "PeptidesMaxxing is a Pantheon Peptides affiliate featuring 62+ research peptides. Read our affiliate disclosure, sourcing standards, and research philosophy.",
+    title: "About PeptidesMaxxing — Research Standards & Mission",
+    description: "PeptidesMaxxing is an independent research authority covering 62+ research peptides. Read our transparency disclosure, sourcing standards, and research philosophy.",
     url: "https://www.peptidesmaxxing.com/about",
     type: "website",
     images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About PeptidesMaxxing — Affiliate & Research Standards",
-    description: "PeptidesMaxxing is a Pantheon Peptides affiliate featuring 62+ research peptides. Full affiliate disclosure and sourcing philosophy.",
+    title: "About PeptidesMaxxing — Research Standards & Mission",
+    description: "PeptidesMaxxing is an independent research authority covering 62+ research peptides. Full transparency disclosure and sourcing philosophy.",
   },
 }
 
@@ -31,7 +31,7 @@ const organizationJsonLd = {
   "@id": "https://www.peptidesmaxxing.com/#organization",
   name: "PeptidesMaxxing",
   url: "https://www.peptidesmaxxing.com",
-  description: "PeptidesMaxxing is an affiliate information resource for Pantheon Peptides, covering 62+ research peptides including BPC-157, Tirzepatide, Epithalon, Semax, and GHK-Cu.",
+  description: "PeptidesMaxxing is an independent research resource covering 62+ research peptides including BPC-157, Tirzepatide, Epithalon, Semax, and GHK-Cu.",
   sameAs: [
     "https://www.reddit.com/r/PeptidesMaxxing",
     "https://x.com/peptidesmaxxing",
@@ -74,17 +74,16 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Affiliate Disclosure */}
+      {/* Partnerships & Transparency */}
       <section className="py-16 max-w-4xl mx-auto px-4 sm:px-6">
         <div className="p-8 rounded-2xl border border-amber-200 bg-amber-50">
           <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
             <Shield className="w-6 h-6 text-amber-600" />
-            Affiliate Disclosure
+            Partnerships &amp; Transparency
           </h2>
           <div className="space-y-4 text-slate-600 leading-relaxed">
             <p>
-              PeptidesMaxxing is an affiliate marketing website. We earn commissions from qualifying purchases
-              made through links on this site — at no extra cost to you.
+              PeptidesMaxxing may earn compensation from purchases made through links on this site, at no extra cost to you.
             </p>
             <p>
               When you click &quot;Buy Now&quot; or any purchase link, you will be redirected to{" "}
@@ -94,9 +93,9 @@ export default function AboutPage() {
                 target="_blank"
                 className="text-blue-600 underline underline-offset-2 hover:text-blue-800"
               >
-                Pantheon Peptides
+                our trusted supplier
               </a>{" "}
-              and PeptidesMaxxing may receive a commission on your purchase.
+              and PeptidesMaxxing may receive compensation on your purchase.
             </p>
             <p>
               This compensation does not influence our recommendations. We only recommend products that meet
@@ -165,7 +164,7 @@ export default function AboutPage() {
               rel="nofollow sponsored noopener noreferrer"
               className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
             >
-              Shop on Pantheon Peptides <ArrowRight className="w-4 h-4" />
+              Shop Research Peptides <ArrowRight className="w-4 h-4" />
             </a>
             <Link
               href="/guides"

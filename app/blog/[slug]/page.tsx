@@ -201,7 +201,7 @@ export default async function BlogPostPage({
         <div className="mt-8 p-6 rounded-2xl border border-slate-200 bg-slate-50 text-center">
           <h3 className="font-bold text-slate-900 mb-2">Explore Research Peptides</h3>
           <p className="text-sm text-slate-500 mb-4">
-            Browse the full Pantheon Peptides catalog — for research use only.
+            Browse our full research peptide catalog — for research use only.
           </p>
           <a
             href={AFFILIATE_URL}
@@ -209,7 +209,7 @@ export default async function BlogPostPage({
             rel="nofollow sponsored noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
           >
-            Shop on Pantheon Peptides <ArrowRight className="w-4 h-4" />
+            Shop Research Peptides <ArrowRight className="w-4 h-4" />
           </a>
         </div>
 

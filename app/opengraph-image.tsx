@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og"
 
 export const runtime = "edge"
-export const alt = "PeptidesMaxxing — Research Peptides & Cycles from Pantheon Peptides"
+export const alt = "PeptidesMaxxing — Research Peptides & Cycles"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
@@ -66,7 +66,7 @@ export default async function OgImage() {
             lineHeight: 1.4,
           }}
         >
-          Research Peptides, Cycles & Science from Pantheon Peptides
+          Research Peptides, Cycles & Science — Independent Research Authority
         </div>
 
         {/* Bottom badge */}

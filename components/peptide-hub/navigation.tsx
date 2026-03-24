@@ -115,7 +115,7 @@ export function Navigation() {
             rel="nofollow sponsored noopener noreferrer"
             className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
           >
-            Shop Pantheon
+            Shop Peptides
             <ExternalLink className="w-3.5 h-3.5" />
           </Link>
         </div>

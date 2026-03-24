@@ -29,11 +29,11 @@ export async function generateMetadata({
   if (!cat) return {}
   return {
     title: `Best ${cat.name} Peptides — Benefits, Dosing & Where to Buy`,
-    description: cat.seoDescription ?? `Browse ${cat.name} peptides from Pantheon Peptides. Mechanisms, protocols, and complete product catalog.`,
+    description: cat.seoDescription ?? `Browse ${cat.name} research peptides. Mechanisms, protocols, and complete product catalog.`,
     alternates: { canonical: `https://www.peptidesmaxxing.com/categories/${slug}` },
     openGraph: {
       title: `Best ${cat.name} Peptides — Benefits, Dosing & Where to Buy`,
-      description: cat.seoDescription ?? `Browse ${cat.name} peptides from Pantheon Peptides.`,
+      description: cat.seoDescription ?? `Browse ${cat.name} research peptides.`,
       url: `https://www.peptidesmaxxing.com/categories/${slug}`,
       type: "website",
       images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],
@@ -41,7 +41,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       title: `Best ${cat.name} Peptides — Benefits, Dosing & Where to Buy`,
-      description: cat.seoDescription ?? `Browse ${cat.name} peptides from Pantheon Peptides.`,
+      description: cat.seoDescription ?? `Browse ${cat.name} research peptides.`,
     },
   }
 }
@@ -134,8 +134,8 @@ export default async function CategoryPage({
               <span className="text-sm text-slate-500 ml-1">products</span>
             </div>
             <div className="px-4 py-2 rounded-xl border border-slate-200 bg-slate-50">
-              <span className="text-sm font-bold text-slate-900">Pantheon Peptides</span>
-              <span className="text-sm text-slate-500 ml-1">supplier</span>
+              <span className="text-sm font-bold text-slate-900">COA Verified</span>
+              <span className="text-sm text-slate-500 ml-1">research grade</span>
             </div>
           </div>
         </div>
@@ -160,7 +160,7 @@ export default async function CategoryPage({
             Shop {cat.name} Peptides
           </h2>
           <p className="text-slate-500 mb-6">
-            Available on Pantheon Peptides — trusted supplier. For research use only.
+            Research-grade quality — COA verified. For research use only.
           </p>
           <a
             href={AFFILIATE_URL}
@@ -168,7 +168,7 @@ export default async function CategoryPage({
             rel="nofollow sponsored noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
           >
-            View on Pantheon Peptides <ArrowRight className="w-4 h-4" />
+            Shop Research Peptides <ArrowRight className="w-4 h-4" />
           </a>
         </div>
       </section>
@@ -247,7 +247,7 @@ export default async function CategoryPage({
             Start Your {cat.name} Research
           </h2>
           <p className="text-slate-500 mb-8">
-            {catProducts.length} research peptides available. Available at Pantheon Peptides.
+            {catProducts.length} research peptides available — COA verified, research grade.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

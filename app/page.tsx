@@ -29,7 +29,7 @@ import { staticProducts } from "@/lib/static-products"
 export const metadata: Metadata = {
   title: "PeptidesMaxxing — BPC-157, Tirzepatide & 60+ Peptides",
   description:
-    "62+ research peptides from Pantheon Peptides. BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu — muscle growth, anti-aging, fat loss, and cognitive stacks with complete cycle guides.",
+    "62+ research peptides. BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu — muscle growth, anti-aging, fat loss, and cognitive stacks with complete cycle guides.",
   alternates: { canonical: "https://www.peptidesmaxxing.com" },
   openGraph: {
     title: "PeptidesMaxxing — Buy BPC-157, Tirzepatide, Epithalon & 60+ Peptides",
@@ -60,15 +60,15 @@ const ICON_MAP: Record<string, React.ElementType> = {
 const SITE_STATS = [
   { label: "Research Peptides", value: "62+" },
   { label: "Peptide Cycles", value: "15+" },
-  { label: "Trusted Supplier", value: "Pantheon" },
+  { label: "COA Verified", value: "≥99%" },
   { label: "Research Studies", value: "5,000+" },
 ]
 
 const TRUST_SIGNALS = [
-  { icon: Shield, label: "Pantheon Peptides", desc: "Trusted supplier" },
+  { icon: Shield, label: "COA Verified", desc: "Research grade" },
   { icon: TrendingUp, label: "62+ Products", desc: "Full catalog" },
   { icon: Brain, label: "Research Grade", desc: "For lab use only" },
-  { icon: FlaskConical, label: "Affiliate Disclosure", desc: "We earn commissions" },
+  { icon: FlaskConical, label: "Independent Resource", desc: "Science-first editorial" },
 ]
 
 const jsonLd = {
@@ -80,7 +80,7 @@ const jsonLd = {
       url: "https://www.peptidesmaxxing.com",
       name: "PeptidesMaxxing",
       description:
-        "62+ peptides from Pantheon Peptides — BPC-157, Tirzepatide, Epithalon, Ipamorelin, GHK-Cu, Semax, TB-500. Muscle growth, fat loss, anti-aging, cognitive, and longevity peptide cycles.",
+        "62+ research-grade peptides — BPC-157, Tirzepatide, Epithalon, Ipamorelin, GHK-Cu, Semax, TB-500. Muscle growth, fat loss, anti-aging, cognitive, and longevity peptide cycles.",
       inLanguage: "en-US",
     },
     {
@@ -95,7 +95,7 @@ const jsonLd = {
         height: 512,
       },
       description:
-        "Premier peptide information and affiliate resource for Pantheon Peptides. BPC-157, Tirzepatide, Epithalon, peptide cycles, and research guides.",
+        "Premier independent peptide information resource. BPC-157, Tirzepatide, Epithalon, peptide cycles, and research guides.",
       sameAs: [
         "https://www.reddit.com/r/PeptidesMaxxing",
         "https://x.com/peptidesmaxxing",
@@ -136,7 +136,7 @@ export default async function HomePage() {
       />
 
       {/* SEO H1 — screen-reader accessible site heading */}
-      <h1 className="sr-only">PeptidesMaxxing — Research Peptides from Pantheon Peptides</h1>
+      <h1 className="sr-only">PeptidesMaxxing — Independent Research Peptide Resource</h1>
 
       {/* HERO CAROUSEL */}
       <HeroCarousel products={carouselProducts} />
@@ -183,7 +183,7 @@ export default async function HomePage() {
             </p>
             <h2 className="text-4xl font-bold text-slate-900">Top Peptides</h2>
             <p className="text-slate-500 mt-2">
-              Hand-picked from Pantheon Peptides catalog for research quality and documentation.
+              Hand-picked for research quality, purity documentation, and COA verification.
             </p>
           </div>
           <Link
@@ -296,7 +296,7 @@ export default async function HomePage() {
               rel="nofollow sponsored noopener noreferrer"
               className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-white border border-slate-700 hover:border-slate-500 transition-all"
             >
-              Shop on Pantheon <ArrowRight className="w-4 h-4" />
+              Shop Research Peptides <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -382,7 +382,7 @@ export default async function HomePage() {
             Ready to Explore the Science?
           </h2>
           <p className="text-lg text-slate-500 mb-10 max-w-xl mx-auto">
-            Browse 62+ peptides from Pantheon Peptides with complete product documentation
+            Browse 62+ research-grade peptides with complete product documentation
             and expert research guides.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -392,7 +392,7 @@ export default async function HomePage() {
               rel="nofollow sponsored noopener noreferrer"
               className="flex items-center justify-center gap-2 px-10 py-5 rounded-xl text-lg font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
             >
-              Shop Pantheon Peptides <ArrowRight className="w-5 h-5" />
+              Shop Research Peptides <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               href="/products"
@@ -402,8 +402,7 @@ export default async function HomePage() {
             </Link>
           </div>
           <p className="mt-12 text-xs text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            All products are for research use only. Not for human consumption. PeptidesMaxxing earns affiliate
-            commissions at no extra cost to you. Consult a qualified physician before any use.
+            All products are for research use only. Not for human consumption. PeptidesMaxxing may earn compensation from purchases made through links on this site, at no extra cost to you. Consult a qualified physician before any use.
           </p>
         </div>
       </section>

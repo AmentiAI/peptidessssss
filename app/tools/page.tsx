@@ -82,7 +82,7 @@ export default function ToolsPage() {
               rel="nofollow sponsored noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-slate-900 text-white text-sm font-bold hover:bg-slate-700 transition-colors"
             >
-              Shop Pantheon Peptides
+              Shop Research Peptides
               <ExternalLink className="w-4 h-4" />
             </Link>
           </div>
@@ -157,7 +157,7 @@ export default function ToolsPage() {
         <div className="rounded-2xl border border-amber-200 bg-amber-50 p-6 text-sm text-amber-800 leading-relaxed">
           <p className="font-bold mb-1">Research Use Only — Disclaimer</p>
           <p>
-            All tools and content on PeptidesMaxxing are for educational and research purposes only. These calculators are informational aids and do not constitute medical advice. Peptides are not approved for human use by the FDA unless otherwise indicated. We earn commissions from Pantheon Peptides links.
+            All tools and content on PeptidesMaxxing are for educational and research purposes only. These calculators are informational aids and do not constitute medical advice. Peptides are not approved for human use by the FDA unless otherwise indicated. PeptidesMaxxing may earn compensation from purchases made through links on this site, at no extra cost to you.
           </p>
         </div>
       </section>

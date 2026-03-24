@@ -24,7 +24,7 @@ export const metadata: Metadata = {
       "PeptidesMaxxing — BPC-157, Tirzepatide, Epithalon & 60+ Peptides",
   },
   description:
-    "BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, CJC-1295, TB-500 — browse 62+ peptides from Pantheon Peptides. Muscle growth, fat loss, anti-aging, cognitive, and longevity stacks.",
+    "BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, CJC-1295, TB-500 — browse 62+ research-grade peptides. Muscle growth, fat loss, anti-aging, cognitive, and longevity stacks.",
   keywords: [
     "peptides",
     "BPC-157",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     "Wolverine Cycle",
     "Glow Plus Cycle",
     "Nova Mind Cycle",
-    "Pantheon Peptides",
+    "research peptides",
     "peptide stacks",
     "peptide supplier",
     "looksmaxxing peptides",
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     title:
       "PeptidesMaxxing — BPC-157, Tirzepatide, Epithalon & 60+ Peptides",
     description:
-      "The definitive peptide resource. 62+ peptides from Pantheon Peptides including BPC-157, Tirzepatide, Epithalon, complete cycles, and expert guides.",
+      "The definitive peptide resource. 62+ research-grade peptides including BPC-157, Tirzepatide, Epithalon, complete cycles, and expert guides.",
     url: "https://www.peptidesmaxxing.com",
     locale: "en_US",
     images: [
@@ -85,7 +85,7 @@ export const metadata: Metadata = {
         url: "https://www.peptidesmaxxing.com/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "PeptidesMaxxing — Peptides & Cycles from Pantheon Peptides",
+        alt: "PeptidesMaxxing — Research Peptides & Cycles",
       },
     ],
   },
@@ -94,7 +94,7 @@ export const metadata: Metadata = {
     site: "@peptidesmaxxing",
     creator: "@peptidesmaxxing",
     title:
-      "PeptidesMaxxing — Peptides & Cycles from Pantheon Peptides",
+      "PeptidesMaxxing — Research Peptides & Cycles",
     description:
       "62+ peptides, pre-built cycles, and expert science guides. BPC-157, Tirzepatide, Epithalon, Semax & more.",
     images: ["https://www.peptidesmaxxing.com/opengraph-image"],

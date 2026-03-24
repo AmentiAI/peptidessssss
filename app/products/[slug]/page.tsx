@@ -30,11 +30,11 @@ export async function generateMetadata({
   const { slug } = await params
   const product = await getProductBySlug(slug)
   if (!product) return {}
-  const desc = (product.shortDescription ?? product.description?.slice(0, 140) ?? "") + " Buy from Pantheon Peptides — mechanisms, dosing, and benefits."
+  const desc = (product.shortDescription ?? product.description?.slice(0, 140) ?? "") + " Research-grade — mechanisms, dosing, and benefits."
   return {
     title: `Buy ${product.name} — Benefits, How It Works & Dosing`,
     description: desc,
-    keywords: [product.name, ...product.categories, "research peptide", "Pantheon Peptides", "buy " + product.name, product.name + " benefits"],
+    keywords: [product.name, ...product.categories, "research peptide", "research grade peptides", "buy " + product.name, product.name + " benefits"],
     alternates: { canonical: `https://www.peptidesmaxxing.com/products/${slug}` },
     openGraph: {
       title: `Buy ${product.name} — Benefits & How It Works`,
@@ -149,7 +149,7 @@ export default async function ProductPage({
     description: product.description,
     image: product.imageUrl,
     url: `https://www.peptidesmaxxing.com/products/${slug}`,
-    brand: { "@type": "Brand", name: "Pantheon Peptides" },
+    brand: { "@type": "Brand", name: "PeptidesMaxxing" },
     category: product.categories[0],
     offers: {
       "@type": "Offer",
@@ -158,7 +158,7 @@ export default async function ProductPage({
         : "https://schema.org/OutOfStock",
       url: AFFILIATE_URL,
       priceCurrency: "USD",
-      seller: { "@type": "Organization", name: "Pantheon Peptides", url: "https://pantheonpeptides.com" },
+      seller: { "@type": "Organization", name: "PeptidesMaxxing", url: "https://www.peptidesmaxxing.com" },
     },
   }
 
@@ -272,7 +272,7 @@ export default async function ProductPage({
               <div className="flex items-center justify-between mb-4">
                 <div>
                   <p className="text-xs text-slate-500 mb-1">Available at</p>
-                  <p className="text-xl font-bold text-slate-900">Pantheon Peptides</p>
+                  <p className="text-xl font-bold text-slate-900">Research Grade</p>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <Shield className="w-4 h-4 text-green-600" />
@@ -285,17 +285,17 @@ export default async function ProductPage({
                 className="flex items-center justify-center gap-3 w-full py-4 rounded-xl text-base font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors mb-3"
               >
                 <ShoppingCart className="w-5 h-5" />
-                Buy {product.name} on Pantheon Peptides
+                Buy {product.name} — Research Grade
               </Link>
               <p className="text-xs text-center text-slate-400">
-                Affiliate disclosure: PeptidesMaxxing earns a commission at no cost to you.
+                PeptidesMaxxing may earn compensation from purchases at no extra cost to you.
               </p>
             </div>
 
             {/* Trust row */}
             <div className="flex flex-wrap gap-4 mt-4">
               {[
-                { icon: Shield, label: "Pantheon Peptides" },
+                { icon: Shield, label: "COA Verified" },
                 { icon: CheckCircle, label: "Trusted Supplier" },
                 { icon: ArrowRight, label: "Research Grade" },
               ].map(({ icon: Icon, label }) => (
@@ -365,7 +365,7 @@ export default async function ProductPage({
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
               <div>
                 <p className="font-bold text-slate-900 text-lg">Ready to order {product.name}?</p>
-                <p className="text-sm text-slate-500">Research-grade purity from Pantheon Peptides.</p>
+                <p className="text-sm text-slate-500">Research-grade purity — COA verified.</p>
               </div>
               <Link
                 href={`/out/${slug}`}
@@ -412,7 +412,7 @@ export default async function ProductPage({
         <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl font-bold text-slate-900 mb-3">Ready to Order?</h2>
           <p className="text-slate-500 mb-6">
-            Get {product.name} directly from Pantheon Peptides.
+            Get {product.name} — research grade, COA verified.
           </p>
           <Link
             href={`/out/${slug}`}
@@ -420,7 +420,7 @@ export default async function ProductPage({
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
           >
             <ShoppingCart className="w-5 h-5" />
-            Buy {product.name} on Pantheon
+            Buy {product.name}
           </Link>
         </div>
       </section>

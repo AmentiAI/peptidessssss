@@ -32,9 +32,9 @@ export function Footer() {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
               { icon: Shield, label: "Research Grade", sub: "For laboratory use only" },
-              { icon: Award, label: "Pantheon Peptides", sub: "Trusted supplier" },
+              { icon: Award, label: "COA Verified", sub: "Research grade" },
               { icon: ExternalLink, label: "62+ Products", sub: "Full catalog available" },
-              { icon: ExternalLink, label: "Affiliate Site", sub: "We earn commissions" },
+              { icon: ExternalLink, label: "Independent Resource", sub: "Science-first editorial" },
             ].map(({ icon: Icon, label, sub }) => (
               <div key={label} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 bg-slate-100">
@@ -67,7 +67,7 @@ export function Footer() {
             </span>
           </Link>
           <p className="text-sm text-slate-500 leading-relaxed mb-4">
-            The definitive resource for research peptide information from Pantheon Peptides.
+            The definitive independent resource for research peptide information.
           </p>
           <div className="p-3 rounded-xl border border-amber-200 bg-amber-50">
             <p className="text-xs text-amber-800 leading-relaxed">
@@ -108,7 +108,7 @@ export function Footer() {
                 rel="nofollow sponsored noopener noreferrer"
                 className="text-sm text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1"
               >
-                Pantheon Peptides <ExternalLink className="w-3 h-3" />
+                Shop Research Peptides <ExternalLink className="w-3 h-3" />
               </a>
             </li>
           </ul>
@@ -140,7 +140,7 @@ export function Footer() {
             © {new Date().getFullYear()} PeptidesMaxxing. All rights reserved. For research use only.
           </p>
           <p className="text-xs text-slate-400 text-center sm:text-right">
-            PeptidesMaxxing is an affiliate site. We earn commissions from purchases at no extra cost to you.
+            PeptidesMaxxing may earn compensation from purchases made through links on this site, at no extra cost to you.
           </p>
         </div>
       </div>

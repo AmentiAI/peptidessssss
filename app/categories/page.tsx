@@ -7,19 +7,19 @@ import { getAllCategories, getAllProducts } from "@/lib/peptide-data"
 export const metadata: Metadata = {
   title: "Peptide Categories — Muscle, Fat Loss & Anti-Aging",
   description:
-    "Browse 62+ peptides by research goal. Muscle growth, anti-aging, fat loss, cognitive, immunity, libido, and skin categories — all from Pantheon Peptides.",
+    "Browse 62+ research peptides by goal. Muscle growth, anti-aging, fat loss, cognitive, immunity, libido, and skin categories.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/categories" },
   openGraph: {
     title: "Peptide Categories — Muscle, Fat Loss & Anti-Aging",
-    description: "Browse 62+ peptides by research goal. Muscle growth, anti-aging, fat loss, cognitive, immunity, libido, and skin categories — all from Pantheon Peptides.",
+    description: "Browse 62+ research peptides by goal. Muscle growth, anti-aging, fat loss, cognitive, immunity, libido, and skin categories.",
     url: "https://www.peptidesmaxxing.com/categories",
     type: "website",
     images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Peptide Categories — Shop by Goal | Muscle, Anti-Aging, Fat Loss & More",
-    description: "Find your peptide: BPC-157 for recovery, Tirzepatide for fat loss, Epithalon for anti-aging, Semax for focus, GHK-Cu for skin — 62+ options from Pantheon Peptides.",
+    title: "Peptide Categories — Browse by Goal | Muscle, Anti-Aging, Fat Loss & More",
+    description: "Find your peptide: BPC-157 for recovery, Tirzepatide for fat loss, Epithalon for anti-aging, Semax for focus, GHK-Cu for skin — 62+ research-grade options.",
   },
 }
 

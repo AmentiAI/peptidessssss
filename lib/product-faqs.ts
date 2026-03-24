@@ -12,7 +12,7 @@ export const productFAQs: Record<string, FAQItem[]> = {
     { question: "How does BPC-157 work?", answer: "BPC-157 works through multiple mechanisms: upregulating VEGF for angiogenesis, increasing GH receptor expression on fibroblasts, activating the FAK-paxillin cell migration pathway, and inhibiting NF-κB to resolve inflammation." },
     { question: "What is the typical BPC-157 research dosage?", answer: "Preclinical research typically uses 2–10 mcg/kg body weight, administered once or twice daily. A common reconstitution approach is a 5 mg vial with 2 mL bacteriostatic water to yield 2,500 mcg/mL." },
     { question: "Can BPC-157 be stacked with TB-500?", answer: "Yes — BPC-157 and TB-500 are frequently co-studied and are available as a pre-formulated stack. BPC-157 provides localized repair signals while TB-500 offers systemic tissue remodeling via its actin-regulation mechanism." },
-    { question: "Where can I buy BPC-157 for research?", answer: "BPC-157 is available from Pantheon Peptides, the supplier featured on PeptidesMaxxing. Pantheon Peptides supplies research-grade peptides with documented quality standards." },
+    { question: "Where can I buy BPC-157 for research?", answer: "BPC-157 is available through PeptidesMaxxing from our trusted supplier. We only feature research-grade peptides with documented quality standards and COA verification." },
   ],
   "tb-500": [
     { question: "What is TB-500?", answer: "TB-500 is a synthetic analogue of Thymosin Beta-4 (TB-4), a naturally occurring protein involved in cell migration, angiogenesis, and tissue repair. It is studied for its systemic healing properties and ability to activate stem cells throughout the body." },
@@ -24,7 +24,7 @@ export const productFAQs: Record<string, FAQItem[]> = {
     { question: "What is Tirzepatide?", answer: "Tirzepatide is a dual GIP and GLP-1 receptor agonist — the same mechanism as Mounjaro and Zepbound. It is studied for weight management, diabetes control, and metabolic health, and is one of the most potent fat-loss peptides currently researched." },
     { question: "How does Tirzepatide cause weight loss?", answer: "Tirzepatide activates both GIP and GLP-1 receptors, suppressing appetite via hypothalamic signaling, slowing gastric emptying, and improving insulin sensitivity. The dual-receptor action produces greater weight reduction than GLP-1 agonists alone." },
     { question: "How does Tirzepatide compare to Retatrutide?", answer: "Retatrutide targets three receptors (GIP, GLP-1, and glucagon), making it even more aggressive for fat loss. Tirzepatide is generally considered better-tolerated, while Retatrutide may be superior for maximum fat reduction in research contexts." },
-    { question: "Where can I buy Tirzepatide for research?", answer: "Tirzepatide is available from Pantheon Peptides in 5 mg vials. It is sold strictly for research purposes and requires reconstitution with bacteriostatic water before use in research settings." },
+    { question: "Where can I buy Tirzepatide for research?", answer: "Tirzepatide is available through PeptidesMaxxing in 5 mg vials from our trusted supplier. It is sold strictly for research purposes and requires reconstitution with bacteriostatic water before use in research settings." },
   ],
   "retatrutide": [
     { question: "What is Retatrutide?", answer: "Retatrutide is a triple hormone agonist targeting GIP, GLP-1, and glucagon receptors simultaneously. It is considered the most potent weight-loss peptide currently in research, producing fat loss superior to dual-agonists like Tirzepatide in preclinical models." },
@@ -99,7 +99,7 @@ export function generateFallbackFAQs(
       question: `What is ${name}?`,
       answer: `${name} is a research peptide studied for ${firstBenefit.toLowerCase()}. ${
         catList ? `It is classified under: ${catList}.` : ""
-      } As with all peptides on PeptidesMaxxing, it is available from Pantheon Peptides for research purposes only.`,
+      } As with all peptides on PeptidesMaxxing, it is available for research purposes only.`,
     },
     {
       question: `What are the main benefits of ${name}?`,
@@ -121,11 +121,11 @@ export function generateFallbackFAQs(
               ? "It is studied in the context of longevity, cellular aging, and vitality research."
               : ""
           }`
-        : `${name} is available as part of the Pantheon Peptides research catalog.`,
+        : `${name} is available as part of the PeptidesMaxxing research catalog.`,
     },
     {
       question: `Where can I buy ${name} for research?`,
-      answer: `${name} is available from Pantheon Peptides, the supplier featured on PeptidesMaxxing. Pantheon Peptides provides research-grade peptides with documented quality standards. PeptidesMaxxing earns a commission on purchases made through our affiliate links.`,
+      answer: `${name} is available through PeptidesMaxxing from our trusted supplier. We feature research-grade peptides with documented quality standards and COA verification. PeptidesMaxxing may earn compensation from purchases made through links on this site, at no extra cost to you.`,
     },
   ]
 }

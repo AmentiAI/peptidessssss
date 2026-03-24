@@ -15,11 +15,11 @@ const CATEGORY_HIGHLIGHTS = [
 export const metadata: Metadata = {
   title: "Buy BPC-157, Tirzepatide, Epithalon & 60+ Peptides",
   description:
-    "62+ research peptides from Pantheon Peptides. Browse by goal: muscle growth, fat loss, anti-aging, cognitive, immunity, and libido peptides. BPC-157, Tirzepatide, Epithalon & more.",
+    "62+ research-grade peptides. Browse by goal: muscle growth, fat loss, anti-aging, cognitive, immunity, and libido peptides. BPC-157, Tirzepatide, Epithalon & more.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/products" },
   openGraph: {
     title: "Buy BPC-157, Tirzepatide, Epithalon, Ipamorelin, GHK-Cu & 60+ Peptides",
-    description: "Buy BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin — 62+ peptides from Pantheon Peptides for muscle growth, fat loss, anti-aging, and cognitive goals.",
+    description: "Buy BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin — 62+ research-grade peptides for muscle growth, fat loss, anti-aging, and cognitive goals.",
     url: "https://www.peptidesmaxxing.com/products",
     type: "website",
     images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Buy BPC-157, Tirzepatide, Epithalon & 60+ Peptides — Full Catalog",
-    description: "Full catalog: BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, CJC-1295, TB-500, PT-141, Cerebrolysin — 62+ peptides from Pantheon Peptides.",
+    description: "Full catalog: BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, CJC-1295, TB-500, PT-141, Cerebrolysin — 62+ research-grade peptides.",
   },
 }
 
@@ -35,7 +35,7 @@ const itemListJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "Research Peptides Catalog",
-  description: "62+ research-grade peptides from Pantheon Peptides",
+  description: "62+ research-grade peptides",
   url: "https://www.peptidesmaxxing.com/products",
 }
 
@@ -58,7 +58,7 @@ export default async function ProductsPage() {
           </div>
           <h1 className="text-5xl font-bold text-slate-900 mb-3">Research Peptides</h1>
           <p className="text-slate-500 text-lg max-w-2xl">
-            {products.length} research-grade peptides from Pantheon Peptides. For research use only.
+            {products.length} research-grade peptides. For research use only.
           </p>
 
           {/* Category filter pills */}
@@ -103,7 +103,7 @@ export default async function ProductsPage() {
           <div className="max-w-3xl">
             <p className="text-sm text-slate-600 leading-relaxed">
               PeptidesMaxxing catalogs 62+ research-grade peptides from{" "}
-              <a href="https://pantheonpeptides.com/partner/AmentiAI/" target="_blank" rel="nofollow sponsored noopener noreferrer" className="text-blue-600 hover:underline">Pantheon Peptides</a>{" "}
+              our trusted supplier{" "}
               — covering muscle growth (Ipamorelin, CJC-1295, IGF-1 LR3), fat loss (Tirzepatide, Retatrutide, AOD9604), anti-aging (Epithalon, GHK-Cu, MOTS-C), cognitive enhancement (Semax, Selank, Cerebrolysin), immunity (Thymosin Alpha-1, LL-37), and libido (PT-141, Kisspeptin-10).
               Use the{" "}
               <Link href="/tools" className="text-blue-600 hover:underline">Research Tools</Link>{" "}
@@ -127,8 +127,7 @@ export default async function ProductsPage() {
         <div className="p-4 rounded-xl border border-amber-200 bg-amber-50">
           <p className="text-xs text-amber-800 leading-relaxed">
             <strong className="text-amber-900">Research Use Only:</strong> All peptides are sold strictly for
-            laboratory research purposes. Not for human consumption. Not for veterinary use. PeptidesMaxxing earns
-            affiliate commissions at no extra cost to you.
+            laboratory research purposes. Not for human consumption. Not for veterinary use. PeptidesMaxxing may earn compensation from purchases made through links on this site, at no extra cost to you.
           </p>
         </div>
       </div>

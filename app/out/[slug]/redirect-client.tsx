@@ -18,7 +18,7 @@ export function RedirectClient({
       <div className="text-center max-w-md">
         <div className="w-12 h-12 border-4 border-slate-900 border-t-transparent rounded-full animate-spin mx-auto mb-6" />
         <h1 className="text-2xl font-bold text-slate-900 mb-2">
-          Redirecting to Pantheon Peptides...
+          Redirecting to supplier...
         </h1>
         {productName && (
           <p className="text-slate-500 mb-1 capitalize">{productName}</p>
@@ -35,7 +35,7 @@ export function RedirectClient({
           .
         </p>
         <p className="text-xs text-slate-400">
-          Affiliate disclosure: PeptidesMaxxing earns a commission at no extra cost to you.
+          PeptidesMaxxing may earn compensation from purchases at no extra cost to you.
         </p>
         <Link
           href="/products"
