@@ -109,9 +109,6 @@ export const metadata: Metadata = {
     ],
     shortcut: "/favicon.ico",
   },
-  alternates: {
-    canonical: "https://www.peptidesmaxxing.com",
-  },
   verification: {
     google: "",
   },

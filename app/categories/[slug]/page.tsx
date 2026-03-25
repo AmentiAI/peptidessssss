@@ -57,6 +57,56 @@ export default async function CategoryPage({
 
   const catProducts = await getProductsByCategory(cat.name)
 
+  // Category-specific related blog/guide links
+  const categoryReadingLinks: Record<string, { label: string; href: string }[]> = {
+    "muscle-growth": [
+      { label: "Ipamorelin + CJC-1295 Stack Guide", href: "/blog/ipamorelin-cjc-1295-stack-guide" },
+      { label: "GH Peptides for Body Recomposition", href: "/blog/gh-peptides-aesthetics-body-recomposition" },
+      { label: "Complete Looksmaxxer Stack 2026", href: "/blog/looksmaxxing-peptide-stack-protocol-2026" },
+      { label: "GH Peptide Stacking Guide", href: "/guides/gh-peptide-stacking-guide" },
+    ],
+    "recovery-repair": [
+      { label: "BPC-157 Complete Guide", href: "/blog/bpc-157-complete-guide" },
+      { label: "Best Recovery Peptides 2026", href: "/blog/best-recovery-peptides-2026" },
+      { label: "Ipamorelin + CJC-1295 Stack Guide", href: "/blog/ipamorelin-cjc-1295-stack-guide" },
+      { label: "Peptide Storage Guide", href: "/guides/peptide-storage-reconstitution-guide" },
+    ],
+    "anti-aging": [
+      { label: "Epithalon Longevity Science", href: "/blog/epithalon-longevity-science" },
+      { label: "GHK-Cu for Skin & Collagen", href: "/blog/ghk-cu-collagen-skin-looksmaxxing" },
+      { label: "GHK-Cu Skin & Hair Research", href: "/blog/ghk-cu-skin-hair-research" },
+      { label: "Longevity Peptide Protocols", href: "/guides/longevity-peptide-protocols" },
+    ],
+    "weight-loss": [
+      { label: "GH Peptides for Body Recomposition", href: "/blog/gh-peptides-aesthetics-body-recomposition" },
+      { label: "Best Peptides for Looksmaxxing", href: "/blog/looksmaxxing-peptides-complete-guide" },
+      { label: "Complete Looksmaxxer Stack 2026", href: "/blog/looksmaxxing-peptide-stack-protocol-2026" },
+      { label: "GH Peptide Stacking Guide", href: "/guides/gh-peptide-stacking-guide" },
+    ],
+    "brain-nerve": [
+      { label: "Semax Nootropic Deep Dive", href: "/blog/semax-nootropic-deep-dive" },
+      { label: "Epithalon Longevity Science", href: "/blog/epithalon-longevity-science" },
+      { label: "Longevity Peptide Protocols", href: "/guides/longevity-peptide-protocols" },
+    ],
+    "immunity": [
+      { label: "Best Recovery Peptides 2026", href: "/blog/best-recovery-peptides-2026" },
+      { label: "Epithalon Longevity Science", href: "/blog/epithalon-longevity-science" },
+      { label: "Longevity Peptide Protocols", href: "/guides/longevity-peptide-protocols" },
+    ],
+    "libido": [
+      { label: "Melanotan II Looksmaxxing Guide", href: "/blog/melanotan-2-looksmaxxing-guide" },
+      { label: "Best Peptides for Looksmaxxing", href: "/blog/looksmaxxing-peptides-complete-guide" },
+      { label: "Complete Looksmaxxer Stack 2026", href: "/blog/looksmaxxing-peptide-stack-protocol-2026" },
+    ],
+    "skin-tissue-bone": [
+      { label: "GHK-Cu for Skin & Collagen", href: "/blog/ghk-cu-collagen-skin-looksmaxxing" },
+      { label: "GHK-Cu Skin & Hair Research", href: "/blog/ghk-cu-skin-hair-research" },
+      { label: "Peptides for Hair Loss & Regrowth", href: "/blog/peptides-hair-loss-regrowth-looksmaxxing" },
+      { label: "Longevity Peptide Protocols", href: "/guides/longevity-peptide-protocols" },
+    ],
+  }
+  const relatedReading = categoryReadingLinks[slug] || []
+
   // Parse FAQ
   const faqItems = Array.isArray(cat.faq)
     ? (cat.faq as { question: string; answer: string }[])
@@ -214,6 +264,29 @@ export default async function CategoryPage({
           </Link>
         </div>
       </section>
+
+      {/* Related Research Reading */}
+      {relatedReading.length > 0 && (
+        <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-8">
+          <div className="p-6 rounded-2xl border border-slate-200 bg-white">
+            <p className="text-xs font-bold text-purple-600 uppercase tracking-widest mb-4">Related Research</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+              {relatedReading.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="flex items-center gap-2 p-3 rounded-xl border border-slate-100 hover:border-purple-200 hover:bg-purple-50 transition-all group text-sm"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-purple-400 flex-shrink-0" />
+                  <span className="text-slate-700 group-hover:text-purple-700 transition-colors font-medium leading-snug">
+                    {item.label}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* FAQ */}
       {faqItems.length > 0 && (

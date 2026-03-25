@@ -372,6 +372,50 @@ export default async function HomePage() {
         </section>
       )}
 
+      {/* GUIDES SECTION */}
+      <section className="py-16 border-t border-slate-100 max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex items-end justify-between mb-10">
+          <div>
+            <p className="text-xs font-bold text-purple-600 uppercase tracking-widest mb-2">
+              Protocol Library
+            </p>
+            <h2 className="text-4xl font-bold text-slate-900">Research Guides</h2>
+            <p className="text-slate-500 mt-2">
+              Complete protocols for reconstitution, stacking, purity testing, and longevity research.
+            </p>
+          </div>
+          <Link
+            href="/guides"
+            className="hidden sm:flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors"
+          >
+            All Guides <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {[
+            { href: "/guides/peptide-storage-reconstitution-guide", title: "Peptide Storage & Reconstitution", desc: "Step-by-step protocol for BW ratios, temperature, and stability.", emoji: "🧪" },
+            { href: "/guides/gh-peptide-stacking-guide", title: "GH Peptide Stacking Guide", desc: "Ipamorelin + CJC-1295 synergy, dosing, and protocols.", emoji: "📈" },
+            { href: "/guides/peptide-purity-testing-guide", title: "Peptide Purity Testing (HPLC)", desc: "How to read COAs, interpret HPLC data, and spot red flags.", emoji: "🔬" },
+            { href: "/guides/longevity-peptide-protocols", title: "Anti-Aging Peptide Protocols", desc: "Epithalon + GHK-Cu longevity stacks and research cycles.", emoji: "✨" },
+          ].map((g) => (
+            <Link
+              key={g.href}
+              href={g.href}
+              className="group p-5 rounded-2xl border border-slate-200 hover:border-purple-300 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5 bg-white flex flex-col"
+            >
+              <span className="text-3xl mb-3">{g.emoji}</span>
+              <h3 className="font-bold text-slate-900 group-hover:text-purple-700 transition-colors mb-2 leading-snug">
+                {g.title}
+              </h3>
+              <p className="text-xs text-slate-500 leading-relaxed flex-1">{g.desc}</p>
+              <span className="inline-flex items-center gap-1 mt-4 text-xs font-semibold text-purple-600">
+                Read Guide <ArrowRight className="w-3 h-3" />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="py-24 border-t border-slate-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">

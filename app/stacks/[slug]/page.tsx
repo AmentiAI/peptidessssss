@@ -51,6 +51,96 @@ export default async function StackGuidePage({
   const allStacks = getAllStackGuides()
   const related = allStacks.filter((s) => s.slug !== slug).slice(0, 3)
 
+  // Stack-specific blog post and guide cross-links
+  const stackReadingLinks: Record<string, { blogs: { href: string; title: string }[]; guides: { href: string; title: string }[] }> = {
+    "ultimate-healing-stack": {
+      blogs: [
+        { href: "/blog/bpc-157-complete-guide", title: "BPC-157 Complete Guide" },
+        { href: "/blog/best-recovery-peptides-2026", title: "Best Recovery Peptides 2026" },
+        { href: "/blog/ipamorelin-cjc-1295-stack-guide", title: "Ipamorelin + CJC-1295 Stack Guide" },
+      ],
+      guides: [
+        { href: "/guides/peptide-storage-reconstitution-guide", title: "Peptide Storage & Reconstitution" },
+        { href: "/guides/peptide-purity-testing-guide", title: "How to Check Peptide Purity" },
+      ],
+    },
+    "gh-optimization-stack": {
+      blogs: [
+        { href: "/blog/ipamorelin-cjc-1295-stack-guide", title: "Ipamorelin + CJC-1295 Stack Guide" },
+        { href: "/blog/gh-peptides-aesthetics-body-recomposition", title: "GH Peptides for Body Recomposition" },
+        { href: "/blog/looksmaxxing-peptide-stack-protocol-2026", title: "Complete Looksmaxxer Stack 2026" },
+      ],
+      guides: [
+        { href: "/guides/gh-peptide-stacking-guide", title: "GH Peptide Stacking Guide" },
+        { href: "/guides/peptide-storage-reconstitution-guide", title: "Peptide Storage & Reconstitution" },
+      ],
+    },
+    "anti-aging-stack": {
+      blogs: [
+        { href: "/blog/ghk-cu-collagen-skin-looksmaxxing", title: "GHK-Cu for Skin & Collagen" },
+        { href: "/blog/ghk-cu-skin-hair-research", title: "GHK-Cu Skin & Hair Research" },
+        { href: "/blog/epithalon-longevity-science", title: "Epithalon Longevity Science" },
+      ],
+      guides: [
+        { href: "/guides/longevity-peptide-protocols", title: "Longevity Peptide Protocols" },
+        { href: "/guides/gh-peptide-stacking-guide", title: "GH Peptide Stacking Guide" },
+      ],
+    },
+    "post-workout-recovery-stack": {
+      blogs: [
+        { href: "/blog/best-recovery-peptides-2026", title: "Best Recovery Peptides 2026" },
+        { href: "/blog/ipamorelin-cjc-1295-stack-guide", title: "Ipamorelin + CJC-1295 Stack Guide" },
+        { href: "/blog/bpc-157-complete-guide", title: "BPC-157 Complete Guide" },
+      ],
+      guides: [
+        { href: "/guides/gh-peptide-stacking-guide", title: "GH Peptide Stacking Guide" },
+        { href: "/guides/peptide-storage-reconstitution-guide", title: "Peptide Storage Guide" },
+      ],
+    },
+    "cognitive-enhancement-stack": {
+      blogs: [
+        { href: "/blog/semax-nootropic-deep-dive", title: "Semax Nootropic Deep Dive" },
+        { href: "/blog/epithalon-longevity-science", title: "Epithalon Longevity Science" },
+      ],
+      guides: [
+        { href: "/guides/peptide-purity-testing-guide", title: "How to Check Peptide Purity" },
+        { href: "/guides/peptide-storage-reconstitution-guide", title: "Peptide Storage Guide" },
+      ],
+    },
+    "longevity-stack": {
+      blogs: [
+        { href: "/blog/epithalon-longevity-science", title: "Epithalon Longevity Science" },
+        { href: "/blog/ghk-cu-collagen-skin-looksmaxxing", title: "GHK-Cu for Skin & Collagen" },
+        { href: "/blog/ghk-cu-skin-hair-research", title: "GHK-Cu Skin & Hair Research" },
+      ],
+      guides: [
+        { href: "/guides/longevity-peptide-protocols", title: "Longevity Peptide Protocols" },
+        { href: "/guides/peptide-purity-testing-guide", title: "How to Check Peptide Purity" },
+      ],
+    },
+    "immune-defense-stack": {
+      blogs: [
+        { href: "/blog/best-recovery-peptides-2026", title: "Best Recovery Peptides 2026" },
+        { href: "/blog/epithalon-longevity-science", title: "Epithalon Longevity Science" },
+      ],
+      guides: [
+        { href: "/guides/longevity-peptide-protocols", title: "Longevity Peptide Protocols" },
+        { href: "/guides/peptide-storage-reconstitution-guide", title: "Peptide Storage Guide" },
+      ],
+    },
+  }
+
+  const readingLinks = stackReadingLinks[slug] || {
+    blogs: [
+      { href: "/blog/best-recovery-peptides-2026", title: "Best Recovery Peptides 2026" },
+      { href: "/blog/looksmaxxing-peptides-complete-guide", title: "Best Peptides for Looksmaxxing" },
+    ],
+    guides: [
+      { href: "/guides/peptide-storage-reconstitution-guide", title: "Peptide Storage Guide" },
+      { href: "/guides/peptide-purity-testing-guide", title: "Peptide Purity Guide" },
+    ],
+  }
+
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -300,6 +390,38 @@ export default async function StackGuidePage({
               >
                 View all stacks →
               </Link>
+            </div>
+
+            {/* Research Reading */}
+            <div className="p-5 rounded-2xl border border-slate-200 bg-white">
+              <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
+                Research Reading
+              </p>
+              <div className="space-y-1 mb-4">
+                {readingLinks.blogs.map((b) => (
+                  <Link
+                    key={b.href}
+                    href={b.href}
+                    className="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-50 transition-colors group text-xs"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0" />
+                    <span className="text-slate-700 group-hover:text-blue-600 transition-colors">{b.title}</span>
+                  </Link>
+                ))}
+              </div>
+              <p className="text-xs font-semibold text-slate-400 uppercase tracking-widest mb-2 mt-3">Guides</p>
+              <div className="space-y-1">
+                {readingLinks.guides.map((g) => (
+                  <Link
+                    key={g.href}
+                    href={g.href}
+                    className="flex items-center gap-2 p-2 rounded-lg hover:bg-slate-50 transition-colors group text-xs"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-purple-400 flex-shrink-0" />
+                    <span className="text-slate-700 group-hover:text-blue-600 transition-colors">{g.title}</span>
+                  </Link>
+                ))}
+              </div>
             </div>
           </aside>
         </div>
