@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00081a"/>
+      <stop offset="50%" style="stop-color:#060612"/>
+      <stop offset="100%" style="stop-color:#0a0020"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d4ff"/>
+      <stop offset="100%" style="stop-color:#7c3aed"/>
+    </linearGradient>
+    <linearGradient id="accent2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#00d4ff"/>
+    </linearGradient>
+    <radialGradient id="orb1" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.18"/>
+      <stop offset="100%" style="stop-color:#00d4ff;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="orb2" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#7c3aed;stop-opacity:0.2"/>
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0"/>
+    </radialGradient>
+    <radialGradient id="core" cx="50%" cy="50%">
+      <stop offset="0%" style="stop-color:#00d4ff;stop-opacity:0.4"/>
+      <stop offset="60%" style="stop-color:#7c3aed;stop-opacity:0.15"/>
+      <stop offset="100%" style="stop-color:#7c3aed;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Orbs -->
+  <ellipse cx="1000" cy="180" rx="380" ry="380" fill="url(#orb1)"/>
+  <ellipse cx="850" cy="520" rx="300" ry="300" fill="url(#orb2)"/>
+  <!-- Central protocol diagram - concentric rings -->
+  <circle cx="1060" cy="290" r="150" fill="none" stroke="#00d4ff" stroke-width="0.8" opacity="0.12"/>
+  <circle cx="1060" cy="290" r="115" fill="none" stroke="#7c3aed" stroke-width="0.8" opacity="0.15"/>
+  <circle cx="1060" cy="290" r="80" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.2"/>
+  <circle cx="1060" cy="290" r="48" fill="url(#core)"/>
+  <circle cx="1060" cy="290" r="20" fill="#00d4ff" opacity="0.25"/>
+  <!-- 4 pillars orbiting -->
+  <!-- Skin node -->
+  <circle cx="1060" cy="140" r="18" fill="#00d4ff" opacity="0.2"/>
+  <circle cx="1060" cy="140" r="18" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+  <text x="1060" y="145" font-family="system-ui,sans-serif" font-size="9" font-weight="700" fill="#00d4ff" text-anchor="middle">SKIN</text>
+  <!-- Body node -->
+  <circle cx="1210" cy="290" r="18" fill="#7c3aed" opacity="0.2"/>
+  <circle cx="1210" cy="290" r="18" fill="none" stroke="#7c3aed" stroke-width="1.5" opacity="0.6"/>
+  <text x="1210" y="295" font-family="system-ui,sans-serif" font-size="9" font-weight="700" fill="#7c3aed" text-anchor="middle">BODY</text>
+  <!-- Hair node -->
+  <circle cx="1060" cy="440" r="18" fill="#00d4ff" opacity="0.2"/>
+  <circle cx="1060" cy="440" r="18" fill="none" stroke="#00d4ff" stroke-width="1.5" opacity="0.6"/>
+  <text x="1060" y="445" font-family="system-ui,sans-serif" font-size="9" font-weight="700" fill="#00d4ff" text-anchor="middle">HAIR</text>
+  <!-- Recovery node -->
+  <circle cx="910" cy="290" r="18" fill="#7c3aed" opacity="0.2"/>
+  <circle cx="910" cy="290" r="18" fill="none" stroke="#7c3aed" stroke-width="1.5" opacity="0.6"/>
+  <text x="910" y="295" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="#7c3aed" text-anchor="middle">RECOVERY</text>
+  <!-- Connector lines to center -->
+  <line x1="1060" y1="158" x2="1060" y2="242" stroke="#00d4ff" stroke-width="1" opacity="0.3" stroke-dasharray="4,3"/>
+  <line x1="1192" y1="290" x2="1108" y2="290" stroke="#7c3aed" stroke-width="1" opacity="0.3" stroke-dasharray="4,3"/>
+  <line x1="1060" y1="422" x2="1060" y2="338" stroke="#00d4ff" stroke-width="1" opacity="0.3" stroke-dasharray="4,3"/>
+  <line x1="928" y1="290" x2="1012" y2="290" stroke="#7c3aed" stroke-width="1" opacity="0.3" stroke-dasharray="4,3"/>
+  <!-- DNA helix on right edge -->
+  <g opacity="0.12" fill="none" stroke="#00d4ff" stroke-width="1.8">
+    <path d="M 1170 80 Q 1190 130 1170 180 Q 1150 230 1170 280 Q 1190 330 1170 380 Q 1150 430 1170 480 Q 1190 530 1170 580"/>
+    <path d="M 1195 80 Q 1175 130 1195 180 Q 1215 230 1195 280 Q 1175 330 1195 380 Q 1215 430 1195 480 Q 1175 530 1195 580"/>
+    <line x1="1170" y1="110" x2="1195" y2="122" stroke-width="1.2"/>
+    <line x1="1170" y1="155" x2="1195" y2="143" stroke-width="1.2"/>
+    <line x1="1170" y1="210" x2="1195" y2="222" stroke-width="1.2"/>
+    <line x1="1170" y1="255" x2="1195" y2="243" stroke-width="1.2"/>
+    <line x1="1170" y1="310" x2="1195" y2="322" stroke-width="1.2"/>
+    <line x1="1170" y1="360" x2="1195" y2="348" stroke-width="1.2"/>
+    <line x1="1170" y1="410" x2="1195" y2="422" stroke-width="1.2"/>
+    <line x1="1170" y1="460" x2="1195" y2="448" stroke-width="1.2"/>
+  </g>
+  <!-- Top accent bar -->
+  <rect x="0" y="0" width="1200" height="4" fill="url(#accent)"/>
+  <!-- Category pill -->
+  <rect x="80" y="185" width="200" height="34" rx="17" fill="#00d4ff" opacity="0.1"/>
+  <rect x="80" y="185" width="200" height="34" rx="17" fill="none" stroke="#00d4ff" stroke-width="1" opacity="0.4"/>
+  <text x="180" y="207" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#00d4ff" text-anchor="middle" letter-spacing="2">PEPTIDE STACKS</text>
+  <!-- Title -->
+  <text x="80" y="275" font-family="system-ui,sans-serif" font-size="42" font-weight="800" fill="white">Complete Looksmaxxer's</text>
+  <text x="80" y="328" font-family="system-ui,sans-serif" font-size="42" font-weight="800" fill="white">Peptide Protocol</text>
+  <!-- Year badge -->
+  <rect x="80" y="342" width="76" height="28" rx="6" fill="url(#accent)" opacity="0.9"/>
+  <text x="118" y="361" font-family="system-ui,sans-serif" font-size="14" font-weight="800" fill="white" text-anchor="middle">2026</text>
+  <!-- Accent line -->
+  <rect x="166" y="352" width="80" height="3" rx="1.5" fill="url(#accent2)"/>
+  <!-- Subtitle -->
+  <text x="80" y="400" font-family="system-ui,sans-serif" font-size="18" fill="rgba(255,255,255,0.48)">Skin · Body Composition · Hair · Recovery — 12-Week Stack</text>
+  <!-- Peptide name tags -->
+  <g>
+    <rect x="80" y="428" width="72" height="24" rx="4" fill="#00d4ff" opacity="0.12"/>
+    <text x="116" y="444" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#00d4ff" text-anchor="middle">GHK-Cu</text>
+    <rect x="160" y="428" width="74" height="24" rx="4" fill="#7c3aed" opacity="0.15"/>
+    <text x="197" y="444" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#a78bfa" text-anchor="middle">BPC-157</text>
+    <rect x="242" y="428" width="100" height="24" rx="4" fill="#00d4ff" opacity="0.12"/>
+    <text x="292" y="444" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#00d4ff" text-anchor="middle">Ipamorelin</text>
+    <rect x="350" y="428" width="104" height="24" rx="4" fill="#7c3aed" opacity="0.15"/>
+    <text x="402" y="444" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#a78bfa" text-anchor="middle">Melanotan II</text>
+    <rect x="462" y="428" width="74" height="24" rx="4" fill="#00d4ff" opacity="0.12"/>
+    <text x="499" y="444" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#00d4ff" text-anchor="middle">TB-500</text>
+  </g>
+  <!-- Brand -->
+  <text x="80" y="580" font-family="system-ui,sans-serif" font-size="15" fill="rgba(255,255,255,0.28)" letter-spacing="3">PEPTIDESMAXXING.COM</text>
+</svg>

@@ -55,7 +55,9 @@
       "Bash(grep -c '\"\"slug\"\"' /mnt/c/Users/Wilso/peptidessssss/data/products.json)",
       "Bash(python3 -c \":*)",
       "Bash(node:*)",
-      "Bash(grep -n \"blog\\\\|guide\\\\|href\" /mnt/c/Users/Wilso/peptidessssss/app/categories/[slug]/page.tsx)"
+      "Bash(grep -n \"blog\\\\|guide\\\\|href\" /mnt/c/Users/Wilso/peptidessssss/app/categories/[slug]/page.tsx)",
+      "Bash(mv /tmp/blog-posts-fixed.json /mnt/c/Users/Wilso/peptidessssss/data/blog-posts.json)",
+      "Bash(node -e \"const d=require\\(''''./data/blog-posts.json''''\\); d.posts.slice\\(-3\\).forEach\\(p => console.log\\(p.slug, ''''→'''', p.image\\)\\)\")"
     ]
   }
 }
