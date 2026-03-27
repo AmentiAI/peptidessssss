@@ -2,9 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ShoppingCart, CheckCircle } from "lucide-react"
 import type { Product } from "@/lib/peptide-data"
-
-const AFFILIATE_URL =
-  process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
+import { AFFILIATE_URL } from "@/lib/static-products"
 
 interface ProductCardProps {
   product: Product

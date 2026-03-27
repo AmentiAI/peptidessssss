@@ -5,6 +5,7 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { ReconstitutionCalculator } from "@/components/peptide-hub/reconstitution-calculator"
 import { DosageCalculator } from "@/components/peptide-hub/dosage-calculator"
 import { PeptideFinder } from "@/components/peptide-hub/peptide-finder"
+import { AFFILIATE_URL } from "@/lib/peptide-data"
 
 export const metadata: Metadata = {
   title: "Peptide Research Tools — Calculators & Peptide Finder",
@@ -24,8 +25,6 @@ export const metadata: Metadata = {
     description: "Free peptide tools: Reconstitution Calculator, Dosage Calculator, and Peptide Finder quiz. Match peptides to your research goals.",
   },
 }
-
-const AFFILIATE_URL = process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
 
 const TOOLS = [
   {

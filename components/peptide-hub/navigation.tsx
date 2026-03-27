@@ -4,7 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { Menu, X, ChevronDown, ExternalLink } from "lucide-react"
-import { staticCategories } from "@/lib/static-products"
+import { staticCategories, AFFILIATE_URL } from "@/lib/static-products"
 
 const NAV_LINKS = [
   { href: "/products", label: "Products" },
@@ -14,8 +14,6 @@ const NAV_LINKS = [
   { href: "/guides", label: "Guides" },
   { href: "/about", label: "About" },
 ]
-
-const AFFILIATE_URL = process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
 
 export function Navigation() {
   const pathname = usePathname()

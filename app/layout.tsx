@@ -109,12 +109,6 @@ export const metadata: Metadata = {
     ],
     shortcut: "/favicon.ico",
   },
-  verification: {
-    google: "",
-  },
-  other: {
-    "msvalidate.01": "",
-  },
 }
 
 export default function RootLayout({

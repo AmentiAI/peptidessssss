@@ -23,6 +23,7 @@ import {
   getFeaturedProducts,
   getAllCategories,
   getFeaturedBlogPosts,
+  AFFILIATE_URL,
 } from "@/lib/peptide-data"
 import { staticProducts } from "@/lib/static-products"
 
@@ -39,9 +40,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 }
-
-const AFFILIATE_URL =
-  process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
 
 const ICON_MAP: Record<string, React.ElementType> = {
   Zap,

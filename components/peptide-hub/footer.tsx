@@ -1,10 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { Shield, Award, ExternalLink } from "lucide-react"
-import { staticCategories } from "@/lib/static-products"
-
-const AFFILIATE_URL =
-  process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
+import { staticCategories, AFFILIATE_URL } from "@/lib/static-products"
 
 const PRODUCT_LINKS = [
   { href: "/products", label: "All Peptides" },
@@ -20,6 +17,8 @@ const RESOURCE_LINKS = [
   { href: "/guides", label: "Research Guides" },
   { href: "/tools", label: "Research Tools" },
   { href: "/about", label: "About PeptidesMaxxing" },
+  { href: "/privacy", label: "Privacy Policy" },
+  { href: "/terms", label: "Terms of Service" },
   { href: "/sitemap.xml", label: "Sitemap" },
 ]
 
@@ -139,9 +138,11 @@ export function Footer() {
           <p className="text-xs text-slate-400 text-center sm:text-left">
             © {new Date().getFullYear()} PeptidesMaxxing. All rights reserved. For research use only.
           </p>
-          <p className="text-xs text-slate-400 text-center sm:text-right">
-            PeptidesMaxxing may earn compensation from purchases made through links on this site, at no extra cost to you.
-          </p>
+          <div className="flex items-center gap-4 text-xs text-slate-400">
+            <a href="/privacy" className="hover:text-slate-600 transition-colors">Privacy</a>
+            <a href="/terms" className="hover:text-slate-600 transition-colors">Terms</a>
+            <span>PeptidesMaxxing may earn compensation from purchases made through links on this site, at no extra cost to you.</span>
+          </div>
         </div>
       </div>
     </footer>

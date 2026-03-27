@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight, FlaskConical, Package } from "lucide-react"
 import { PageLayout } from "@/components/peptide-hub/page-layout"
-import { getAllProducts } from "@/lib/peptide-data"
+import { getAllProducts, AFFILIATE_URL } from "@/lib/peptide-data"
 import { ProductCard } from "@/components/peptide-hub/product-card"
 import { getAllStackGuides } from "@/lib/stack-guides"
 
@@ -24,9 +24,6 @@ export const metadata: Metadata = {
     description: "Pre-built peptide cycles: Wolverine (healing), Glow Plus (anti-aging), Nova Mind (cognitive), Prime Metabolic (fat loss), T-Force (immunity), Eros (libido).",
   },
 }
-
-const AFFILIATE_URL =
-  process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
 
 export default async function StacksPage() {
   const allProducts = await getAllProducts()

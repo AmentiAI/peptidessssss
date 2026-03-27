@@ -4,9 +4,7 @@ import { notFound } from "next/navigation"
 import { ChevronRight, ShoppingCart, ArrowRight, CheckCircle, Zap, Clock, Users } from "lucide-react"
 import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { getAllStackGuides, getStackGuide } from "@/lib/stack-guides"
-
-const AFFILIATE_URL =
-  process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
+import { AFFILIATE_URL } from "@/lib/peptide-data"
 
 export function generateStaticParams() {
   return getAllStackGuides().map((s) => ({ slug: s.slug }))

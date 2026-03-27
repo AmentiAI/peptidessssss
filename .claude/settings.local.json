@@ -57,7 +57,11 @@
       "Bash(node:*)",
       "Bash(grep -n \"blog\\\\|guide\\\\|href\" /mnt/c/Users/Wilso/peptidessssss/app/categories/[slug]/page.tsx)",
       "Bash(mv /tmp/blog-posts-fixed.json /mnt/c/Users/Wilso/peptidessssss/data/blog-posts.json)",
-      "Bash(node -e \"const d=require\\(''''./data/blog-posts.json''''\\); d.posts.slice\\(-3\\).forEach\\(p => console.log\\(p.slug, ''''→'''', p.image\\)\\)\")"
+      "Bash(node -e \"const d=require\\(''''./data/blog-posts.json''''\\); d.posts.slice\\(-3\\).forEach\\(p => console.log\\(p.slug, ''''→'''', p.image\\)\\)\")",
+      "Bash(grep -r href=.*pantheonpeptides /mnt/c/Users/Wilso/peptidessssss/app /mnt/c/Users/Wilso/peptidessssss/components)",
+      "Bash(grep -r out/[slug] /mnt/c/Users/Wilso/peptidessssss/app)",
+      "Bash(grep -r \"pending\\\\|TODO\\\\|FIXME\\\\|HACK\\\\|XXX\" /mnt/c/Users/Wilso/peptidessssss --include=*.tsx --include=*.ts)",
+      "Bash(xargs ls:*)"
     ]
   }
 }

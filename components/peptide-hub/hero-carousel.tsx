@@ -4,9 +4,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react"
 import type { Product } from "@/lib/peptide-data"
-
-const AFFILIATE_URL =
-  process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
+import { AFFILIATE_URL } from "@/lib/static-products"
 
 export function HeroCarousel({ products }: { products: Product[] }) {
   const [current, setCurrent] = useState(0)

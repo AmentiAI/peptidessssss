@@ -102,6 +102,18 @@ export default async function sitemap() {
       changeFrequency: "monthly" as const,
       priority: 0.5,
     },
+    {
+      url: `${BASE_URL}/privacy`,
+      lastModified: new Date("2026-03-01"),
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/terms`,
+      lastModified: new Date("2026-03-01"),
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    },
     ...productPages,
     ...categoryPages,
     ...stackGuidePages,

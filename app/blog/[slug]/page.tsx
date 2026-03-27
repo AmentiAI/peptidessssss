@@ -7,10 +7,8 @@ import {
   getBlogPostBySlug,
   getAllBlogSlugs,
   getAllBlogPosts,
+  AFFILIATE_URL,
 } from "@/lib/peptide-data"
-
-const AFFILIATE_URL =
-  process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
 
 export async function generateStaticParams() {
   const slugs = await getAllBlogSlugs()

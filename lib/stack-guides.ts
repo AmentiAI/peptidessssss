@@ -1,3 +1,5 @@
+import { AFFILIATE_URL } from "@/lib/static-products"
+
 export interface StackGuide {
   slug: string
   name: string
@@ -23,8 +25,6 @@ export interface StackGuide {
   seoTitle: string
   seoDescription: string
 }
-
-const AFFILIATE_URL = "https://pantheonpeptides.com/partner/AmentiAI/"
 
 export const stackGuides: StackGuide[] = [
   {

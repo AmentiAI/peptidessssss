@@ -1,8 +1,7 @@
 "use client"
 import { useState } from "react"
 import { ArrowRight, RotateCcw, ExternalLink } from "lucide-react"
-
-const AFFILIATE_URL = "https://pantheonpeptides.com/partner/AmentiAI/"
+import { AFFILIATE_URL } from "@/lib/static-products"
 
 type Goal = {
   id: string

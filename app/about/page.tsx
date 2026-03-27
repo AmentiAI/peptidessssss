@@ -2,9 +2,7 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { FlaskConical, Shield, Award, ArrowRight } from "lucide-react"
 import { PageLayout } from "@/components/peptide-hub/page-layout"
-
-const AFFILIATE_URL =
-  process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
+import { AFFILIATE_URL } from "@/lib/peptide-data"
 
 export const metadata: Metadata = {
   title: "About PeptidesMaxxing — Research Standards & Mission",

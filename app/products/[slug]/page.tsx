@@ -10,12 +10,10 @@ import {
   getProductBySlug,
   getAllProductSlugs,
   getRelatedProducts,
+  AFFILIATE_URL,
 } from "@/lib/peptide-data"
 import { productResearch } from "@/lib/product-research"
 import { getProductFAQs } from "@/lib/product-faqs"
-
-const AFFILIATE_URL =
-  process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
 
 export async function generateStaticParams() {
   const slugs = await getAllProductSlugs()
