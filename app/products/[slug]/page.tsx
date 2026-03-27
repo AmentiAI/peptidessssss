@@ -10,6 +10,7 @@ import {
   getProductBySlug,
   getAllProductSlugs,
   getRelatedProducts,
+  getAllBlogPosts,
   AFFILIATE_URL,
 } from "@/lib/peptide-data"
 import { productResearch } from "@/lib/product-research"
@@ -60,8 +61,27 @@ export default async function ProductPage({
   const product = await getProductBySlug(slug)
   if (!product) notFound()
 
-  const related = await getRelatedProducts(slug)
+  const [related, allBlogPosts] = await Promise.all([
+    getRelatedProducts(slug),
+    getAllBlogPosts(),
+  ])
   const researchContent = productResearch[slug] ?? null
+
+  const productKeywords = [
+    product.name.toLowerCase(),
+    slug.replace(/-/g, " "),
+    ...product.categories.map((c) => c.toLowerCase()),
+  ]
+  const relatedBlogPosts = allBlogPosts
+    .filter((p) =>
+      productKeywords.some(
+        (kw) =>
+          p.title.toLowerCase().includes(kw) ||
+          p.tags.some((t) => t.toLowerCase().includes(kw)) ||
+          p.description.toLowerCase().includes(kw)
+      )
+    )
+    .slice(0, 3)
 
   // Parse description into benefits list
   const benefits = product.description
@@ -349,8 +369,24 @@ export default async function ProductPage({
             </div>
           </div>
 
+          {/* Compare CTA */}
+          <div className="mt-8 p-4 rounded-xl border border-violet-200 bg-violet-50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <p className="text-sm font-semibold text-slate-900">Compare {product.name} with other peptides</p>
+              <p className="text-xs text-slate-500 mt-0.5">Side-by-side mechanism, dosing & protocol comparison at LooksMaxingStack.com</p>
+            </div>
+            <a
+              href="https://looksmaxingstack.com/compare"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold bg-violet-600 text-white hover:bg-violet-700 transition-colors"
+            >
+              Compare <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+          </div>
+
           {/* Research disclaimer */}
-          <div className="mt-8 p-4 rounded-xl border border-amber-200 bg-amber-50">
+          <div className="mt-4 p-4 rounded-xl border border-amber-200 bg-amber-50">
             <p className="text-xs text-amber-800 leading-relaxed">
               <strong className="text-amber-900">Research Use Only:</strong> This product is for laboratory
               research purposes only. Not intended for human consumption. Not approved by the FDA for any
@@ -399,6 +435,41 @@ export default async function ProductPage({
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {related.map((p) => (
                 <ProductCard key={p.slug} product={p} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* From the Research Blog */}
+      {relatedBlogPosts.length > 0 && (
+        <section className="py-12 border-t border-slate-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6">
+            <div className="flex items-end justify-between mb-6">
+              <div>
+                <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Research Blog</p>
+                <h2 className="text-2xl font-bold text-slate-900">From the Research Blog</h2>
+              </div>
+              <Link href="/blog" className="flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors">
+                All Articles <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {relatedBlogPosts.map((post) => (
+                <Link
+                  key={post.slug}
+                  href={`/blog/${post.slug}`}
+                  className="group flex flex-col rounded-2xl border border-slate-200 hover:border-slate-400 hover:shadow-md transition-all p-5 bg-white"
+                >
+                  <span className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">{post.category}</span>
+                  <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2 mb-2 flex-1">
+                    {post.title}
+                  </h3>
+                  <p className="text-xs text-slate-400 flex items-center gap-1">
+                    <CheckCircle className="w-3 h-3" />
+                    {post.readTime ? `${post.readTime} read` : "Research article"}
+                  </p>
+                </Link>
               ))}
             </div>
           </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ChevronRight, Clock, User, ArrowRight } from "lucide-react"
+import { ChevronRight, Clock, User, ArrowRight, ExternalLink } from "lucide-react"
 import { PageLayout } from "@/components/peptide-hub/page-layout"
 import {
   getBlogPostBySlug,
@@ -60,6 +60,36 @@ export default async function BlogPostPage({
     .filter((p) => p.slug !== slug && p.category === post.category)
     .slice(0, 3)
 
+  function parseInline(text: string, keyPrefix: number): React.ReactNode {
+    const regex = /(\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*)/g
+    const parts: React.ReactNode[] = []
+    let lastIndex = 0
+    let match
+    let k = 0
+    while ((match = regex.exec(text)) !== null) {
+      if (match.index > lastIndex) parts.push(text.slice(lastIndex, match.index))
+      if (match[0].startsWith("[")) {
+        const href = match[3]
+        parts.push(
+          href.startsWith("http") ? (
+            <a key={`${keyPrefix}-${k++}`} href={href} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline underline-offset-2 font-medium transition-colors">
+              {match[2]}
+            </a>
+          ) : (
+            <Link key={`${keyPrefix}-${k++}`} href={href} className="text-blue-600 hover:text-blue-800 underline underline-offset-2 font-medium transition-colors">
+              {match[2]}
+            </Link>
+          )
+        )
+      } else {
+        parts.push(<strong key={`${keyPrefix}-${k++}`}>{match[4]}</strong>)
+      }
+      lastIndex = match.index + match[0].length
+    }
+    if (lastIndex < text.length) parts.push(text.slice(lastIndex))
+    return parts.length === 1 ? parts[0] : <>{parts}</>
+  }
+
   function renderContent(content: string) {
     return content.split("\n").map((line, i) => {
       if (line.startsWith("## "))
@@ -77,7 +107,7 @@ export default async function BlogPostPage({
       if (line.startsWith("- "))
         return (
           <li key={i} className="text-slate-600 leading-relaxed ml-4 mb-1 list-disc">
-            {line.slice(2)}
+            {parseInline(line.slice(2), i)}
           </li>
         )
       if (line.startsWith("**") && line.endsWith("**"))
@@ -89,7 +119,7 @@ export default async function BlogPostPage({
       if (line.trim() === "") return <div key={i} className="mb-3" />
       return (
         <p key={i} className="text-slate-600 leading-[1.85] mb-3">
-          {line}
+          {parseInline(line, i)}
         </p>
       )
     })
@@ -195,8 +225,31 @@ export default async function BlogPostPage({
           </div>
         )}
 
+        {/* Partner CTA */}
+        <div className="mt-8 p-5 rounded-2xl border border-violet-200 bg-violet-50">
+          <p className="text-xs font-bold text-violet-600 uppercase tracking-widest mb-1">Research Partner</p>
+          <p className="font-semibold text-slate-900 mb-1">Compare Peptides Side-by-Side</p>
+          <p className="text-sm text-slate-500 mb-3">
+            Use LooksMaxingStack&apos;s interactive comparison tool to evaluate peptide mechanisms, half-lives, dosing, and protocols head-to-head.
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <a href="https://looksmaxingstack.com/compare" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-bold bg-violet-600 text-white hover:bg-violet-700 transition-colors">
+              Compare Peptides <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+            <a href="https://looksmaxingstack.com/stacks" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold text-violet-600 bg-white border border-violet-200 hover:border-violet-400 transition-colors">
+              View Stacks <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+            <a href="https://looksmaxingstack.com/guides" target="_blank" rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold text-violet-600 bg-white border border-violet-200 hover:border-violet-400 transition-colors">
+              Guides <ExternalLink className="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </div>
+
         {/* Buy CTA */}
-        <div className="mt-8 p-6 rounded-2xl border border-slate-200 bg-slate-50 text-center">
+        <div className="mt-6 p-6 rounded-2xl border border-slate-200 bg-slate-50 text-center">
           <h3 className="font-bold text-slate-900 mb-2">Explore Research Peptides</h3>
           <p className="text-sm text-slate-500 mb-4">
             Browse our full research peptide catalog — for research use only.

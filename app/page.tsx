@@ -448,6 +448,35 @@ export default async function HomePage() {
           </p>
         </div>
       </section>
+
+      {/* Research Partner Banner */}
+      <section className="border-t border-slate-100 bg-violet-50 py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+              <p className="text-xs font-bold text-violet-600 uppercase tracking-widest mb-1">Research Partner</p>
+              <p className="text-xl font-bold text-slate-900 mb-1">LooksMaxingStack.com</p>
+              <p className="text-sm text-slate-500 max-w-lg">
+                Compare peptides side-by-side, explore curated research stacks, and read additional science guides — our research partner for comprehensive looksmaxxing protocols.
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-3 flex-shrink-0">
+              <a href="https://looksmaxingstack.com/compare" target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold bg-violet-600 text-white hover:bg-violet-700 transition-colors">
+                Compare Peptides
+              </a>
+              <a href="https://looksmaxingstack.com/stacks" target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-violet-700 border border-violet-300 bg-white hover:border-violet-500 transition-colors">
+                View Stacks
+              </a>
+              <a href="https://looksmaxingstack.com" target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-violet-700 border border-violet-300 bg-white hover:border-violet-500 transition-colors">
+                Visit Site
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </PageLayout>
   )
 }

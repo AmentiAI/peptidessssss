@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { ChevronRight, Clock, ArrowRight } from "lucide-react"
+import { ChevronRight, Clock, ArrowRight, ExternalLink } from "lucide-react"
 import { PageLayout } from "@/components/peptide-hub/page-layout"
 import {
   getGuideBySlug,
@@ -54,6 +54,36 @@ export default async function GuidePage({
   const allGuides = await getAllGuides()
   const related = allGuides.filter((g) => g.slug !== slug).slice(0, 2)
 
+  function parseInline(text: string, keyPrefix: number): React.ReactNode {
+    const regex = /(\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*)/g
+    const parts: React.ReactNode[] = []
+    let lastIndex = 0
+    let match
+    let k = 0
+    while ((match = regex.exec(text)) !== null) {
+      if (match.index > lastIndex) parts.push(text.slice(lastIndex, match.index))
+      if (match[0].startsWith("[")) {
+        const href = match[3]
+        parts.push(
+          href.startsWith("http") ? (
+            <a key={`${keyPrefix}-${k++}`} href={href} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline underline-offset-2 font-medium transition-colors">
+              {match[2]}
+            </a>
+          ) : (
+            <Link key={`${keyPrefix}-${k++}`} href={href} className="text-blue-600 hover:text-blue-800 underline underline-offset-2 font-medium transition-colors">
+              {match[2]}
+            </Link>
+          )
+        )
+      } else {
+        parts.push(<strong key={`${keyPrefix}-${k++}`}>{match[4]}</strong>)
+      }
+      lastIndex = match.index + match[0].length
+    }
+    if (lastIndex < text.length) parts.push(text.slice(lastIndex))
+    return parts.length === 1 ? parts[0] : <>{parts}</>
+  }
+
   function renderContent(content: string) {
     return content.split("\n").map((line, i) => {
       if (line.startsWith("## "))
@@ -71,7 +101,7 @@ export default async function GuidePage({
       if (line.startsWith("- "))
         return (
           <li key={i} className="text-slate-600 leading-relaxed ml-4 mb-1 list-disc">
-            {line.slice(2)}
+            {parseInline(line.slice(2), i)}
           </li>
         )
       if (line.startsWith("**") && line.endsWith("**"))
@@ -83,7 +113,7 @@ export default async function GuidePage({
       if (line.trim() === "") return <div key={i} className="mb-3" />
       return (
         <p key={i} className="text-slate-600 leading-[1.85] mb-3">
-          {line}
+          {parseInline(line, i)}
         </p>
       )
     })
@@ -204,6 +234,31 @@ export default async function GuidePage({
               >
                 Browse Peptides <ArrowRight className="w-4 h-4" />
               </Link>
+            </div>
+
+            {/* Partner widget */}
+            <div className="p-5 rounded-2xl border border-violet-200 bg-violet-50">
+              <p className="text-xs font-bold text-violet-600 uppercase tracking-widest mb-2">Research Partner</p>
+              <p className="text-sm font-bold text-slate-900 mb-1">LooksMaxingStack.com</p>
+              <p className="text-xs text-slate-500 mb-4 leading-relaxed">Compare peptides head-to-head, explore curated stacks, and read additional research guides.</p>
+              <div className="space-y-2">
+                <a href="https://looksmaxingstack.com/compare" target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs font-semibold text-violet-600 hover:text-violet-800 transition-colors">
+                  <ExternalLink className="w-3 h-3" /> Compare Peptides
+                </a>
+                <a href="https://looksmaxingstack.com/stacks" target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs font-semibold text-violet-600 hover:text-violet-800 transition-colors">
+                  <ExternalLink className="w-3 h-3" /> Research Stacks
+                </a>
+                <a href="https://looksmaxingstack.com/guides" target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs font-semibold text-violet-600 hover:text-violet-800 transition-colors">
+                  <ExternalLink className="w-3 h-3" /> Research Guides
+                </a>
+                <a href="https://looksmaxingstack.com" target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-1.5 text-xs font-semibold text-violet-600 hover:text-violet-800 transition-colors">
+                  <ExternalLink className="w-3 h-3" /> Visit Site
+                </a>
+              </div>
             </div>
 
             {related.length > 0 && (

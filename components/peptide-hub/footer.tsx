@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Shield, Award, ExternalLink } from "lucide-react"
+import { Shield, Award, ExternalLink, ArrowUpRight } from "lucide-react"
 import { staticCategories, AFFILIATE_URL } from "@/lib/static-products"
 
 const PRODUCT_LINKS = [
@@ -20,6 +20,13 @@ const RESOURCE_LINKS = [
   { href: "/privacy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms of Service" },
   { href: "/sitemap.xml", label: "Sitemap" },
+]
+
+const PARTNER_LINKS = [
+  { href: "https://looksmaxingstack.com", label: "LooksMaxingStack.com" },
+  { href: "https://looksmaxingstack.com/compare", label: "Compare Peptides" },
+  { href: "https://looksmaxingstack.com/stacks", label: "Research Stacks" },
+  { href: "https://looksmaxingstack.com/guides", label: "Partner Guides" },
 ]
 
 export function Footer() {
@@ -50,7 +57,7 @@ export function Footer() {
       </div>
 
       {/* Main footer */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-2 md:grid-cols-5 gap-8">
         {/* Brand */}
         <div className="col-span-2 md:col-span-1">
           <Link href="/" className="flex items-center gap-2.5 mb-4">
@@ -110,6 +117,28 @@ export function Footer() {
                 Shop Research Peptides <ExternalLink className="w-3 h-3" />
               </a>
             </li>
+          </ul>
+        </div>
+
+        {/* Partner */}
+        <div>
+          <h4 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-4">Research Partner</h4>
+          <ul className="space-y-2.5">
+            {PARTNER_LINKS.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-slate-500 hover:text-violet-600 transition-colors flex items-center gap-1"
+                >
+                  {link.label}
+                  {link.href === "https://looksmaxingstack.com" && (
+                    <ExternalLink className="w-3 h-3 opacity-60" />
+                  )}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
 
