@@ -31,12 +31,12 @@ export async function generateMetadata({
   if (!product) return {}
   const desc = (product.shortDescription ?? product.description?.slice(0, 140) ?? "") + " Research-grade — mechanisms, dosing, and benefits."
   return {
-    title: `Buy ${product.name} — Benefits, How It Works & Dosing`,
+    title: `${product.name} — Research Overview, Benefits & Dosing`,
     description: desc,
     keywords: [product.name, ...product.categories, "research peptide", "research grade peptides", "buy " + product.name, product.name + " benefits"],
     alternates: { canonical: `https://www.peptidesmaxxing.com/products/${slug}` },
     openGraph: {
-      title: `Buy ${product.name} — Benefits & How It Works`,
+      title: `${product.name} — Research Overview, Benefits & How It Works`,
       description: product.shortDescription ?? product.description?.slice(0, 155) ?? "",
       url: `https://www.peptidesmaxxing.com/products/${slug}`,
       type: "website",
@@ -46,7 +46,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `Buy ${product.name} — Benefits & How It Works`,
+      title: `${product.name} — Research Overview, Benefits & How It Works`,
       description: product.shortDescription ?? product.description?.slice(0, 155) ?? "",
     },
   }
@@ -174,9 +174,9 @@ export default async function ProductPage({
       availability: product.isInStock
         ? "https://schema.org/InStock"
         : "https://schema.org/OutOfStock",
-      url: AFFILIATE_URL,
+      url: product.productUrl,
       priceCurrency: "USD",
-      seller: { "@type": "Organization", name: "PeptidesMaxxing", url: "https://www.peptidesmaxxing.com" },
+      seller: { "@type": "Organization", name: "Pantheon Peptides", url: "https://pantheonpeptides.com" },
     },
   }
 
@@ -369,20 +369,18 @@ export default async function ProductPage({
             </div>
           </div>
 
-          {/* Compare CTA */}
+          {/* Stack CTA */}
           <div className="mt-8 p-4 rounded-xl border border-violet-200 bg-violet-50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <p className="text-sm font-semibold text-slate-900">Compare {product.name} with other peptides</p>
-              <p className="text-xs text-slate-500 mt-0.5">Side-by-side mechanism, dosing & protocol comparison at LooksMaxingStack.com</p>
+              <p className="text-sm font-semibold text-slate-900">Stack {product.name} with other peptides</p>
+              <p className="text-xs text-slate-500 mt-0.5">Browse pre-built research cycles and protocol combinations.</p>
             </div>
-            <a
-              href="https://looksmaxingstack.com/compare"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/stacks"
               className="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold bg-violet-600 text-white hover:bg-violet-700 transition-colors"
             >
-              Compare <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+              View Stacks <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
 
           {/* Research disclaimer */}

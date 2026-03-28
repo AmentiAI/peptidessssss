@@ -63,7 +63,14 @@
       "Bash(grep -r \"pending\\\\|TODO\\\\|FIXME\\\\|HACK\\\\|XXX\" /mnt/c/Users/Wilso/peptidessssss --include=*.tsx --include=*.ts)",
       "Bash(xargs ls:*)",
       "Bash(python3:*)",
-      "WebFetch(domain:looksmaxingstack.com)"
+      "WebFetch(domain:looksmaxingstack.com)",
+      "WebFetch(domain:www.looksmaxingstack.com)",
+      "Bash(grep -c ^s* /mnt/c/Users/Wilso/peptidessssss/lib/product-research.ts)",
+      "Bash(grep -o \"\"[a-z0-9-]*\"\": /mnt/c/Users/Wilso/peptidessssss/lib/product-research.ts)",
+      "Bash(cat /mnt/c/Users/Wilso/peptidessssss/app/out/[slug]/route.ts)",
+      "Bash(cat /mnt/c/Users/Wilso/peptidessssss/app/out/[slug]/page.tsx)",
+      "Bash(grep -n \"Buy\\\\|title.*product.name\" /mnt/c/Users/Wilso/peptidessssss/app/products/[slug]/page.tsx)",
+      "Bash(grep:*)"
     ]
   }
 }

@@ -1,4 +1,4 @@
-import { getAllProductSlugs, AFFILIATE_URL } from "@/lib/peptide-data"
+import { getAllProductSlugs, getProductBySlug, AFFILIATE_URL } from "@/lib/peptide-data"
 import { getAllStackGuides } from "@/lib/stack-guides"
 import { RedirectClient } from "./redirect-client"
 
@@ -13,11 +13,14 @@ export async function generateStaticParams() {
 
 export default async function OutPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
+  const product = await getProductBySlug(slug)
 
-  // Always redirect to affiliate URL — cookie tracking handles attribution
+  // Use the product's specific vendor URL when available, fall back to affiliate homepage
+  const destination = product?.productUrl ?? AFFILIATE_URL
+
   return (
     <RedirectClient
-      destination={AFFILIATE_URL}
+      destination={destination}
       productName={slug.replace(/-/g, " ")}
     />
   )
