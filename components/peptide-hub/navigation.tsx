@@ -9,10 +9,11 @@ import { staticCategories, AFFILIATE_URL } from "@/lib/static-products"
 const NAV_LINKS = [
   { href: "/products", label: "Products" },
   { href: "/stacks", label: "Cycles & Stacks" },
-  { href: "/tools", label: "Tools" },
-  { href: "/blog", label: "Research Blog" },
+  { href: "/compare", label: "Compare" },
+  { href: "/protocols", label: "Protocols" },
+  { href: "/science", label: "Science" },
+  { href: "/blog", label: "Blog" },
   { href: "/guides", label: "Guides" },
-  { href: "/about", label: "About" },
 ]
 
 export function Navigation() {

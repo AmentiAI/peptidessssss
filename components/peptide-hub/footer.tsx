@@ -15,11 +15,13 @@ const PRODUCT_LINKS = [
 const RESOURCE_LINKS = [
   { href: "/blog", label: "Research Blog" },
   { href: "/guides", label: "Research Guides" },
+  { href: "/protocols", label: "Research Protocols" },
+  { href: "/compare", label: "Peptide Comparisons" },
+  { href: "/science", label: "Peptide Science" },
   { href: "/tools", label: "Research Tools" },
   { href: "/about", label: "About PeptidesMaxxing" },
   { href: "/privacy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms of Service" },
-  { href: "/sitemap.xml", label: "Sitemap" },
 ]
 
 const PARTNER_LINKS = [
