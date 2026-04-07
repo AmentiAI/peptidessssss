@@ -30,15 +30,18 @@ export async function generateMetadata({
   const product = await getProductBySlug(slug)
   if (!product) return {}
   const desc = (product.shortDescription ?? product.description?.slice(0, 140) ?? "") + " Research-grade — mechanisms, dosing, and benefits."
+  const titleStr = `Buy ${product.name} — Research Overview, Benefits & Dosing | PeptidesMaxxing`
+  const ogDesc = product.shortDescription ?? product.description?.slice(0, 155) ?? ""
   return {
-    title: `${product.name} — Research Overview, Benefits & Dosing`,
+    title: { absolute: titleStr },
     description: desc,
     keywords: [product.name, ...product.categories, "research peptide", "research grade peptides", "buy " + product.name, product.name + " benefits"],
     alternates: { canonical: `https://www.peptidesmaxxing.com/products/${slug}` },
     openGraph: {
-      title: `${product.name} — Research Overview, Benefits & How It Works`,
-      description: product.shortDescription ?? product.description?.slice(0, 155) ?? "",
+      title: titleStr,
+      description: ogDesc,
       url: `https://www.peptidesmaxxing.com/products/${slug}`,
+      siteName: "PeptidesMaxxing",
       type: "website",
       images: product.imageUrl
         ? [{ url: product.imageUrl, width: 800, height: 800, alt: product.name }]
@@ -46,8 +49,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: `${product.name} — Research Overview, Benefits & How It Works`,
-      description: product.shortDescription ?? product.description?.slice(0, 155) ?? "",
+      title: titleStr,
+      description: ogDesc.slice(0, 155),
     },
   }
 }
@@ -174,9 +177,9 @@ export default async function ProductPage({
       availability: product.isInStock
         ? "https://schema.org/InStock"
         : "https://schema.org/OutOfStock",
-      url: product.productUrl,
-      priceCurrency: "USD",
-      seller: { "@type": "Organization", name: "Pantheon Peptides", url: "https://pantheonpeptides.com" },
+      url: `https://www.peptidesmaxxing.com/products/${slug}`,
+      ...(product.price != null ? { price: product.price.toString(), priceCurrency: "USD" } : {}),
+      seller: { "@type": "Organization", name: "PeptidesMaxxing", url: "https://www.peptidesmaxxing.com" },
     },
   }
 

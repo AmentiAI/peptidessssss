@@ -7,7 +7,6 @@ import {
 import { getAllStackGuides } from "@/lib/stack-guides"
 
 const BASE_URL = "https://www.peptidesmaxxing.com"
-const TODAY = new Date()
 
 export default async function sitemap() {
   const [productSlugs, categorySlugs, blogSlugs, guideSlugs] = await Promise.all([
@@ -20,35 +19,35 @@ export default async function sitemap() {
 
   const productPages = productSlugs.map((slug) => ({
     url: `${BASE_URL}/products/${slug}`,
-    lastModified: TODAY,
+    lastModified: new Date("2026-03-29"),
     changeFrequency: "weekly" as const,
     priority: 0.85,
   }))
 
   const categoryPages = categorySlugs.map((slug) => ({
     url: `${BASE_URL}/categories/${slug}`,
-    lastModified: TODAY,
+    lastModified: new Date("2026-03-20"),
     changeFrequency: "weekly" as const,
-    priority: 0.8,
+    priority: 0.9,
   }))
 
   const blogPages = blogSlugs.map((slug) => ({
     url: `${BASE_URL}/blog/${slug}`,
-    lastModified: TODAY,
+    lastModified: new Date("2026-03-25"),
     changeFrequency: "monthly" as const,
     priority: 0.75,
   }))
 
   const guidePages = guideSlugs.map((slug) => ({
     url: `${BASE_URL}/guides/${slug}`,
-    lastModified: TODAY,
+    lastModified: new Date("2026-03-20"),
     changeFrequency: "monthly" as const,
     priority: 0.75,
   }))
 
   const stackGuidePages = stackGuides.map((s) => ({
     url: `${BASE_URL}/stacks/${s.slug}`,
-    lastModified: TODAY,
+    lastModified: new Date("2026-03-25"),
     changeFrequency: "monthly" as const,
     priority: 0.8,
   }))
@@ -56,45 +55,45 @@ export default async function sitemap() {
   return [
     {
       url: BASE_URL,
-      lastModified: TODAY,
+      lastModified: new Date("2026-04-01"),
       changeFrequency: "daily" as const,
       priority: 1,
     },
     {
       url: `${BASE_URL}/products`,
-      lastModified: TODAY,
+      lastModified: new Date("2026-04-01"),
       changeFrequency: "daily" as const,
       priority: 0.95,
     },
     {
       url: `${BASE_URL}/categories`,
-      lastModified: TODAY,
+      lastModified: new Date("2026-03-20"),
       changeFrequency: "weekly" as const,
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/stacks`,
-      lastModified: TODAY,
+      lastModified: new Date("2026-03-25"),
       changeFrequency: "weekly" as const,
       priority: 0.9,
     },
     {
       url: `${BASE_URL}/blog`,
-      lastModified: TODAY,
-      changeFrequency: "daily" as const,
+      lastModified: new Date("2026-03-29"),
+      changeFrequency: "weekly" as const,
       priority: 0.85,
     },
     {
       url: `${BASE_URL}/guides`,
-      lastModified: TODAY,
+      lastModified: new Date("2026-03-20"),
       changeFrequency: "weekly" as const,
       priority: 0.85,
     },
     {
       url: `${BASE_URL}/tools`,
-      lastModified: TODAY,
+      lastModified: new Date("2026-03-15"),
       changeFrequency: "monthly" as const,
-      priority: 0.8,
+      priority: 0.7,
     },
     {
       url: `${BASE_URL}/about`,

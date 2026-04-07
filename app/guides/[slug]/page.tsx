@@ -23,21 +23,23 @@ export async function generateMetadata({
   const { slug } = await params
   const guide = await getGuideBySlug(slug)
   if (!guide) return {}
+  const titleStr = `${guide.title} | PeptidesMaxxing`
   return {
-    title: guide.title,
+    title: { absolute: titleStr },
     description: guide.description,
     alternates: { canonical: `https://www.peptidesmaxxing.com/guides/${slug}` },
     openGraph: {
-      title: guide.title,
+      title: titleStr,
       description: guide.description,
       url: `https://www.peptidesmaxxing.com/guides/${slug}`,
+      siteName: "PeptidesMaxxing",
       type: "article",
       images: guide.imageUrl ? [{ url: guide.imageUrl, width: 1200, height: 630, alt: guide.title }] : [],
     },
     twitter: {
       card: "summary_large_image",
-      title: guide.title,
-      description: guide.description,
+      title: titleStr,
+      description: guide.description.slice(0, 155),
     },
   }
 }

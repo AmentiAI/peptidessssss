@@ -23,16 +23,18 @@ export async function generateMetadata({
   const { slug } = await params
   const post = await getBlogPostBySlug(slug)
   if (!post) return {}
+  const titleStr = `${post.title} | PeptidesMaxxing`
   return {
-    title: post.title,
+    title: { absolute: titleStr },
     description: post.description,
     keywords: post.tags,
     authors: [{ name: post.author ?? "PeptidesMaxxing Research Team" }],
     alternates: { canonical: `https://www.peptidesmaxxing.com/blog/${slug}` },
     openGraph: {
-      title: post.title,
+      title: titleStr,
       description: post.description,
       url: `https://www.peptidesmaxxing.com/blog/${slug}`,
+      siteName: "PeptidesMaxxing",
       type: "article",
       publishedTime: post.date?.toISOString(),
       authors: [post.author ?? "PeptidesMaxxing Research Team"],
@@ -40,8 +42,8 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
-      description: post.description,
+      title: titleStr,
+      description: post.description.slice(0, 155),
     },
   }
 }
