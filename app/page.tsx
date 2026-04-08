@@ -15,6 +15,9 @@ import {
   Package2,
   FlaskConical,
   BookOpen,
+  Activity,
+  Dumbbell,
+  Sparkles,
 } from "lucide-react"
 import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { ProductCard } from "@/components/peptide-hub/product-card"
@@ -67,6 +70,16 @@ const TRUST_SIGNALS = [
   { icon: TrendingUp, label: "62+ Products", desc: "Full catalog" },
   { icon: Brain, label: "Research Grade", desc: "For lab use only" },
   { icon: FlaskConical, label: "Independent Resource", desc: "Science-first editorial" },
+]
+
+const HERO_SHOWCASE_SLUGS = ["bpc-157", "tirzepatide", "epithalon", "semax"]
+
+const GOAL_PAGES = [
+  { href: "/recovery", label: "Recovery & Repair", desc: "BPC-157, TB-500, LL-37", icon: Activity, color: "#ef4444" },
+  { href: "/fat-loss", label: "Fat Loss", desc: "Tirzepatide, Retatrutide, AOD9604", icon: Flame, color: "#f97316" },
+  { href: "/anti-aging", label: "Anti-Aging", desc: "Epithalon, GHK-Cu, MOTS-C", icon: Sparkles, color: "#8b5cf6" },
+  { href: "/cognitive", label: "Cognitive", desc: "Semax, Selank, Cerebrolysin", icon: Brain, color: "#3b82f6" },
+  { href: "/muscle-growth", label: "Muscle Growth", desc: "IGF-1LR3, GHRP-2, Ipamorelin", icon: Dumbbell, color: "#22c55e" },
 ]
 
 const jsonLd = {
@@ -126,6 +139,11 @@ export default async function HomePage() {
   // Use first 6 featured for carousel
   const carouselProducts = featuredProducts.slice(0, 6)
 
+  // Hero showcase products (4 top picks, one per goal)
+  const heroShowcaseProducts = HERO_SHOWCASE_SLUGS
+    .map((slug) => staticProducts.find((p) => p.slug === slug))
+    .filter(Boolean) as typeof staticProducts
+
   return (
     <PageLayout>
       <script
@@ -135,6 +153,107 @@ export default async function HomePage() {
 
       {/* SEO H1 — screen-reader accessible site heading */}
       <h1 className="sr-only">PeptidesMaxxing — Independent Research Peptide Resource</h1>
+
+      {/* TOP HERO — Brand headline + product showcase */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-16 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Brand headline + CTAs */}
+            <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-600 bg-slate-800 mb-6">
+                <FlaskConical className="w-3.5 h-3.5 text-cyan-400" />
+                <span className="text-xs font-bold text-slate-300 uppercase tracking-wider">62+ Research-Grade Peptides</span>
+              </div>
+              <h2 className="text-5xl sm:text-6xl font-bold leading-tight mb-6">
+                The #1 Peptide<br />
+                <span className="text-cyan-400">Research Hub</span>
+              </h2>
+              <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-lg">
+                BPC-157, Tirzepatide, Epithalon, Semax — 62+ research-grade peptides with complete science documentation, COA verification, and expert protocols.
+              </p>
+              <div className="flex flex-wrap gap-3 mb-6">
+                <Link
+                  href="/products"
+                  className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-cyan-500 text-white hover:bg-cyan-400 transition-colors text-base"
+                >
+                  Browse All Peptides <ArrowRight className="w-4 h-4" />
+                </Link>
+                <Link
+                  href={AFFILIATE_URL}
+                  target="_blank"
+                  rel="nofollow sponsored noopener noreferrer"
+                  className="flex items-center gap-2 px-8 py-4 rounded-xl font-semibold border border-slate-600 text-white hover:border-slate-400 transition-all text-base"
+                >
+                  Shop Pantheon
+                </Link>
+                <Link
+                  href="/stacks"
+                  className="flex items-center gap-2 px-8 py-4 rounded-xl font-semibold bg-slate-800 text-slate-200 hover:bg-slate-700 transition-colors text-base"
+                >
+                  View Cycles
+                </Link>
+              </div>
+              {/* Goal quick-links */}
+              <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
+                <span className="text-xs text-slate-400 font-medium">Browse by goal:</span>
+                {GOAL_PAGES.map((g) => (
+                  <Link key={g.href} href={g.href} className="text-xs font-bold hover:underline underline-offset-2 transition-colors" style={{ color: g.color }}>
+                    {g.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: 2×2 product mini-cards */}
+            <div className="grid grid-cols-2 gap-3">
+              {heroShowcaseProducts.map((product) => (
+                <div key={product.slug} className="group rounded-2xl bg-slate-800 border border-slate-700 hover:border-cyan-500/60 transition-all duration-300 overflow-hidden">
+                  <div className="relative aspect-square overflow-hidden">
+                    {product.imageUrl ? (
+                      <Image
+                        src={product.imageUrl}
+                        alt={product.name}
+                        fill
+                        sizes="(max-width: 1024px) 50vw, 25vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        priority
+                      />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-4xl bg-slate-700">🧪</div>
+                    )}
+                    {product.badge && (
+                      <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-[10px] font-bold bg-cyan-500 text-white">
+                        {product.badge}
+                      </span>
+                    )}
+                  </div>
+                  <div className="p-3">
+                    <p className="font-bold text-white text-sm leading-tight mb-2 line-clamp-1">{product.name}</p>
+                    <div className="flex gap-1.5">
+                      <Link
+                        href={`/products/${product.slug}`}
+                        className="flex-1 text-center py-1.5 rounded-lg text-xs font-semibold bg-slate-700 text-slate-200 hover:bg-slate-600 transition-colors"
+                      >
+                        Details
+                      </Link>
+                      <Link
+                        href={`/out/${product.slug}`}
+                        target="_blank"
+                        className="flex-1 text-center py-1.5 rounded-lg text-xs font-bold bg-cyan-500 text-white hover:bg-cyan-400 transition-colors"
+                      >
+                        Buy →
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        {/* Background glows */}
+        <div className="absolute right-0 top-0 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
+        <div className="absolute left-0 bottom-0 w-60 h-60 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
+      </section>
 
       {/* HERO CAROUSEL */}
       <HeroCarousel products={carouselProducts} />
@@ -169,6 +288,36 @@ export default async function HomePage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* BROWSE BY GOAL */}
+      <section className="py-16 border-b border-slate-100 max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-10">
+          <p className="text-xs font-bold text-cyan-600 uppercase tracking-widest mb-2">Goal-Based Research</p>
+          <h2 className="text-3xl font-bold text-slate-900">Browse Peptides by Goal</h2>
+          <p className="text-slate-500 mt-2 max-w-lg mx-auto">
+            Curated peptide pages for every research goal — with products, mechanisms, and protocols.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {GOAL_PAGES.map(({ href, label, desc, icon: Icon, color }) => (
+            <Link
+              key={href}
+              href={href}
+              className="group flex flex-col items-center text-center p-6 rounded-2xl border border-slate-200 bg-white hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300"
+              style={{ borderTopColor: color, borderTopWidth: "3px" }}
+            >
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110" style={{ background: `${color}18`, border: `1px solid ${color}35` }}>
+                <Icon className="w-6 h-6" style={{ color }} />
+              </div>
+              <h3 className="font-bold text-slate-900 mb-1">{label}</h3>
+              <p className="text-xs text-slate-500 leading-relaxed mb-3">{desc}</p>
+              <span className="text-xs font-bold flex items-center gap-1 mt-auto" style={{ color }}>
+                Explore <ArrowRight className="w-3 h-3" />
+              </span>
+            </Link>
+          ))}
         </div>
       </section>
 

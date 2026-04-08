@@ -174,7 +174,7 @@ export default async function StackGuidePage({
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-4">
-            {stack.name}
+            Buy {stack.name}
           </h1>
           <p className="text-xl text-slate-500 mb-8">{stack.tagline}</p>
 

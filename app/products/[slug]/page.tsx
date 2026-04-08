@@ -264,7 +264,7 @@ export default async function ProductPage({
               ))}
             </div>
 
-            <h1 className="text-4xl font-bold text-slate-900 mb-3">{product.name}</h1>
+            <h1 className="text-4xl font-bold text-slate-900 mb-3">Buy {product.name}</h1>
             {product.shortDescription && (
               <p className="text-slate-600 text-lg leading-relaxed mb-6">
                 {product.shortDescription}

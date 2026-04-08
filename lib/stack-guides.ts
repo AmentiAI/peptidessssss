@@ -96,7 +96,7 @@ export const stackGuides: StackGuide[] = [
     whoIsItFor:
       "Researchers focusing on musculoskeletal injury recovery, post-surgical healing, chronic tendinopathy, gut permeability, or athletes studying peptide-mediated recovery acceleration.",
     content: "",
-    seoTitle: "BPC-157 + TB-500 Stack — Best Peptide Combo for Healing & Recovery",
+    seoTitle: "Buy BPC-157 + TB-500 Stack — Best Peptide Combo for Healing & Recovery",
     seoDescription:
       "BPC-157 and TB-500 combined — the gold standard healing stack. Learn how these two peptides cover local and systemic repair pathways for tendons, muscles, gut, and nerves.",
   },
@@ -166,7 +166,7 @@ export const stackGuides: StackGuide[] = [
     whoIsItFor:
       "Researchers studying GH secretagogue protocols, body composition optimisation, anti-aging interventions, or sleep quality enhancement.",
     content: "",
-    seoTitle: "CJC-1295 + Ipamorelin Stack — Best GH Peptides for Muscle & Fat Loss",
+    seoTitle: "Buy CJC-1295 + Ipamorelin Stack — Best GH Peptides for Muscle & Fat Loss",
     seoDescription:
       "CJC-1295 and Ipamorelin combined create 2–10× higher GH pulses with no cortisol elevation. Learn the mechanisms, protocol, and full benefits of the gold standard GH stack.",
   },
@@ -236,7 +236,7 @@ export const stackGuides: StackGuide[] = [
     whoIsItFor:
       "Researchers studying epigenetic aging, skin biology, GH decline, longevity interventions, bone health, or the relationship between hormonal status and tissue aging.",
     content: "",
-    seoTitle: "GHK-Cu + Sermorelin Stack — Best Anti-Aging Peptides for Skin & Longevity",
+    seoTitle: "Buy GHK-Cu + Sermorelin Stack — Best Anti-Aging Peptides for Skin & Longevity",
     seoDescription:
       "GHK-Cu activates 4,000+ anti-aging genes. Sermorelin restores GH levels. Together they're the most comprehensive dual-mechanism anti-aging peptide stack available.",
   },
@@ -306,7 +306,7 @@ export const stackGuides: StackGuide[] = [
     whoIsItFor:
       "Athletes, sports scientists, and researchers studying exercise recovery, overtraining prevention, GH secretagogue effects on performance, or peptide-mediated body recomposition.",
     content: "",
-    seoTitle: "TB-500 + Ipamorelin Stack — Best Peptides for Muscle Recovery & Lean Mass",
+    seoTitle: "Buy TB-500 + Ipamorelin Stack — Best Peptides for Muscle Recovery & Lean Mass",
     seoDescription:
       "TB-500 repairs muscle damage; Ipamorelin drives GH during sleep. Combined, this stack compresses recovery time, supports lean mass, and reduces injury risk.",
   },
@@ -376,7 +376,7 @@ export const stackGuides: StackGuide[] = [
     whoIsItFor:
       "Researchers studying neurotrophin biology, anxiety pharmacology, cognitive performance, neuroprotection, or the intersection of emotional regulation and executive function.",
     content: "",
-    seoTitle: "Semax + Selank Stack — Best Nootropic Peptides for Focus & Anxiety Relief",
+    seoTitle: "Buy Semax + Selank Stack — Best Nootropic Peptides for Focus & Anxiety Relief",
     seoDescription:
       "Semax boosts BDNF and dopamine for focus and memory. Selank provides anxiolysis and resilience. Together they create the most balanced nootropic peptide stack studied.",
   },
@@ -446,7 +446,7 @@ export const stackGuides: StackGuide[] = [
     whoIsItFor:
       "Researchers studying metabolic syndrome, obesity pharmacology, type 2 diabetes mechanisms, mitochondrial biology, or GLP-1/GIP receptor pharmacology.",
     content: "",
-    seoTitle: "Tirzepatide + MOTS-C Stack — Best Peptides for Fat Loss & Metabolic Health",
+    seoTitle: "Buy Tirzepatide + MOTS-C Stack — Best Peptides for Fat Loss & Metabolic Health",
     seoDescription:
       "Tirzepatide targets GLP-1/GIP receptors for appetite and glucose control. MOTS-C activates AMPK at the cellular level. The most comprehensive metabolic peptide stack.",
   },
@@ -516,7 +516,7 @@ export const stackGuides: StackGuide[] = [
     whoIsItFor:
       "Longevity researchers, geroscientists, and those studying telomere biology, epigenetic aging, pineal function, or the molecular mechanisms of biological age reversal.",
     content: "",
-    seoTitle: "Epithalon + GHK-Cu Stack — Best Longevity Peptides for Anti-Aging & Telomeres",
+    seoTitle: "Buy Epithalon + GHK-Cu Stack — Best Longevity Peptides for Anti-Aging & Telomeres",
     seoDescription:
       "Epithalon activates telomerase and restores melatonin. GHK-Cu resets 4,000+ genes toward youth. The most science-backed longevity peptide combination.",
   },
@@ -586,7 +586,7 @@ export const stackGuides: StackGuide[] = [
     whoIsItFor:
       "Researchers studying immunology, infectious disease, immunosenescence, cancer immunotherapy support, or the role of antimicrobial peptides in immune regulation.",
     content: "",
-    seoTitle: "Thymosin Alpha-1 + LL-37 Stack — Best Peptides for Immune System Support",
+    seoTitle: "Buy Thymosin Alpha-1 + LL-37 Stack — Best Peptides for Immune System Support",
     seoDescription:
       "Thymosin Alpha-1 drives adaptive immunity and T-cell maturation. LL-37 activates innate immunity with broad-spectrum antimicrobial action. The complete immune defense stack.",
   },
