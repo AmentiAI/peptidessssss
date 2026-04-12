@@ -188,7 +188,7 @@ export default async function HomePage() {
                   rel="nofollow sponsored noopener noreferrer"
                   className="flex items-center gap-2 px-8 py-4 rounded-xl font-semibold border border-slate-200 text-slate-700 hover:border-slate-400 hover:bg-slate-50 transition-all text-base"
                 >
-                  Shop Phiogen
+                  Shop
                 </Link>
                 <Link
                   href="/stacks"
@@ -212,14 +212,14 @@ export default async function HomePage() {
             <div className="grid grid-cols-2 gap-4">
               {heroShowcaseProducts.map((product) => (
                 <div key={product.slug} className="group rounded-2xl bg-white border border-slate-200 hover:border-cyan-300 hover:shadow-lg transition-all duration-300 overflow-hidden">
-                  <div className="relative aspect-[4/3] overflow-hidden bg-slate-50">
+                  <div className="relative aspect-square overflow-hidden bg-white p-2">
                     {product.imageUrl ? (
                       <Image
                         src={product.imageUrl}
                         alt={product.name}
                         fill
                         sizes="(max-width: 1024px) 50vw, 25vw"
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="object-contain"
                         priority
                         unoptimized
                       />
