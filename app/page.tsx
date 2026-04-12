@@ -22,6 +22,7 @@ import {
 import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { ProductCard } from "@/components/peptide-hub/product-card"
 import { HeroCarousel } from "@/components/peptide-hub/hero-carousel"
+import { ProductSearch } from "@/components/peptide-hub/product-search"
 import {
   getFeaturedProducts,
   getAllCategories,
@@ -197,6 +198,10 @@ export default async function HomePage() {
                   View Cycles
                 </Link>
               </div>
+              {/* Search bar */}
+              <div className="max-w-md">
+                <ProductSearch />
+              </div>
               {/* Goal quick-links */}
               <div className="flex flex-wrap items-center gap-x-3 gap-y-2">
                 <span className="text-xs text-slate-400 font-medium">Browse by goal:</span>
@@ -211,7 +216,7 @@ export default async function HomePage() {
             {/* Right: 2×2 product cards with images */}
             <div className="grid grid-cols-2 gap-4">
               {heroShowcaseProducts.map((product) => (
-                <div key={product.slug} className="group rounded-2xl bg-white border border-slate-200 hover:border-cyan-300 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                <Link key={product.slug} href={`/products/${product.slug}`} className="group rounded-2xl bg-white border border-slate-200 hover:border-cyan-300 hover:shadow-lg transition-all duration-300 overflow-hidden block">
                   <div className="relative aspect-square overflow-hidden bg-white p-2">
                     {product.imageUrl ? (
                       <Image
@@ -240,23 +245,22 @@ export default async function HomePage() {
                     {product.shortDescription && (
                       <p className="text-[11px] text-slate-400 leading-relaxed line-clamp-2 mb-2">{product.shortDescription}</p>
                     )}
-                    <div className="flex gap-1.5">
-                      <Link
-                        href={`/products/${product.slug}`}
-                        className="flex-1 text-center py-1.5 rounded-lg text-xs font-semibold border border-slate-200 text-slate-600 hover:border-slate-400 hover:bg-slate-50 transition-all"
-                      >
+                    <div className="flex gap-1.5" onClick={(e) => e.stopPropagation()}>
+                      <span className="flex-1 text-center py-1.5 rounded-lg text-xs font-semibold border border-slate-200 text-slate-600 group-hover:border-slate-400 group-hover:bg-slate-50 transition-all">
                         Details
-                      </Link>
+                      </span>
                       <Link
                         href={`/out/${product.slug}`}
                         target="_blank"
+                        rel="nofollow sponsored noopener noreferrer"
                         className="flex-1 text-center py-1.5 rounded-lg text-xs font-bold bg-cyan-500 text-white hover:bg-cyan-400 transition-colors"
+                        onClick={(e) => e.stopPropagation()}
                       >
                         Buy →
                       </Link>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

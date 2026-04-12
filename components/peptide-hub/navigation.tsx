@@ -3,8 +3,9 @@ import { useState, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Menu, X, ChevronDown, ExternalLink, Activity, Flame, Sparkles, Brain, Dumbbell } from "lucide-react"
+import { Menu, X, ChevronDown, ExternalLink, Activity, Flame, Sparkles, Brain, Dumbbell, Search } from "lucide-react"
 import { staticCategories, AFFILIATE_URL } from "@/lib/static-products"
+import { ProductSearch } from "./product-search"
 
 const NAV_LINKS = [
   { href: "/products", label: "Products" },
@@ -27,6 +28,7 @@ const GOAL_LINKS = [
 export function Navigation() {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
   const [catOpen, setCatOpen] = useState(false)
   const [goalOpen, setGoalOpen] = useState(false)
   const catTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
@@ -159,28 +161,47 @@ export function Navigation() {
           </div>
         </nav>
 
-        {/* CTA */}
+        {/* Desktop search + CTA */}
         <div className="hidden lg:flex items-center gap-3">
+          <div className="w-64 xl:w-80">
+            <ProductSearch />
+          </div>
           <Link
             href={AFFILIATE_URL}
             target="_blank"
             rel="nofollow sponsored noopener noreferrer"
-            className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
+            className="flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors flex-shrink-0"
           >
-            Shop Peptides
+            Shop
             <ExternalLink className="w-3.5 h-3.5" />
           </Link>
         </div>
 
-        {/* Mobile hamburger */}
-        <button
-          className="lg:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
+        {/* Mobile: search icon + hamburger */}
+        <div className="lg:hidden flex items-center gap-1">
+          <button
+            className="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors"
+            onClick={() => { setSearchOpen(!searchOpen); setMobileOpen(false) }}
+            aria-label="Search"
+          >
+            <Search className="w-5 h-5" />
+          </button>
+          <button
+            className="p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-colors"
+            onClick={() => { setMobileOpen(!mobileOpen); setSearchOpen(false) }}
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile search bar */}
+      {searchOpen && (
+        <div className="lg:hidden border-t border-slate-100 bg-white px-4 py-3">
+          <ProductSearch onClose={() => setSearchOpen(false)} />
+        </div>
+      )}
 
       {/* Mobile menu */}
       {mobileOpen && (
