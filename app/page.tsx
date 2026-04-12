@@ -159,11 +159,11 @@ export default async function HomePage() {
       <h1 className="sr-only">PeptidesMaxxing — Independent Research Peptide Resource</h1>
 
       {/* TOP HERO — Brand headline + product showcase */}
-      <section className="relative overflow-hidden bg-white border-b border-slate-100 py-16 lg:py-24">
+      <section className="relative overflow-hidden bg-white border-b border-slate-100 pt-8 pb-14 lg:pt-10 lg:pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Left: Brand headline + CTAs */}
-            <div>
+            <div className="pt-2">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-cyan-200 bg-cyan-50 mb-6">
                 <FlaskConical className="w-3.5 h-3.5 text-cyan-600" />
                 <span className="text-xs font-bold text-cyan-700 uppercase tracking-wider">62+ Research-Grade Peptides</span>
