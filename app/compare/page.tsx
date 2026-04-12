@@ -506,7 +506,7 @@ export default function ComparePage() {
                   rel="nofollow sponsored noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-blue-600 border border-blue-200 hover:border-blue-400 hover:bg-blue-50 transition-colors"
                 >
-                  Shop Both at Pantheon <ArrowRight className="w-4 h-4" />
+                  Shop Both at Phiogen <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -650,7 +650,7 @@ export default function ComparePage() {
             <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Ready to Research?</p>
             <h2 className="text-3xl font-bold text-slate-900 mb-4">Source Research-Grade Peptides</h2>
             <p className="text-slate-500 mb-8 max-w-lg mx-auto">
-              All peptides reviewed on this page are available from Pantheon Peptides with COA documentation,
+              All peptides reviewed on this page are available from Phiogen with COA documentation,
               ≥99% purity verification, and independent HPLC testing.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -660,7 +660,7 @@ export default function ComparePage() {
                 rel="nofollow sponsored noopener noreferrer"
                 className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
               >
-                Shop Pantheon Peptides <ArrowRight className="w-4 h-4" />
+                Shop Phiogen <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/stacks"

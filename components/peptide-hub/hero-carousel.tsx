@@ -61,7 +61,7 @@ export function HeroCarousel({ products }: { products: Product[] }) {
               target="_blank"
               className="flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white transition-all"
             >
-              Buy on Pantheon
+              Buy on Phiogen
             </Link>
           </div>
           {/* Dot indicators */}

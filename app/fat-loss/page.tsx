@@ -215,7 +215,7 @@ export default function FatLossPage() {
               <p className="text-xs font-bold text-orange-600 uppercase tracking-widest mb-3">Spotlight Comparison</p>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">Tirzepatide vs Retatrutide</h2>
               <p className="text-slate-600 leading-relaxed mb-6">
-                Tirzepatide is a dual GLP-1/GIP agonist with extensive clinical research. Retatrutide adds a third agonism (GCG) for triple-receptor activation — making it one of the most potent metabolic research compounds available. Both are available from Pantheon Peptides with ≥99% purity COA.
+                Tirzepatide is a dual GLP-1/GIP agonist with extensive clinical research. Retatrutide adds a third agonism (GCG) for triple-receptor activation — making it one of the most potent metabolic research compounds available. Both are available from Phiogen with ≥99% purity COA.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/products/tirzepatide" className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-orange-500 text-white hover:bg-orange-400 transition-colors">

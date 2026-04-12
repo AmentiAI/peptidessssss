@@ -46,7 +46,7 @@ export default function TermsPage() {
             <h2 className="text-xl font-semibold text-white mb-3">3. Affiliate Disclosure</h2>
             <p>
               PeptidesMaxxing participates in affiliate programs. We earn commissions when you purchase
-              through our links to Pantheon Peptides at no additional cost to you. Affiliate
+              through our links to Phiogen at no additional cost to you. Affiliate
               relationships do not influence our research content or product descriptions, which are
               based on publicly available scientific literature.
             </p>

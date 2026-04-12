@@ -667,7 +667,7 @@ export default function SciencePage() {
                 rel="nofollow sponsored noopener noreferrer"
                 className="flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-semibold text-blue-600 border-2 border-blue-200 hover:border-blue-500 transition-colors"
               >
-                Shop Pantheon Peptides
+                Shop Phiogen
               </Link>
             </div>
           </div>

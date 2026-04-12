@@ -49,7 +49,7 @@ export default function PrivacyPage() {
           <section>
             <h2 className="text-xl font-semibold text-white mb-3">4. Affiliate Links & Third Parties</h2>
             <p>
-              PeptidesMaxxing contains affiliate links to Pantheon Peptides. When you click an affiliate
+              PeptidesMaxxing contains affiliate links to Phiogen. When you click an affiliate
               link, you are transferred to a third-party website governed by their own privacy policy.
               We earn a commission on qualifying purchases at no extra cost to you. We are not responsible
               for the data practices of third-party sites.

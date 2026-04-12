@@ -626,7 +626,7 @@ export default function ProtocolsPage() {
 
           <div className="text-center">
             <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Source Your Research Compounds</p>
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Pantheon Peptides — COA Verified, ≥99% Purity</h2>
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Phiogen — COA Verified, ≥99% Purity</h2>
             <p className="text-slate-500 mb-8 max-w-lg mx-auto">
               Every compound listed in our protocols is available with third-party HPLC verification and
               complete certificate of analysis documentation.
@@ -638,7 +638,7 @@ export default function ProtocolsPage() {
                 rel="nofollow sponsored noopener noreferrer"
                 className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
               >
-                Shop Pantheon Peptides <ArrowRight className="w-4 h-4" />
+                Shop Phiogen <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/guides"

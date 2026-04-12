@@ -155,20 +155,20 @@ export default async function HomePage() {
       <h1 className="sr-only">PeptidesMaxxing — Independent Research Peptide Resource</h1>
 
       {/* TOP HERO — Brand headline + product showcase */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-16 lg:py-24">
+      <section className="relative overflow-hidden bg-white border-b border-slate-100 py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: Brand headline + CTAs */}
             <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-600 bg-slate-800 mb-6">
-                <FlaskConical className="w-3.5 h-3.5 text-cyan-400" />
-                <span className="text-xs font-bold text-slate-300 uppercase tracking-wider">62+ Research-Grade Peptides</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-cyan-200 bg-cyan-50 mb-6">
+                <FlaskConical className="w-3.5 h-3.5 text-cyan-600" />
+                <span className="text-xs font-bold text-cyan-700 uppercase tracking-wider">62+ Research-Grade Peptides</span>
               </div>
-              <h2 className="text-5xl sm:text-6xl font-bold leading-tight mb-6">
+              <h2 className="text-5xl sm:text-6xl font-bold leading-tight mb-6 text-slate-900">
                 The #1 Peptide<br />
-                <span className="text-cyan-400">Research Hub</span>
+                <span className="text-cyan-500">Research Hub</span>
               </h2>
-              <p className="text-lg text-slate-300 mb-8 leading-relaxed max-w-lg">
+              <p className="text-lg text-slate-500 mb-8 leading-relaxed max-w-lg">
                 BPC-157, Tirzepatide, Epithalon, Semax — 62+ research-grade peptides with complete science documentation, COA verification, and expert protocols.
               </p>
               <div className="flex flex-wrap gap-3 mb-6">
@@ -182,13 +182,13 @@ export default async function HomePage() {
                   href={AFFILIATE_URL}
                   target="_blank"
                   rel="nofollow sponsored noopener noreferrer"
-                  className="flex items-center gap-2 px-8 py-4 rounded-xl font-semibold border border-slate-600 text-white hover:border-slate-400 transition-all text-base"
+                  className="flex items-center gap-2 px-8 py-4 rounded-xl font-semibold border border-slate-200 text-slate-700 hover:border-slate-400 hover:bg-slate-50 transition-all text-base"
                 >
-                  Shop Pantheon
+                  Shop Phiogen
                 </Link>
                 <Link
                   href="/stacks"
-                  className="flex items-center gap-2 px-8 py-4 rounded-xl font-semibold bg-slate-800 text-slate-200 hover:bg-slate-700 transition-colors text-base"
+                  className="flex items-center gap-2 px-8 py-4 rounded-xl font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors text-base"
                 >
                   View Cycles
                 </Link>
@@ -204,11 +204,11 @@ export default async function HomePage() {
               </div>
             </div>
 
-            {/* Right: 2×2 product mini-cards */}
-            <div className="grid grid-cols-2 gap-3">
+            {/* Right: 2×2 product cards with images */}
+            <div className="grid grid-cols-2 gap-4">
               {heroShowcaseProducts.map((product) => (
-                <div key={product.slug} className="group rounded-2xl bg-slate-800 border border-slate-700 hover:border-cyan-500/60 transition-all duration-300 overflow-hidden">
-                  <div className="relative aspect-square overflow-hidden">
+                <div key={product.slug} className="group rounded-2xl bg-white border border-slate-200 hover:border-cyan-300 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                  <div className="relative aspect-[4/3] overflow-hidden bg-slate-50">
                     {product.imageUrl ? (
                       <Image
                         src={product.imageUrl}
@@ -220,20 +220,26 @@ export default async function HomePage() {
                         unoptimized
                       />
                     ) : (
-                      <div className="w-full h-full flex items-center justify-center text-4xl bg-slate-700">🧪</div>
+                      <div className="w-full h-full flex items-center justify-center text-4xl bg-slate-100">🧪</div>
                     )}
                     {product.badge && (
-                      <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-[10px] font-bold bg-cyan-500 text-white">
+                      <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-900 text-white">
                         {product.badge}
                       </span>
                     )}
+                    <span className="absolute top-2 right-2 px-2 py-0.5 rounded-full text-[10px] font-medium bg-green-50 text-green-700 border border-green-200">
+                      In Stock
+                    </span>
                   </div>
                   <div className="p-3">
-                    <p className="font-bold text-white text-sm leading-tight mb-2 line-clamp-1">{product.name}</p>
+                    <p className="font-bold text-slate-900 text-sm leading-tight mb-1 line-clamp-1">{product.name}</p>
+                    {product.shortDescription && (
+                      <p className="text-[11px] text-slate-400 leading-relaxed line-clamp-2 mb-2">{product.shortDescription}</p>
+                    )}
                     <div className="flex gap-1.5">
                       <Link
                         href={`/products/${product.slug}`}
-                        className="flex-1 text-center py-1.5 rounded-lg text-xs font-semibold bg-slate-700 text-slate-200 hover:bg-slate-600 transition-colors"
+                        className="flex-1 text-center py-1.5 rounded-lg text-xs font-semibold border border-slate-200 text-slate-600 hover:border-slate-400 hover:bg-slate-50 transition-all"
                       >
                         Details
                       </Link>
@@ -251,9 +257,9 @@ export default async function HomePage() {
             </div>
           </div>
         </div>
-        {/* Background glows */}
-        <div className="absolute right-0 top-0 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute left-0 bottom-0 w-60 h-60 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
+        {/* Subtle background accents */}
+        <div className="absolute right-0 top-0 w-80 h-80 bg-cyan-50 rounded-full blur-3xl pointer-events-none opacity-60" />
+        <div className="absolute left-0 bottom-0 w-60 h-60 bg-blue-50 rounded-full blur-2xl pointer-events-none opacity-40" />
       </section>
 
       {/* HERO CAROUSEL */}
