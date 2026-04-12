@@ -72,7 +72,7 @@ const TRUST_SIGNALS = [
   { icon: FlaskConical, label: "Independent Resource", desc: "Science-first editorial" },
 ]
 
-const HERO_SHOWCASE_SLUGS = ["bpc-157", "tirzepatide", "epithalon", "semax"]
+const HERO_SHOWCASE_SLUGS = ["bpc-157-10mg", "tirzepatide-15mg", "epitalon-10mg", "n-acetyl-semax-amidate-30mg"]
 
 const GOAL_PAGES = [
   { href: "/recovery", label: "Recovery & Repair", desc: "BPC-157, TB-500, LL-37", icon: Activity, color: "#ef4444" },
@@ -139,10 +139,14 @@ export default async function HomePage() {
   // Use first 6 featured for carousel
   const carouselProducts = featuredProducts.slice(0, 6)
 
-  // Hero showcase products (4 top picks, one per goal)
-  const heroShowcaseProducts = HERO_SHOWCASE_SLUGS
-    .map((slug) => staticProducts.find((p) => p.slug === slug))
-    .filter(Boolean) as typeof staticProducts
+  // Hero showcase products (4 top picks) — try specific slugs first, fall back to first 4 featured
+  const heroShowcaseProducts = (() => {
+    const bySlug = HERO_SHOWCASE_SLUGS
+      .map((slug) => staticProducts.find((p) => p.slug === slug))
+      .filter(Boolean) as typeof staticProducts
+    if (bySlug.length === 4) return bySlug
+    return featuredProducts.slice(0, 4) as typeof staticProducts
+  })()
 
   return (
     <PageLayout>

@@ -68,12 +68,12 @@ export function Navigation() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-1">
+        <nav className="hidden lg:flex items-center gap-0.5">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
                 pathname === link.href
                   ? "text-slate-900 bg-slate-100"
                   : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
@@ -86,7 +86,7 @@ export function Navigation() {
           {/* Categories dropdown */}
           <div className="relative" onMouseEnter={openCat} onMouseLeave={closeCat} onFocus={openCat} onBlur={closeCat}>
             <button
-              className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
+              className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
                 pathname.startsWith("/categories")
                   ? "text-slate-900 bg-slate-100"
                   : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
@@ -125,7 +125,7 @@ export function Navigation() {
           {/* By Goal dropdown */}
           <div className="relative" onMouseEnter={openGoal} onMouseLeave={closeGoal} onFocus={openGoal} onBlur={closeGoal}>
             <button
-              className={`flex items-center gap-1 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
+              className={`flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150 ${
                 GOAL_LINKS.some((g) => pathname === g.href)
                   ? "text-slate-900 bg-slate-100"
                   : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
