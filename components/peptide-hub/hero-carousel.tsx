@@ -26,7 +26,7 @@ export function HeroCarousel({ products }: { products: Product[] }) {
   const slide = slides[current]
 
   return (
-    <div className="relative w-full bg-slate-50 overflow-hidden" style={{ minHeight: "520px" }}>
+    <div className="relative w-full bg-white overflow-hidden" style={{ minHeight: "520px" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center min-h-[520px]">
         {/* Text side */}
         <div key={current} style={{ animation: "fadeInUp 0.4s ease-out" }}>
