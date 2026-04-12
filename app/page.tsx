@@ -217,6 +217,7 @@ export default async function HomePage() {
                         sizes="(max-width: 1024px) 50vw, 25vw"
                         className="object-cover group-hover:scale-105 transition-transform duration-500"
                         priority
+                        unoptimized
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center text-4xl bg-slate-700">🧪</div>

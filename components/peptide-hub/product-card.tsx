@@ -41,6 +41,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             className="object-cover group-hover:scale-105 transition-transform duration-500"
             priority={priority}
+            unoptimized
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center" role="img" aria-label={`${product.name} placeholder`}>

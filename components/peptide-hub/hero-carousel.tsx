@@ -92,6 +92,7 @@ export function HeroCarousel({ products }: { products: Product[] }) {
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
                 priority
+                unoptimized
               />
             ) : (
               <div className="w-full h-full flex items-center justify-center text-8xl" role="img" aria-label={`${slide.name} peptide placeholder`}>🧪</div>

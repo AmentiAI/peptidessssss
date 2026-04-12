@@ -228,6 +228,7 @@ export default async function ProductPage({
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover"
                   priority
+                  unoptimized
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center text-8xl">
