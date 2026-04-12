@@ -7,8 +7,8 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "pantheonpeptides.com",
-        pathname: "/wp-content/uploads/**",
+        hostname: "phiogen.is",
+        pathname: "/images/products/**",
       },
     ],
   },

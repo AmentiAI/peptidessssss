@@ -1,102 +1,196 @@
-// Static fallback data derived from pantheon_products.json
-// Used when the database is not available (e.g., during build without DB)
+// Static product data — Phiogen (phiogen.is)
 
-export const AFFILIATE_URL = process.env.NEXT_PUBLIC_AFFILIATE_URL || "https://pantheonpeptides.com/partner/AmentiAI/"
+export const AFFILIATE_URL = "https://phiogen.is/?ref=PEPS"
+
+function phiogenUrl(slug: string): string {
+  return `https://phiogen.is/products/${slug}?ref=PEPS`
+}
+
+function phiogenImg(slug: string): string {
+  return `https://phiogen.is/images/products/${slug}.png`
+}
 
 function generateSlug(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
 }
 
 function isBundle(name: string): boolean {
-  return name.includes("+") || name.includes("Cycle")
+  return name.includes("Blend") || name.includes("Stack") || name.includes("GLOW") || name.includes("KLOW") || name.includes("Cagri-")
 }
 
 const FEATURED_NAMES = new Set([
-  "BPC-157",
-  "TB-500",
-  "Ipamorelin",
-  "CJC-1295 + Ipamorelin",
-  "Epithalon",
-  "GHK-CU",
-  "Semax",
-  "Tirzepatide",
-  "Wolverine Cycle",
-  "Glow Plus Cycle",
+  "BPC-157 10mg",
+  "TB-500 (Thymosin Beta-4) 10mg",
+  "Ipamorelin 10mg",
+  "CJC-1295 No DAC 5mg",
+  "Semaglutide 3mg",
+  "Tirzepatide 15mg",
+  "Epitalon 10mg",
+  "GHK-Cu 50mg",
+  "Selank 10mg",
+  "BPC-157 + TB-500 Blend 10mg",
 ])
 
 type RawProduct = {
   name: string
-  price: null
-  product_url: string
-  image_url: string | null
+  phiogen_slug: string
   description: string
   category: string
+  price: number | null
+  purity: string | null
 }
 
-// Inline static product data from pantheon_products.json
 const RAW_PRODUCTS: RawProduct[] = [
-  { name: "BPC-157", price: null, product_url: "https://pantheonpeptides.com/product/bpc-157/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/BPC-157-2mg-scaled.jpg", description: "Speeds tissue & muscle repair. Accelerates recovery from injuries. Improves blood circulation. Reduces inflammation. Supports gut health. Improves joint health & mobility. Enhances physical resilience. Supports brain and nerve regeneration.", category: "All Peptides, Skin/Tissue/Bone, Muscle Growth" },
-  { name: "TB-500", price: null, product_url: "https://pantheonpeptides.com/product/tb-500/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/TD-500-2mg-scaled.jpg", description: "Muscle Recovery, Tissue Repair and Wound Healing, Reduced Inflammation, Improved Joint and Tendon Health, Increased Flexibility and Range of Motion.", category: "All Peptides, Muscle Growth, Skin/Tissue/Bone" },
-  { name: "BPC-157 + TB-500", price: null, product_url: "https://pantheonpeptides.com/product/bpc-157-tb-500/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/BPC157TB500-5mg-scaled.jpg", description: "Accelerates Muscle Recovery, Tissue Repair and Wound Healing, Promotes Tendon and Ligament Healing, Supports Gut Health, Reduces Inflammation, Increased Flexibility and Range of Motion, Enhances Brain and Nerve Repair.", category: "All Peptides, Muscle Growth, Skin/Tissue/Bone" },
-  { name: "Ipamorelin", price: null, product_url: "https://pantheonpeptides.com/product/ipamorelin/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/IPAMORELIN-2mg-scaled.jpg", description: "Promotes Muscle Growth, Enhances Fat Loss, Accelerates tissue repair and regeneration, Improves Sleep Quality, Boosts Skin Elasticity.", category: "All Peptides, Muscle Growth, Anti-Aging" },
-  { name: "CJC-1295 (with DAC)", price: null, product_url: "https://pantheonpeptides.com/product/cjc-1295-with-dac/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/CJC1295-DAC-2mg-scaled.jpg", description: "Promotes lean muscle growth, Boosts metabolism, Accelerates recovery, Improves sleep quality, Anti-aging effects.", category: "All Peptides, Muscle Growth, Anti-Aging" },
-  { name: "CJC-1295 (without DAC)", price: null, product_url: "https://pantheonpeptides.com/product/cjc-1295-without-dac/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/CJC1295-2mg-scaled.jpg", description: "Promotes lean muscle growth, Accelerates recovery, Boosts metabolism, Improves sleep quality, Anti-aging effects.", category: "All Peptides, Muscle Growth, Anti-Aging" },
-  { name: "GHRP-2 (Acetate)", price: null, product_url: "https://pantheonpeptides.com/product/ghrp-2-acetate/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/GHRP-2-5mg-scaled.jpg", description: "Enhances muscle growth, accelerates recovery, supports fat loss by boosting metabolism, improves sleep quality, strengthens immune function.", category: "All Peptides, Muscle Growth" },
-  { name: "Sermorelin Acetate", price: null, product_url: "https://pantheonpeptides.com/product/sermorelin-acetate/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/SERMORELIN-2mg-scaled.jpg", description: "Boosts muscle growth, Reduce body fat, Increases energy and vitality, Improves sleep quality, Supports anti-aging.", category: "All Peptides, Muscle Growth, Anti-Aging" },
-  { name: "Tesamorelin", price: null, product_url: "https://pantheonpeptides.com/product/tesamorelin/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/TESAMORELIN-2mg-scaled.jpg", description: "Reduces abdominal fat, enhances metabolic function, supports muscle maintenance, improves skin elasticity, enhance mental clarity.", category: "All Peptides, Weight Loss, Muscle Growth" },
-  { name: "Retatrutide", price: null, product_url: "https://pantheonpeptides.com/product/retatrutide/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/08/Retatrutide-5mg-scaled.jpg", description: "Supports weight loss, helps preserve lean muscle, reduces food cravings, aids metabolic health, lowers blood pressure, improves blood sugar control.", category: "All Peptides, Weight Loss" },
-  { name: "Tirzepatide", price: null, product_url: "https://pantheonpeptides.com/product/tirzeptide/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/TIRZEPTIDE-5mg-scaled.jpg", description: "Weight management, Diabetes control, Cardiovascular health, Improves insulin sensitivity, Supports metabolic health.", category: "All Peptides, Weight Loss" },
-  { name: "Mazdutide", price: null, product_url: "https://pantheonpeptides.com/product/mazdutide/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/10/Mazdutide-5mg-1-scaled.jpg", description: "Promotes sustainable weight reduction. Curbs appetite and food cravings. Enhances metabolic efficiency and energy expenditure (GLP-1/glucagon dual action). Helps preserve lean muscle during fat loss.", category: "All Peptides, Weight Loss" },
-  { name: "Cagrilintide", price: null, product_url: "https://pantheonpeptides.com/product/cagrilintide/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/10/Cagrilintide-5mg-scaled.jpg", description: "Supports sustainable weight loss, reduces appetite and food cravings, enhances metabolic efficiency, preserves muscle mass during fat loss.", category: "All Peptides, Weight Loss" },
-  { name: "AOD9604", price: null, product_url: "https://pantheonpeptides.com/product/aod9604/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/10/AOD9604-2mg-scaled.jpg", description: "Reduces Abdominal Fat, Improves metabolism, Supports Joint and Cartilage Health.", category: "All Peptides, Weight Loss" },
-  { name: "5-AMINO-1MQ", price: null, product_url: "https://pantheonpeptides.com/product/5-amino-1mq/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/10/5-AMINO-1MQ-5mg-scaled.jpg", description: "Promotes fat loss by increasing fat breakdown. Supports weight management by enhancing metabolism. Preserves lean muscle mass. Improves Insulin Sensitivity. Boosts cellular energy.", category: "All Peptides, Weight Loss" },
-  { name: "MK-677 Oral (Capsules)", price: null, product_url: "https://pantheonpeptides.com/product/mk-677-capsules/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/12/MK-677-15mg-Oral-1.jpg", description: "Enhanced Muscle Growth and Recovery. Improved Bone Density. Better Sleep Quality. Fat Metabolism and Body Composition. Anti-Aging Benefits.", category: "All Peptides, Muscle Growth, Anti-Aging" },
-  { name: "PT-141 (Bremelanotide)", price: null, product_url: "https://pantheonpeptides.com/product/pt-141/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/PT141-10mg-scaled.jpg", description: "Enhances libido in men and women. Supports Treatment of Sexual Dysfunction, Non-vascular Mechanism, Improves Mood and Well-being.", category: "All Peptides, Libido" },
-  { name: "Kisspeptin-10", price: null, product_url: "https://pantheonpeptides.com/product/kisspeptin-10/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/KISSPEPTINE-5mg-scaled.jpg", description: "Enhance libido, Enhances fertility in both men and women. Mood support due to hormone balance.", category: "All Peptides, Libido" },
-  { name: "MT-2 (Melanotan 2 Acetate)", price: null, product_url: "https://pantheonpeptides.com/product/mt-2-melanotan-2-acetate/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/MT2-10mg-scaled.jpg", description: "Sunless skin tan by stimulating melanin production, reduce sunburn risk, enhance libido, support weight loss through appetite suppression, protect against UV damage.", category: "All Peptides, Libido, Skin/Tissue/Bone" },
-  { name: "GHK-CU", price: null, product_url: "https://pantheonpeptides.com/product/ghk-cu/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/GHKCU-50mg-scaled.jpg", description: "Stimulates collagen production, Skin Regeneration and Wound Healing, Anti-Aging, Anti-Inflammatory and Antioxidant, Promotes Hair Growth, Protects against oxidative stress, Supports Brain Health, Improves nervous system health, Chronic Disease Management.", category: "All Peptides, Skin/Tissue/Bone, Anti-Aging" },
-  { name: "Epithalon", price: null, product_url: "https://pantheonpeptides.com/product/epithalon/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/EPITALON-10mg-scaled.jpg", description: "Anti-aging benefits by stimulating telomerase, improvements to sleep quality, immune system support, antioxidant properties, potential cancer prevention capabilities.", category: "All Peptides, Anti-Aging" },
-  { name: "MOTS-C", price: null, product_url: "https://pantheonpeptides.com/product/mots-c/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/MOTSC-10mg-scaled.jpg", description: "Enhances insulin sensitivity, Promotes glucose metabolism, Anti-inflammatory properties, Supports mitochondrial health, Slow down aging processes.", category: "All Peptides, Anti-Aging, Weight Loss" },
-  { name: "Semax", price: null, product_url: "https://pantheonpeptides.com/product/semax/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/SEMAX-10mg-scaled.jpg", description: "Improves focus, memory, and mental clarity, Reduces mental fatigue, Neuroprotection and neuroregeneration, Antidepressant and anti-anxiety, Non-Stimulant.", category: "All Peptides, Brain/Nerve" },
-  { name: "Selank", price: null, product_url: "https://pantheonpeptides.com/product/selank/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/SELANK-5mg-scaled.jpg", description: "Reduces Anxiety, Enhances Cognitive Function, Supports Mood Stabilization, Immune System Support, Improves Sleep.", category: "All Peptides, Brain/Nerve" },
-  { name: "Selank + Semax", price: null, product_url: "https://pantheonpeptides.com/product/selank-semax/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/04/selank-semax-scaled.jpg", description: "Reduces anxiety and mood stabilization, Enhances overall cognitive function, Neuroprotection and neuroregeneration, Reduces mental fatigue, Improves Sleep, Boosts Immune Function.", category: "All Peptides, Brain/Nerve" },
-  { name: "Cerebrolysin", price: null, product_url: "https://pantheonpeptides.com/product/cerebrolysin/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/11/CEREBROLYSIN-60mg-scaled.jpg", description: "Enhances cognitive function, promotes growth and repair of neurons, supports recovery from brain injury, reduces neuroinflammation, boosts brain resilience and longevity.", category: "All Peptides, Brain/Nerve" },
-  { name: "Thymosin Alpha-1", price: null, product_url: "https://pantheonpeptides.com/product/thymosin-alpha-1/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/THYMOSIN-ALPHA1-2mg-1-scaled.jpg", description: "Enhances immune function, Reduces chronic inflammation, Aids in recovery from illness, Increase infection resistance, Stimulates T-cell production, Improves outcomes in chronic conditions.", category: "All Peptides, Immunity" },
-  { name: "Thymulin", price: null, product_url: "https://pantheonpeptides.com/product/thymulin/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/THYMULIN-10mg-scaled.jpg", description: "Strengthen immune system, Anti-inflammatory effects, Supports autoimmune health, Improves infection resistance, Promotes tissue repair.", category: "All Peptides, Immunity" },
-  { name: "LL-37", price: null, product_url: "https://pantheonpeptides.com/product/ll37/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/10/LL37-5mg-scaled.jpg", description: "Strengthens the immune system, Reduce chronic inflammation, Promotes wound healing, Supports gut health, Improves skin health.", category: "All Peptides, Immunity, Skin/Tissue/Bone" },
-  { name: "DSIP (Delta Sleep-Inducing Peptide)", price: null, product_url: "https://pantheonpeptides.com/product/dsip-copy/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/SEMAX-10mg-scaled.jpg", description: "Promotes deep, restorative sleep by modulating delta-wave brain activity. Regulates cortisol and stress hormone levels. Supports circadian rhythm normalization. May reduce sleep-onset latency and improve overall sleep architecture. Research suggests neuroprotective and antioxidant properties.", category: "All Peptides, Sleep, Brain/Nerve" },
-  { name: "AICAR", price: null, product_url: "https://pantheonpeptides.com/product/aicar/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/image_2024_09_14T03_02_18_646Z.png", description: "Enhances endurance, Improves cardiovascular health, Promotes weight management, Supports metabolic health, Boosts overall vitality.", category: "All Peptides, Muscle Growth, Weight Loss" },
-  { name: "ACE-031", price: null, product_url: "https://pantheonpeptides.com/product/ace-031/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/image_2024_09_14T03_02_12_168Z.png", description: "Promotes Muscle Growth, Enhances Muscle Recovery, Improves Bone Density, Reduces Fat Accumulation, Supports Physical Performance.", category: "All Peptides, Muscle Growth" },
-  { name: "IGF-1LR3", price: null, product_url: "https://pantheonpeptides.com/product/igf-1lr3/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/image_2024_10_24T01_11_01_146Z.png", description: "Promotes muscle growth, Reduce body fat, Accelerates injury recovery, Improves bone density, Enhances cellular regeneration.", category: "All Peptides, Muscle Growth" },
-  { name: "BPC-157 Oral (Tablets 500MCG)", price: null, product_url: "https://pantheonpeptides.com/product/bpc-157-oral/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/11/BPC-157-500mcg-Oral-1.jpg", description: "Accelerates Muscle Recovery, Promotes Tendon and Ligament Healing, Supports Gut Health, Reduces Inflammation, Enhances Brain and Nerve Repair.", category: "All Peptides, Skin/Tissue/Bone, Muscle Growth" },
-  { name: "Epithalon + 5-Amino-1MQ", price: null, product_url: "https://pantheonpeptides.com/product/epithalon5-amino-1mq/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/03/Epithalon-10ml5-Amino-1mq-5ml-scaled.jpg", description: "Cellular Longevity & Repair, Metabolic Boost, Synergistic Anti-Aging, Cognitive Support, Enhanced Mitochondrial Function, Potential Longevity Benefits.", category: "All Peptides, Anti-Aging, Weight Loss" },
-  { name: "Ipamorelin + Sermorelin", price: null, product_url: "https://pantheonpeptides.com/product/ipamorelin-sermorelin/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/IPAMORELINSERMORELIN-scaled.jpg", description: "Promotes muscle growth, enhancing fat loss, and accelerating recovery from exercise or injury. Supports better sleep, improves skin elasticity, and aids in overall tissue repair.", category: "All Peptides, Muscle Growth, Anti-Aging" },
-  { name: "CJC-1295 + Ipamorelin", price: null, product_url: "https://pantheonpeptides.com/product/cjc-1295-ipamorelin/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/CJC1295IPAMORELIN-scaled.jpg", description: "Boost growth hormone secretion, promoting muscle growth, fat loss, and improved recovery. Supports collagen production, enhances skin health, and may improve sleep quality.", category: "All Peptides, Muscle Growth, Anti-Aging" },
-  { name: "Tesamorelin + CJC-1295 + Ipamorelin", price: null, product_url: "https://pantheonpeptides.com/product/tesamorelin-cjc-1295-ipamorelin/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/TESAMORELINCJC1295IPAMORELIN-scaled.jpg", description: "Stimulates release of growth hormone, particularly effective in reducing abdominal fat, improving metabolism, and enhancing muscle mass.", category: "All Peptides, Muscle Growth, Weight Loss" },
-  { name: "Ipamorelin + Tesamorelin", price: null, product_url: "https://pantheonpeptides.com/product/ipamorelin-tesamorelin/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/IPAMORELINTESAMORELIN-scaled.jpg", description: "Promotes muscle growth, Enhances fat loss, Accelerates tissue repair and regeneration, Improves Sleep Quality, Boosts Skin Elasticity, Reduces abdominal fat, Enhances metabolic function, Enhance mental clarity.", category: "All Peptides, Muscle Growth, Weight Loss" },
-  { name: "CJC-1295 + GHRP-2", price: null, product_url: "https://pantheonpeptides.com/product/cjc-1295-ghrp-2/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/CJC1295GHRP2-scaled.jpg", description: "Boosts growth hormone secretion, promotes muscle growth, fat loss, and improved recovery. Supports collagen production, enhances skin health, and may improve sleep quality.", category: "All Peptides, Muscle Growth" },
-  { name: "Sermorelin + GHRP-2", price: null, product_url: "https://pantheonpeptides.com/product/sermorelin-ghrp-2/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/SERMORELINGHRP2-scaled.jpg", description: "Enhances muscle growth, accelerates recovery, supports fat loss by boosting metabolism, improves sleep quality, strengthens immune function.", category: "All Peptides, Muscle Growth" },
-  { name: "Ipamorelin + CJC-1295 + GHRP-2", price: null, product_url: "https://pantheonpeptides.com/product/ipamorelin-cjc-1295-ghrp-2/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2024/09/IPAMORELINCJC1295GHRP2-scaled.jpg", description: "Stimulates the release of growth hormone, promoting muscle growth, enhancing fat loss, and accelerating recovery from exercise or injury.", category: "All Peptides, Muscle Growth" },
-  { name: "Bacteriostatic Water", price: null, product_url: "https://pantheonpeptides.com/product/bacteriostatic-water/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/03/BAC-10ml-1-scaled.jpg", description: "Sterile & non-pyrogenic ensuring purity. Contains 0.9% benzyl alcohol to prevent bacterial growth. Extended shelf life for multiple uses after opening. Ideal for peptide reconstitution.", category: "Supplies" },
-  { name: "Injection Syringes", price: null, product_url: "https://pantheonpeptides.com/product/injection-syringes/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/03/Sterile-Disposable-Injection-Syringes-4-scaled.jpg", description: "Ultra-thin needle (1ml - 31G - 8mm). Sterile & Individually wrapped. Ideal for Peptides. Disposable.", category: "Supplies" },
-  { name: "Reconstitution Syringes", price: null, product_url: "https://pantheonpeptides.com/product/reconstitution-syringes/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/03/syringes-3ml-21g-1-reconstitution-scaled.jpg", description: "3mL - 21G x 1\" Medical-grade (Sterile). Individually wrapped. Ideal for Peptides Reconstitution. Disposable.", category: "Supplies" },
-  { name: "Alcohol Pads", price: null, product_url: "https://pantheonpeptides.com/product/alcohol-pads/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/03/alcohal-pads-scaled.jpg", description: "70% Isopropyl Alcohol. 100 pads per box. For cleaning injection sites. For cleaning vials.", category: "Supplies" },
-  { name: "Syringe Tips (Vial Vent)", price: null, product_url: "https://pantheonpeptides.com/product/syringe-tips/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/03/Valves-Needles-scaled.jpg", description: "27G-0.5\" Syringe tips Medical-grade (sterile). Functions as a vent to release pressure in vials. Individually bagged.", category: "Supplies" },
-  { name: "Starter Kit", price: null, product_url: "https://pantheonpeptides.com/product/starter-kit/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/03/starter-kit-scaled.jpg", description: "Contains: 2 Bacteriostatic Water Vials (10ml), 30 Injection Syringes (1ml – 8mm), 5 Reconstitution Syringes (3ml – 1\"), 5 Syringe Tips (Vent for Reconstitution - 0.5\"), 1 Box Alcohol Pads (x100).", category: "Supplies" },
-  { name: "Wolverine Cycle", price: null, product_url: "https://pantheonpeptides.com/product/wolverine-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/09/WOLVERINE-MAIN3.jpg", description: "FAST HEALING, RECOVERY, AND PERFORMANCE. Accelerates Muscle Growth and Recovery. Tissue Repair and Wound Healing. Promotes Tendon and Ligament Healing.", category: "Peptides Cycles, Peptides Bundles" },
-  { name: "Eros Stamina Cycle", price: null, product_url: "https://pantheonpeptides.com/product/eros-stamina-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/09/EROS-CYCLE-MAIN5.jpg", description: "Restore sexual health through enhanced libido, hormone support, improved blood flow, erectile performance enhancement, and better sleep quality.", category: "Peptides Cycles, Peptides Bundles, Libido" },
-  { name: "T-Force Immunity Cycle", price: null, product_url: "https://pantheonpeptides.com/product/t-force-immunity-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2026/01/T-FORCE-3-Main5.jpg", description: "Supports immunity, accelerates recovery, and optimizes sleep. Boosts viral and bacterial immunity, supports immune readiness and response, enhances T-cell activity and immune surveillance.", category: "Peptides Cycles, Peptides Bundles, Immunity" },
-  { name: "T-Force Immunity Plus Cycle", price: null, product_url: "https://pantheonpeptides.com/product/t-force-immunity-plus-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2026/01/T-FORCE-PLUS-Main-8.jpg", description: "Advanced cycle for deep, sustained immune resilience. Dual thymic peptides: Thymosin Alpha-1 + Thymulin. Supports immune signaling, regulation, and resilience.", category: "Peptides Cycles, Peptides Bundles, Immunity" },
-  { name: "Alpha Mind Cycle", price: null, product_url: "https://pantheonpeptides.com/product/alpha-mind-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2026/01/ALPHAMIND-CYCLE-MAIN2.jpg", description: "Advanced cognitive support for Alzheimer's, Dementia, Stroke and Brain Injury. Enhances neurogenesis and synaptic plasticity. Stimulates brain-derived growth factors. Supports telomere health and longevity signaling.", category: "Peptides Cycles, Peptides Bundles, Brain/Nerve" },
-  { name: "Nova Mind Cycle", price: null, product_url: "https://pantheonpeptides.com/product/nova-mind-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/09/NOVAMIND-10-WEEK-CYCLE-MAIN.jpg", description: "Brain optimization, emotional balance, & cognitive resilience. Promotes calm, reduces anxiety, enhances focus and mental clarity, supports memory and learning, neuroprotection, restores sleep quality.", category: "Peptides Cycles, Peptides Bundles, Brain/Nerve" },
-  { name: "Glow Cycle", price: null, product_url: "https://pantheonpeptides.com/product/glow-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/12/GLOW-CYCLE-MAIN2.jpg", description: "Regenerative formula for skin, hair, & connective tissue. Boosts collagen production, supports skin regeneration, enhances hair thickness and shine, and strengthens joints and tissues.", category: "Peptides Cycles, Peptides Bundles, Skin/Tissue/Bone" },
-  { name: "Glow Plus Cycle", price: null, product_url: "https://pantheonpeptides.com/product/glow-plus-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/09/GLOWPLUS-CYCLE-MAIN5.jpg", description: "Anti-aging program for skin, hair, and total body rejuvenation. Boosts collagen production, supports skin regeneration, enhances hair thickness, promotes cellular health and cognitive function.", category: "Peptides Cycles, Peptides Bundles, Skin/Tissue/Bone, Anti-Aging" },
-  { name: "Prime Metabolic 6-Week Cycle", price: null, product_url: "https://pantheonpeptides.com/product/prime-metabolic-6-week-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/10/Prime-Metabolic-6-Week-Cycle-Main7.jpg", description: "TOTAL METABOLIC SUPPORT FOR ENERGY, WEIGHT LOSS, AND RECOVERY. Promotes Metabolic Efficiency. Boosts Cellular Energy. Supports Sustained Weight Loss. Strengthens Tissue Repair & Resilience.", category: "Peptides Cycles, Peptides Bundles, Weight Loss" },
-  { name: "Prime Metabolic 12-Week Cycle", price: null, product_url: "https://pantheonpeptides.com/product/prime-metabolic-12-week-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/10/PRIME-METABOLIC-CYCLE-MAIN5.jpg", description: "Total metabolic support for energy, weight loss, recovery, & body composition. Promotes metabolic efficiency, boosts cellular energy, supports sustained weight loss, and strengthens tissue repair.", category: "Peptides Cycles, Peptides Bundles, Weight Loss" },
-  { name: "Slim Peptides Cycle", price: null, product_url: "https://pantheonpeptides.com/product/slim-peptides-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/10/SLIMPEPTIDES-Main6.jpg", description: "Drives effective fat loss. Tames hunger and reduces cravings. Improves insulin sensitivity and glucose regulation. Boosts energy and cellular performance.", category: "Peptides Cycles, Peptides Bundles, Weight Loss" },
-  { name: "Stack Up 10-Week Cycle", price: null, product_url: "https://pantheonpeptides.com/product/stack-up-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/10/stack-up-main2.jpg", description: "Builds and preserves lean muscle. Burns fat and supports muscle definition. Supports deep sleep and improves recovery. Boosts vitality and cellular energy. Promotes natural growth hormone release.", category: "Peptides Cycles, Peptides Bundles, Muscle Growth" },
-  { name: "Stack Up 5-Week Cycle", price: null, product_url: "https://pantheonpeptides.com/product/stack-up-5-week-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/10/stack-up-5-week-main.jpg", description: "Builds and preserves lean muscle. Burns fat and supports muscle definition. Supports deep sleep and improves recovery. Boosts vitality and cellular energy. Promotes natural growth hormone release.", category: "Peptides Cycles, Peptides Bundles, Muscle Growth" },
-  { name: "Kiss Peptides Cycle", price: null, product_url: "https://pantheonpeptides.com/product/kiss-peptides-cycle/", image_url: "https://pantheonpeptides.com/wp-content/uploads/2025/10/KISS-PEPTIDES-MAIN2.jpg", description: "Enhances libido & deepens sexual intimacy for her and him. Enhances libido, increases sexual desire through brain pathways, enhances erectile function, promotes healthy reproductive hormone balancing, enhances blood flow, supports natural testosterone production.", category: "Peptides Cycles, Peptides Bundles, Libido" },
+  // ── FAT LOSS / METABOLIC ──────────────────────────────────────────────────
+  { name: "5-Amino-1MQ 5mg", phiogen_slug: "5-amino-1mq-5mg", price: 19.99, purity: "98.9%", description: "Promotes fat loss by blocking NNMT enzyme to accelerate fat breakdown. Supports weight management by enhancing metabolism and boosting cellular energy. Preserves lean muscle mass and improves insulin sensitivity.", category: "All Peptides, Weight Loss" },
+  { name: "5-Amino-1MQ 50mg", phiogen_slug: "5-amino-1mq-50mg", price: 79.99, purity: "98.9%", description: "High-dose 5-Amino-1MQ for extended metabolic research. Blocks NNMT to promote fat breakdown, preserves lean muscle mass, improves insulin sensitivity, and boosts mitochondrial energy output.", category: "All Peptides, Weight Loss" },
+  { name: "5-Amino-1MQ 50mg x60 Capsules", phiogen_slug: "5-amino-1mq-capsules-50mg-x-60-capsules", price: 119.99, purity: "98.9%", description: "Oral capsule form of 5-Amino-1MQ for convenient metabolic research. Each capsule contains 50mg; 60-capsule supply. Enhances fat metabolism, preserves lean muscle, and boosts cellular NAD+ levels.", category: "All Peptides, Weight Loss" },
+  { name: "AOD9604 2mg", phiogen_slug: "aod9604-2mg", price: 39.99, purity: "99.0%", description: "Modified fragment of human growth hormone that targets abdominal fat reduction without IGF-1-related side effects. Stimulates lipolysis, inhibits lipogenesis, and supports cartilage and joint health.", category: "All Peptides, Weight Loss" },
+  { name: "AOD9604 5mg", phiogen_slug: "aod9604-5mg", price: 69.99, purity: "99.0%", description: "Mid-range AOD9604 vial for sustained fat loss research. Promotes lipolysis of adipose tissue, inhibits new fat formation, and offers documented joint and cartilage protective properties.", category: "All Peptides, Weight Loss" },
+  { name: "AOD9604 10mg", phiogen_slug: "aod9604-10mg", price: 119.99, purity: "99.0%", description: "High-dose AOD9604 for comprehensive fat metabolism research. Reduces abdominal fat, improves metabolic rate, and supports joint and cartilage health across extended study periods.", category: "All Peptides, Weight Loss" },
+  { name: "L-Carnitine 400mg/mL", phiogen_slug: "l-carnitine-400mg-ml", price: 39.99, purity: "99.5%", description: "Injectable L-Carnitine at 400mg/mL concentration. Transports long-chain fatty acids into mitochondria for beta-oxidation, enhances exercise performance, reduces muscle damage, and supports cardiovascular health.", category: "All Peptides, Weight Loss, Muscle Growth" },
+  { name: "L-Carnitine 600mg/mL", phiogen_slug: "l-carnitine-600mg-ml", price: 49.99, purity: "99.5%", description: "High-concentration injectable L-Carnitine at 600mg/mL. Maximizes fatty acid transport into mitochondria, improves energy metabolism, reduces fatigue, and supports lean body composition research.", category: "All Peptides, Weight Loss, Muscle Growth" },
+  { name: "L-Carnitine 5-Pack 600mg", phiogen_slug: "l-carnitine-5-pack-600mg", price: 89.99, purity: "99.5%", description: "Five-vial pack of L-Carnitine 600mg/mL for extended research. Supports sustained fatty acid oxidation, endurance enhancement, and lean mass preservation across multi-week protocols.", category: "All Peptides, Weight Loss, Muscle Growth" },
+  { name: "SLU-PP-332 1mg x30 Capsules", phiogen_slug: "slu-pp-332-1mg-x-30-capsules", price: 39.99, purity: "98.6%", description: "ERR-alpha/gamma agonist that mimics the metabolic effects of endurance exercise. Activates oxidative muscle fiber gene expression, enhances mitochondrial biogenesis, and promotes fat utilization.", category: "All Peptides, Weight Loss" },
+  { name: "SLU-PP-332 1mg/mL 30mL", phiogen_slug: "slu-pp-332-1mg-ml-30ml", price: 79.99, purity: "98.6%", description: "Injectable SLU-PP-332 ERR agonist. Activates the same metabolic pathways as endurance exercise, increasing fat oxidation and mitochondrial density in muscle tissue.", category: "All Peptides, Weight Loss" },
+  { name: "SLU-PP-332 5mg/mL 30mL", phiogen_slug: "slu-pp-332-5mg-ml-30ml", price: 99.99, purity: "98.6%", description: "High-concentration injectable SLU-PP-332 for advanced exercise-mimetic research. Drives ERR-alpha/gamma activation, oxidative fiber switching, and enhanced metabolic efficiency.", category: "All Peptides, Weight Loss" },
+  { name: "SLU-PP-332 100mg x30 Capsules", phiogen_slug: "slu-pp-332-100mg-x-30-capsules", price: 59.99, purity: "98.6%", description: "Oral SLU-PP-332 capsules at 100mg each. Activates ERR nuclear receptors to enhance fat oxidation, mitochondrial biogenesis, and aerobic capacity without physical exercise.", category: "All Peptides, Weight Loss" },
+  { name: "SLU-PP-332 100mg x120 Capsules", phiogen_slug: "slu-pp-332-100mg-x-120-capsules", price: 159.99, purity: "98.6%", description: "Extended-supply SLU-PP-332 capsules (100mg x120). Provides four months of ERR agonist research, supporting sustained fat oxidation, metabolic adaptation, and mitochondrial enhancement.", category: "All Peptides, Weight Loss" },
+  { name: "Semaglutide 3mg", phiogen_slug: "semaglutide-3mg", price: 49.99, purity: "99.1%", description: "GLP-1 receptor agonist that reduces appetite, slows gastric emptying, and promotes sustained weight loss. Improves insulin sensitivity and supports cardiovascular metabolic health.", category: "All Peptides, Weight Loss" },
+  { name: "Semaglutide 6mg", phiogen_slug: "semaglutide-6mg", price: 79.99, purity: "99.1%", description: "Mid-dose Semaglutide for multi-week GLP-1 research. Suppresses appetite through hypothalamic GLP-1 receptors, improves glycemic control, and supports progressive fat loss.", category: "All Peptides, Weight Loss" },
+  { name: "Semaglutide 12mg", phiogen_slug: "semaglutide-12mg", price: 129.99, purity: "99.0%", description: "High-dose Semaglutide for extended GLP-1 receptor agonist research. Provides sustained appetite suppression, blood sugar regulation, and significant fat mass reduction over longer study durations.", category: "All Peptides, Weight Loss" },
+  { name: "Semaglutide 20mg", phiogen_slug: "semaglutide-20mg", price: 189.99, purity: "99.0%", description: "Large-format Semaglutide vial for prolonged obesity and metabolic research. GLP-1 receptor agonism drives robust appetite reduction, improved insulin secretion, and progressive weight management.", category: "All Peptides, Weight Loss" },
+  { name: "Semaglutide 30mg", phiogen_slug: "semaglutide-30mg", price: 249.99, purity: "99.0%", description: "Bulk Semaglutide for comprehensive longitudinal GLP-1 studies. Supports sustained weight reduction, metabolic health improvement, and cardiovascular risk factor management.", category: "All Peptides, Weight Loss" },
+  { name: "AICAR 50mg", phiogen_slug: "aicar-50mg", price: 69.99, purity: "99.1%", description: "AMPK activator that mimics the metabolic effects of exercise. Enhances fat oxidation, improves cardiovascular endurance, promotes glucose uptake, and supports metabolic health without physical activity.", category: "All Peptides, Weight Loss, Muscle Growth" },
+  { name: "BAM-15 30mg/mL 30mL", phiogen_slug: "bam-15-30mg-ml-30ml", price: 89.99, purity: "98.5%", description: "Mitochondrial uncoupler that dissipates the proton gradient as heat to increase metabolic rate and fat oxidation. Promotes weight loss without reducing food intake or causing muscle wasting.", category: "All Peptides, Weight Loss" },
+  { name: "BAM-15 50mg/mL 30mL", phiogen_slug: "bam-15-50mg-ml-30ml", price: 129.99, purity: "98.5%", description: "High-concentration BAM-15 mitochondrial uncoupler. Accelerates fat oxidation by converting stored energy to heat, supporting obesity research with preserved lean mass and muscle function.", category: "All Peptides, Weight Loss" },
+  { name: "Adipotide (FTPP) 5mg", phiogen_slug: "adipotide-fttp-5mg", price: 89.99, purity: "98.7%", description: "Pro-apoptotic peptide that selectively targets blood vessels feeding white adipose tissue. Induces apoptosis of adipocyte-specific vasculature, leading to fat cell death and targeted fat mass reduction.", category: "All Peptides, Weight Loss" },
+  { name: "Adipotide (FTPP) 10mg", phiogen_slug: "adipotide-fttp-10mg", price: 149.99, purity: "98.7%", description: "High-dose Adipotide (FTPP) for advanced fat loss research. Selectively eliminates adipose vasculature, causing apoptosis of fat cells with documented reduction in abdominal and overall fat mass.", category: "All Peptides, Weight Loss" },
+  { name: "Cagrilintide 5mg", phiogen_slug: "cagrilintide-5mg", price: 99.99, purity: "98.8%", description: "Long-acting amylin analogue that reduces appetite, slows gastric emptying, and complements GLP-1-based weight loss protocols. Supports sustainable weight reduction and muscle mass preservation.", category: "All Peptides, Weight Loss" },
+  { name: "Cagrilintide 10mg", phiogen_slug: "cagrilintide-10mg", price: 169.99, purity: "98.8%", description: "High-dose Cagrilintide amylin analogue for extended appetite and weight research. Reduces caloric intake, improves glycemic control, and synergizes with GLP-1 agonists for additive fat loss.", category: "All Peptides, Weight Loss" },
+  { name: "Mazdutide 6mg", phiogen_slug: "mazdutide-6mg", price: 129.99, purity: "98.5%", description: "Dual GLP-1/glucagon receptor agonist promoting sustainable weight reduction through appetite suppression and enhanced energy expenditure. Preserves lean muscle during fat loss and improves metabolic efficiency.", category: "All Peptides, Weight Loss" },
+  { name: "Survodutide 10mg", phiogen_slug: "survodutide-10mg", price: 159.99, purity: "98.5%", description: "GLP-1/glucagon dual receptor agonist with potent metabolic effects. Reduces body weight through appetite suppression and increased energy expenditure, with additional hepatic fat reduction properties.", category: "All Peptides, Weight Loss" },
+  { name: "O-304 (ATX-304) 100mg x60 Capsules", phiogen_slug: "o-304-atx-304-100mg-x-60-capsules", price: 119.99, purity: "98.8%", description: "Pan-AMPK activator that mimics exercise-induced metabolic benefits. Improves insulin sensitivity, enhances fat oxidation, supports cardiovascular function, and reduces liver fat in metabolic research models.", category: "All Peptides, Weight Loss" },
+  { name: "Tirzepatide 15mg", phiogen_slug: "tirzepatide-15mg", price: 149.99, purity: "99.2%", description: "Dual GIP/GLP-1 receptor agonist delivering superior weight loss compared to single-agonist approaches. Controls appetite, improves insulin sensitivity, enhances metabolic health, and supports cardiovascular function.", category: "All Peptides, Weight Loss" },
+  { name: "Tirzepatide 30mg", phiogen_slug: "tirzepatide-30mg", price: 249.99, purity: "99.2%", description: "Mid-range Tirzepatide supply for extended dual incretin research. Potent GIP/GLP-1 co-agonism drives significant fat mass reduction, blood sugar control, and metabolic improvements.", category: "All Peptides, Weight Loss" },
+  { name: "Tirzepatide 60mg", phiogen_slug: "tirzepatide-60mg", price: 399.99, purity: "99.2%", description: "Bulk Tirzepatide for comprehensive longitudinal metabolic studies. Dual incretin co-agonism delivers the most clinically documented weight loss among incretin-based peptides.", category: "All Peptides, Weight Loss" },
+  { name: "Retatrutide 10mg", phiogen_slug: "retatrutide-10mg", price: 149.99, purity: "98.9%", description: "Triple GLP-1/GIP/glucagon receptor agonist for powerful metabolic research. Supports weight loss, preserves lean muscle, reduces food cravings, lowers blood pressure, and improves blood sugar control.", category: "All Peptides, Weight Loss" },
+  { name: "Retatrutide 15mg", phiogen_slug: "retatrutide-15mg", price: 199.99, purity: "98.9%", description: "Mid-dose triple agonist Retatrutide. Combines GLP-1, GIP, and glucagon receptor activation for synergistic appetite suppression, enhanced energy expenditure, and superior fat mass reduction.", category: "All Peptides, Weight Loss" },
+  { name: "Retatrutide 20mg", phiogen_slug: "retatrutide-20mg", price: 249.99, purity: "98.9%", description: "High-dose Retatrutide for extended triple incretin research. Delivers comprehensive metabolic optimization through simultaneous GLP-1, GIP, and glucagon receptor co-agonism.", category: "All Peptides, Weight Loss" },
+  { name: "Retatrutide 30mg", phiogen_slug: "retatrutide-30mg", price: 329.99, purity: "98.9%", description: "Bulk Retatrutide for longitudinal obesity research. Triple-receptor agonism provides the most comprehensive pharmacological weight loss mechanism available for research applications.", category: "All Peptides, Weight Loss" },
+  { name: "Tesofensine 500mcg x30 Capsules", phiogen_slug: "tesofensine-500mcg-x-30-capsules", price: 99.99, purity: "99.0%", description: "Triple monoamine reuptake inhibitor (serotonin, dopamine, noradrenaline) that reduces appetite through central nervous system mechanisms. Supports significant weight reduction and improved metabolic parameters.", category: "All Peptides, Weight Loss" },
+  { name: "Tesofensine 500mcg x30 Tablets", phiogen_slug: "tesofensine-500mcg-x-30-tablets", price: 99.99, purity: "99.0%", description: "Tablet form Tesofensine for CNS-mediated appetite suppression research. Inhibits reuptake of serotonin, dopamine, and noradrenaline to reduce caloric intake and support sustained weight loss.", category: "All Peptides, Weight Loss" },
+
+  // ── GROWTH PEPTIDES ───────────────────────────────────────────────────────
+  { name: "GHRP-2 10mg", phiogen_slug: "ghrp-2-10mg", price: 49.99, purity: "99.0%", description: "Ghrelin receptor agonist that triggers a strong growth hormone pulse. Enhances muscle growth, accelerates recovery, supports fat loss by boosting metabolism, and improves sleep quality.", category: "All Peptides, Muscle Growth" },
+  { name: "GHRP-6 10mg", phiogen_slug: "ghrp-6-10mg", price: 49.99, purity: "99.0%", description: "Potent ghrelin mimetic that stimulates GH release and appetite. Promotes muscle growth, accelerates tissue repair, supports fat metabolism, and improves immune function through elevated GH secretion.", category: "All Peptides, Muscle Growth" },
+  { name: "CJC-1295 No DAC 5mg", phiogen_slug: "cjc-1295-no-dac-5mg", price: 49.99, purity: "99.1%", description: "GHRH analogue producing a short, physiological GH pulse. Promotes lean muscle growth, accelerates recovery, boosts metabolism, and improves sleep quality with a natural pulsatile GH release pattern.", category: "All Peptides, Muscle Growth, Anti-Aging" },
+  { name: "CJC-1295 No DAC 10mg", phiogen_slug: "cjc-1295-no-dac-10mg", price: 79.99, purity: "99.1%", description: "High-dose CJC-1295 (no DAC) for extended GH secretagogue research. Stimulates physiological GH pulses to support lean muscle accrual, fat metabolism, and tissue repair.", category: "All Peptides, Muscle Growth, Anti-Aging" },
+  { name: "CJC-1295 with DAC 10mg", phiogen_slug: "cjc-1295-with-dac-10mg", price: 99.99, purity: "99.0%", description: "Long-acting GHRH analogue with Drug Affinity Complex extending half-life to 6-8 days via albumin binding. Provides sustained GH elevation, promoting lean muscle growth and anti-aging effects.", category: "All Peptides, Muscle Growth, Anti-Aging" },
+  { name: "Gonadorelin Acetate", phiogen_slug: "gonadorelin-acetate", price: 49.99, purity: "99.0%", description: "GnRH analogue that stimulates pituitary LH and FSH secretion. Supports testosterone production, maintains gonadal function, and is studied for HPG axis restoration and fertility research.", category: "All Peptides, Muscle Growth, Libido" },
+  { name: "Ipamorelin 10mg", phiogen_slug: "ipamorelin-10mg", price: 59.99, purity: "99.2%", description: "Highly selective ghrelin receptor agonist with minimal cortisol or prolactin elevation. Promotes lean muscle growth, enhances fat loss, accelerates tissue regeneration, and improves sleep quality.", category: "All Peptides, Muscle Growth, Anti-Aging" },
+  { name: "Sermorelin 2mg", phiogen_slug: "sermorelin-2mg", price: 39.99, purity: "99.0%", description: "29-amino acid GHRH analogue that stimulates natural GH release from the pituitary. Supports muscle growth, reduces body fat, increases energy, improves sleep quality, and has anti-aging properties.", category: "All Peptides, Muscle Growth, Anti-Aging" },
+  { name: "Sermorelin 5mg", phiogen_slug: "sermorelin-5mg", price: 69.99, purity: "99.0%", description: "Mid-dose Sermorelin for extended GH axis research. Stimulates pulsatile GH secretion, supporting lean muscle development, fat reduction, improved sleep architecture, and systemic anti-aging effects.", category: "All Peptides, Muscle Growth, Anti-Aging" },
+  { name: "Sermorelin 10mg", phiogen_slug: "sermorelin-10mg", price: 119.99, purity: "99.0%", description: "High-dose Sermorelin for prolonged GHRH research studies. Provides sustained pituitary GH stimulation for lean body composition improvement, metabolic enhancement, and longevity research.", category: "All Peptides, Muscle Growth, Anti-Aging" },
+  { name: "Hexarelin 5mg", phiogen_slug: "hexarelin-5mg", price: 59.99, purity: "99.0%", description: "Potent GHRP that produces one of the strongest GH pulses among secretagogues. Also has direct cardioprotective properties through GHS-R1a receptors in cardiac tissue. Enhances muscle growth and recovery.", category: "All Peptides, Muscle Growth" },
+  { name: "Kisspeptin-10 5mg", phiogen_slug: "kisspeptin-10-5mg", price: 59.99, purity: "98.9%", description: "Upstream HPG axis activator that stimulates GnRH release to drive LH and testosterone production. Enhances libido, supports fertility, and restores hormonal drive from the hypothalamic signaling level.", category: "All Peptides, Libido, Muscle Growth" },
+  { name: "Kisspeptin-10 10mg", phiogen_slug: "kisspeptin-10-10mg", price: 99.99, purity: "98.9%", description: "High-dose Kisspeptin-10 for extended HPG axis research. Activates GnRH neurons to restore gonadotropin pulsatility, testosterone secretion, fertility signaling, and sexual motivation.", category: "All Peptides, Libido, Muscle Growth" },
+  { name: "PEG-MGF 2mg", phiogen_slug: "peg-mgf-2mg", price: 69.99, purity: "98.8%", description: "PEGylated Mechano Growth Factor activates satellite cells for muscle repair and hypertrophy. Extended half-life via PEGylation allows systemic distribution, supporting muscle recovery and lean mass accrual.", category: "All Peptides, Muscle Growth" },
+  { name: "IGF-1 LR3 1mg", phiogen_slug: "igf-1-lr3-1mg", price: 79.99, purity: "98.7%", description: "Long-acting IGF-1 analogue that bypasses hepatic clearance to act directly on muscle tissue. Promotes satellite cell activation, myofibril hypertrophy, fat reduction, and enhanced cellular nutrient uptake.", category: "All Peptides, Muscle Growth" },
+  { name: "Tesamorelin 10mg", phiogen_slug: "tesamorelin-10mg", price: 119.99, purity: "99.1%", description: "GHRH analogue clinically proven to reduce visceral/abdominal fat. Enhances metabolic function, supports muscle maintenance, improves skin elasticity, and enhances mental clarity through GH axis activation.", category: "All Peptides, Muscle Growth, Weight Loss" },
+  { name: "Tesamorelin 20mg", phiogen_slug: "tesamorelin-20mg", price: 199.99, purity: "99.1%", description: "High-dose Tesamorelin for extended visceral fat and GH axis research. Provides sustained GHRH receptor activation for progressive abdominal fat reduction and metabolic improvement.", category: "All Peptides, Muscle Growth, Weight Loss" },
+
+  // ── RECOVERY & HEALING ────────────────────────────────────────────────────
+  { name: "Bacteriostatic Water 30mL", phiogen_slug: "bacteriostatic-water-30ml", price: 12.99, purity: null, description: "Sterile water containing 0.9% benzyl alcohol for peptide reconstitution. Prevents bacterial growth after vial entry, extends multi-use shelf life, and maintains solution sterility across research sessions.", category: "Supplies" },
+  { name: "Bacteriostatic Water USP 30mL", phiogen_slug: "usp-bacteriostatic-water-30ml", price: 14.99, purity: null, description: "USP-grade bacteriostatic water for injection. Highest purity standard for peptide reconstitution, ensuring sterility, non-pyrogenicity, and reliable pH consistency across research protocols.", category: "Supplies" },
+  { name: "BPC-157 10mg", phiogen_slug: "bpc-157-10mg", price: 59.99, purity: "99.3%", description: "15-amino acid body protection compound with extensive tendon, muscle, gut, and nerve repair research. Upregulates GH receptors, promotes angiogenesis, reduces inflammation, and accelerates wound closure.", category: "All Peptides, Recovery & Repair, Muscle Growth" },
+  { name: "BPC-157 Capsules 500mcg x60", phiogen_slug: "bpc-157-capsules-500mcg-x-60-capsules", price: 79.99, purity: "99.0%", description: "Oral BPC-157 capsules for gastrointestinal and systemic research. Retains bioactivity when administered orally; studied for leaky gut, gastric protection, and systemic anti-inflammatory effects.", category: "All Peptides, Recovery & Repair" },
+  { name: "TB-500 (Thymosin Beta-4) 10mg", phiogen_slug: "tb-500-thymosin-beta-4-10mg", price: 59.99, purity: "99.0%", description: "Synthetic Thymosin Beta-4 promoting actin polymerization, cell migration, and AKT pathway activation for systemic tissue repair. Reduces inflammation, supports cardiac recovery, and improves flexibility.", category: "All Peptides, Recovery & Repair, Muscle Growth" },
+  { name: "Thymulin 10mg", phiogen_slug: "thymulin-10mg", price: 59.99, purity: "98.8%", description: "Thymic nonapeptide that promotes T-cell differentiation and maturation. Reduces pro-inflammatory cytokines IL-1 and IL-6, supports autoimmune regulation, and has documented anti-nociceptive properties.", category: "All Peptides, Immunity" },
+  { name: "KPV 5mg", phiogen_slug: "kpv-5mg", price: 59.99, purity: "99.0%", description: "Alpha-MSH-derived tripeptide with potent anti-inflammatory properties. Inhibits NF-kB signaling, reduces gut inflammation, supports wound healing, and modulates immune responses at mucosal surfaces.", category: "All Peptides, Recovery & Repair, Immunity" },
+  { name: "KPV 10mg", phiogen_slug: "kpv-10mg", price: 99.99, purity: "99.0%", description: "High-dose KPV for extended gut inflammation and immune modulation research. Effectively inhibits inflammatory cascades, promotes intestinal healing, and reduces systemic inflammatory burden.", category: "All Peptides, Recovery & Repair, Immunity" },
+  { name: "Oxytocin 8mg", phiogen_slug: "oxytocin-8mg", price: 69.99, purity: "99.0%", description: "Neuropeptide hormone with roles in social bonding, stress reduction, anti-inflammatory signaling, and wound healing. Studied for gut motility support, anxiety reduction, and tissue repair facilitation.", category: "All Peptides, Recovery & Repair, Brain/Nerve" },
+  { name: "Oxytocin 10mg", phiogen_slug: "oxytocin-10mg", price: 79.99, purity: "99.0%", description: "High-dose Oxytocin for comprehensive neuropeptide research. Supports prosocial behavior studies, stress hormone regulation, gut barrier function, and anti-inflammatory healing applications.", category: "All Peptides, Recovery & Repair, Brain/Nerve" },
+  { name: "Thymosin Alpha-1 5mg", phiogen_slug: "thymosin-alpha-1-5mg", price: 69.99, purity: "99.0%", description: "28-amino acid thymic peptide that activates T-helper 1 immunity, enhances antigen presentation, stimulates interferon production, and raises NK cell activity. Clinically used in 35+ countries.", category: "All Peptides, Immunity" },
+  { name: "Thymosin Alpha-1 10mg", phiogen_slug: "thymosin-alpha-1-10mg", price: 119.99, purity: "99.0%", description: "High-dose Thymosin Alpha-1 for extended immune optimization research. Restores T-cell function, enhances viral and bacterial immunity, and supports immune resilience in immunocompromised research models.", category: "All Peptides, Immunity" },
+  { name: "Bronchogen 20mg", phiogen_slug: "bronchogen-20mg", price: 79.99, purity: "98.8%", description: "Short peptide bioregulator targeting bronchial and lung tissue. Promotes bronchial epithelial cell restoration, reduces airway inflammation, and supports pulmonary function and respiratory health.", category: "All Peptides, Recovery & Repair, Immunity" },
+  { name: "Cardiogen 20mg", phiogen_slug: "cardiogen-20mg", price: 79.99, purity: "98.8%", description: "Peptide bioregulator specific to cardiac tissue. Supports cardiomyocyte function, promotes cardiac protein synthesis, reduces oxidative damage to heart tissue, and supports cardiovascular resilience.", category: "All Peptides, Recovery & Repair" },
+  { name: "Cartalax 20mg", phiogen_slug: "cartalax-20mg", price: 79.99, purity: "98.8%", description: "Connective tissue peptide bioregulator supporting cartilage and bone regeneration. Promotes chondrocyte and osteoblast activity, reduces joint degeneration, and supports musculoskeletal structural integrity.", category: "All Peptides, Recovery & Repair, Skin/Tissue/Bone" },
+  { name: "Chonluten 20mg", phiogen_slug: "chonluten-20mg", price: 79.99, purity: "98.8%", description: "Peptide bioregulator that targets bronchial and mucosal tissues. Supports epithelial cell regeneration, improves mucosal barrier integrity, and promotes respiratory tissue recovery.", category: "All Peptides, Recovery & Repair, Brain/Nerve" },
+  { name: "Cortagen 20mg", phiogen_slug: "cortagen-20mg", price: 79.99, purity: "98.8%", description: "Neuropeptide bioregulator supporting cerebral cortex and central nervous system function. Promotes neuronal recovery, supports cognitive resilience, and reduces age-related neurological decline.", category: "All Peptides, Recovery & Repair, Brain/Nerve" },
+  { name: "Crystagen 20mg", phiogen_slug: "crystagen-20mg", price: 79.99, purity: "98.8%", description: "Connective tissue bioregulator promoting collagen synthesis and structural tissue integrity. Supports skin firmness, joint cartilage health, and connective tissue remodeling.", category: "All Peptides, Recovery & Repair, Skin/Tissue/Bone" },
+  { name: "Livagen 20mg", phiogen_slug: "livagen-20mg", price: 79.99, purity: "98.8%", description: "Hepatic peptide bioregulator that supports liver cell function and regeneration. Promotes hepatoprotective activity, reduces liver inflammation, and supports detoxification pathway integrity.", category: "All Peptides, Recovery & Repair" },
+  { name: "Ovagen 20mg", phiogen_slug: "ovagen-20mg", price: 79.99, purity: "98.8%", description: "Peptide bioregulator targeting gastrointestinal and hepatic tissue. Supports liver and gut tissue regeneration, reduces oxidative damage, and improves organ-specific protein synthesis.", category: "All Peptides, Recovery & Repair" },
+  { name: "Pancragen 20mg", phiogen_slug: "pancragen-20mg", price: 79.99, purity: "98.8%", description: "Pancreatic peptide bioregulator supporting exocrine and endocrine pancreatic function. Promotes beta-cell health, supports insulin regulation, and reduces pancreatic oxidative stress.", category: "All Peptides, Recovery & Repair" },
+  { name: "Prostamax 20mg", phiogen_slug: "prostamax-20mg", price: 79.99, purity: "98.8%", description: "Prostate-specific peptide bioregulator supporting prostate gland health and function. Reduces prostate inflammation, promotes healthy tissue turnover, and supports urogenital function.", category: "All Peptides, Recovery & Repair" },
+  { name: "Thymogen 20mg", phiogen_slug: "thymogen-20mg", price: 79.99, purity: "98.8%", description: "Dipeptide thymic factor that stimulates T-lymphocyte production and immune maturation. Supports immune system restoration, improves infection resistance, and reduces immunosenescence.", category: "All Peptides, Immunity" },
+  { name: "Vesilute 20mg", phiogen_slug: "vesilute-20mg", price: 79.99, purity: "98.8%", description: "Peptide bioregulator targeting bladder and urinary tract tissue. Supports urothelial cell restoration, reduces urinary tract inflammation, and promotes healthy bladder function.", category: "All Peptides, Recovery & Repair" },
+  { name: "Vesugen 20mg", phiogen_slug: "vesugen-20mg", price: 79.99, purity: "98.8%", description: "Vascular peptide bioregulator that promotes endothelial cell health and blood vessel integrity. Supports angiogenesis, reduces vascular oxidative stress, and improves circulation.", category: "All Peptides, Recovery & Repair" },
+  { name: "Vilon 20mg", phiogen_slug: "vilon-20mg", price: 79.99, purity: "98.8%", description: "Dipeptide bioregulator with immunomodulatory and anti-aging properties. Stimulates thymic activity, restores immune function, and supports longevity signaling through epigenetic mechanisms.", category: "All Peptides, Recovery & Repair, Anti-Aging" },
+  { name: "Testagen 20mg", phiogen_slug: "testagen-20mg", price: 89.99, purity: "98.8%", description: "Peptide bioregulator targeting testicular and male reproductive tissue. Supports testosterone production, promotes Leydig cell function, and maintains male reproductive health.", category: "All Peptides, Recovery & Repair, Muscle Growth" },
+  { name: "ARA-290 10mg", phiogen_slug: "ara-290-10mg", price: 89.99, purity: "98.7%", description: "Non-hematopoietic EPO analogue that activates the innate repair receptor to reduce chronic inflammation and neuropathic pain without erythropoietic effects. Supports tissue protection and metabolic health.", category: "All Peptides, Recovery & Repair" },
+  { name: "SS-31 10mg", phiogen_slug: "ss-31-10mg", price: 99.99, purity: "98.9%", description: "Mitochondria-targeted antioxidant peptide that concentrates at the inner mitochondrial membrane. Reduces oxidative stress, restores ATP production, and protects against ischemia-reperfusion injury.", category: "All Peptides, Anti-Aging, Recovery & Repair" },
+  { name: "SS-31 25mg", phiogen_slug: "ss-31-25mg", price: 189.99, purity: "98.9%", description: "Mid-dose SS-31 for extended mitochondrial protection research. Maintains cardiolipin function, reduces mitochondrial ROS, improves bioenergetics, and protects cardiac and renal tissue from oxidative damage.", category: "All Peptides, Anti-Aging, Recovery & Repair" },
+  { name: "SS-31 50mg", phiogen_slug: "ss-31-50mg", price: 329.99, purity: "98.9%", description: "Bulk SS-31 for comprehensive mitochondrial health studies. Provides sustained mitochondria-targeted antioxidant protection, supports energy metabolism restoration, and reduces oxidative pathology.", category: "All Peptides, Anti-Aging, Recovery & Repair" },
+  { name: "LL-37 10mg", phiogen_slug: "ll-37-10mg", price: 99.99, purity: "98.9%", description: "Human cathelicidin antimicrobial peptide with broad-spectrum bactericidal activity and wound healing properties. Disrupts bacterial membranes, neutralizes LPS, promotes angiogenesis, and modulates immune responses.", category: "All Peptides, Immunity, Skin/Tissue/Bone" },
+  { name: "MOTS-c 10mg", phiogen_slug: "mots-c-10mg", price: 129.99, purity: "98.8%", description: "Mitochondria-derived peptide that activates AMPK and restores metabolic homeostasis. Enhances insulin sensitivity, promotes glucose metabolism, reduces inflammation, and slows aging processes.", category: "All Peptides, Anti-Aging, Weight Loss" },
+  { name: "MOTS-c 20mg", phiogen_slug: "mots-c-20mg", price: 219.99, purity: "98.8%", description: "High-dose MOTS-c for extended mitochondrial and metabolic research. Restores youthful insulin sensitivity, activates AMPK-driven fat oxidation, and reduces systemic inflammation.", category: "All Peptides, Anti-Aging, Weight Loss" },
+  { name: "MOTS-c 40mg", phiogen_slug: "mots-c-40mg", price: 379.99, purity: "98.8%", description: "Bulk MOTS-c for longitudinal mitochondrial signaling and longevity studies. Provides comprehensive AMPK and metabolic pathway activation for aging, obesity, and insulin resistance research.", category: "All Peptides, Anti-Aging, Weight Loss" },
+  { name: "VIP 5mg", phiogen_slug: "vip-5mg", price: 79.99, purity: "98.8%", description: "Vasoactive Intestinal Peptide with potent anti-inflammatory, immunomodulatory, and neuroprotective properties. Reduces cytokine storms, supports gut motility, and promotes pulmonary and neurological health.", category: "All Peptides, Recovery & Repair, Immunity" },
+  { name: "VIP 10mg", phiogen_slug: "vip-10mg", price: 139.99, purity: "98.8%", description: "High-dose Vasoactive Intestinal Peptide for advanced immune and neurological research. Suppresses inflammatory cytokines, regulates gut function, and provides neuroprotective effects across multiple tissue types.", category: "All Peptides, Recovery & Repair, Immunity" },
+
+  // ── ANTI-AGING & LONGEVITY ────────────────────────────────────────────────
+  { name: "Epitalon 10mg", phiogen_slug: "epitalon-10mg", price: 59.99, purity: "99.2%", description: "Tetrapeptide that activates telomerase to extend telomere length, providing anti-aging benefits. Improves sleep quality, strengthens immune function, and has documented antioxidant and potential cancer-preventive properties.", category: "All Peptides, Anti-Aging" },
+  { name: "Epitalon 50mg", phiogen_slug: "epitalon-50mg", price: 139.99, purity: "99.4%", description: "High-dose Epitalon for extended telomerase activation research. Supports telomere restoration, immune rejuvenation, circadian rhythm normalization, and longevity signaling across prolonged study periods.", category: "All Peptides, Anti-Aging" },
+  { name: "NA-Epitalon 10mg", phiogen_slug: "na-epitalon-10mg", price: 79.99, purity: "99.0%", description: "N-acetylated Epitalon variant with potentially enhanced bioavailability. Activates telomerase, supports telomere integrity, and provides anti-aging benefits through improved peptide stability.", category: "All Peptides, Anti-Aging" },
+  { name: "GHK-Cu 50mg", phiogen_slug: "ghk-cu-50mg", price: 50.00, purity: "99.1%", description: "Copper-binding tripeptide that modulates over 4,000 genes involved in skin, hair, and tissue regeneration. Boosts collagen synthesis, stimulates wound healing, reduces inflammation, and protects against oxidative damage.", category: "All Peptides, Skin/Tissue/Bone, Anti-Aging" },
+  { name: "GHK-Cu 100mg", phiogen_slug: "ghk-cu-100mg", price: 89.99, purity: "99.1%", description: "High-dose GHK-Cu for comprehensive skin biology and anti-aging research. Upregulates collagen I/III/IV, elastin, and glycosaminoglycans; activates hair follicle renewal and nerve growth factor expression.", category: "All Peptides, Skin/Tissue/Bone, Anti-Aging" },
+  { name: "Glutathione 200mg", phiogen_slug: "glutathione-200mg", price: 49.99, purity: "99.3%", description: "Master endogenous antioxidant that neutralizes free radicals, supports detoxification, and maintains cellular redox balance. Reduces oxidative stress, supports immune function, and has skin-brightening properties.", category: "All Peptides, Anti-Aging" },
+  { name: "Glutathione 600mg", phiogen_slug: "glutathione-600mg", price: 89.99, purity: "99.3%", description: "Mid-dose Glutathione for sustained antioxidant and detoxification research. Replenishes cellular GSH stores, supports hepatic Phase II detoxification, and reduces systemic oxidative burden.", category: "All Peptides, Anti-Aging" },
+  { name: "Glutathione 1500mg", phiogen_slug: "glutathione-1500mg", price: 179.99, purity: "99.3%", description: "High-dose Glutathione for comprehensive oxidative stress and longevity research. Restores cellular antioxidant capacity, supports mitochondrial health, and provides broad systemic protective effects.", category: "All Peptides, Anti-Aging" },
+  { name: "NAD+ 500mg", phiogen_slug: "nad-500mg", price: 79.99, purity: "99.5%", description: "Nicotinamide adenine dinucleotide coenzyme critical for energy metabolism and cellular repair. Supports mitochondrial function, activates sirtuins, promotes DNA repair, and combats age-related NAD+ decline.", category: "All Peptides, Anti-Aging" },
+  { name: "NAD+ 1000mg", phiogen_slug: "nad-1000mg", price: 139.99, purity: "99.5%", description: "High-dose NAD+ for extended longevity and metabolic research. Restores sirtuin activity, enhances mitochondrial biogenesis, supports neurological health, and counters the progressive NAD+ decline of aging.", category: "All Peptides, Anti-Aging" },
+  { name: "Methylene Blue 10mg/mL 50mL", phiogen_slug: "methylene-blue-10mg-ml-50ml", price: 59.99, purity: "99.5%", description: "Mitochondrial electron carrier that enhances cellular respiration and ATP production. Studied for cognitive enhancement, neuroprotection, anti-aging effects, and antimicrobial properties.", category: "All Peptides, Anti-Aging, Brain/Nerve" },
+  { name: "Melanotan I 10mg", phiogen_slug: "melanotan-1-10mg", price: 59.99, purity: "99.0%", description: "Linear α-MSH analogue that selectively activates MC1R for UV-independent skin tanning. Provides photoprotection by stimulating melanin production without the broader melanocortin receptor effects of MT-II.", category: "All Peptides, Libido, Skin/Tissue/Bone" },
+  { name: "Melanotan II 10mg", phiogen_slug: "melanotan-2-10mg", price: 59.99, purity: "99.0%", description: "Cyclic melanocortin peptide activating MC1R–MC5R. Produces UV-independent tanning, enhances libido through MC4R activation, reduces appetite, and has documented erectile function effects.", category: "All Peptides, Libido, Skin/Tissue/Bone" },
+  { name: "PT-141 10mg", phiogen_slug: "pt-141-10mg", price: 69.99, purity: "99.0%", description: "FDA-approved (Vyleesi) melanocortin peptide acting centrally on MC3R/MC4R to enhance libido and sexual motivation. Addresses sexual dysfunction through brain pathways rather than peripheral blood flow mechanisms.", category: "All Peptides, Libido" },
+  { name: "SNAP-8 10mg", phiogen_slug: "snap-8-10mg", price: 45.00, purity: "98.9%", description: "Octapeptide analogue of SNAP-25 that reduces muscle contraction-induced facial wrinkles by inhibiting catecholamine release at neuromuscular junctions. Studied as a topical anti-wrinkle agent.", category: "All Peptides, Anti-Aging, Skin/Tissue/Bone" },
+  { name: "P21 10mg", phiogen_slug: "p21-10mg", price: 89.99, purity: "98.7%", description: "CNTF-derived nootropic peptide with neurogenic and BDNF-stimulating properties. Promotes neurogenesis, enhances memory consolidation, and supports cognitive resilience through STAT3 and BDNF pathway activation.", category: "All Peptides, Brain/Nerve, Anti-Aging" },
+  { name: "RU-58841 50mg x30mL", phiogen_slug: "ru-58841-50mg-x-30ml", price: 79.99, purity: "98.8%", description: "Topical androgen receptor antagonist studied for androgenetic alopecia. Blocks DHT binding at the hair follicle level without systemic anti-androgenic effects, supporting hair retention research.", category: "All Peptides, Skin/Tissue/Bone" },
+  { name: "RU-58841 50mg x60mL", phiogen_slug: "ru-58841-50mg-x-60ml", price: 129.99, purity: "98.8%", description: "Extended-supply topical RU-58841 for prolonged hair loss research. Provides two-month supply of topical androgen receptor blockade for androgenetic alopecia studies.", category: "All Peptides, Skin/Tissue/Bone" },
+  { name: "PNC-27 30mg", phiogen_slug: "pnc-27-30mg", price: 119.99, purity: "98.6%", description: "p53-derived peptide that selectively targets cancer cell membranes, inducing membranolysis in tumor cells overexpressing HDM-2. Studied for anti-cancer properties without toxicity to normal cells.", category: "All Peptides, Anti-Aging" },
+  { name: "Abaloparatide 3mg", phiogen_slug: "abaloparatide-3mg", price: 149.99, purity: "98.7%", description: "PTHrP analogue with FDA approval for osteoporosis. Promotes osteoblast-driven bone formation with preferential anabolic activity, improving bone mineral density and reducing fracture risk.", category: "All Peptides, Anti-Aging, Skin/Tissue/Bone" },
+  { name: "FOXO4-DRI 10mg", phiogen_slug: "fox04-dri-10mg", price: 149.99, purity: "98.7%", description: "Senolytic peptide that disrupts FOXO4-p53 interaction in senescent cells, triggering apoptosis of dysfunctional cells while sparing healthy tissue. Studied for cellular rejuvenation and age-related dysfunction.", category: "All Peptides, Anti-Aging" },
+  { name: "ACE-031 1mg", phiogen_slug: "ace-031-1mg", price: 199.99, purity: "98.5%", description: "Recombinant fusion protein inhibiting myostatin and activin to remove the biological brake on skeletal muscle growth. Produces significant lean mass increases independent of GH signaling in preclinical studies.", category: "All Peptides, Muscle Growth" },
+
+  // ── COGNITIVE & NOOTROPIC ─────────────────────────────────────────────────
+  { name: "DSIP 5mg", phiogen_slug: "dsip-delta-sleep-inducing-peptide-5mg", price: 49.99, purity: "99.0%", description: "Delta sleep-inducing peptide that promotes deep, restorative sleep by modulating delta-wave brain activity. Regulates cortisol levels, normalizes circadian rhythms, and has neuroprotective and antioxidant properties.", category: "All Peptides, Brain/Nerve" },
+  { name: "DSIP 10mg", phiogen_slug: "dsip-delta-sleep-inducing-peptide-10mg", price: 79.99, purity: "99.0%", description: "Mid-dose DSIP for extended sleep architecture research. Enhances delta-wave sleep, reduces sleep-onset latency, normalizes cortisol, and supports neuroprotection through sustained delta wave modulation.", category: "All Peptides, Brain/Nerve" },
+  { name: "DSIP 15mg", phiogen_slug: "dsip-delta-sleep-inducing-peptide-15mg", price: 99.99, purity: "99.0%", description: "High-dose DSIP for longitudinal sleep and stress hormone research. Provides sustained delta sleep promotion, circadian regulation, and stress hormone normalization across extended study periods.", category: "All Peptides, Brain/Nerve" },
+  { name: "Selank 10mg", phiogen_slug: "selank-10mg", price: 69.99, purity: "99.0%", description: "Anxiolytic heptapeptide derived from tuftsin with GABA-A modulation, BDNF upregulation, and anti-anxiety effects. Reduces anxiety, enhances cognitive function, stabilizes mood, and improves sleep without sedation.", category: "All Peptides, Brain/Nerve" },
+  { name: "NA-Selank Amidate 10mg", phiogen_slug: "na-selank-amidate-10mg", price: 79.99, purity: "99.0%", description: "N-acetylated, C-amidated Selank with enhanced bioavailability and stability. Provides improved anxiolytic and cognitive-enhancing effects versus standard Selank through increased peptide resistance to enzymatic degradation.", category: "All Peptides, Brain/Nerve" },
+  { name: "NA-Selank Amidate 30mg", phiogen_slug: "na-selank-amidate-30mg", price: 179.99, purity: "99.0%", description: "High-dose NA-Selank Amidate for extended anxiolytic and cognitive research. Superior stability formulation provides sustained GABA modulation, BDNF elevation, and immune support across long protocols.", category: "All Peptides, Brain/Nerve" },
+  { name: "Pinealon 10mg", phiogen_slug: "pinealon-10mg", price: 69.99, purity: "98.8%", description: "Tripeptide pineal gland bioregulator with neuroprotective and anti-aging brain effects. Promotes neuronal regeneration, supports melatonin regulation, improves cognitive resilience, and reduces cerebral oxidative stress.", category: "All Peptides, Brain/Nerve, Anti-Aging" },
+  { name: "Pinealon 20mg", phiogen_slug: "pinealon-20mg", price: 119.99, purity: "98.8%", description: "High-dose Pinealon for extended pineal gland and neuroprotection research. Supports circadian regulation, reduces neuronal oxidative damage, and promotes cognitive longevity through pineal bioregulation.", category: "All Peptides, Brain/Nerve, Anti-Aging" },
+  { name: "PE-22-28 10mg", phiogen_slug: "pe-22-28-10mg", price: 79.99, purity: "98.8%", description: "BDNF loop domain peptide mimetic that activates TrkB receptors to produce rapid antidepressant effects. Promotes neuroplasticity, supports synaptic remodeling, and enhances mood regulation.", category: "All Peptides, Brain/Nerve" },
+  { name: "Adamax 10mg", phiogen_slug: "adamax-10mg", price: 99.99, purity: "98.7%", description: "BDNF-mimetic cognitive enhancer that activates TrkB signaling without the side effects of full-length BDNF. Promotes neuroprotection, synaptic plasticity, memory consolidation, and neurogenesis.", category: "All Peptides, Brain/Nerve" },
+  { name: "N-Acetyl Semax Amidate 30mg", phiogen_slug: "n-acetyl-semax-amidate-30mg", price: 149.99, purity: "99.0%", description: "Most potent Semax variant with N-acetylation and C-amidation for maximum bioavailability. Drives BDNF production, enhances dopaminergic signaling, sharpens focus and memory, and provides neuroprotection.", category: "All Peptides, Brain/Nerve" },
+
+  // ── BLENDS & STACKS ───────────────────────────────────────────────────────
+  { name: "BPC-157 + TB-500 Blend 10mg", phiogen_slug: "bpc-157-tb-500-blend-bpc-157-5mg-tb-500-5mg", price: 59.99, purity: "99.0%", description: "Premier tissue repair stack combining BPC-157 5mg + TB-500 5mg. Complementary mechanisms: BPC-157 drives local angiogenesis and GH receptor upregulation while TB-500 promotes systemic cell migration and actin polymerization.", category: "Peptides Cycles, Peptides Bundles, Recovery & Repair" },
+  { name: "BPC-157 + TB-500 Blend 20mg", phiogen_slug: "bpc-157-tb-500-blend-bpc-157-10mg-tb-500-10mg", price: 99.99, purity: "99.0%", description: "High-dose BPC-157 10mg + TB-500 10mg synergistic recovery blend. Double-strength repair stack for comprehensive musculoskeletal healing, addressing inflammation resolution, proliferation, and tissue remodeling.", category: "Peptides Cycles, Peptides Bundles, Recovery & Repair" },
+  { name: "Ipamorelin/CJC-1295 Blend 10mg", phiogen_slug: "ipamorelin-cjc-1295-blend-cjc-1295-5mg-ipa-5mg", price: 89.99, purity: "99.0%", description: "Classic GH stack: CJC-1295 5mg (GHRH) + Ipamorelin 5mg (ghrelin mimetic). Synergistic dual-pathway GH release — 4-6× more effective than either alone. Promotes lean muscle growth, fat loss, and recovery.", category: "Peptides Cycles, Peptides Bundles, Muscle Growth" },
+  { name: "Ipamorelin/CJC-1295 Blend 10mg v2", phiogen_slug: "ipamorelin-cjc-1295-blend-cjc-1295-5mg-ipamorelin-5mg", price: 89.99, purity: "99.0%", description: "Alternate batch CJC-1295 5mg + Ipamorelin 5mg growth hormone stack. Stimulates complementary GH pathways for superior lean mass, fat metabolism, recovery acceleration, and sleep quality improvement.", category: "Peptides Cycles, Peptides Bundles, Muscle Growth" },
+  { name: "Ipamorelin/Tesamorelin Blend 13mg", phiogen_slug: "ipamorelin-tesamorelin-blend-ipa-3mg-tesa-10mg", price: 129.99, purity: "99.0%", description: "Ipamorelin 3mg + Tesamorelin 10mg blend targeting visceral fat reduction and lean mass. Tesamorelin reduces abdominal fat while Ipamorelin drives muscle-sparing GH pulses for optimized body composition.", category: "Peptides Cycles, Peptides Bundles, Muscle Growth, Weight Loss" },
+  { name: "Ipamorelin/Tesamorelin Blend 15mg", phiogen_slug: "ipamorelin-tesamorelin-blend-ipa-5mg-tesa-10mg", price: 149.99, purity: "99.0%", description: "Higher-dose Ipamorelin 5mg + Tesamorelin 10mg blend for comprehensive GH and visceral fat research. Combines anabolic GH pulse stimulation with proven abdominal fat-reducing GHRH activity.", category: "Peptides Cycles, Peptides Bundles, Muscle Growth, Weight Loss" },
+  { name: "IPA/TESA Blend 15mg", phiogen_slug: "ipa-tesa-blend-ipa-5mg-tesa-10mg-15mg", price: 149.99, purity: "99.0%", description: "Ipamorelin 5mg + Tesamorelin 10mg body composition stack. Drives simultaneous lean muscle growth through GH pulsation and visceral fat reduction through GHRH receptor activation.", category: "Peptides Cycles, Peptides Bundles, Muscle Growth, Weight Loss" },
+  { name: "GLOW Blend 50mg", phiogen_slug: "glow-blend-50mg", price: 89.99, purity: "98.8%", description: "Skin and tissue regeneration blend combining collagen-stimulating peptides. Boosts collagen synthesis, supports skin regeneration, enhances hair thickness, and strengthens connective tissue for a comprehensive glow protocol.", category: "Peptides Cycles, Peptides Bundles, Skin/Tissue/Bone, Anti-Aging" },
+  { name: "GLOW Blend 70mg", phiogen_slug: "glow-blend-70mg", price: 109.99, purity: "98.8%", description: "Enhanced GLOW formula at 70mg total for advanced skin and tissue research. Amplifies collagen and elastin production, promotes hair follicle renewal, and supports deep connective tissue remodeling.", category: "Peptides Cycles, Peptides Bundles, Skin/Tissue/Bone, Anti-Aging" },
+  { name: "KLOW Blend 80mg", phiogen_slug: "klow-blend-80mg", price: 119.99, purity: "98.8%", description: "Premium 80mg skin and longevity synergy blend. Combines regenerative peptides for comprehensive skin health, collagen restoration, hair rejuvenation, and cellular anti-aging across a structured research cycle.", category: "Peptides Cycles, Peptides Bundles, Skin/Tissue/Bone, Anti-Aging" },
+  { name: "Cagri-Reta 5mg", phiogen_slug: "cagri-reta-5mg", price: 129.99, purity: "98.5%", description: "Cagrilintide + Retatrutide synergy blend for powerful weight loss research. Combines amylin analogue appetite suppression with triple GLP-1/GIP/glucagon agonism for additive fat reduction.", category: "Peptides Cycles, Peptides Bundles, Weight Loss" },
+  { name: "Cagri-Reta 10mg", phiogen_slug: "cagri-reta-10mg", price: 189.99, purity: "98.5%", description: "High-dose Cagrilintide + Retatrutide blend for extended metabolic obesity research. Multi-pathway appetite and energy regulation: amylin + triple incretin agonism for superior fat mass reduction.", category: "Peptides Cycles, Peptides Bundles, Weight Loss" },
+  { name: "Cagri-Sema Blend 10mg", phiogen_slug: "cagri-sema-blend-5mg-cagrilintide-5mg-sema-10mg", price: 179.99, purity: "98.7%", description: "Cagrilintide 5mg + Semaglutide blend combining amylin and GLP-1 receptor agonism. Complementary appetite suppression mechanisms produce additive weight loss, improved glycemic control, and metabolic benefits.", category: "Peptides Cycles, Peptides Bundles, Weight Loss" },
+  { name: "Reta-Cagri 5mg/5mg", phiogen_slug: "reta-cagri-5mg-5mg", price: 149.99, purity: "98.5%", description: "Retatrutide 5mg + Cagrilintide 5mg balanced dual-compound stack. Pairs the triple incretin agonist Retatrutide with Cagrilintide amylin receptor activation for synergistic fat loss and appetite regulation.", category: "Peptides Cycles, Peptides Bundles, Weight Loss" },
 ]
 
 export interface StaticProduct {
@@ -120,7 +214,7 @@ export interface StaticProduct {
 }
 
 export const staticProducts: StaticProduct[] = RAW_PRODUCTS.map((p, i) => {
-  const slug = generateSlug(p.name)
+  const slug = p.phiogen_slug
   const cats = p.category.split(",").map((c) => c.trim()).filter((c) => c !== "All Peptides")
   const descParts = p.description.split(".")
   const shortDescription = descParts[0] ? descParts[0].trim() + "." : p.description.slice(0, 120) + "..."
@@ -129,15 +223,15 @@ export const staticProducts: StaticProduct[] = RAW_PRODUCTS.map((p, i) => {
     id: `static-${slug}`,
     name: p.name,
     slug,
-    price: null,
-    priceFormatted: null,
-    imageUrl: p.image_url,
-    productUrl: AFFILIATE_URL,
+    price: p.price,
+    priceFormatted: p.price ? `$${p.price.toFixed(2)}` : null,
+    imageUrl: phiogenImg(slug),
+    productUrl: phiogenUrl(slug),
     description: p.description,
     shortDescription,
     categories: cats,
     isFeatured: FEATURED_NAMES.has(p.name),
-    badge: null,
+    badge: p.purity ? `${p.purity} Pure` : null,
     isBundle: isBundle(p.name),
     isInStock: true,
     sortOrder: i,
@@ -172,7 +266,7 @@ export const staticCategories: StaticCategory[] = [
     color: "#2563eb",
     description: "Peptides that promote lean muscle growth, enhance recovery, and support GH secretion.",
     heroDescription: "Ipamorelin, CJC-1295, GHRP-2, IGF-1 LR3, and ACE-031 are among the most studied peptides for lean muscle development, GH secretion, and body composition. These compounds work by stimulating the pituitary-GH-IGF-1 axis — the same hormonal pathway that drives anabolic adaptation — producing increases in lean mass, accelerated recovery, and improved fat metabolism without the side effect profile of exogenous hormones.",
-    seoDescription: "Buy muscle growth peptides — Ipamorelin, CJC-1295, BPC-157, GHRP-2, IGF-1LR3, ACE-031, TB-500. Boost lean mass, accelerate recovery, and optimize GH levels from Pantheon Peptides.",
+    seoDescription: "Buy muscle growth peptides — Ipamorelin, CJC-1295, Sermorelin, GHRP-2, IGF-1 LR3, Tesamorelin, ACE-031. Boost lean mass, accelerate recovery, and optimize GH levels from Phiogen.",
     stats: [],
     content: `## The Science of Peptide-Driven Muscle Growth
 
@@ -184,30 +278,25 @@ Growth hormone secretagogues (GHS) are the foundation of any peptide-based muscl
 
 ### GHRH Analogues
 
-CJC-1295 (with and without DAC), Sermorelin Acetate, and Tesamorelin mimic growth hormone-releasing hormone (GHRH). They bind to GHRH receptors on somatotroph cells, increasing both the amplitude and frequency of natural GH pulses. CJC-1295 with Drug Affinity Complex (DAC) extends the half-life to 6-8 days by binding to albumin, providing sustained baseline GH elevation. Sermorelin offers a shorter, more physiological pulse pattern preferred in some research protocols.
+CJC-1295 (with and without DAC), Sermorelin, and Tesamorelin mimic growth hormone-releasing hormone (GHRH). They bind to GHRH receptors on somatotroph cells, increasing both the amplitude and frequency of natural GH pulses. CJC-1295 with DAC extends the half-life to 6-8 days by binding to albumin, providing sustained baseline GH elevation. Sermorelin offers a shorter, more physiological pulse pattern preferred in some research protocols.
 
 ### Ghrelin Mimetics
 
-Ipamorelin, GHRP-2, and MK-677 (Ibutamoren) act on the ghrelin receptor (GHSR-1a) to trigger a complementary GH pulse. Ipamorelin is the most selective of this class — it stimulates GH release with minimal cortisol or prolactin elevation, making it valuable for research requiring clean GH stimulation. GHRP-2 produces a stronger GH spike and simultaneously stimulates appetite, making it well-suited for mass-building research phases. MK-677 is an oral ghrelin mimetic that provides sustained 24-hour GH and IGF-1 elevation, along with documented improvements in sleep architecture.
+Ipamorelin, GHRP-2, GHRP-6, and Hexarelin act on the ghrelin receptor (GHSR-1a) to trigger a complementary GH pulse. Ipamorelin is the most selective — it stimulates GH release with minimal cortisol or prolactin elevation, making it valuable for research requiring clean GH stimulation. GHRP-2 produces a stronger GH spike and simultaneously stimulates appetite. Hexarelin is one of the most potent GHRPs with additional direct cardioprotective properties.
 
 ### IGF-1 Pathway Peptides
 
-IGF-1 LR3 is a long-acting analogue of insulin-like growth factor 1 that bypasses hepatic clearance to act directly on peripheral muscle tissue. It promotes satellite cell activation, myofibril hypertrophy, and cellular nutrient uptake at concentrations relevant to research models. ACE-031 inhibits myostatin — the primary biological brake on muscle growth — by competitively binding activin receptors, enabling muscle development beyond normal genetic thresholds in preclinical studies.
+IGF-1 LR3 is a long-acting analogue of insulin-like growth factor 1 that bypasses hepatic clearance to act directly on peripheral muscle tissue. PEG-MGF activates satellite cells for muscle repair and hypertrophy. ACE-031 inhibits myostatin to remove the biological brake on muscle growth.
 
 ## Recovery Support Peptides
 
-Muscle hypertrophy requires efficient repair of training-induced micro-damage. BPC-157 (Body Protection Compound) has demonstrated accelerated tendon-to-bone healing, reduced inflammatory cytokine expression, and enhanced angiogenesis in multiple animal models. TB-500 (Thymosin Beta-4) promotes actin polymerization, reduces oxidative stress, and has shown systemic tissue repair effects across diverse injury models. The BPC-157 and TB-500 combination is among the most referenced repair stacks in the research literature.
-
-## Choosing the Right Protocol
-
-For research purposes, secretagogue combinations consistently outperform single-agent protocols. Pairing a GHRH analogue with a ghrelin mimetic produces synergistic GH release — research suggests the combination can be 4 to 6 times more effective than either compound alone. BPC-157 and TB-500 are frequently co-administered to support connective tissue integrity during high-intensity training protocols. Pre-built options like the Stack Up Cycle combine these synergies into a structured research framework.`,
+BPC-157 has demonstrated accelerated tendon-to-bone healing, reduced inflammatory cytokine expression, and enhanced angiogenesis in multiple animal models. TB-500 promotes actin polymerization, reduces oxidative stress, and has shown systemic tissue repair effects. The BPC-157 and TB-500 combination is among the most referenced repair stacks in the research literature.`,
     faq: [
-      { question: "What are the best peptides for muscle growth research?", answer: "The most studied peptides for lean muscle include Ipamorelin, CJC-1295, GHRP-2, Sermorelin, IGF-1 LR3, and MK-677. Combining a GHRH analogue with a ghrelin mimetic produces synergistic GH release significantly greater than either compound alone, which is why CJC-1295 + Ipamorelin is one of the most widely researched stacks." },
+      { question: "What are the best peptides for muscle growth research?", answer: "The most studied peptides for lean muscle include Ipamorelin, CJC-1295, GHRP-2, Sermorelin, IGF-1 LR3, and Hexarelin. Combining a GHRH analogue with a ghrelin mimetic produces synergistic GH release significantly greater than either compound alone — CJC-1295 + Ipamorelin is one of the most widely researched stacks available from Phiogen." },
       { question: "How do GH secretagogues differ from exogenous HGH?", answer: "GH secretagogues stimulate the pituitary gland to release the body's own growth hormone in natural pulsatile bursts, preserving the feedback loop that prevents excess GH accumulation. Exogenous HGH bypasses this regulation entirely. Secretagogues are generally studied for their more physiological GH profiles and lower risk of receptor downregulation." },
-      { question: "How long before muscle growth peptides show effects in animal research?", answer: "In rodent models, measurable increases in lean body mass have been documented within 4-8 weeks of consistent GH secretagogue administration. IGF-1 LR3 studies show acute myogenic signaling changes within 24-72 hours at the cellular level. These timelines may not translate directly to human applications, which are not established for research compounds." },
-      { question: "Can muscle growth peptides be combined in research stacks?", answer: "Yes, combination protocols are standard in the research literature. The CJC-1295 + Ipamorelin stack is among the most studied. Adding BPC-157 or TB-500 addresses the recovery and connective tissue repair component, which is critical to sustainable muscle remodeling. The Ipamorelin + CJC-1295 + GHRP-2 triple combination is also documented in research settings." },
+      { question: "How long before muscle growth peptides show effects in animal research?", answer: "In rodent models, measurable increases in lean body mass have been documented within 4-8 weeks of consistent GH secretagogue administration. IGF-1 LR3 studies show acute myogenic signaling changes within 24-72 hours at the cellular level." },
+      { question: "Can muscle growth peptides be combined in research stacks?", answer: "Yes, combination protocols are standard in the research literature. Phiogen's Ipamorelin/CJC-1295 Blend provides a ready-made synergy stack. Adding BPC-157 or TB-500 addresses recovery and connective tissue repair — the BPC-157 + TB-500 Blend 10mg covers this comprehensively." },
       { question: "What is ACE-031 and how does it affect muscle growth?", answer: "ACE-031 is a recombinant fusion protein that inhibits myostatin and activin, two proteins that act as biological brakes on skeletal muscle growth. In preclinical studies, it produced significant increases in muscle mass independent of GH signaling, representing a distinct and complementary mechanism to secretagogues." },
-      { question: "Are research peptides legal to purchase?", answer: "Research peptides are legally sold for laboratory and in-vitro scientific research in many jurisdictions. They are not approved for human consumption by regulatory agencies and are not classified as controlled substances in most countries. Always verify the regulations in your specific region before purchasing." },
     ],
     sortOrder: 0,
     createdAt: new Date(),
@@ -220,50 +309,35 @@ For research purposes, secretagogue combinations consistently outperform single-
     icon: "Zap",
     color: "#16a34a",
     description: "Peptides that accelerate tissue healing, reduce inflammation, and speed recovery.",
-    heroDescription: "BPC-157 and TB-500 are the most studied peptides for tissue repair — individually powerful, together one of the most referenced healing stacks in all of peptide research. BPC-157 drives angiogenesis and GH receptor upregulation at injury sites while TB-500 promotes the cell migration and actin polymerization needed to rebuild damaged tissue. Together they address every phase of healing: inflammation resolution, cellular proliferation, and extracellular matrix remodeling.",
-    seoDescription: "Buy recovery peptides — BPC-157 (tendon, gut, nerve repair), TB-500 (systemic muscle healing), BPC-157 + TB-500 stack. The best healing peptides for injury recovery from Pantheon Peptides.",
+    heroDescription: "BPC-157 and TB-500 are the most studied peptides for tissue repair — individually powerful, together one of the most referenced healing stacks in all of peptide research. BPC-157 drives angiogenesis and GH receptor upregulation at injury sites while TB-500 promotes the cell migration and actin polymerization needed to rebuild damaged tissue. Phiogen's catalog also includes KPV, ARA-290, VIP, Oxytocin, and the complete range of peptide bioregulators for targeted organ-level recovery.",
+    seoDescription: "Buy recovery peptides — BPC-157 10mg, TB-500 10mg, BPC-157+TB-500 Blend, KPV, ARA-290, VIP, SS-31, Oxytocin, and bioregulator peptides. The best healing peptides from Phiogen.",
     stats: [],
     content: `## Peptide Science for Tissue Repair and Recovery
 
-Recovery is where adaptation happens. Whether the context is musculoskeletal injury, surgical healing, or the cumulative microtrauma of intensive training, the speed and quality of tissue repair directly determine long-term function and resilience. Research peptides in this category work at the molecular level to accelerate the three overlapping phases of healing: inflammation resolution, cellular proliferation, and tissue remodeling.
+Recovery is where adaptation happens. Research peptides in this category work at the molecular level to accelerate the three overlapping phases of healing: inflammation resolution, cellular proliferation, and tissue remodeling.
 
 ## BPC-157: Body Protection Compound
 
 BPC-157 is a 15-amino acid peptide sequence derived from a protein found naturally in gastric juice. It has been studied across dozens of animal models covering tendon, ligament, muscle, bone, gut, and neurological tissue repair.
 
-### Key Mechanisms
-
-BPC-157 upregulates growth hormone receptors in healing tissue, amplifying local GH responsiveness independent of systemic GH levels. It promotes angiogenesis — the formation of new blood vessels — which is essential for delivering oxygen and nutrients to damaged tissue. BPC-157 also modulates the nitric oxide system, reducing ischemic injury, and has demonstrated anti-inflammatory activity by downregulating pro-inflammatory cytokines including TNF-alpha and IL-6.
-
-In tendon repair models, BPC-157 significantly accelerated the maturation of collagen fibers and restoration of biomechanical tensile strength. Studies on gut permeability show it can heal intestinal lesions and protect against NSAID-induced gastric damage, suggesting systemic protective properties beyond musculoskeletal applications.
+BPC-157 upregulates growth hormone receptors in healing tissue, promotes angiogenesis, modulates the nitric oxide system, and downregulates pro-inflammatory cytokines including TNF-alpha and IL-6.
 
 ## TB-500: Thymosin Beta-4
 
-TB-500 is a synthetic version of Thymosin Beta-4, a naturally occurring 43-amino acid peptide present in virtually all human tissues at low concentrations but upregulated dramatically at wound sites.
+TB-500 promotes actin polymerization, activates the AKT signaling pathway, and has shown systemic distribution with particular effectiveness in cardiac and neural tissue repair. The combination with BPC-157 has become the most referenced repair stack in peptide research.
 
-### Key Mechanisms
+## Peptide Bioregulators
 
-TB-500 promotes actin polymerization — the cellular process that drives cell migration, a fundamental requirement for wound closure. It activates the AKT signaling pathway, stimulating cell survival and differentiation. Research has shown TB-500 to reduce inflammation, decrease oxidative damage, promote angiogenesis, and improve cardiac recovery following ischemic injury in rodent models.
+Phiogen carries a comprehensive range of short peptide bioregulators targeting specific organs: Cardiogen (cardiac), Bronchogen (pulmonary), Cartalax (cartilage/bone), Livagen (hepatic), Pancragen (pancreatic), Vesugen (vascular), Crystagen (connective tissue), and more. These represent a unique class of tissue-specific regulatory peptides developed from decades of Russian peptide research.
 
-Unlike BPC-157, which has stronger gut and localized tendon repair effects, TB-500 is particularly notable for its systemic distribution and effects on cardiac and neural tissue repair. The two peptides are frequently studied in combination for their complementary mechanisms.
+## Additional Recovery Peptides
 
-## BPC-157 + TB-500 Combination
-
-The combined protocol has become the most referenced repair stack in peptide research. The synergy is mechanistic: BPC-157 drives local angiogenesis and receptor upregulation while TB-500 promotes the cell migration needed to populate new vasculature with regenerative cells. Multiple animal studies suggest superior healing outcomes with the combination compared to either compound alone.
-
-## BPC-157 Oral Form
-
-Oral BPC-157 tablets offer a gastrointestinal delivery route that may be particularly relevant for gut health, leaky gut, and systemic inflammatory conditions. Research suggests BPC-157 retains bioactivity when administered orally, though injectable forms are used in most musculoskeletal studies.
-
-## Choosing a Recovery Peptide
-
-For acute musculoskeletal injury research, the injectable BPC-157 + TB-500 combination is the most studied protocol. For gut health and systemic inflammation, oral BPC-157 is frequently referenced. For systemic and cardiac tissue studies, TB-500 alone or with BPC-157 is the standard. The Wolverine Cycle pre-packages this synergy into a structured research cycle.`,
+KPV (anti-inflammatory, gut healing), ARA-290 (innate repair receptor activation), VIP (immune and inflammatory modulation), SS-31 (mitochondrial protection), and Oxytocin (tissue repair and stress modulation) round out a comprehensive recovery research catalog.`,
     faq: [
       { question: "How does BPC-157 accelerate tissue repair?", answer: "BPC-157 works through multiple mechanisms: it upregulates GH receptors in local tissue, promotes angiogenesis (new blood vessel formation), modulates the nitric oxide system to reduce ischemia, and downregulates pro-inflammatory cytokines like TNF-alpha and IL-6. In research models, it has shown accelerated healing of tendons, ligaments, muscles, and gut tissue." },
-      { question: "What is the difference between BPC-157 and TB-500?", answer: "BPC-157 excels in localized tendon, ligament, gut, and musculoskeletal repair through GH receptor upregulation and angiogenesis. TB-500 is more systemically distributed and particularly effective for cardiac and neural tissue recovery through actin polymerization and AKT pathway activation. The two compounds have complementary mechanisms and are often studied together." },
-      { question: "What is the BPC-157 + TB-500 combination used for in research?", answer: "The combination is one of the most studied repair protocols in peptide research. It provides complementary mechanisms: BPC-157 drives local vascularization and growth factor receptor expression while TB-500 promotes the cell migration needed to populate healing tissue. Research suggests superior outcomes with the combination versus either compound alone." },
-      { question: "Can BPC-157 be taken orally?", answer: "Yes. Oral BPC-157 tablets have been studied for gastrointestinal applications including leaky gut, gastric lesions, and systemic inflammatory conditions. Research suggests BPC-157 retains meaningful bioactivity when administered orally, though injectable forms are standard in most musculoskeletal healing studies." },
-      { question: "How long does BPC-157 take to show effects in research?", answer: "In animal tendon and ligament studies, measurable improvements in collagen maturation and tissue tensile strength have been documented within 7-14 days of daily administration. Gut healing studies have shown protective effects within 24-48 hours in acute damage models. Research timeframes may not translate directly to human applications." },
+      { question: "What is the difference between BPC-157 and TB-500?", answer: "BPC-157 excels in localized tendon, ligament, gut, and musculoskeletal repair through GH receptor upregulation and angiogenesis. TB-500 is more systemically distributed and particularly effective for cardiac and neural tissue recovery through actin polymerization and AKT pathway activation. The two compounds have complementary mechanisms and Phiogen offers both a 10mg and 20mg blend." },
+      { question: "What are peptide bioregulators?", answer: "Peptide bioregulators are short (2-4 amino acid) organ-specific peptides developed from Russian research that regulate gene expression in targeted tissues. Phiogen's bioregulator range includes Cardiogen (heart), Bronchogen (lungs), Livagen (liver), Cartalax (cartilage), Vesugen (blood vessels), and others — each studied for their tissue-specific regenerative effects." },
+      { question: "Can BPC-157 be taken orally?", answer: "Yes. BPC-157 Capsules 500mcg x60 offer a gastrointestinal delivery route particularly relevant for gut health, leaky gut, and systemic inflammatory conditions. Research suggests BPC-157 retains meaningful bioactivity when administered orally." },
     ],
     sortOrder: 1,
     createdAt: new Date(),
@@ -276,53 +350,33 @@ For acute musculoskeletal injury research, the injectable BPC-157 + TB-500 combi
     icon: "Clock",
     color: "#9333ea",
     description: "Peptides that combat cellular aging, activate telomerase, and promote longevity.",
-    heroDescription: "Epithalon activates telomerase to rebuild telomere length. GHK-Cu modulates over 4,000 genes toward repair and rejuvenation. MOTS-C restores mitochondrial signaling and metabolic youth. These peptides target the molecular hallmarks of aging — telomere attrition, mitochondrial dysfunction, and declining gene expression — in ways that no single supplement or lifestyle intervention can match.",
-    seoDescription: "Buy anti-aging peptides — Epithalon (telomerase, melatonin), GHK-Cu (collagen, 4000+ genes), MOTS-C (mitochondria, AMPK), Sermorelin (GH restoration). Longevity peptides from Pantheon Peptides.",
+    heroDescription: "Epitalon activates telomerase to rebuild telomere length. GHK-Cu modulates over 4,000 genes toward repair and rejuvenation. NAD+ restores sirtuin activity and mitochondrial biogenesis. FOXO4-DRI clears senescent cells. SS-31 protects mitochondria. These peptides target the molecular hallmarks of aging — telomere attrition, mitochondrial dysfunction, cellular senescence, and declining gene expression.",
+    seoDescription: "Buy anti-aging peptides — Epitalon (telomerase), GHK-Cu (collagen/gene expression), NAD+ (sirtuin activation), FOXO4-DRI (senolytic), SS-31 (mitochondria), Glutathione, MOTS-c. From Phiogen.",
     stats: [],
     content: `## The Molecular Hallmarks of Aging
 
-Modern longevity science identifies nine overlapping hallmarks of biological aging: genomic instability, telomere attrition, epigenetic alterations, loss of proteostasis, deregulated nutrient sensing, mitochondrial dysfunction, cellular senescence, stem cell exhaustion, and altered intercellular communication. Research peptides in the anti-aging category target several of these hallmarks simultaneously, offering a multi-mechanism approach to slowing or partially reversing cellular aging.
+Aging is not a single process — it is the convergence of multiple cellular and molecular failures. Research peptides targeting longevity address these distinct mechanisms: telomere shortening, mitochondrial dysfunction, accumulation of senescent cells, loss of proteostasis, and declining intercellular communication.
 
-## Epithalon: The Telomerase Activator
+## Epitalon: Telomerase Activation
 
-Epithalon (Epitalon) is a tetrapeptide — Ala-Glu-Asp-Gly — originally derived from the pineal gland extract Epithalamin by Russian longevity researcher Vladimir Khavinson. It is one of the most studied peptides for direct intervention in the aging process.
+Epitalon is a synthetic tetrapeptide (Ala-Glu-Asp-Gly) that activates telomerase — the enzyme that rebuilds telomere length. Telomere attrition is one of the primary drivers of cellular senescence, as shortened telomeres trigger irreversible cell cycle arrest. Multiple animal and human studies have documented Epitalon's ability to increase telomerase activity, extend telomere length, normalize melatonin secretion, and improve immune function.
 
-### Telomere Biology
+## GHK-Cu: Master Regulator of Renewal
 
-Telomeres are protective caps on chromosome ends that shorten with each cell division. When telomeres reach a critical minimum length, the cell enters senescence or apoptosis. Telomerase is the enzyme that rebuilds telomere length, but it is suppressed in most adult somatic cells. Epithalon has been shown in multiple studies to activate telomerase expression, enable cells to rebuild telomere length, and extend the replicative lifespan of cultured human cells beyond the Hayflick limit.
+GHK-Cu (glycyl-L-histidyl-L-lysine copper complex) is naturally present at 200 ng/mL in young blood plasma, declining to below 80 ng/mL by age 60. Research by Loren Pickart identified GHK-Cu as a modulator of over 4,000 human genes — upregulating repair and regeneration pathways while downregulating inflammation and oncogene expression.
 
-### Melatonin Restoration
+## NAD+ and Mitochondrial Health
 
-Epithalon also stimulates the pineal gland to restore melatonin secretion toward youthful levels. Since melatonin declines dramatically with age and serves as both a master antioxidant and circadian regulator, this effect has broad systemic implications for sleep quality, immune function, and oxidative stress management.
+NAD+ is the essential coenzyme linking cellular metabolism to longevity signaling. Declining NAD+ with age reduces sirtuin activity, impairing DNA repair, mitochondrial biogenesis, and inflammatory resolution. SS-31 directly targets the inner mitochondrial membrane to reduce ROS and restore ATP production. MOTS-c, a mitochondria-derived peptide, activates AMPK to restore metabolic homeostasis.
 
-### Research Highlights
+## Senolytics: FOXO4-DRI
 
-In long-term animal studies, Epithalon reduced the incidence of spontaneous tumors, improved immune function, and extended median lifespan by 13-34% depending on the model. In elderly human subjects, it restored near-normal melatonin rhythms and improved sleep quality markers.
-
-## GHK-Cu: The Gene Expression Peptide
-
-GHK-Cu (Copper Peptide GHK) is a naturally occurring tripeptide that declines sharply from 200 ng/mL in young adults to below 80 ng/mL in the elderly. It has been identified as a master regulator of gene expression — research by Loren Pickart and colleagues identified over 4,000 genes modulated by GHK-Cu, with the majority shifted toward tissue repair, anti-inflammatory, and antioxidant pathways.
-
-GHK-Cu stimulates collagen, elastin, and glycosaminoglycan synthesis; activates antioxidant enzymes SOD1 and SOD2; promotes nerve growth factor (NGF) and BDNF expression; and downregulates genes associated with cancer-promoting and inflammatory pathways. It is studied for skin regeneration, wound healing, hair growth, and systemic anti-aging applications.
-
-## MOTS-C: Mitochondrial Peptide
-
-MOTS-C is encoded within the mitochondrial genome itself — a peptide derived from the 12S rRNA gene. It acts as a mitochondria-to-nucleus signaling molecule that activates AMPK, upregulates antioxidant response pathways (via Nrf2), and improves insulin sensitivity and glucose metabolism. In aging animal models, MOTS-C administration restored the metabolic phenotype of old mice toward that of young mice, with improvements in exercise capacity, insulin sensitivity, and inflammatory markers.
-
-## Growth Hormone Restoration
-
-Age-related GH decline (somatopause) contributes significantly to increased adiposity, reduced lean mass, declining skin integrity, and impaired immune function. Sermorelin, CJC-1295, and Ipamorelin all restore youthful GH pulsatility and its downstream IGF-1 signaling. MK-677 provides oral GH restoration with documented improvements in body composition and bone density over 12-month research periods.
-
-## The Epithalon + 5-Amino-1MQ Combination
-
-This combination pairs telomere restoration with metabolic rejuvenation. 5-Amino-1MQ inhibits NNMT (nicotinamide N-methyltransferase), an enzyme overexpressed in adipose tissue and associated with metabolic aging. By inhibiting NNMT, 5-Amino-1MQ raises NAD+ availability and activates SIRT1 pathways, synergizing with Epithalon's genomic repair mechanisms.`,
+FOXO4-DRI disrupts the FOXO4-p53 interaction that prevents apoptosis in senescent cells, triggering selective clearance of dysfunctional cells while sparing healthy tissue. Senescent cell accumulation drives systemic inflammation ("inflammaging") and is linked to multiple age-related diseases.`,
     faq: [
-      { question: "How does Epithalon extend cellular lifespan in research?", answer: "Epithalon activates telomerase — the enzyme that rebuilds telomere length — in somatic cells that normally suppress it. By enabling cells to maintain longer telomeres across divisions, research studies have shown it can extend the replicative lifespan of human cells beyond the Hayflick limit and extend median lifespan in multiple animal models by 13-34%." },
-      { question: "What does GHK-Cu do at the gene level?", answer: "Research by Loren Pickart identified over 4,000 human genes modulated by GHK-Cu, with the majority shifted toward tissue repair, antioxidant defense, anti-inflammatory signaling, and anti-cancer pathways. It stimulates collagen and elastin production, activates superoxide dismutase, and promotes nerve growth factor expression — making it one of the most broadly active peptides in aging research." },
-      { question: "What is MOTS-C and how does it relate to aging?", answer: "MOTS-C is a peptide encoded within the mitochondrial genome itself. It acts as a retrograde signaling molecule from mitochondria to the nucleus, activating AMPK and Nrf2 pathways to improve insulin sensitivity, reduce oxidative stress, and restore metabolic function. In aging animal models it reversed metabolic dysfunction associated with aging." },
-      { question: "Can anti-aging peptides be stacked for greater effect?", answer: "Yes. The Epithalon + 5-Amino-1MQ combination is a documented research stack that pairs telomere restoration with NAD+ pathway activation. Adding GHK-Cu addresses gene expression and collagen synthesis. MOTS-C adds metabolic and mitochondrial support. GH secretagogues complete the protocol by restoring systemic hormonal signaling." },
-      { question: "How does the Glow Plus Cycle relate to anti-aging?", answer: "The Glow Plus Cycle combines skin and tissue regeneration peptides with broader anti-aging compounds, targeting collagen production, cellular longevity, and hair and skin health simultaneously. It is designed as a comprehensive rejuvenation protocol rather than a single-mechanism approach." },
-      { question: "Are there human clinical trials for anti-aging peptides?", answer: "Epithalon has been studied in human subjects in Russian research programs, with documented improvements in melatonin rhythms and immune function in elderly populations. GHK-Cu has been studied in wound healing and skin aging contexts. Most other peptides in this category remain in preclinical research stages outside of specific approved applications." },
+      { question: "How does Epitalon extend lifespan in research?", answer: "Epitalon activates telomerase, the enzyme responsible for maintaining telomere length. As telomeres shorten with each cell division, they eventually trigger irreversible cellular senescence. By restoring telomerase activity, Epitalon extends the replicative lifespan of cells. Studies in rats documented 30-40% increases in mean lifespan, reduced tumor incidence, and improved immune function." },
+      { question: "What makes NAD+ critical for anti-aging research?", answer: "NAD+ is required for sirtuin deacetylase activity — sirtuins regulate DNA repair, mitochondrial biogenesis, inflammation, and cellular stress responses. NAD+ declines ~50% between ages 40 and 70, impairing all of these functions. Restoring NAD+ levels reactivates sirtuin pathways and has documented effects on energy metabolism, cognitive function, and inflammatory resolution." },
+      { question: "What is a senolytic peptide and how does FOXO4-DRI work?", answer: "Senolytic compounds selectively eliminate senescent cells — dysfunctional cells that resist apoptosis and secrete a pro-inflammatory mixture called the SASP. FOXO4-DRI works by disrupting the FOXO4-p53 protein interaction that senescent cells rely on to survive. This triggers apoptosis specifically in senescent cells while healthy cells remain unaffected, reducing systemic inflammaging." },
+      { question: "Can GHK-Cu reverse skin aging?", answer: "GHK-Cu modulates 4,000+ genes toward a younger expression profile. Skin studies document upregulation of collagen I, III, and IV; increased elastin production; enhanced barrier function; and reduced oxidative damage markers. Clinical studies showed measurable improvements in skin density, fine line reduction, and wound healing over 8-12 week protocols." },
     ],
     sortOrder: 2,
     createdAt: new Date(),
@@ -330,56 +384,38 @@ This combination pairs telomere restoration with metabolic rejuvenation. 5-Amino
   },
   {
     id: "cat-4",
-    name: "Weight Loss",
-    slug: "weight-loss",
-    icon: "Flame",
-    color: "#ea580c",
-    description: "Peptides that support fat metabolism, reduce appetite, and improve body composition.",
-    heroDescription: "Tirzepatide, Retatrutide, Mazdutide, and Cagrilintide represent the cutting edge of metabolic peptide research — with clinical trials documenting weight reductions of 20-24% that were unthinkable a decade ago. These GLP-1, GIP, and glucagon receptor agonists work at the hormonal root of weight regulation rather than simply suppressing appetite. AOD9604 and 5-Amino-1MQ add targeted lipolysis and NNMT inhibition to the arsenal.",
-    seoDescription: "Buy weight loss peptides — Tirzepatide (GLP-1/GIP dual agonist), Retatrutide (triple agonist), AOD9604 (fat metabolism), Cagrilintide, Mazdutide, 5-Amino-1MQ. Fat loss peptides from Pantheon Peptides.",
+    name: "Brain/Nerve",
+    slug: "brain-nerve",
+    icon: "Brain",
+    color: "#0891b2",
+    description: "Nootropic peptides for cognitive enhancement, neuroprotection, and sleep optimization.",
+    heroDescription: "N-Acetyl Semax Amidate and NA-Selank Amidate represent the most bioavailable formulations of Russia's most studied cognitive peptides — BDNF-upregulating and anxiolytic respectively. PE-22-28 and Adamax act as TrkB receptor agonists for rapid neuroplasticity enhancement. Pinealon restores pineal-driven circadian and neuroprotective signaling. DSIP promotes delta-wave sleep architecture.",
+    seoDescription: "Buy nootropic peptides — N-Acetyl Semax Amidate, NA-Selank Amidate, Selank, Pinealon, DSIP, PE-22-28, Adamax, Methylene Blue. Cognitive enhancement and sleep peptides from Phiogen.",
     stats: [],
-    content: `## The Peptide Revolution in Metabolic Research
+    content: `## The Neuroscience of Peptide Cognition
 
-The last decade has produced a transformation in how science understands weight regulation. Rather than viewing obesity as a failure of willpower, researchers now understand it as a dysregulation of hormonal signaling — specifically the gut-brain peptide axis that governs hunger, satiety, energy expenditure, and glucose metabolism. Research peptides targeting this axis represent the most significant advance in metabolic science in a generation.
+Cognitive function depends on neurotrophic factor expression, monoamine balance, synaptic plasticity, and inflammatory regulation. Research peptides in this category act on these foundational mechanisms to enhance memory, reduce anxiety, improve focus, and protect neural tissue from age-related decline.
 
-## GLP-1 and Dual/Triple Receptor Agonists
+## Semax Variants: BDNF and Dopaminergic Enhancement
 
-Glucagon-like peptide-1 (GLP-1) is a hormone produced in the gut after eating. It signals satiety to the hypothalamus, slows gastric emptying, stimulates insulin secretion, and reduces glucagon release. Research peptides that mimic or enhance GLP-1 activity have demonstrated remarkable fat loss and metabolic improvement in clinical and preclinical studies.
+Semax is a heptapeptide derived from ACTH(4-10) with demonstrated BDNF upregulation, dopaminergic enhancement, and neuroprotective properties. N-Acetyl Semax Amidate is the most potent formulation — N-acetylation and C-amidation confer resistance to enzymatic degradation, maximizing bioavailability and duration of action. Research documents improvements in focus, working memory, and neuroprotection in rodent models of cognitive decline.
 
-### Tirzepatide
+## Selank Variants: Anxiolysis Without Sedation
 
-Tirzepatide is a dual GIP (glucose-dependent insulinotropic polypeptide) and GLP-1 receptor agonist. By targeting both incretin receptors simultaneously, it produces greater weight loss than GLP-1 alone — Phase 3 clinical trials documented average weight reductions of 20-22.5% in subjects with obesity over 72 weeks. It also significantly improves insulin sensitivity, HbA1c, cardiovascular risk markers, and blood pressure.
+Selank is a synthetic heptapeptide derived from tuftsin that modulates GABA-A receptors to reduce anxiety without sedation or dependence. It also stimulates BDNF expression, stabilizes enkephalin metabolism, and has immunomodulatory properties. NA-Selank Amidate provides enhanced stability for research requiring sustained receptor engagement.
 
-### Retatrutide
+## BDNF-Mimetic Peptides
 
-Retatrutide is a triple agonist targeting GLP-1, GIP, and glucagon receptors simultaneously. Adding glucagon receptor activity increases energy expenditure and hepatic fat breakdown beyond what dual agonists achieve. Phase 2 trials documented average weight reductions of 24.2% at 48 weeks — among the highest ever recorded for a pharmacological weight loss agent.
+PE-22-28 is a BDNF loop domain mimetic that activates TrkB receptors with documented rapid antidepressant effects in preclinical models. Adamax is a TrkB agonist promoting neuroprotection, synaptic remodeling, and memory consolidation. Both represent a newer class of neurotrophin-mimetic peptides acting independently of BDNF itself.
 
-### Mazdutide and Cagrilintide
+## Sleep and Pineal Regulation
 
-Mazdutide is a GLP-1/glucagon dual agonist that promotes sustainable fat reduction while preserving lean muscle mass. Cagrilintide is an amylin analogue — amylin is a pancreatic hormone that works synergistically with GLP-1 to reduce food intake and slow gastric emptying. When combined with GLP-1 agents, cagrilintide produces additive weight loss beyond either compound alone.
-
-## AOD9604: The Growth Hormone Fragment
-
-AOD9604 is a peptide fragment of the growth hormone molecule (amino acids 177-191) that retains GH's lipolytic properties without its anabolic or diabetogenic effects. It stimulates lipolysis (fat breakdown) and inhibits lipogenesis (fat storage) by activating beta-3 adrenergic receptors in adipose tissue. Preclinical studies showed preferential reduction of visceral and abdominal fat with preservation of lean mass.
-
-## 5-Amino-1MQ: NNMT Inhibition
-
-5-Amino-1MQ inhibits NNMT (nicotinamide N-methyltransferase), an enzyme overexpressed in adipose tissue that suppresses NAD+ availability and blunts SIRT1 activity. By inhibiting NNMT, 5-Amino-1MQ raises intracellular NAD+, activates SIRT1 and AMPK pathways, and shifts adipocytes from energy storage toward energy expenditure. Research in diet-induced obese mice showed significant reductions in fat mass without changes in food intake — suggesting a primarily metabolic mechanism.
-
-## AICAR: AMPK Activation
-
-AICAR (5-aminoimidazole-4-carboxamide ribonucleoside) activates AMP-activated protein kinase (AMPK) — the master metabolic regulator that mimics the cellular effects of exercise and caloric restriction. It improves insulin sensitivity, increases fatty acid oxidation, and has been shown to improve endurance capacity in animal models independent of training.
-
-## MOTS-C and Tesamorelin
-
-MOTS-C improves insulin sensitivity and glucose metabolism through mitochondrial signaling, while Tesamorelin specifically targets visceral adiposity by restoring GH pulsatility — it is the only GH secretagogue with documented clinical data specifically showing visceral fat reduction.`,
+DSIP (Delta Sleep-Inducing Peptide) promotes slow-wave sleep by modulating delta-wave brain activity, regulating cortisol secretion, and normalizing circadian rhythm. Pinealon is a tripeptide bioregulator targeting the pineal gland to support melatonin regulation, neuroprotection, and cognitive longevity. Methylene Blue enhances mitochondrial electron transport in neurons, improving cellular energy and cognitive function.`,
     faq: [
-      { question: "How does Tirzepatide produce such large weight reductions?", answer: "Tirzepatide's dual GIP and GLP-1 receptor agonism produces synergistic effects beyond either pathway alone. GLP-1 reduces appetite and slows gastric emptying. GIP enhances insulin sensitivity and energy expenditure. Together they reduce caloric intake significantly while improving how the body processes and stores energy, resulting in clinical trial weight reductions averaging 20-22.5%." },
-      { question: "What makes Retatrutide different from Tirzepatide?", answer: "Retatrutide adds glucagon receptor agonism to the GLP-1 and GIP activity found in Tirzepatide. Glucagon receptor activation increases energy expenditure and promotes hepatic fat breakdown. This triple mechanism produced average weight reductions of 24.2% in Phase 2 trials — greater than any dual-agonist compound tested to date." },
-      { question: "Which weight loss peptide is best for preserving lean muscle?", answer: "AOD9604 specifically promotes fat breakdown with minimal effect on lean mass. Mazdutide and Cagrilintide have been studied for muscle mass preservation during caloric deficit. 5-Amino-1MQ works through a purely metabolic mechanism without caloric restriction, also preserving lean tissue. GLP-1 agonists can cause some lean mass loss without concurrent resistance training protocols." },
-      { question: "How does AOD9604 differ from growth hormone?", answer: "AOD9604 is a fragment of the GH molecule (amino acids 177-191) that retains the lipolytic effects of GH without its growth-promoting or insulin-desensitizing properties. It activates beta-3 adrenergic receptors in fat tissue rather than the full GH receptor, making it a targeted fat-loss agent rather than a systemic anabolic compound." },
-      { question: "Can weight loss peptides be stacked?", answer: "Yes. The Slim Peptides Cycle and Prime Metabolic Cycles combine multiple complementary mechanisms. Common research combinations include GLP-1 agonists with AICAR or MOTS-C for additional AMPK activation, or AOD9604 with 5-Amino-1MQ for dual fat-reduction pathways. These combinations are studied for additive and potentially synergistic effects." },
-      { question: "What is the difference between Mazdutide and Cagrilintide?", answer: "Mazdutide is a GLP-1/glucagon dual receptor agonist that promotes fat oxidation and appetite reduction. Cagrilintide is an amylin analogue — amylin is a pancreatic satiety hormone that works through a completely different pathway than GLP-1, slowing gastric emptying and reducing meal-time caloric intake. When combined with GLP-1 agents, cagrilintide produces additive weight loss beyond either compound alone." },
+      { question: "What is the difference between Semax and Selank?", answer: "Semax primarily enhances cognitive performance by upregulating BDNF, enhancing dopaminergic and serotonergic signaling, and providing neuroprotection — it is the activating, performance-enhancing peptide of the pair. Selank primarily reduces anxiety and stabilizes mood through GABA-A modulation and enkephalin stabilization — it is the regulatory, anxiolytic peptide. Used together, they create a balanced nootropic profile." },
+      { question: "What makes N-Acetyl Semax Amidate more potent than regular Semax?", answer: "N-acetylation and C-amidation modifications protect the peptide from enzymatic degradation, significantly extending half-life and bioavailability compared to standard Semax. Research suggests these modifications produce 10-100× greater potency per unit dose, making NA-Semax Amidate the preferred formulation for research protocols." },
+      { question: "How does DSIP improve sleep quality?", answer: "DSIP modulates delta-wave brain activity — the slow oscillations associated with deep, restorative sleep. It also reduces cortisol and CRH levels that disrupt sleep onset, and appears to normalize circadian signaling disrupted by stress or aging. Research documents reductions in sleep-onset latency and improvements in sleep architecture." },
+      { question: "What are PE-22-28 and Adamax?", answer: "PE-22-28 and Adamax are BDNF-mimetic peptides that activate TrkB neurotrophin receptors — the same receptors targeted by brain-derived neurotrophic factor. By directly stimulating TrkB, they promote neuroplasticity, synaptic growth, and antidepressant-like effects documented in rodent models, without requiring the large BDNF protein molecule." },
     ],
     sortOrder: 3,
     createdAt: new Date(),
@@ -387,62 +423,34 @@ MOTS-C improves insulin sensitivity and glucose metabolism through mitochondrial
   },
   {
     id: "cat-5",
-    name: "Brain/Nerve",
-    slug: "brain-nerve",
-    icon: "Brain",
-    color: "#0891b2",
-    description: "Nootropic peptides that enhance cognition, memory, and neuroprotection.",
-    heroDescription: "Semax dramatically upregulates BDNF and dopaminergic tone for sharper focus and memory. Selank modulates GABA-A receptors to eliminate anxiety without sedation or addiction. Cerebrolysin delivers a full spectrum of neurotrophic factors — BDNF, NGF, GDNF — used clinically for stroke and neurodegeneration in over 50 countries. These neuropeptides operate at a fundamentally deeper level than conventional nootropics.",
-    seoDescription: "Buy cognitive peptides — Semax (BDNF, dopamine, focus), Selank (anxiety, GABA, resilience), Cerebrolysin (neuroregeneration), DSIP (sleep), Selank + Semax stack. Brain peptides from Pantheon Peptides.",
+    name: "Weight Loss",
+    slug: "weight-loss",
+    icon: "Flame",
+    color: "#ea580c",
+    description: "Peptides for fat loss, appetite suppression, and metabolic optimization.",
+    heroDescription: "Tirzepatide's dual GIP/GLP-1 agonism delivers 20%+ body weight reduction in clinical research. Retatrutide's triple receptor agonism combines GLP-1, GIP, and glucagon for unmatched metabolic impact. Semaglutide's GLP-1 pathway suppresses appetite at the hypothalamic level. AOD9604 targets abdominal fat directly. BAM-15 and SLU-PP-332 work through mitochondrial and exercise-mimetic mechanisms for comprehensive fat loss research.",
+    seoDescription: "Buy weight loss peptides — Semaglutide, Tirzepatide, Retatrutide, Cagrilintide, AOD9604, 5-Amino-1MQ, BAM-15, Adipotide, SLU-PP-332, AICAR. Best fat loss peptides from Phiogen.",
     stats: [],
-    content: `## Neuropeptides and Cognitive Research
+    content: `## The Science of Peptide-Driven Fat Loss
 
-The brain operates through an extraordinarily complex network of peptide signaling. Neuropeptides regulate neurotransmitter release, modulate synaptic plasticity, promote the growth and survival of neurons, and orchestrate the neuroinflammatory responses that determine long-term brain health. Research peptides in this category were developed primarily in Russian and Eastern European academic institutions over the last 40 years, with a focus on cognitive resilience, neuroprotection, and mood regulation.
+Modern fat loss research has moved far beyond simple caloric restriction models. Peptides acting on GLP-1 receptors, GIP receptors, glucagon receptors, AMPK pathways, and mitochondrial uncoupling offer precise pharmacological control over the hormonal and metabolic systems that govern fat storage and utilization.
 
-## Semax: Cognitive Enhancement Through BDNF
+## GLP-1 Receptor Agonists
 
-Semax is a heptapeptide analogue of ACTH (adrenocorticotropic hormone) developed by the Institute of Molecular Genetics of the Russian Academy of Sciences. Unlike ACTH itself, Semax lacks hormonal activity on the adrenal glands — instead it acts directly in the brain.
+Semaglutide binds GLP-1 receptors in the hypothalamus, gut, and pancreas to produce potent appetite suppression, improved insulin secretion, and slowed gastric emptying. Clinical trials documented average weight loss of 15-17% body weight over 68 weeks. Phiogen offers Semaglutide from 3mg through 30mg for research across a full dose-range.
 
-### Mechanisms of Action
+## Dual and Triple Incretin Agonists
 
-Semax dramatically upregulates brain-derived neurotrophic factor (BDNF) — the primary growth factor for neurons and synaptic connections — and nerve growth factor (NGF). It modulates dopaminergic and serotonergic transmission, contributing to improved mood, motivation, and attention. It also activates the melanocortin system through MC4R receptors, which play roles in memory consolidation and cognitive flexibility.
+Tirzepatide co-activates GLP-1 and GIP receptors simultaneously — GIP receptor synergy produces appetite suppression and improved adipose tissue remodeling superior to GLP-1 alone. Phase 3 trials showed 22.5% mean weight reduction. Retatrutide adds glucagon receptor activation to the GLP-1/GIP dual agonism, providing a third mechanism through increased energy expenditure. Phase 2 trials showed up to 24.2% weight reduction over 48 weeks.
 
-### Research Applications
+## Novel Fat Loss Mechanisms
 
-Human research with Semax has documented improvements in attention, learning, and working memory in both healthy subjects and those with cognitive impairment. In stroke models, it reduced neurological deficit scores, improved blood flow, and accelerated functional recovery. Its neuroprotective effects are attributed to upregulation of antioxidant enzymes and reduction of ischemia-induced excitotoxicity.
-
-## Selank: Anxiolytic and Cognitive Modulator
-
-Selank is a heptapeptide analogue of tuftsin (a natural immunomodulatory tetrapeptide) developed at the same Russian institute. It was registered as an anxiolytic drug in Russia in 2009.
-
-### Mechanisms of Action
-
-Selank modulates GABA-A receptor activity — similar in site to benzodiazepines but without sedation, dependence, or withdrawal effects. It also increases the expression of BDNF, upregulates serotonin metabolism, and has been shown to modulate T-helper cell ratios and cytokine production, suggesting a brain-immune axis effect.
-
-### Research Applications
-
-Selank has been studied for generalized anxiety disorder, showing reductions in anxiety scores comparable to pharmaceutical anxiolytics without cognitive blunting or addiction potential. It simultaneously improves memory and learning in research models, a combination rarely seen with conventional anxiolytics.
-
-## Selank + Semax Combination
-
-The Selank + Semax combination targets complementary pathways: Selank addresses anxiety, emotional regulation, and sleep quality while Semax drives BDNF upregulation, dopaminergic tone, and active cognitive enhancement. Research suggests the combination may prevent the paradoxical activation some subjects experience with Semax alone, creating a more balanced nootropic profile.
-
-## Cerebrolysin: Neurotrophic Factor Concentrate
-
-Cerebrolysin is a peptide mixture derived from porcine brain tissue containing multiple low-molecular-weight neuropeptides that mirror the activity of endogenous neurotrophic factors including BDNF, NGF, CNTF, and GDNF. It is used clinically for stroke rehabilitation and vascular dementia in over 50 countries.
-
-Cerebrolysin promotes neurogenesis, enhances synaptic plasticity, reduces amyloid precursor protein processing (relevant to Alzheimer's pathology), and has demonstrated neuroprotective effects in multiple models of traumatic brain injury, stroke, and age-related neurodegeneration. The Alpha Mind Cycle uses Cerebrolysin as a foundation for advanced neurodegenerative research protocols.
-
-## Choosing a Cognitive Peptide
-
-For general cognitive enhancement and anxiety reduction, the Semax + Selank combination is the most studied starting protocol. For neuroprotection, recovery from neural injury, or neurodegenerative research, Cerebrolysin provides the broadest neurotrophic factor activity. The Nova Mind Cycle packages Semax and Selank into a structured 10-week research framework.`,
+AOD9604 is a modified HGH fragment that directly activates fat breakdown without IGF-1 effects. 5-Amino-1MQ blocks NNMT enzyme to increase cellular NAD+ and fat metabolism. BAM-15 uncouples mitochondrial proton gradient to increase heat production from stored fat. Adipotide selectively destroys the blood vessels feeding white adipose tissue. SLU-PP-332 activates ERR-alpha/gamma to mimic exercise-induced metabolic adaptations. AICAR activates AMPK for improved fat oxidation and endurance.`,
     faq: [
-      { question: "What is Semax and how does it improve cognition?", answer: "Semax is an ACTH analogue developed in Russia that dramatically upregulates BDNF and NGF in the brain, modulates dopaminergic and serotonergic neurotransmission, and activates melanocortin receptors involved in memory consolidation. Research in humans has documented improvements in attention, learning speed, and working memory, as well as neuroprotective effects in stroke models." },
-      { question: "Is Selank similar to a benzodiazepine?", answer: "Selank modulates GABA-A receptors at a similar site to benzodiazepines but through a different mechanism, producing anxiolytic effects without sedation, cognitive impairment, tolerance, or withdrawal. It was registered as a prescription anxiolytic drug in Russia in 2009. Research suggests it simultaneously improves memory and learning while reducing anxiety — a profile not seen with conventional anxiolytics." },
-      { question: "What is Cerebrolysin used for in research?", answer: "Cerebrolysin is a concentrate of low-molecular-weight neuropeptides that mimic endogenous neurotrophic factors including BDNF, NGF, and GDNF. It is studied for stroke rehabilitation, traumatic brain injury, Alzheimer's disease, and vascular dementia. It promotes neurogenesis, synaptic plasticity, and neuroprotection, and is used clinically in over 50 countries for neurological conditions." },
-      { question: "Can Semax and Selank be used together?", answer: "Yes. The Semax + Selank combination is one of the most common research stacks for cognitive optimization. Selank reduces anxiety and stabilizes mood while Semax drives BDNF upregulation and active cognitive enhancement. The combination addresses both the emotional and executive cognitive dimensions of brain function simultaneously." },
-      { question: "How do brain peptides differ from conventional nootropics like racetams?", answer: "Racetams primarily modulate neurotransmitter receptor sensitivity with relatively short-lasting effects. Neuropeptides like Semax and Cerebrolysin act upstream by promoting the production of neurotrophic factors — proteins that support the long-term health, growth, and connectivity of neurons. This represents a more fundamental and potentially more durable approach to cognitive support." },
-      { question: "What is the Nova Mind Cycle?", answer: "The Nova Mind Cycle is a pre-built 10-week research protocol combining Semax and Selank for comprehensive cognitive optimization. It is designed for brain optimization, emotional balance, anxiety reduction, improved focus, and better sleep quality. The Alpha Mind Cycle is a more advanced protocol adding Cerebrolysin for neurodegenerative and recovery-focused research." },
+      { question: "How does Tirzepatide compare to Semaglutide for weight loss research?", answer: "Tirzepatide's dual GIP/GLP-1 co-agonism produces greater weight loss than GLP-1 agonism alone. Phase 3 trials showed Tirzepatide achieving up to 22.5% mean body weight reduction versus ~15-17% for Semaglutide at matched timepoints. GIP receptor activation provides complementary mechanisms including improved adipose tissue remodeling and enhanced post-prandial insulin response." },
+      { question: "What is Retatrutide's mechanism?", answer: "Retatrutide is a triple GLP-1/GIP/glucagon receptor agonist. GLP-1 and GIP activation suppress appetite and improve insulin dynamics. The addition of glucagon receptor agonism increases hepatic glucose production (requiring more energy) and boosts thermogenesis, providing a third fat-loss mechanism. Phase 2 data showed up to 24.2% weight reduction over 48 weeks." },
+      { question: "How does AOD9604 differ from other weight loss peptides?", answer: "AOD9604 is a modified fragment (176-191) of human growth hormone that specifically activates fat metabolism pathways without stimulating IGF-1 production. It directly inhibits lipogenesis and stimulates lipolysis in adipose tissue, reducing abdominal fat with documented cartilage and joint-protective secondary effects." },
+      { question: "What is SLU-PP-332 and how does it work?", answer: "SLU-PP-332 is an ERR-alpha/gamma nuclear receptor agonist that activates the gene expression program of endurance exercise without physical activity. It increases oxidative muscle fiber expression, enhances mitochondrial density, improves fat oxidation, and in rodent models has shown improved endurance and resistance to obesity." },
     ],
     sortOrder: 4,
     createdAt: new Date(),
@@ -453,52 +461,35 @@ For general cognitive enhancement and anxiety reduction, the Semax + Selank comb
     name: "Immunity",
     slug: "immunity",
     icon: "Shield",
-    color: "#15803d",
-    description: "Peptides that strengthen immune function, reduce inflammation, and fight infection.",
-    heroDescription: "Thymosin Alpha-1 is approved in 35+ countries for hepatitis, cancer, and sepsis — one of the most clinically validated immunomodulatory peptides in existence. LL-37, the only human cathelicidin, provides broad-spectrum antimicrobial defense and wound-healing signals at the innate immunity level. Thymulin restores thymic signaling for T-cell maturation as immune function declines with age.",
-    seoDescription: "Buy immune peptides — Thymosin Alpha-1 (T-cell modulation, adaptive immunity), LL-37 (antimicrobial, innate immunity), Thymulin (immune regulation). Immunity-boosting peptides from Pantheon Peptides.",
+    color: "#0d9488",
+    description: "Peptides that modulate immune function, enhance T-cell activity, and fight infection.",
+    heroDescription: "Thymosin Alpha-1 is approved in 35+ countries for hepatitis and cancer immunotherapy — it activates the T-helper 1 arm of immunity at the cellular level. Thymulin requires zinc to drive T-cell differentiation and reduce inflammatory cytokines. LL-37 is the only human cathelicidin: broad-spectrum antimicrobial, anti-biofilm, and pro-healing simultaneously. KPV, VIP, and Thymogen complete a comprehensive immune optimization toolkit.",
+    seoDescription: "Buy immune peptides — Thymosin Alpha-1 (T-cell activation), Thymulin (thymic hormone), LL-37 (antimicrobial), KPV (anti-inflammatory), VIP (immune modulation), Thymogen. From Phiogen.",
     stats: [],
-    content: `## The Immune System and Peptide Research
+    content: `## Peptide Immunology
 
-The immune system is itself a peptide-signaling network. Cytokines, chemokines, thymic hormones, and antimicrobial peptides all belong to the family of endogenous signaling molecules that orchestrate immune surveillance, response, and resolution. As these signals decline with age — a process called immunosenescence — susceptibility to infection, cancer, and chronic inflammatory disease increases. Research peptides in this category target specific nodes in the immune network to restore or enhance immune function.
+The immune system's effectiveness declines with age (immunosenescence), chronic stress, illness, and systemic inflammation. Research peptides in this category act on specific immune pathways — thymic T-cell maturation, innate antimicrobial defense, cytokine regulation, and mucosal immunity — to restore and optimize immune function.
 
-## Thymosin Alpha-1: T-Cell Activator
+## Thymosin Alpha-1: T-Cell Activation
 
-Thymosin Alpha-1 (TA1) is a 28-amino acid peptide naturally produced by the thymus gland. It was first isolated in the 1970s by Allan Goldstein and has since accumulated one of the largest clinical research datasets of any immunomodulatory peptide, with studies in hepatitis B, hepatitis C, HIV, tuberculosis, sepsis, and cancer immunotherapy.
-
-### Mechanisms of Action
-
-TA1 acts primarily on dendritic cells and T-lymphocytes. It promotes the differentiation and maturation of T-helper 1 (Th1) cells — the arm of the immune system responsible for attacking viruses, intracellular bacteria, and tumor cells. It upregulates major histocompatibility complex (MHC) class I and II expression, enhancing antigen presentation. TA1 also induces interferon-alpha and gamma production, raises natural killer (NK) cell activity, and reduces regulatory T-cell suppression of immune responses when immune function has become inappropriately dampened.
-
-### Research Applications
-
-TA1 is approved or available for clinical use in over 35 countries for hepatitis B, hepatitis C, and as an adjuvant to cancer therapy. In sepsis research, it restored immune responsiveness in critically ill patients with immunoparalysis. In cancer immunotherapy studies, it enhanced the efficacy of checkpoint inhibitors. For healthy adults, it has been studied as an adjuvant to influenza vaccination, improving antibody titers in elderly subjects.
+Thymosin Alpha-1 (TA1) is a 28-amino acid thymic peptide. It promotes Th1 T-cell differentiation, upregulates MHC class I and II for improved antigen presentation, induces interferon-alpha and gamma, and raises NK cell activity. TA1 is approved or clinically available in over 35 countries for hepatitis B, hepatitis C, cancer immunotherapy adjuvancy, and sepsis management.
 
 ## Thymulin: Thymic Hormone
 
-Thymulin is a nonapeptide produced specifically by thymic epithelial cells and requires zinc for biological activity. It promotes T-cell differentiation, reduces pro-inflammatory cytokine production (particularly IL-1 and IL-6 in models of chronic inflammation), and has demonstrated anti-nociceptive (pain-reducing) properties in inflammatory pain models. As thymic involution occurs with aging, thymulin production declines dramatically — making it a natural target for immune restoration research.
+Thymulin is a nonapeptide produced specifically by thymic epithelial cells. It requires zinc for biological activity and promotes T-lymphocyte differentiation. Thymulin reduces pro-inflammatory cytokines IL-1 and IL-6, making it relevant for both immune activation and inflammatory resolution research. Its production declines dramatically with age-related thymic involution.
 
-## LL-37: Antimicrobial Peptide
+## LL-37: Innate Defense
 
-LL-37 is a 37-amino acid cathelicidin — the only human cathelicidin — and is part of the innate immune system's first line of defense. It is produced by neutrophils, monocytes, macrophages, and epithelial cells at sites of infection and injury.
+LL-37 is the only human cathelicidin — part of the innate immune system's first-line defense. It physically disrupts bacterial cell membranes through electrostatic interactions (resistant to antibiotic resistance development), neutralizes bacterial LPS to prevent septic shock, promotes wound healing through chemotaxis, and disrupts established biofilms.
 
-### Mechanisms of Action
+## KPV and VIP: Inflammatory Modulation
 
-LL-37 disrupts bacterial cell membranes through electrostatic interactions, providing direct broad-spectrum antimicrobial activity against gram-positive bacteria, gram-negative bacteria, fungi, and enveloped viruses. Beyond direct killing, LL-37 modulates immune signaling: it neutralizes bacterial lipopolysaccharide (LPS) to prevent septic shock, promotes wound healing through chemotaxis of immune cells and angiogenesis, and regulates inflammatory resolution.
-
-### Research Applications
-
-LL-37 has been studied for chronic wound healing (particularly diabetic wounds where LL-37 is deficient), respiratory infections, and as an immune adjuvant. Its anti-biofilm activity is particularly notable — LL-37 disrupts established biofilms that resist conventional antibiotic treatment.
-
-## T-Force Immunity Cycles
-
-The T-Force Immunity Cycle and T-Force Immunity Plus Cycle combine thymic peptides with supportive compounds for comprehensive immune optimization. The Plus version adds dual thymic peptide activity (TA1 + Thymulin) for deeper immune modulation across both T-cell maturation and inflammatory regulation pathways.`,
+KPV (Lys-Pro-Val) is derived from alpha-MSH and potently inhibits NF-kB signaling, reducing mucosal and systemic inflammation. VIP (Vasoactive Intestinal Peptide) suppresses cytokine storms, supports gut barrier integrity, and provides neuroprotective anti-inflammatory effects through VPAC1/2 receptors.`,
     faq: [
-      { question: "What is Thymosin Alpha-1 and what is it used for?", answer: "Thymosin Alpha-1 is a 28-amino acid thymic peptide that activates T-helper 1 immunity, enhances antigen presentation, stimulates interferon production, and raises NK cell activity. It is approved or clinically available in over 35 countries for hepatitis B, hepatitis C, and cancer immunotherapy, and has been studied for sepsis, HIV, tuberculosis, and vaccine adjuvancy." },
-      { question: "How does LL-37 fight infection differently from antibiotics?", answer: "LL-37 is a broad-spectrum antimicrobial peptide that physically disrupts bacterial cell membranes through electrostatic interactions — a mechanism bacteria cannot easily develop resistance to. Unlike antibiotics that target specific bacterial proteins or enzymes, LL-37 kills gram-positive and gram-negative bacteria, fungi, and some viruses. It also disrupts established biofilms and modulates the immune response to prevent septic shock." },
-      { question: "What is the role of Thymulin in immune function?", answer: "Thymulin is a nonapeptide produced exclusively by thymic epithelial cells that promotes T-lymphocyte differentiation and maturation. It requires zinc for biological activity, and zinc deficiency is a significant cause of immune decline in aging populations. Thymulin also reduces pro-inflammatory cytokines IL-1 and IL-6, making it relevant for both immune activation and inflammatory resolution research." },
-      { question: "Who benefits most from immune peptide research?", answer: "Research applications are most relevant for studies of immunosenescence (age-related immune decline), post-infectious immune dysfunction, cancer immunotherapy adjuvancy, chronic inflammatory disease, and vaccine efficacy optimization. Thymosin Alpha-1 has the strongest clinical evidence base for specific infectious disease and cancer contexts." },
-      { question: "What is the difference between T-Force and T-Force Plus?", answer: "The T-Force Immunity Cycle provides a single-thymic-peptide protocol using Thymosin Alpha-1 for T-cell activation and immune surveillance enhancement. The T-Force Plus Cycle adds Thymulin, providing dual thymic peptide coverage across both T-cell maturation (TA1) and inflammatory regulation (Thymulin) pathways — making it a more comprehensive immune optimization protocol for research purposes." },
+      { question: "What is Thymosin Alpha-1 and what is it used for?", answer: "Thymosin Alpha-1 is a 28-amino acid thymic peptide that activates T-helper 1 immunity, enhances antigen presentation, stimulates interferon production, and raises NK cell activity. It is approved or clinically available in over 35 countries for hepatitis B, hepatitis C, cancer immunotherapy, and sepsis management." },
+      { question: "How does LL-37 fight infection differently from antibiotics?", answer: "LL-37 is a broad-spectrum antimicrobial peptide that physically disrupts bacterial cell membranes through electrostatic interactions — a mechanism bacteria cannot easily develop resistance to. Unlike antibiotics that target specific bacterial proteins or enzymes, LL-37 kills gram-positive and gram-negative bacteria, fungi, and some viruses. It also disrupts established biofilms that resist conventional antibiotic treatment." },
+      { question: "What is KPV and how does it reduce inflammation?", answer: "KPV is a tripeptide derived from the C-terminus of alpha-MSH. It inhibits NF-kB nuclear translocation — the master inflammatory signaling switch — without suppressing the immune system broadly. This makes it particularly relevant for gut inflammation, wound healing, and conditions of excessive inflammatory signaling like IBD." },
+      { question: "What is VIP and why is it studied for immunity?", answer: "Vasoactive Intestinal Peptide is a 28-amino acid neuropeptide with potent anti-inflammatory properties through VPAC1/2 receptors on immune cells. It suppresses TNF-alpha, IL-6, and IL-12 while promoting regulatory T-cell activity, making it relevant for cytokine storm research, autoimmune conditions, and pulmonary inflammation." },
     ],
     sortOrder: 5,
     createdAt: new Date(),
@@ -511,48 +502,29 @@ The T-Force Immunity Cycle and T-Force Immunity Plus Cycle combine thymic peptid
     icon: "Heart",
     color: "#e11d48",
     description: "Peptides that support sexual health, enhance libido, and improve reproductive function.",
-    heroDescription: "PT-141 (Bremelanotide) is FDA-approved and acts in the brain through melanocortin receptors to enhance desire and arousal — not just blood flow. Kisspeptin-10 activates the HPG axis at its source, restoring the LH and testosterone signaling that drives hormonal drive in both men and women. Melanotan II adds UV-independent tanning and appetite suppression alongside its libido effects.",
-    seoDescription: "Buy libido peptides — PT-141 / Bremelanotide (melanocortin libido), Kisspeptin-10 (hormone axis), MT-2 / Melanotan 2 (libido + tanning), Kiss Peptides Cycle. Sexual health peptides from Pantheon Peptides.",
+    heroDescription: "PT-141 (Bremelanotide) is FDA-approved and acts in the brain through melanocortin receptors to enhance desire and arousal — not just blood flow. Kisspeptin-10 activates the HPG axis at its source, restoring the LH and testosterone signaling that drives hormonal drive. Melanotan II adds UV-independent tanning and appetite suppression alongside its libido effects.",
+    seoDescription: "Buy libido peptides — PT-141 / Bremelanotide (FDA-approved libido), Kisspeptin-10 (HPG axis), Melanotan I & II (tanning + libido), Gonadorelin (testosterone support). From Phiogen.",
     stats: [],
     content: `## Sexual Health and the Peptide Axis
 
-Sexual desire and function are regulated by a sophisticated cascade of hormonal and neurotransmitter signals — one that extends from the hypothalamus and pituitary gland to peripheral reproductive organs. Age, stress, hormonal dysregulation, and vascular health all converge to diminish sexual function. Research peptides in this category operate through distinct pathways to address these underlying mechanisms rather than simply increasing blood flow as many conventional approaches do.
+Sexual desire and function are regulated by a sophisticated cascade of hormonal and neurotransmitter signals extending from the hypothalamus and pituitary gland to peripheral reproductive organs. Research peptides in this category operate through distinct pathways to address these underlying mechanisms.
 
 ## PT-141 (Bremelanotide): Central Nervous System Activation
 
-PT-141 is a melanocortin peptide analogue derived from Melanotan II. It was discovered during Melanotan II research when subjects reported unexpected increases in sexual arousal. Unlike PDE5 inhibitors (which work peripherally on blood vessel smooth muscle), PT-141 acts centrally in the brain through melanocortin MC3R and MC4R receptors in the hypothalamus.
-
-### Mechanism of Action
-
-PT-141 activates the melanocortin system — a network of brain receptors involved in sexual motivation, appetite regulation, and mood. By acting on MC4R receptors in the paraventricular nucleus of the hypothalamus, it increases dopamine release in reward pathways, enhancing sexual motivation and desire at the neurological level. This central mechanism means it can produce libido enhancement even in cases where peripheral mechanisms are intact.
-
-### Research Applications
-
-PT-141 completed Phase 3 clinical trials for hypoactive sexual desire disorder (HSDD) in premenopausal women and was approved by the FDA as Vyleesi in 2019. Research documents improvements in sexual desire, arousal, and satisfaction in both men and women. Its mechanism independent of testosterone makes it relevant even for subjects with normal hormonal levels.
+PT-141 acts centrally in the brain through melanocortin MC3R and MC4R receptors in the hypothalamus. By activating MC4R receptors in the paraventricular nucleus, it increases dopamine release in reward pathways, enhancing sexual motivation at the neurological level. PT-141 completed Phase 3 trials for HSDD in premenopausal women and was FDA-approved as Vyleesi in 2019.
 
 ## Kisspeptin-10: HPG Axis Activation
 
-Kisspeptin is a neuropeptide produced in the hypothalamus that acts as the master upstream regulator of the hypothalamic-pituitary-gonadal (HPG) axis. It stimulates GnRH (gonadotropin-releasing hormone) neurons, which in turn drive LH and FSH release from the pituitary, stimulating testosterone and estrogen production in the gonads.
+Kisspeptin is the master upstream regulator of the HPG axis. It stimulates GnRH neurons, which drive LH and FSH release, stimulating testosterone in men and estrogen in women. Kisspeptin-10 restores hormonal drive from the upstream signaling level. Research in hypogonadal men documented significant increases in LH pulsatility and testosterone following administration.
 
-Kisspeptin-10 is the biologically active fragment. It restores hormonal drive from the upstream signaling level — a fundamentally different approach from directly administering sex hormones. Research in hypogonadal men documented significant increases in LH pulsatility and testosterone levels following Kisspeptin-10 administration. It also plays roles in fertility, with documented effects on spermatogenesis and follicular development.
+## Melanotan I and II: Melanocortin Tanning and Libido
 
-## MT-2 (Melanotan II): Multifaceted Melanocortin
-
-Melanotan II is a cyclic peptide that activates the full spectrum of melanocortin receptors (MC1R through MC5R). MC1R activation drives melanin production for UV-independent skin tanning. MC3R and MC4R activation stimulates sexual desire and arousal — the same pathways as PT-141, since Bremelanotide is derived from MTII. MC4R activation in the hypothalamus also reduces appetite. Additionally, MT-2 increases penile erection through a spinal cord mechanism, making it relevant for erectile function research independent of PT-141's purely central action.
-
-## The Eros Stamina Cycle and Kiss Peptides Cycle
-
-The Eros Stamina Cycle combines PT-141 with supporting compounds for comprehensive sexual health optimization, including enhanced blood flow, hormonal support, and improved sleep quality — all of which contribute to sexual function. The Kiss Peptides Cycle focuses specifically on the Kisspeptin pathway for HPG axis restoration and hormone balance, addressing both libido and fertility-related hormonal signaling.
-
-## Key Distinctions for Research
-
-PT-141 and MT-2 both activate melanocortin receptors centrally but differ in selectivity — MT-2 is less selective and adds tanning and appetite effects. Kisspeptin operates entirely upstream at the HPG axis level, relevant when the deficit is hormonal rather than motivational. These distinct mechanisms make them valuable for investigating different aspects of sexual health physiology.`,
+Melanotan I selectively activates MC1R for UV-independent tanning with minimal libido effects. Melanotan II activates the full spectrum (MC1R-MC5R): tanning, sexual arousal through MC3R/MC4R, appetite reduction through MC4R, and erectile function through a spinal mechanism. Gonadorelin (GnRH analogue) supports testosterone production by stimulating pituitary LH secretion.`,
     faq: [
-      { question: "How does PT-141 differ from medications like Viagra or Cialis?", answer: "PT-141 (Bremelanotide) acts centrally in the brain through melanocortin receptors in the hypothalamus, increasing dopamine and enhancing sexual motivation at the neurological level. PDE5 inhibitors like Viagra work peripherally by relaxing vascular smooth muscle in the genitals to increase blood flow. PT-141 addresses desire and arousal; PDE5 inhibitors address physical blood flow mechanics. They work through entirely different pathways and can be complementary in research contexts." },
-      { question: "What is Kisspeptin and how does it affect hormones?", answer: "Kisspeptin is the upstream master regulator of the HPG axis — it stimulates GnRH neurons in the hypothalamus to release GnRH, which drives LH and FSH release from the pituitary, which in turn stimulates testosterone in men and estrogen in women. By activating the HPG axis from the top, Kisspeptin-10 can restore gonadotropin signaling and sex hormone production in research models of hormonal dysregulation." },
-      { question: "What is MT-2 (Melanotan II) used for in research?", answer: "Melanotan II activates all five melanocortin receptors. MC1R activation produces UV-independent skin tanning. MC3R and MC4R activation drives sexual arousal and libido enhancement. MC4R also reduces appetite. Additionally, MT-2 activates a spinal cord mechanism that promotes penile erection. It is studied for sexual dysfunction, tanning, and appetite regulation simultaneously." },
-      { question: "Is PT-141 FDA approved?", answer: "Yes. PT-141 (branded as Vyleesi) was approved by the FDA in 2019 for hypoactive sexual desire disorder (HSDD) in premenopausal women. Clinical trials documented statistically significant improvements in sexual desire scores compared to placebo. Research use of the compound extends beyond this approved indication to study male sexual function, arousal neuroscience, and the melanocortin system broadly." },
-      { question: "Can libido peptides help with hormonal imbalances?", answer: "Kisspeptin-10 specifically targets hormonal imbalances by restoring upstream HPG axis signaling. Research in hypogonadal men showed it increased LH pulse frequency and testosterone levels. For cases where the deficit is at the receptor level rather than hormone production, MT-2 and PT-141 can restore function independent of circulating hormone levels." },
+      { question: "How does PT-141 differ from Viagra or Cialis?", answer: "PT-141 acts centrally in the brain through melanocortin receptors to increase dopamine and enhance sexual motivation at the neurological level. PDE5 inhibitors like Viagra work peripherally by relaxing vascular smooth muscle to increase genital blood flow. PT-141 addresses desire and arousal; PDE5 inhibitors address mechanical blood flow — they work through entirely different pathways." },
+      { question: "What is Kisspeptin-10 used for?", answer: "Kisspeptin-10 stimulates GnRH neurons in the hypothalamus to restore LH and FSH pulsatility, driving testosterone production in men and estrogen in women. It is studied for hypogonadism, HPG axis dysregulation, fertility, and libido enhancement at the hormonal root cause level." },
+      { question: "What is the difference between Melanotan I and Melanotan II?", answer: "Melanotan I (afamelanotide) selectively activates MC1R for UV-independent skin tanning with high selectivity and minimal libido effects. Melanotan II is non-selective, activating MC1R through MC5R — providing tanning, libido enhancement via MC4R, appetite suppression, and erectile effects through a spinal mechanism." },
+      { question: "Is PT-141 FDA approved?", answer: "Yes. PT-141 (branded as Vyleesi) was approved by the FDA in 2019 for hypoactive sexual desire disorder (HSDD) in premenopausal women. Clinical trials documented statistically significant improvements in sexual desire scores compared to placebo." },
     ],
     sortOrder: 6,
     createdAt: new Date(),
@@ -565,53 +537,37 @@ PT-141 and MT-2 both activate melanocortin receptors centrally but differ in sel
     icon: "Star",
     color: "#d97706",
     description: "Peptides for skin regeneration, collagen synthesis, hair growth, and bone health.",
-    heroDescription: "GHK-Cu modulates over 4,000 genes to stimulate collagen, elastin, and hair follicle renewal — and its blood levels drop 60% between ages 20 and 60. BPC-157 accelerates wound closure, tendon tensile strength restoration, and bone remodeling across dozens of animal models. LL-37 addresses the antimicrobial and angiogenic requirements of hard-to-heal wounds where other therapies fail.",
-    seoDescription: "Buy skin and tissue peptides — GHK-Cu (collagen, wrinkles, hair growth), BPC-157 (wound healing, gut), LL-37 (skin repair, antimicrobial), MT-2 (melanin, tanning). Skin peptides from Pantheon Peptides.",
+    heroDescription: "GHK-Cu modulates over 4,000 genes to stimulate collagen, elastin, and hair follicle renewal — and its blood levels drop 60% between ages 20 and 60. BPC-157 accelerates wound closure, tendon tensile strength restoration, and bone remodeling. RU-58841 blocks DHT at the follicle level. SNAP-8 reduces expression wrinkles. Cartalax and Crystagen target cartilage and connective tissue respectively.",
+    seoDescription: "Buy skin and tissue peptides — GHK-Cu (collagen, hair growth), BPC-157 (wound healing), SNAP-8 (anti-wrinkle), LL-37 (skin repair), RU-58841 (hair loss), Abaloparatide (bone). From Phiogen.",
     stats: [],
     content: `## The Biology of Structural Tissue Renewal
 
-Skin, connective tissue, and bone are dynamic structures in constant remodeling. Collagen — the most abundant protein in the body — requires precise biosynthesis, cross-linking, and turnover to maintain structural integrity. As this system declines with age, skin thins and loses elasticity, tendons and ligaments weaken, and bone density decreases. Research peptides in this category act as precise molecular signals at the collagen synthesis level, the gene expression level, and the cellular repair level to support and restore structural tissue.
+Skin, connective tissue, and bone are dynamic structures in constant remodeling. As collagen synthesis and gene expression programs decline with age, skin thins and loses elasticity, tendons weaken, and bone density decreases. Research peptides in this category act as precise molecular signals at the collagen synthesis, gene expression, and cellular repair levels.
 
 ## GHK-Cu: Master Regulator of Skin Biology
 
-GHK-Cu (glycyl-L-histidyl-L-lysine copper complex) is naturally present at 200 ng/mL in young blood plasma, declining to below 80 ng/mL by age 60. This decline correlates with the loss of tissue repair capacity seen across aging skin and connective tissue.
+GHK-Cu is naturally present at 200 ng/mL in young blood plasma, declining to below 80 ng/mL by age 60. Research by Loren Pickart identified GHK-Cu as a modulator of over 4,000 human genes — upregulating collagen I, III, and IV synthesis; increasing elastin and glycosaminoglycan production; activating hair follicle renewal; and downregulating inflammation and oxidative damage.
 
-### Gene Expression Effects
+## BPC-157: Structural Tissue Repair
 
-Research by Loren Pickart identified GHK-Cu as a modulator of over 4,000 human genes. Skin-relevant effects include: upregulation of collagen I, III, and IV synthesis; increased elastin and glycosaminoglycan production; activation of matrix metalloproteinases for collagen turnover and wound remodeling; upregulation of nerve growth factor for skin innervation; and downregulation of genes associated with inflammation and oxidative damage.
+BPC-157's tissue repair effects extend prominently to skin, tendon, ligament, and bone healing. Its angiogenic activity is critical for skin wound healing. Research has shown BPC-157 to accelerate full-thickness wound closure, reduce scar formation, and promote more organized collagen deposition.
 
-### Practical Skin Research
+## Hair Loss Research Peptides
 
-GHK-Cu has been studied in wound healing (including chronic diabetic wounds), post-procedure skin recovery, UV-induced photoaging, and hair loss (alopecia). In controlled skin studies, topical and systemic GHK-Cu improved skin density, reduced fine lines, restored barrier function, and increased hair follicle size.
+RU-58841 is a topical androgen receptor antagonist studied for androgenetic alopecia, blocking DHT binding at the hair follicle level without systemic anti-androgenic effects. GHK-Cu has documented hair follicle enlargement effects and increased hair growth in research models.
 
-## BPC-157: Tissue Repair Across Systems
+## Anti-Wrinkle Peptides
 
-BPC-157's tissue repair effects extend prominently to skin, tendon, ligament, and bone healing. Its angiogenic activity — promoting formation of new blood vessels — is particularly critical for skin wound healing, where vascularity determines the oxygen and nutrient supply to regenerating tissue. Research has shown BPC-157 to significantly accelerate full-thickness wound closure, reduce scar formation, and promote more organized collagen deposition in healing skin.
+SNAP-8 inhibits catecholamine release at neuromuscular junctions, reducing facial muscle contractions that cause expression wrinkles — studied as a topical Botox-alternative mechanism.
 
-For tendon and ligament research, BPC-157 has demonstrated superior restoration of tensile strength compared to control animals in multiple injury models. It promotes tenocyte and fibroblast proliferation, increases collagen type I expression in healing tendons, and reduces the disorganized scar tissue (fibrous adhesions) that often limit functional recovery.
+## Bone Health
 
-## LL-37: Wound Healing and Skin Immune Defense
-
-LL-37 is deficient in chronic wounds — including diabetic foot ulcers and venous leg ulcers — where its absence allows persistent biofilm colonization and failure of the normal healing cascade. Research administering LL-37 to chronic wound models documented accelerated re-epithelialization, reduced bacterial burden, and improved angiogenic signaling. Its dual role as an antimicrobial and a pro-healing signal makes it uniquely relevant for infected or non-healing wound research.
-
-## MT-2 and Skin Pigmentation
-
-Melanotan II activates MC1R receptors on melanocytes to stimulate melanin synthesis and distribution independent of UV radiation. This UV-independent tanning effect is studied for protection against UV-induced DNA damage in fair-skinned populations — melanin provides physical protection for nuclear DNA by absorbing and scattering UV photons before they can cause thymine dimer formation.
-
-## Glow Cycle and Glow Plus Cycle
-
-The Glow Cycle focuses on skin, hair, and connective tissue regeneration using GHK-Cu and collagen-stimulating peptides. The Glow Plus Cycle extends this with additional anti-aging compounds, combining skin regeneration with cellular longevity pathways for a comprehensive rejuvenation research protocol. Both are designed as structured multi-week cycles to allow time for collagen synthesis and tissue remodeling to produce measurable structural changes.
-
-## Bone Health Considerations
-
-BPC-157 has shown positive effects in fracture healing models, accelerating callus formation and bone remodeling. MK-677, through its IGF-1 elevation, has documented bone mineral density improvements in 12-month clinical studies. TB-500 supports periosteal and endosteal healing through its actin polymerization and cell migration effects.`,
+Abaloparatide is an FDA-approved PTHrP analogue with preferential osteoblast anabolic activity, documented to increase bone mineral density and reduce fracture risk. BPC-157 accelerates fracture callus formation and bone remodeling in animal models.`,
     faq: [
-      { question: "What is the best peptide for skin regeneration research?", answer: "GHK-Cu is the most comprehensively studied peptide for skin biology, with documented effects on collagen synthesis, gene expression, wound healing, photoaging, and hair growth. BPC-157 is the strongest for structural wound healing and scar reduction. For chronic or infected wounds, LL-37 addresses both antimicrobial and pro-healing requirements simultaneously." },
-      { question: "How does GHK-Cu improve skin at the molecular level?", answer: "GHK-Cu modulates over 4,000 genes relevant to skin biology. It upregulates collagen types I, III, and IV; increases elastin and glycosaminoglycan production; activates collagen turnover enzymes for remodeling; promotes nerve growth factor expression; and downregulates inflammation and oxidative stress pathways. The net effect is more youthful skin architecture, improved elasticity, and enhanced barrier function." },
-      { question: "Can peptides improve tendon and ligament healing?", answer: "Yes. BPC-157 has the strongest tendon and ligament healing evidence, with multiple studies documenting accelerated restoration of tensile strength, increased collagen type I deposition, and reduced fibrous adhesion formation in injury models. TB-500 complements this with systemic cell migration promotion and connective tissue remodeling support. The Wolverine Cycle combines these for comprehensive connective tissue research." },
-      { question: "How does MT-2 produce a tan without sun exposure?", answer: "MT-2 activates MC1R receptors on melanocytes — the skin cells that produce melanin — stimulating them to synthesize and distribute melanin granules independently of UV light. The resulting pigmentation is identical in composition to UV-induced tanning but achieved through hormonal signaling rather than DNA damage, providing UV protection without the carcinogenic stimulus." },
-      { question: "How long do skin regeneration peptides take to show effects?", answer: "Collagen synthesis and structural skin remodeling are intrinsically slow processes. GHK-Cu skin studies have documented measurable improvements in skin density and fine line reduction over 8-12 weeks of consistent administration. Wound healing effects from BPC-157 are more acute, with accelerated wound closure visible within 7-14 days in animal models." },
-      { question: "What is the Glow Plus Cycle?", answer: "The Glow Plus Cycle is an advanced skin, hair, and total body rejuvenation protocol combining collagen-stimulating peptides with anti-aging compounds for a comprehensive approach to structural and cellular renewal. It extends the Glow Cycle by adding cellular longevity and cognitive support, making it a full-spectrum rejuvenation research cycle rather than a targeted skin-only protocol." },
+      { question: "What is the best peptide for skin regeneration research?", answer: "GHK-Cu is the most comprehensively studied peptide for skin biology, with documented effects on collagen synthesis, gene expression, wound healing, photoaging, and hair growth. BPC-157 is the strongest for structural wound healing and scar reduction. SNAP-8 provides an anti-wrinkle mechanism through neuromuscular junction modulation." },
+      { question: "Can peptides improve tendon and ligament healing?", answer: "Yes. BPC-157 has the strongest tendon and ligament healing evidence, with multiple studies documenting accelerated restoration of tensile strength, increased collagen type I deposition, and reduced fibrous adhesion formation. TB-500 complements this with systemic cell migration promotion. Phiogen's BPC-157 + TB-500 Blend covers both mechanisms." },
+      { question: "How does RU-58841 work for hair loss?", answer: "RU-58841 is a topical androgen receptor antagonist that blocks dihydrotestosterone (DHT) binding at androgen receptors in hair follicles. DHT binding triggers follicle miniaturization in androgenetic alopecia. By blocking DHT locally without systemic anti-androgenic effects, RU-58841 is studied for maintaining follicle size and hair density." },
+      { question: "How long do skin regeneration peptides take to show effects?", answer: "Collagen synthesis and structural skin remodeling are slow processes. GHK-Cu skin studies have documented measurable improvements in skin density and fine line reduction over 8-12 weeks of consistent administration. Wound healing effects from BPC-157 are more acute, with accelerated wound closure visible within 7-14 days in animal models." },
     ],
     sortOrder: 7,
     createdAt: new Date(),
@@ -623,52 +579,34 @@ BPC-157 has shown positive effects in fracture healing models, accelerating call
     slug: "peptides-cycles",
     icon: "Package",
     color: "#7c3aed",
-    description: "Pre-built synergistic peptide cycles for comprehensive results.",
-    heroDescription: "Pre-built peptide cycles combine complementary compounds around a unified research goal — so you're not guessing at compatibility, ratios, or sequencing. The Wolverine Cycle pairs BPC-157 + TB-500 for total tissue repair. The Nova Mind Cycle stacks Semax + Selank for cognitive and emotional optimization. The Stack Up, Prime Metabolic, and Glow Plus Cycles cover muscle, fat loss, and rejuvenation with fully structured protocols.",
-    seoDescription: "Buy peptide cycles — Wolverine (BPC-157 + TB-500 healing), Glow Plus (anti-aging), Nova Mind (cognitive), Prime Metabolic (fat loss), T-Force Immunity, Eros Stamina (libido), Stack Up (muscle). From Pantheon Peptides.",
+    description: "Pre-built synergistic peptide blends and stacks for comprehensive results.",
+    heroDescription: "Phiogen's blends combine complementary compounds for targeted research outcomes. The BPC-157 + TB-500 Blend covers the full tissue repair cascade. The Ipamorelin/CJC-1295 Blend delivers synergistic dual-pathway GH release. The GLOW and KLOW Blends combine regenerative peptides for skin and longevity. The Cagri-Reta and Cagri-Sema stacks pair cutting-edge incretin combinations for advanced weight loss research.",
+    seoDescription: "Buy peptide blends and stacks — BPC-157+TB-500 Blend, Ipamorelin/CJC-1295 Blend, GLOW Blend, KLOW Blend, Cagri-Reta, Cagri-Sema, Ipamorelin/Tesamorelin Blend. Research blends from Phiogen.",
     stats: [],
-    content: `## Why Research Cycles Outperform Single Peptides
+    content: `## Why Research Blends Outperform Single Peptides
 
-Individual peptides are powerful. But research consistently demonstrates that well-designed combinations — where each compound addresses a distinct but complementary mechanism — produce outcomes that single agents cannot achieve alone. The synergy is not merely additive; in many cases it is multiplicative. Growth hormone secretagogue combinations release 4-6 times more GH than either compound alone. BPC-157 and TB-500 together heal tissue faster than either individually. Cognitive peptide stacks address both neurotrophic signaling and anxiety modulation simultaneously.
+Individual peptides are powerful. But research consistently demonstrates that well-designed combinations — where each compound addresses a distinct but complementary mechanism — produce outcomes single agents cannot achieve alone. Phiogen's blend catalog is designed around proven mechanistic synergies.
 
-Pre-built research cycles take the guesswork out of combination design. Each cycle is structured around a specific research goal, with compounds selected for mechanistic synergy, sequencing logic, and appropriate research duration.
+## Tissue Repair: BPC-157 + TB-500 Blends
 
-## Recovery and Performance: The Wolverine Cycle
+The BPC-157 + TB-500 Blend is the most referenced repair stack in peptide research. BPC-157 drives local angiogenesis and GH receptor upregulation at injury sites. TB-500 promotes the systemic cell migration and actin polymerization needed to populate healing tissue. Available in 10mg (5mg+5mg) and 20mg (10mg+10mg) formats.
 
-The Wolverine Cycle is the definitive tissue repair and performance research protocol. Named for its regenerative focus, it combines BPC-157 and TB-500 — the two most studied tissue repair peptides — in a structured multi-week framework. BPC-157 drives local angiogenesis and GH receptor upregulation at injury sites. TB-500 promotes the systemic cell migration and actin polymerization needed to populate healing tissue. Together they address every phase of the tissue repair cascade: inflammation resolution, cellular proliferation, and extracellular matrix remodeling.
+## Growth Hormone: Ipamorelin/CJC-1295 Blend
 
-## Cognitive Optimization: Nova Mind and Alpha Mind Cycles
+The CJC-1295 (GHRH analogue) + Ipamorelin (ghrelin mimetic) stack produces synergistic GH release — research suggests the combination is 4-6× more effective than either compound alone. Phiogen also offers Ipamorelin/Tesamorelin blends for research combining lean mass support with targeted visceral fat reduction.
 
-The Nova Mind Cycle combines Semax and Selank for comprehensive cognitive and emotional optimization. Semax drives BDNF upregulation and dopaminergic enhancement — the active cognitive enhancement component. Selank provides anxiolytic action through GABA-A modulation without sedation, simultaneously stabilizing mood and improving sleep quality. The combination creates a balanced nootropic profile that addresses both the performance and the regulatory aspects of brain function.
+## Skin and Longevity: GLOW and KLOW Blends
 
-The Alpha Mind Cycle extends this with Cerebrolysin — a concentrate of neurotrophic factors including BDNF, NGF, and GDNF — for advanced neuroprotection, neurogenesis, and recovery from neural injury. It is designed for research into Alzheimer's pathology, cognitive aging, stroke recovery, and serious neurodegenerative conditions.
+The GLOW Blend (50mg and 70mg) and KLOW Blend (80mg) combine regenerative peptides for comprehensive skin, hair, and connective tissue research. These structured formulations reduce individual compound preparation and provide calibrated ratios for reproducible research.
 
-## Immune Resilience: T-Force Cycles
+## Weight Loss Combinations
 
-The T-Force Immunity Cycle provides structured thymic peptide research using Thymosin Alpha-1 to restore T-cell activation, antigen presentation, and interferon production. The T-Force Immunity Plus Cycle adds Thymulin for dual thymic peptide coverage across both T-cell maturation and pro-inflammatory cytokine regulation.
-
-## Sexual Health: Eros and Kiss Cycles
-
-The Eros Stamina Cycle targets sexual health comprehensively through PT-141's central melanocortin activation combined with vascular, hormonal, and sleep-quality supporting compounds. The Kiss Peptides Cycle focuses on the Kisspeptin-10 pathway for HPG axis restoration — restoring hormonal drive from the upstream signaling level rather than at the hormone itself.
-
-## Skin and Anti-Aging: Glow and Glow Plus Cycles
-
-The Glow Cycle delivers a structured collagen synthesis and tissue regeneration protocol targeting skin, hair, and connective tissue. The Glow Plus Cycle extends this with anti-aging compounds for cellular longevity, making it a comprehensive rejuvenation research protocol.
-
-## Metabolic and Weight Loss: Prime Metabolic and Slim Cycles
-
-The Prime Metabolic cycles (6-week and 12-week) combine multiple metabolic pathways — GH axis restoration, AMPK activation, and cellular energy optimization — for comprehensive metabolic support. The Slim Peptides Cycle focuses specifically on fat reduction through complementary mechanisms including appetite regulation, insulin sensitization, and enhanced lipolysis.
-
-## Muscle Building: Stack Up Cycles
-
-The Stack Up Cycles (5-week and 10-week) are engineered for lean muscle research, combining GH secretagogues, IGF-1 pathway support, and recovery peptides into a structured framework that addresses all three components of muscle growth: hormonal signaling, protein synthesis, and tissue repair.`,
+Cagri-Reta blends pair Cagrilintide (amylin analogue) with Retatrutide (triple GLP-1/GIP/glucagon agonist) for multi-pathway appetite and fat reduction. The Cagri-Sema Blend pairs Cagrilintide with Semaglutide for amylin/GLP-1 complementary mechanisms.`,
     faq: [
-      { question: "What is a peptide cycle and why is it structured as a cycle?", answer: "A peptide cycle is a pre-designed combination of complementary research peptides organized into a defined time period with specific compounds chosen for mechanistic synergy. The cycle structure ensures compounds are used for appropriate durations to allow biological effects to develop (collagen synthesis, telomere restoration, neurotrophic factor upregulation all require weeks to manifest at the tissue level) while avoiding potential receptor accommodation." },
-      { question: "Which cycle is best for beginners to peptide research?", answer: "The Wolverine Cycle (BPC-157 + TB-500) is often the most accessible starting point — both compounds are extensively studied, have complementary mechanisms, and cover broad applications from injury recovery to gut health and performance. For cognitive research, the Nova Mind Cycle is similarly well-characterized with Semax and Selank." },
-      { question: "Can peptide cycles be stacked with individual peptides?", answer: "Yes. Cycles are designed around core mechanisms, and individual peptides can be added to address additional research goals. A researcher might run the Wolverine Cycle while also administering GHK-Cu for skin and gene expression effects, or adding Thymosin Alpha-1 for immune support during recovery. Mechanistic compatibility should guide combination decisions." },
-      { question: "How long are the peptide cycles?", answer: "Cycle lengths vary by goal. The Stack Up 5-Week Cycle provides an accelerated muscle research protocol. The Stack Up 10-Week and Prime Metabolic 12-Week Cycle allow more complete biological adaptation. The Nova Mind and Alpha Mind cycles run for 10 weeks. Longer cycles allow for slow-onset mechanisms like collagen synthesis, neurogenesis, and telomere restoration to produce measurable outcomes." },
-      { question: "What is the difference between the Glow Cycle and Glow Plus Cycle?", answer: "The Glow Cycle is a focused skin, hair, and connective tissue regeneration protocol. The Glow Plus Cycle extends this with anti-aging compounds targeting cellular longevity, adding GH restoration and broader systemic rejuvenation to the structural tissue focus of the base cycle." },
-      { question: "Are pre-built cycles more effective than custom stacks?", answer: "Pre-built cycles have been designed with mechanistic synergy and appropriate compound ratios. For researchers new to peptide combinations, they provide a researched framework with known compound compatibility. Experienced researchers may prefer custom stacks that precisely target their specific research variables, but cycles offer a reliable and documented starting point." },
+      { question: "Why use a blend instead of separate peptides?", answer: "Pre-formulated blends ensure accurate compound ratios, simplify reconstitution, and reduce preparation complexity. Phiogen's blends are designed around documented synergistic mechanisms — the BPC-157+TB-500 combination produces superior tissue repair versus either compound alone, and the Ipamorelin/CJC-1295 stack produces 4-6× more GH than single secretagogues." },
+      { question: "What is the difference between the 10mg and 20mg BPC-157+TB-500 blends?", answer: "The 10mg blend contains 5mg BPC-157 + 5mg TB-500 for standard recovery research protocols. The 20mg blend contains 10mg each for higher-dose studies or extended research periods. Both maintain the 1:1 ratio that is most commonly referenced in the research literature." },
+      { question: "What makes the Ipamorelin/Tesamorelin blend different from the CJC-1295 blend?", answer: "The Ipamorelin/CJC-1295 blend targets general lean muscle growth and GH optimization through GHRH+ghrelin receptor dual activation. The Ipamorelin/Tesamorelin blend specifically combines Tesamorelin's documented visceral fat reduction activity with Ipamorelin's anabolic GH pulse, making it more relevant for research targeting body composition improvement alongside metabolic health." },
+      { question: "What are the Cagri-Reta blends?", answer: "Cagri-Reta blends combine Cagrilintide (a long-acting amylin analogue that slows gastric emptying and reduces appetite) with Retatrutide (a triple GLP-1/GIP/glucagon receptor agonist). This combination targets appetite and fat loss through three distinct receptor systems simultaneously, representing one of the most mechanistically comprehensive weight loss stacks available." },
     ],
     sortOrder: 8,
     createdAt: new Date(),
@@ -680,58 +618,26 @@ The Stack Up Cycles (5-week and 10-week) are engineered for lean muscle research
     slug: "supplies",
     icon: "Package2",
     color: "#6b7280",
-    description: "Reconstitution supplies: bacteriostatic water, syringes, alcohol pads, and starter kits.",
-    heroDescription: "Lyophilized peptides must be reconstituted with sterile bacteriostatic water before use — and the quality of your supplies directly determines solution sterility, peptide stability, and dosing accuracy. Pantheon Peptides carries pharmaceutical-grade bacteriostatic water, 31G injection syringes, 21G reconstitution syringes, vial vents, alcohol pads, and complete starter kits so every protocol begins with the right foundation.",
-    seoDescription: "Peptide supplies — bacteriostatic water for reconstitution, injection syringes (31G 1ml), reconstitution syringes (21G 3ml), alcohol pads, syringe tips, and complete starter kits from Pantheon Peptides.",
+    description: "Reconstitution supplies: bacteriostatic water for peptide research.",
+    heroDescription: "Lyophilized peptides must be reconstituted with sterile bacteriostatic water before use. Phiogen offers pharmaceutical-grade bacteriostatic water and USP-grade bacteriostatic water in 30mL vials — the essential foundation for every peptide research protocol.",
+    seoDescription: "Bacteriostatic water for peptide reconstitution — standard and USP-grade 30mL vials. Essential research supplies from Phiogen.",
     stats: [],
     content: `## Proper Preparation is Essential for Research Integrity
 
-Research peptides are supplied as lyophilized (freeze-dried) powders that must be reconstituted with sterile diluent before use. The quality and sterility of reconstitution supplies directly affects peptide stability, solution sterility, and the accuracy of dosing in research applications. Using the correct supplies — bacteriostatic water, properly sized syringes, and sterile technique — is not optional; it is foundational to valid research and, in laboratory settings, to subject safety.
+Research peptides are supplied as lyophilized (freeze-dried) powders that must be reconstituted with sterile diluent before use. The quality of reconstitution supplies directly affects peptide stability, solution sterility, and dosing accuracy.
 
 ## Bacteriostatic Water: The Essential Diluent
 
-Bacteriostatic water (BAC water) is sterile water for injection containing 0.9% benzyl alcohol as a bacteriostatic preservative. This distinguishes it from plain sterile water or saline in a critical way: the benzyl alcohol prevents bacterial growth in the vial even after the seal is broken and the vial is entered multiple times.
+Bacteriostatic water (BAC water) is sterile water for injection containing 0.9% benzyl alcohol as a bacteriostatic preservative. Unlike plain sterile water, the benzyl alcohol prevents bacterial growth in the vial even after the seal is broken and the vial is entered multiple times.
 
-### Why Bacteriostatic Water for Peptides
-
-Plain sterile water must be used in a single dose once opened — without a preservative, any bacterial contamination from needle entry will proliferate rapidly. BAC water allows multiple entries over an extended period (typically 28 days after opening) without bacterial growth. Since a single vial of reconstituted peptide is typically used over multiple research sessions, BAC water is the universally recommended diluent.
-
-The 0.9% benzyl alcohol concentration also slightly acidifies the solution, which can improve stability for some peptides. For pH-sensitive peptides, alternative diluents may be used, but BAC water is the standard for the vast majority of research peptides.
+Phiogen offers both standard Bacteriostatic Water 30mL and the higher-purity USP Bacteriostatic Water 30mL. The USP designation ensures conformance to United States Pharmacopeia standards for sterility, purity, and endotoxin content — the preferred choice for research protocols requiring maximum quality assurance.
 
 ### Storage After Reconstitution
 
-Once reconstituted, peptide solutions should be stored at 2-8°C (refrigerated) and protected from light. Most peptides remain stable for 4-6 weeks when properly reconstituted with BAC water and refrigerated. Freezing reconstituted solutions is generally not recommended as freeze-thaw cycles can degrade peptide integrity.
-
-## Syringe Selection
-
-Two syringe types serve distinct purposes in peptide research:
-
-### Injection Syringes (1mL, 31G x 8mm)
-
-The ultra-thin 31-gauge needle (0.26mm diameter) minimizes injection site discomfort and tissue trauma. The 8mm needle length is appropriate for subcutaneous administration into the subcutaneous fat layer. 1mL capacity allows precise dosing of small peptide volumes. These insulin-style syringes are the standard for subcutaneous peptide administration.
-
-### Reconstitution Syringes (3mL, 21G x 1 inch)
-
-The larger 21-gauge bore allows rapid fluid transfer for reconstitution without the risk of damaging the lyophilized peptide cake through excessive pressure (which can occur with fine-gauge needles). The 3mL capacity accommodates the volume of BAC water typically needed for reconstitution. These are used only for drawing up and adding diluent, not for injection.
-
-## Syringe Tips (Vial Vents)
-
-27G vial vent tips serve a critical but often overlooked function: they allow air to enter the vial as fluid is drawn out, preventing a vacuum from building up. Without venting, progressive vacuum makes fluid withdrawal increasingly difficult and can introduce negative pressure effects on the vial seal integrity. Vent tips are typically inserted before reconstitution begins and removed after the procedure is complete.
-
-## Alcohol Pads
-
-70% isopropyl alcohol pads are used to disinfect both vial rubber septa and injection sites before needle entry. Isopropyl alcohol at 70% concentration is bactericidal within 10-30 seconds of contact — lower concentrations lack sufficient dehydrating effect while higher concentrations evaporate too quickly for effective disinfection. Allow the area to dry completely after application before proceeding.
-
-## Starter Kit: Complete Research Setup
-
-The Starter Kit bundles all essential supplies: 2 vials of bacteriostatic water, 30 injection syringes, 5 reconstitution syringes, 5 vent tips, and 100 alcohol pads. For researchers setting up a new protocol, it eliminates the need to source each component individually and ensures supply compatibility.`,
+Once reconstituted, peptide solutions should be stored at 2-8°C and protected from light. Most peptides remain stable for 4-6 weeks when properly reconstituted with BAC water and refrigerated.`,
     faq: [
-      { question: "What is bacteriostatic water and why is it used for peptides?", answer: "Bacteriostatic water is sterile water for injection containing 0.9% benzyl alcohol, which prevents bacterial growth after the vial is opened. Unlike plain sterile water (which must be used immediately after opening), BAC water allows a reconstituted peptide vial to be entered multiple times over 28 days without contamination risk — essential since most research peptide protocols involve multiple administrations per week from a single vial." },
-      { question: "What is the correct syringe size for peptide injection?", answer: "1mL insulin-style syringes with a 31-gauge, 8mm needle are standard for subcutaneous peptide injection. The ultra-fine 31G needle minimizes discomfort and tissue damage. The 1mL capacity is sufficient for typical peptide dose volumes. For reconstitution (adding BAC water to the peptide vial), a separate 3mL, 21-gauge syringe is used for efficient fluid transfer without damaging the peptide powder." },
-      { question: "How long can reconstituted peptides be stored?", answer: "Most research peptides reconstituted with bacteriostatic water and stored refrigerated at 2-8°C remain stable for 4-6 weeks. Lyophilized (freeze-dried) powder prior to reconstitution typically has a much longer shelf life when stored frozen at -20°C. Once reconstituted, avoid freezing and protect from light to maximize stability." },
-      { question: "What are vial vent tips used for?", answer: "Vial vent tips (27G syringe tips used as vents) are inserted into a vial's rubber septum to allow air in as fluid is drawn out, preventing vacuum buildup. Without venting, withdrawing multiple doses from a sealed vial creates progressive negative pressure that makes accurate dosing increasingly difficult and can compromise vial seal integrity over time." },
-      { question: "Why use 70% isopropyl alcohol pads rather than a higher concentration?", answer: "70% isopropyl alcohol is bactericidal because it penetrates cell membranes and denatures proteins effectively — the 30% water content slows evaporation, allowing sufficient contact time for disinfection. Pure or 90%+ isopropyl alcohol evaporates too quickly for reliable surface disinfection. Allow the alcohol to dry completely on injection sites and vial tops before needle entry." },
-      { question: "What is included in the Starter Kit?", answer: "The Starter Kit includes 2 vials of bacteriostatic water (10mL each), 30 injection syringes (1mL, 31G, 8mm), 5 reconstitution syringes (3mL, 21G, 1 inch), 5 vial vent tips (27G), and 100 alcohol pads. It provides a complete research setup for a new peptide protocol without needing to source individual components separately." },
+      { question: "Why use bacteriostatic water instead of regular sterile water?", answer: "Plain sterile water must be used in a single dose once opened — without a preservative, any bacterial contamination from needle entry will proliferate rapidly. Bacteriostatic water's 0.9% benzyl alcohol prevents bacterial growth after multiple vial entries, allowing safe multi-dose use over 28 days — essential for research protocols using a single reconstituted vial across multiple sessions." },
+      { question: "What is the difference between standard and USP bacteriostatic water?", answer: "USP (United States Pharmacopeia) bacteriostatic water meets additional pharmacopeial standards for sterility testing, endotoxin limits, and purity parameters versus standard bacteriostatic water. For research applications where maximum quality assurance is required, USP-grade is the preferred choice." },
     ],
     sortOrder: 9,
     createdAt: new Date(),

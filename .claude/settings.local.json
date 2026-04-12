@@ -72,7 +72,8 @@
       "Bash(grep -n \"Buy\\\\|title.*product.name\" /mnt/c/Users/Wilso/peptidessssss/app/products/[slug]/page.tsx)",
       "Bash(grep:*)",
       "Bash(wait)",
-      "Bash(echo \"EXIT:$?\")"
+      "Bash(echo \"EXIT:$?\")",
+      "WebFetch(domain:phiogen.is)"
     ]
   }
 }

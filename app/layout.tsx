@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "peptide stacks",
     "looksmaxxing peptides",
     "Wolverine Cycle peptides",
-    "Pantheon Peptides review",
+    "Phiogen peptides review",
   ],
   authors: [{ name: "PeptidesMaxxing Research Team", url: "https://www.peptidesmaxxing.com" }],
   creator: "PeptidesMaxxing",
@@ -104,7 +104,7 @@ export default function RootLayout({
         <link rel="icon" href="/icon.png" type="image/png" sizes="512x512" />
         <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://pantheonpeptides.com" />
+        <link rel="dns-prefetch" href="https://phiogen.is" />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-0YQPTV1LG9"
           strategy="afterInteractive"
