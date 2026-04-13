@@ -216,7 +216,9 @@ export default async function HomePage() {
             {/* Right: 2×2 product cards with images */}
             <div className="grid grid-cols-2 gap-4">
               {heroShowcaseProducts.map((product) => (
-                <Link key={product.slug} href={`/products/${product.slug}`} className="group rounded-2xl bg-white border border-slate-200 hover:border-cyan-300 hover:shadow-lg transition-all duration-300 overflow-hidden block">
+                <div key={product.slug} className="group relative rounded-2xl bg-white border border-slate-200 hover:border-cyan-300 hover:shadow-lg transition-all duration-300 overflow-hidden">
+                  {/* Full-card clickable overlay — sits above content, below buttons */}
+                  <Link href={`/products/${product.slug}`} className="absolute inset-0 z-10" aria-label={`View ${product.name}`} />
                   <div className="relative aspect-square overflow-hidden bg-white p-2">
                     {product.imageUrl ? (
                       <Image
@@ -232,11 +234,11 @@ export default async function HomePage() {
                       <div className="w-full h-full flex items-center justify-center text-4xl bg-slate-100">🧪</div>
                     )}
                     {product.badge && (
-                      <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-900 text-white">
+                      <span className="absolute top-2 left-2 px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-900 text-white z-20">
                         {product.badge}
                       </span>
                     )}
-                    <span className="absolute top-2 right-2 px-2 py-0.5 rounded-full text-[10px] font-medium bg-green-50 text-green-700 border border-green-200">
+                    <span className="absolute top-2 right-2 px-2 py-0.5 rounded-full text-[10px] font-medium bg-green-50 text-green-700 border border-green-200 z-20">
                       In Stock
                     </span>
                   </div>
@@ -245,22 +247,25 @@ export default async function HomePage() {
                     {product.shortDescription && (
                       <p className="text-[11px] text-slate-400 leading-relaxed line-clamp-2 mb-2">{product.shortDescription}</p>
                     )}
-                    <div className="flex gap-1.5" onClick={(e) => e.stopPropagation()}>
-                      <span className="flex-1 text-center py-1.5 rounded-lg text-xs font-semibold border border-slate-200 text-slate-600 group-hover:border-slate-400 group-hover:bg-slate-50 transition-all">
+                    {/* Buttons sit above the overlay via z-20 */}
+                    <div className="relative z-20 flex gap-1.5">
+                      <Link
+                        href={`/products/${product.slug}`}
+                        className="flex-1 text-center py-1.5 rounded-lg text-xs font-semibold border border-slate-200 text-slate-600 hover:border-slate-400 hover:bg-slate-50 transition-all"
+                      >
                         Details
-                      </span>
+                      </Link>
                       <Link
                         href={`/out/${product.slug}`}
                         target="_blank"
                         rel="nofollow sponsored noopener noreferrer"
                         className="flex-1 text-center py-1.5 rounded-lg text-xs font-bold bg-cyan-500 text-white hover:bg-cyan-400 transition-colors"
-                        onClick={(e) => e.stopPropagation()}
                       >
                         Buy →
                       </Link>
                     </div>
                   </div>
-                </Link>
+                </div>
               ))}
             </div>
           </div>
