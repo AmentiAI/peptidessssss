@@ -16,6 +16,9 @@ import {
 import { productResearch } from "@/lib/product-research"
 import { getProductFAQs } from "@/lib/product-faqs"
 
+export const dynamic = "force-static"
+export const revalidate = 86400
+
 export async function generateStaticParams() {
   const slugs = await getAllProductSlugs()
   return slugs.map((slug) => ({ slug }))

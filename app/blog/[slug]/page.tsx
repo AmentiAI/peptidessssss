@@ -10,6 +10,9 @@ import {
   AFFILIATE_URL,
 } from "@/lib/peptide-data"
 
+export const dynamic = "force-static"
+export const revalidate = 86400
+
 export async function generateStaticParams() {
   const slugs = await getAllBlogSlugs()
   return slugs.map((slug) => ({ slug }))

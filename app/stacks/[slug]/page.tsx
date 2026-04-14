@@ -6,6 +6,9 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { getAllStackGuides, getStackGuide } from "@/lib/stack-guides"
 import { AFFILIATE_URL } from "@/lib/peptide-data"
 
+export const dynamic = "force-static"
+export const revalidate = 86400
+
 export function generateStaticParams() {
   return getAllStackGuides().map((s) => ({ slug: s.slug }))
 }
