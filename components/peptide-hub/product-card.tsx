@@ -12,6 +12,13 @@ interface ProductCardProps {
 export function ProductCard({ product, priority = false }: ProductCardProps) {
   return (
     <div className="group relative flex flex-col rounded-2xl border border-slate-200 hover:border-slate-400 hover:shadow-lg transition-all duration-300 overflow-hidden bg-white">
+      {/* Full-card clickable overlay */}
+      <Link
+        href={`/products/${product.slug}`}
+        aria-label={product.name}
+        className="absolute inset-0 z-10"
+      />
+
       {/* Badge */}
       {product.badge && (
         <div className="absolute top-3 left-3 z-10 px-2.5 py-1 rounded-full text-xs font-bold bg-slate-900 text-white">
@@ -67,7 +74,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
         {/* Name */}
         <Link
           href={`/products/${product.slug}`}
-          className="font-bold text-slate-900 text-sm leading-tight hover:text-blue-600 transition-colors line-clamp-2"
+          className="relative z-20 font-bold text-slate-900 text-sm leading-tight hover:text-blue-600 transition-colors line-clamp-2"
         >
           {product.name}
         </Link>
@@ -89,7 +96,7 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
           <Link
             href={`/out/${product.slug}`}
             target="_blank"
-            className="ml-auto flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
+            className="relative z-20 ml-auto flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
           >
             <ShoppingCart className="w-3.5 h-3.5" />
             Buy
