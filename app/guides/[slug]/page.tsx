@@ -9,6 +9,8 @@ import {
   getAllGuideSlugs,
   getAllGuides,
 } from "@/lib/peptide-data"
+import { getAuthor, authorPersonSchema, DEFAULT_AUTHOR_SLUG } from "@/lib/authors"
+import { howToForGuide } from "@/lib/guide-howto"
 
 export const dynamic = "force-static"
 export const revalidate = 86400
@@ -124,6 +126,7 @@ export default async function GuidePage({
     })
   }
 
+  const author = getAuthor()
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -133,11 +136,7 @@ export default async function GuidePage({
     url: `https://www.peptidesmaxxing.com/guides/${slug}`,
     datePublished: guide.date?.toISOString(),
     dateModified: guide.updatedAt?.toISOString() ?? guide.date?.toISOString(),
-    author: {
-      "@type": "Organization",
-      name: guide.author ?? "PeptidesMaxxing Research Team",
-      url: "https://www.peptidesmaxxing.com",
-    },
+    author: authorPersonSchema(author),
     publisher: {
       "@type": "Organization",
       name: "PeptidesMaxxing",
@@ -147,7 +146,13 @@ export default async function GuidePage({
     mainEntityOfPage: { "@type": "WebPage", "@id": `https://www.peptidesmaxxing.com/guides/${slug}` },
     ...(guide.imageUrl ? { image: { "@type": "ImageObject", url: guide.imageUrl, width: 1200, height: 630 } } : {}),
     inLanguage: "en-US",
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".article-headline", ".article-summary"],
+    },
   }
+
+  const howToJsonLd = howToForGuide(slug)
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",
@@ -163,6 +168,9 @@ export default async function GuidePage({
     <PageLayout>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      {howToJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
+      )}
 
       {/* Breadcrumb */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8">
@@ -197,11 +205,20 @@ export default async function GuidePage({
           <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-slate-900 text-white mb-4">
             Research Guide
           </span>
-          <h1 className="text-4xl font-bold text-slate-900 leading-tight mb-4">{guide.title}</h1>
-          <p className="text-lg text-slate-500 mb-6">{guide.description}</p>
+          <h1 className="article-headline text-4xl font-bold text-slate-900 leading-tight mb-4">{guide.title}</h1>
+          <p className="article-summary text-lg text-slate-500 mb-6">{guide.description}</p>
           <div className="flex flex-wrap items-center gap-5 text-sm text-slate-400 pb-6 border-b border-slate-200">
-            <span>By {guide.author}</span>
-            <span>{new Date(guide.date).toLocaleDateString()}</span>
+            <Link href={`/authors/${DEFAULT_AUTHOR_SLUG}`} className="hover:text-slate-700 transition-colors">
+              By {author.name}
+            </Link>
+            <span>
+              Published <time dateTime={new Date(guide.date).toISOString()}>{new Date(guide.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</time>
+            </span>
+            {guide.updatedAt && new Date(guide.updatedAt).getTime() !== new Date(guide.date).getTime() && (
+              <span>
+                Updated <time dateTime={new Date(guide.updatedAt).toISOString()}>{new Date(guide.updatedAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</time>
+              </span>
+            )}
             {guide.readTime && (
               <span className="flex items-center gap-1.5">
                 <Clock className="w-4 h-4" />{guide.readTime} read

@@ -20,6 +20,7 @@ const RESOURCE_LINKS = [
   { href: "/science", label: "Peptide Science" },
   { href: "/tools", label: "Research Tools" },
   { href: "/about", label: "About PeptidesMaxxing" },
+  { href: "/editorial-standards", label: "Editorial Standards" },
   { href: "/privacy", label: "Privacy Policy" },
   { href: "/terms", label: "Terms of Service" },
 ]

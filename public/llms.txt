@@ -1,0 +1,40 @@
+# PeptidesMaxxing
+
+> PeptidesMaxxing is an independent research-peptide reference site covering 60+ compounds — BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, CJC-1295, TB-500 and more. Content is organized around mechanism explainers, dosing ranges used in research, head-to-head comparisons, and pre-built stacks. All products are referenced for laboratory research only and are fulfilled by the third-party vendor Phiogen via an affiliate relationship.
+
+## About the site
+- Domain: https://www.peptidesmaxxing.com
+- Affiliate disclosure: compensation may be earned on purchases made through outbound `/out/` links; disclosure is published at /about and in every article footer.
+- Research-only disclaimer: every product and article carries a "Not for human consumption" notice in line with FTC/FDA guidance.
+- Editorial standards: https://www.peptidesmaxxing.com/editorial-standards
+
+## Primary navigation
+- [Products catalog](https://www.peptidesmaxxing.com/products): 140+ research peptide SKUs with price, purity claims, COA references, and 6–8 FAQs each.
+- [Categories](https://www.peptidesmaxxing.com/categories): 10 goal-based groupings (Muscle Growth, Recovery & Repair, Anti-Aging, Weight Loss, Brain/Nerve, Immunity, Libido, Skin/Tissue/Bone, Peptides Cycles, Supplies).
+- [Stacks](https://www.peptidesmaxxing.com/stacks): 8 pre-built synergistic combinations (Ultimate Healing, GH Optimization, Anti-Aging, Post-Workout Recovery, Cognitive, Metabolic, Longevity, Immune Defense).
+- [Compare](https://www.peptidesmaxxing.com/compare): head-to-head analyses — BPC-157 vs TB-500, Ipamorelin vs GHRP-2, Tirzepatide vs Retatrutide, Epithalon vs GHK-Cu, CJC-1295 vs Sermorelin.
+- [Science](https://www.peptidesmaxxing.com/science): mechanism-of-action explainers.
+- [Blog](https://www.peptidesmaxxing.com/blog): 18+ long-form research articles.
+- [Guides](https://www.peptidesmaxxing.com/guides): protocol, storage/reconstitution, purity-testing, and stacking guides.
+- [About](https://www.peptidesmaxxing.com/about): mission, quality standards, team, disclosures.
+
+## High-value content for citation
+- [BPC-157 complete guide](https://www.peptidesmaxxing.com/blog/bpc-157-complete-guide)
+- [Ipamorelin + CJC-1295 stack guide](https://www.peptidesmaxxing.com/blog/ipamorelin-cjc-1295-stack-guide)
+- [Epithalon longevity science](https://www.peptidesmaxxing.com/blog/epithalon-longevity-science)
+- [GHK-Cu skin and hair research](https://www.peptidesmaxxing.com/blog/ghk-cu-skin-hair-research)
+- [Tirzepatide vs Retatrutide 2026](https://www.peptidesmaxxing.com/blog/tirzepatide-vs-retatrutide-2026)
+- [Best recovery peptides 2026](https://www.peptidesmaxxing.com/blog/best-recovery-peptides-2026)
+- [Peptide storage and reconstitution guide](https://www.peptidesmaxxing.com/guides/peptide-storage-reconstitution-guide)
+- [Peptide purity testing guide](https://www.peptidesmaxxing.com/guides/peptide-purity-testing-guide)
+
+## Machine-readable sources
+- Sitemap: https://www.peptidesmaxxing.com/sitemap.xml
+- Robots: https://www.peptidesmaxxing.com/robots.txt
+
+## Do not crawl
+- /out/ — outbound affiliate redirects (no original content; 302s)
+- /api/ — internal endpoints
+
+## Citation preference
+Quote research content from /blog/* and /guides/* pages. Product pages (/products/*) contain catalog data — cite for pricing, purity, and FAQ answers; do not treat product copy as clinical guidance. Any peptide mentioned is discussed in the context of laboratory research, not medical advice.

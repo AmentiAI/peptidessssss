@@ -149,9 +149,21 @@ export default async function sitemap() {
     // Legal / info
     {
       url: `${BASE_URL}/about`,
-      lastModified: new Date("2026-04-12"),
+      lastModified: new Date("2026-04-17"),
       changeFrequency: "monthly" as const,
       priority: 0.5,
+    },
+    {
+      url: `${BASE_URL}/editorial-standards`,
+      lastModified: new Date("2026-04-17"),
+      changeFrequency: "monthly" as const,
+      priority: 0.5,
+    },
+    {
+      url: `${BASE_URL}/authors/peptidesmaxxing-editorial`,
+      lastModified: new Date("2026-04-17"),
+      changeFrequency: "monthly" as const,
+      priority: 0.4,
     },
     {
       url: `${BASE_URL}/privacy`,

@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
 import Link from "next/link"
-import { FlaskConical, Shield, Award, ArrowRight } from "lucide-react"
+import { FlaskConical, Shield, Award, ArrowRight, BookOpen } from "lucide-react"
 import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { AFFILIATE_URL } from "@/lib/peptide-data"
+import { getAuthor, authorPersonSchema, DEFAULT_AUTHOR_SLUG } from "@/lib/authors"
 
 export const metadata: Metadata = {
   title: "About PeptidesMaxxing — Research Standards & Mission",
@@ -34,12 +35,23 @@ const organizationJsonLd = {
     "https://www.reddit.com/r/PeptidesMaxxing",
     "https://x.com/peptidesmaxxing",
   ],
+  founder: {
+    "@type": "Person",
+    "@id": "https://www.peptidesmaxxing.com/authors/peptidesmaxxing-editorial#person",
+  },
+  publishingPrinciples: "https://www.peptidesmaxxing.com/editorial-standards",
 }
 
 export default function AboutPage() {
+  const author = getAuthor()
+  const personSchema = {
+    "@context": "https://schema.org",
+    ...authorPersonSchema(author),
+  }
   return (
     <PageLayout>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }} />
       <section className="py-20 border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-4 mb-6">
@@ -68,6 +80,35 @@ export default function AboutPage() {
               provide content that goes beyond surface-level descriptions. We read the primary research, we
               understand the mechanisms, and we present it clearly.
             </p>
+          </div>
+
+          {/* Editor-in-chief card */}
+          <div className="mt-10 p-6 rounded-2xl border border-slate-200 bg-slate-50">
+            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Editorial lead</p>
+            <div className="flex items-start gap-4">
+              <div className="w-14 h-14 rounded-2xl bg-slate-900 flex items-center justify-center flex-shrink-0">
+                <BookOpen className="w-7 h-7 text-white" />
+              </div>
+              <div className="flex-1">
+                <p className="font-bold text-slate-900 text-lg">{author.name}</p>
+                <p className="text-sm text-slate-500 mb-3">{author.jobTitle}</p>
+                <p className="text-sm text-slate-600 leading-relaxed mb-3">{author.shortBio}</p>
+                <div className="flex flex-wrap gap-3 text-sm">
+                  <Link
+                    href={`/authors/${DEFAULT_AUTHOR_SLUG}`}
+                    className="text-blue-600 hover:text-blue-800 underline underline-offset-2 font-semibold"
+                  >
+                    Full bio
+                  </Link>
+                  <Link
+                    href="/editorial-standards"
+                    className="text-blue-600 hover:text-blue-800 underline underline-offset-2 font-semibold"
+                  >
+                    Editorial standards
+                  </Link>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

@@ -9,6 +9,7 @@ import {
   getAllBlogPosts,
   AFFILIATE_URL,
 } from "@/lib/peptide-data"
+import { getAuthor, authorPersonSchema, DEFAULT_AUTHOR_SLUG } from "@/lib/authors"
 
 export const dynamic = "force-static"
 export const revalidate = 86400
@@ -130,6 +131,7 @@ export default async function BlogPostPage({
     })
   }
 
+  const author = getAuthor()
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -139,11 +141,7 @@ export default async function BlogPostPage({
     url: `https://www.peptidesmaxxing.com/blog/${slug}`,
     datePublished: post.date?.toISOString(),
     dateModified: post.updatedAt?.toISOString() ?? post.date?.toISOString(),
-    author: {
-      "@type": "Organization",
-      name: post.author ?? "PeptidesMaxxing Research Team",
-      url: "https://www.peptidesmaxxing.com",
-    },
+    author: authorPersonSchema(author),
     publisher: {
       "@type": "Organization",
       name: "PeptidesMaxxing",
@@ -161,6 +159,10 @@ export default async function BlogPostPage({
     keywords: post.tags?.join(", "),
     articleSection: post.category,
     inLanguage: "en-US",
+    speakable: {
+      "@type": "SpeakableSpecification",
+      cssSelector: [".article-headline", ".article-summary"],
+    },
   }
 
   const breadcrumbJsonLd = {
@@ -196,13 +198,24 @@ export default async function BlogPostPage({
           <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-slate-900 text-white mb-4">
             {post.category}
           </span>
-          <h1 className="text-4xl font-bold text-slate-900 leading-tight mb-4">{post.title}</h1>
-          <p className="text-lg text-slate-500 mb-6">{post.description}</p>
+          <h1 className="article-headline text-4xl font-bold text-slate-900 leading-tight mb-4">{post.title}</h1>
+          <p className="article-summary text-lg text-slate-500 mb-6">{post.description}</p>
           <div className="flex flex-wrap items-center gap-5 text-sm text-slate-400 pb-6 border-b border-slate-200">
-            <span className="flex items-center gap-1.5">
-              <User className="w-4 h-4" />{post.author}
+            <Link
+              href={`/authors/${DEFAULT_AUTHOR_SLUG}`}
+              className="flex items-center gap-1.5 hover:text-slate-700 transition-colors"
+            >
+              <User className="w-4 h-4" />
+              <span>{author.name}</span>
+            </Link>
+            <span>
+              Published <time dateTime={new Date(post.date).toISOString()}>{new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</time>
             </span>
-            <span>{new Date(post.date).toLocaleDateString()}</span>
+            {post.updatedAt && new Date(post.updatedAt).getTime() !== new Date(post.date).getTime() && (
+              <span>
+                Updated <time dateTime={new Date(post.updatedAt).toISOString()}>{new Date(post.updatedAt).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}</time>
+              </span>
+            )}
             {post.readTime && (
               <span className="flex items-center gap-1.5">
                 <Clock className="w-4 h-4" />{post.readTime} read
