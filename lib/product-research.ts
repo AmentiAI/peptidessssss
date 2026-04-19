@@ -1,7 +1,55 @@
 /**
- * Rich research content for each product, keyed by slug.
+ * Rich research content for each product, keyed by base peptide slug.
  * Content is markdown-compatible with the renderContent() pattern used in blog posts.
+ *
+ * Product slugs are variants like "bpc-157-5mg", "bpc-157-10mg" — use
+ * getResearchForSlug() to resolve variants to their base research entry.
  */
+
+// Aliases mapping product-slug prefixes → research keys when they differ.
+const RESEARCH_ALIASES: Record<string, string> = {
+  "cjc-1295-no-dac": "cjc-1295-without-dac",
+  "cjc-1295-dac": "cjc-1295-with-dac",
+  "cjc-1295": "cjc-1295-without-dac",
+  "ghrp-2": "ghrp-2-acetate",
+  "sermorelin": "sermorelin-acetate",
+  "melanotan-2": "mt-2-melanotan-2-acetate",
+  "melanotan-ii": "mt-2-melanotan-2-acetate",
+  "mt-2": "mt-2-melanotan-2-acetate",
+  "pt-141": "pt-141-bremelanotide",
+  "bremelanotide": "pt-141-bremelanotide",
+  "dsip": "dsip-delta-sleep-inducing-peptide",
+  "mk-677": "mk-677-oral-capsules",
+  "ibutamoren": "mk-677-oral-capsules",
+  "igf-1-lr3": "igf-1lr3",
+  "bpc-157-oral": "bpc-157-oral-tablets-500mcg",
+  "epitalon": "epithalon",
+  "na-epitalon": "epithalon",
+  "na-selank-amidate": "selank",
+  "n-acetyl-semax-amidate": "semax",
+  "na-semax-amidate": "semax",
+  "cagri-reta": "cagrilintide",
+  "reta-cagri": "retatrutide",
+  "cagri-sema-blend": "cagrilintide",
+  "ipa-tesa-blend": "ipamorelin",
+  "glow-blend": "glow-cycle",
+  "klow-blend": "glow-cycle",
+  "ace-031": "ace-031",
+}
+
+export function getResearchForSlug(slug: string): string | null {
+  if (productResearch[slug]) return productResearch[slug]
+  const keys = [...Object.keys(RESEARCH_ALIASES), ...Object.keys(productResearch)]
+    .sort((a, b) => b.length - a.length)
+  for (const key of keys) {
+    if (slug === key || slug.startsWith(key + "-")) {
+      const resolved = RESEARCH_ALIASES[key] ?? key
+      if (productResearch[resolved]) return productResearch[resolved]
+    }
+  }
+  return null
+}
+
 export const productResearch: Record<string, string> = {
 
 "bpc-157": `## What is BPC-157?

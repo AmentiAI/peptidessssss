@@ -35,6 +35,16 @@ const nextConfig: NextConfig = {
       },
     ]
   },
+  async redirects() {
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "peptidesmaxxing.com" }],
+        destination: "https://www.peptidesmaxxing.com/:path*",
+        permanent: true,
+      },
+    ]
+  },
 }
 
 export default nextConfig

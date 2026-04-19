@@ -1,3 +1,5 @@
+import fs from "fs"
+import path from "path"
 import {
   getAllProductSlugs,
   getAllCategorySlugs,
@@ -8,6 +10,23 @@ import { getAllStackGuides } from "@/lib/stack-guides"
 
 const BASE_URL = "https://www.peptidesmaxxing.com"
 
+// Read mtime of a data file to use as the lastModified signal.
+// Falls back to build time if the file is missing.
+function fileMtime(relPath: string): Date {
+  try {
+    const p = path.join(process.cwd(), relPath)
+    return fs.statSync(p).mtime
+  } catch {
+    return new Date()
+  }
+}
+
+// Clamp mtime to "now" if filesystem gives a future date (avoids bad signals).
+function safeDate(d: Date): Date {
+  const now = new Date()
+  return d > now ? now : d
+}
+
 export default async function sitemap() {
   const [productSlugs, categorySlugs, blogSlugs, guideSlugs] = await Promise.all([
     getAllProductSlugs(),
@@ -17,166 +36,68 @@ export default async function sitemap() {
   ])
   const stackGuides = getAllStackGuides()
 
+  const productsMtime = safeDate(fileMtime("lib/static-products.ts"))
+  const researchMtime = safeDate(fileMtime("lib/product-research.ts"))
+  const productsMostRecent =
+    productsMtime > researchMtime ? productsMtime : researchMtime
+
+  const categoriesMtime = safeDate(fileMtime("data/categories.json"))
+  const blogMtime = safeDate(fileMtime("data/blog-posts.json"))
+  const guidesMtime = safeDate(fileMtime("data/guides.json"))
+  const stackGuidesMtime = safeDate(fileMtime("lib/stack-guides.ts"))
+
   const productPages = productSlugs.map((slug) => ({
     url: `${BASE_URL}/products/${slug}`,
-    lastModified: new Date("2026-04-12"),
-    changeFrequency: "weekly" as const,
-    priority: 0.85,
+    lastModified: productsMostRecent,
   }))
 
   const categoryPages = categorySlugs.map((slug) => ({
     url: `${BASE_URL}/categories/${slug}`,
-    lastModified: new Date("2026-04-12"),
-    changeFrequency: "weekly" as const,
-    priority: 0.9,
+    lastModified: categoriesMtime,
   }))
 
   const blogPages = blogSlugs.map((slug) => ({
     url: `${BASE_URL}/blog/${slug}`,
-    lastModified: new Date("2026-04-12"),
-    changeFrequency: "monthly" as const,
-    priority: 0.75,
+    lastModified: blogMtime,
   }))
 
   const guidePages = guideSlugs.map((slug) => ({
     url: `${BASE_URL}/guides/${slug}`,
-    lastModified: new Date("2026-04-12"),
-    changeFrequency: "monthly" as const,
-    priority: 0.75,
+    lastModified: guidesMtime,
   }))
 
   const stackGuidePages = stackGuides.map((s) => ({
     url: `${BASE_URL}/stacks/${s.slug}`,
-    lastModified: new Date("2026-04-12"),
-    changeFrequency: "monthly" as const,
-    priority: 0.8,
+    lastModified: stackGuidesMtime,
   }))
+
+  const now = new Date()
 
   return [
     // Core
-    {
-      url: BASE_URL,
-      lastModified: new Date("2026-04-12"),
-      changeFrequency: "daily" as const,
-      priority: 1,
-    },
-    {
-      url: `${BASE_URL}/products`,
-      lastModified: new Date("2026-04-12"),
-      changeFrequency: "daily" as const,
-      priority: 0.95,
-    },
-    {
-      url: `${BASE_URL}/categories`,
-      lastModified: new Date("2026-04-12"),
-      changeFrequency: "weekly" as const,
-      priority: 0.9,
-    },
-    {
-      url: `${BASE_URL}/stacks`,
-      lastModified: new Date("2026-04-12"),
-      changeFrequency: "weekly" as const,
-      priority: 0.9,
-    },
+    { url: BASE_URL, lastModified: now },
+    { url: `${BASE_URL}/products`, lastModified: productsMostRecent },
+    { url: `${BASE_URL}/categories`, lastModified: categoriesMtime },
+    { url: `${BASE_URL}/stacks`, lastModified: stackGuidesMtime },
     // Goal pages
-    {
-      url: `${BASE_URL}/recovery`,
-      lastModified: new Date("2026-04-12"),
-      changeFrequency: "weekly" as const,
-      priority: 0.88,
-    },
-    {
-      url: `${BASE_URL}/fat-loss`,
-      lastModified: new Date("2026-04-12"),
-      changeFrequency: "weekly" as const,
-      priority: 0.88,
-    },
-    {
-      url: `${BASE_URL}/anti-aging`,
-      lastModified: new Date("2026-04-12"),
-      changeFrequency: "weekly" as const,
-      priority: 0.88,
-    },
-    {
-      url: `${BASE_URL}/cognitive`,
-      lastModified: new Date("2026-04-12"),
-      changeFrequency: "weekly" as const,
-      priority: 0.88,
-    },
-    {
-      url: `${BASE_URL}/muscle-growth`,
-      lastModified: new Date("2026-04-12"),
-      changeFrequency: "weekly" as const,
-      priority: 0.88,
-    },
+    { url: `${BASE_URL}/recovery`, lastModified: now },
+    { url: `${BASE_URL}/fat-loss`, lastModified: now },
+    { url: `${BASE_URL}/anti-aging`, lastModified: now },
+    { url: `${BASE_URL}/cognitive`, lastModified: now },
+    { url: `${BASE_URL}/muscle-growth`, lastModified: now },
     // Content hubs
-    {
-      url: `${BASE_URL}/compare`,
-      lastModified: new Date("2026-04-12"),
-      changeFrequency: "weekly" as const,
-      priority: 0.85,
-    },
-    {
-      url: `${BASE_URL}/protocols`,
-      lastModified: new Date("2026-04-12"),
-      changeFrequency: "weekly" as const,
-      priority: 0.85,
-    },
-    {
-      url: `${BASE_URL}/science`,
-      lastModified: new Date("2026-04-12"),
-      changeFrequency: "weekly" as const,
-      priority: 0.85,
-    },
-    {
-      url: `${BASE_URL}/blog`,
-      lastModified: new Date("2026-04-12"),
-      changeFrequency: "weekly" as const,
-      priority: 0.85,
-    },
-    {
-      url: `${BASE_URL}/guides`,
-      lastModified: new Date("2026-04-12"),
-      changeFrequency: "weekly" as const,
-      priority: 0.85,
-    },
-    {
-      url: `${BASE_URL}/tools`,
-      lastModified: new Date("2026-04-12"),
-      changeFrequency: "monthly" as const,
-      priority: 0.7,
-    },
+    { url: `${BASE_URL}/compare`, lastModified: now },
+    { url: `${BASE_URL}/protocols`, lastModified: now },
+    { url: `${BASE_URL}/science`, lastModified: now },
+    { url: `${BASE_URL}/blog`, lastModified: blogMtime },
+    { url: `${BASE_URL}/guides`, lastModified: guidesMtime },
+    { url: `${BASE_URL}/tools`, lastModified: now },
     // Legal / info
-    {
-      url: `${BASE_URL}/about`,
-      lastModified: new Date("2026-04-17"),
-      changeFrequency: "monthly" as const,
-      priority: 0.5,
-    },
-    {
-      url: `${BASE_URL}/editorial-standards`,
-      lastModified: new Date("2026-04-17"),
-      changeFrequency: "monthly" as const,
-      priority: 0.5,
-    },
-    {
-      url: `${BASE_URL}/authors/peptidesmaxxing-editorial`,
-      lastModified: new Date("2026-04-17"),
-      changeFrequency: "monthly" as const,
-      priority: 0.4,
-    },
-    {
-      url: `${BASE_URL}/privacy`,
-      lastModified: new Date("2026-04-12"),
-      changeFrequency: "yearly" as const,
-      priority: 0.3,
-    },
-    {
-      url: `${BASE_URL}/terms`,
-      lastModified: new Date("2026-04-12"),
-      changeFrequency: "yearly" as const,
-      priority: 0.3,
-    },
+    { url: `${BASE_URL}/about`, lastModified: now },
+    { url: `${BASE_URL}/editorial-standards`, lastModified: now },
+    { url: `${BASE_URL}/authors/peptidesmaxxing-editorial`, lastModified: now },
+    { url: `${BASE_URL}/privacy`, lastModified: now },
+    { url: `${BASE_URL}/terms`, lastModified: now },
     // Dynamic pages
     ...productPages,
     ...categoryPages,

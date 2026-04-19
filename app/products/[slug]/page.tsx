@@ -13,7 +13,8 @@ import {
   getAllBlogPosts,
   AFFILIATE_URL,
 } from "@/lib/peptide-data"
-import { productResearch } from "@/lib/product-research"
+import { getResearchForSlug } from "@/lib/product-research"
+import { generateFallbackResearch } from "@/lib/product-fallback-research"
 import { getProductFAQs } from "@/lib/product-faqs"
 
 export const dynamic = "force-static"
@@ -71,7 +72,7 @@ export default async function ProductPage({
     getRelatedProducts(slug),
     getAllBlogPosts(),
   ])
-  const researchContent = productResearch[slug] ?? null
+  const researchContent = getResearchForSlug(slug) ?? generateFallbackResearch(product)
 
   const productKeywords = [
     product.name.toLowerCase(),
