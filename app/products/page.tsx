@@ -13,29 +13,29 @@ const CATEGORY_HIGHLIGHTS = [
 ]
 
 export const metadata: Metadata = {
-  title: "Buy BPC-157, Tirzepatide, Epithalon & 60+ Peptides",
+  title: "Buy Peptides Online — BPC-157, Tirzepatide, Epithalon & 60+ More",
   description:
-    "62+ research-grade peptides. Browse by goal: muscle growth, fat loss, anti-aging, cognitive, immunity, and libido peptides. BPC-157, Tirzepatide, Epithalon & more.",
+    "Buy peptides online — BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, CJC-1295, TB-500, PT-141 and 60+ more. High purity, COA verified, fast shipping.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/products" },
   openGraph: {
-    title: "Buy BPC-157, Tirzepatide, Epithalon, Ipamorelin, GHK-Cu & 60+ Peptides",
-    description: "Buy BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin — 62+ research-grade peptides for muscle growth, fat loss, anti-aging, and cognitive goals.",
+    title: "Buy Peptides Online — BPC-157, Tirzepatide, Epithalon, Ipamorelin & 60+ More",
+    description: "Shop 62+ peptides for sale: BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin and more. Muscle growth, fat loss, anti-aging, cognitive — high purity, COA verified.",
     url: "https://www.peptidesmaxxing.com/products",
     type: "website",
     images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Buy BPC-157, Tirzepatide, Epithalon & 60+ Peptides — Full Catalog",
-    description: "Full catalog: BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, CJC-1295, TB-500, PT-141, Cerebrolysin — 62+ research-grade peptides.",
+    title: "Buy Peptides Online — BPC-157, Tirzepatide, Epithalon & 60+ More",
+    description: "Full catalog: BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, CJC-1295, TB-500, PT-141, Cerebrolysin — buy 62+ peptides online.",
   },
 }
 
 const itemListJsonLd = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Research Peptides Catalog",
-  description: "62+ research-grade peptides",
+  name: "Peptides for Sale — Full Catalog",
+  description: "62+ peptides for sale online — high purity, COA verified",
   url: "https://www.peptidesmaxxing.com/products",
 }
 
@@ -56,9 +56,9 @@ export default async function ProductsPage() {
             <FlaskConical className="w-6 h-6 text-blue-600" />
             <p className="text-xs font-bold text-blue-600 uppercase tracking-widest">All Products</p>
           </div>
-          <h1 className="text-5xl font-bold text-slate-900 mb-3">Research Peptides</h1>
+          <h1 className="text-5xl font-bold text-slate-900 mb-3">Buy Peptides Online</h1>
           <p className="text-slate-500 text-lg max-w-2xl">
-            {products.length} research-grade peptides. For research use only.
+            {products.length} peptides for sale &mdash; high purity, COA verified, fast shipping. Browse the full catalog below.
           </p>
 
           {/* Category filter pills */}
@@ -102,12 +102,10 @@ export default async function ProductsPage() {
           </div>
           <div className="max-w-3xl">
             <p className="text-sm text-slate-600 leading-relaxed">
-              PeptidesMaxxing catalogs 62+ research-grade peptides from{" "}
-              our trusted supplier{" "}
-              — covering muscle growth (Ipamorelin, CJC-1295, IGF-1 LR3), fat loss (Tirzepatide, Retatrutide, AOD9604), anti-aging (Epithalon, GHK-Cu, MOTS-C), cognitive enhancement (Semax, Selank, Cerebrolysin), immunity (Thymosin Alpha-1, LL-37), and libido (PT-141, Kisspeptin-10).
-              Use the{" "}
-              <Link href="/tools" className="text-blue-600 hover:underline">Research Tools</Link>{" "}
-              to calculate reconstitution volumes or find the right peptide for your goals. All compounds are for laboratory research use only.
+              Buy 62+ peptides online from a trusted supplier &mdash; covering muscle growth (Ipamorelin, CJC-1295, IGF-1 LR3), fat loss (Tirzepatide, Retatrutide, AOD9604), anti-aging (Epithalon, GHK-Cu, MOTS-C), cognitive (Semax, Selank, Cerebrolysin), immunity (Thymosin Alpha-1, LL-37), and libido (PT-141, Kisspeptin-10).
+              Every peptide ships with COA verification at 99%+ purity. Use the{" "}
+              <Link href="/tools" className="text-blue-600 hover:underline">peptide tools</Link>{" "}
+              to calculate dosing or find the right peptide for your goals.
             </p>
           </div>
         </div>
@@ -126,8 +124,10 @@ export default async function ProductsPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-12">
         <div className="p-4 rounded-xl border border-amber-200 bg-amber-50">
           <p className="text-xs text-amber-800 leading-relaxed">
-            <strong className="text-amber-900">Research Use Only:</strong> All peptides are sold strictly for
-            laboratory research purposes. Not for human consumption. Not for veterinary use. PeptidesMaxxing may earn compensation from purchases made through links on this site, at no extra cost to you.
+            <strong className="text-amber-900">Disclaimer:</strong> Peptides are sold for laboratory
+            and educational use only. Not for human or veterinary use. Buyers are responsible for
+            compliance with local regulations. PeptidesMaxxing may earn compensation from qualifying
+            purchases at no extra cost to you.
           </p>
         </div>
       </div>

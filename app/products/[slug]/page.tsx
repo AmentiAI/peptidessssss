@@ -33,13 +33,26 @@ export async function generateMetadata({
   const { slug } = await params
   const product = await getProductBySlug(slug)
   if (!product) return {}
-  const desc = (product.shortDescription ?? product.description?.slice(0, 140) ?? "") + " Research-grade — mechanisms, dosing, and benefits."
-  const titleStr = `Buy ${product.name} — Research Overview, Benefits & Dosing | PeptidesMaxxing`
+  const priceBit = product.price != null ? ` From $${product.price.toFixed(2)}.` : ""
+  const desc = (product.shortDescription ?? product.description?.slice(0, 130) ?? "") + ` Buy ${product.name} online — high purity, COA verified, fast shipping.` + priceBit
+  const titleStr = `Buy ${product.name} Online — Price, Benefits & Dosing | PeptidesMaxxing`
   const ogDesc = product.shortDescription ?? product.description?.slice(0, 155) ?? ""
   return {
     title: { absolute: titleStr },
     description: desc,
-    keywords: [product.name, ...product.categories, "research peptide", "research grade peptides", "buy " + product.name, product.name + " benefits"],
+    keywords: [
+      `buy ${product.name}`,
+      `${product.name} for sale`,
+      `${product.name} price`,
+      `${product.name} online`,
+      `order ${product.name}`,
+      `${product.name} benefits`,
+      `${product.name} dosage`,
+      product.name,
+      ...product.categories,
+      "peptides for sale",
+      "buy peptides online",
+    ],
     alternates: { canonical: `https://www.peptidesmaxxing.com/products/${slug}` },
     openGraph: {
       title: titleStr,
@@ -162,27 +175,27 @@ export default async function ProductPage({
     return h
   })()
   const pick = <T,>(arr: T[]) => arr[hash % arr.length]
-  const primaryCat = product.categories[0] ?? "Research"
+  const primaryCat = product.categories[0] ?? "Peptide"
 
   const h1Variants = [
-    `Buy ${product.name}`,
-    `${product.name} — Research Grade`,
-    `${product.name} for Laboratory Research`,
-    `${product.name}: Research Overview`,
-    `Order ${product.name} Online`,
+    `Buy ${product.name} Online`,
+    `${product.name} for Sale`,
+    `Order ${product.name}`,
+    `${product.name} — Buy Online`,
+    `Buy ${product.name} — High Purity`,
     `${product.name} — ${primaryCat} Peptide`,
-    `Research ${product.name}`,
-    `${product.name} — Mechanism, Dosing & Benefits`,
+    `Get ${product.name} — Fast Shipping`,
+    `${product.name}: Benefits, Dosage & Price`,
   ]
   const researchLabelVariants = [
-    `${product.name} Research Overview`,
+    `${product.name} Overview`,
     `Inside ${product.name}`,
-    `${product.name} Mechanism & Data`,
-    `Research Brief: ${product.name}`,
-    `${product.name} — Scientific Profile`,
-    `About ${product.name} — Research Notes`,
+    `${product.name} — How It Works`,
+    `About ${product.name}`,
+    `${product.name} — Profile`,
+    `${product.name} — Mechanism & Benefits`,
     `${product.name} Deep Dive`,
-    `The Science of ${product.name}`,
+    `The Science Behind ${product.name}`,
   ]
   const aboutVariants = [
     `About ${product.name}`,
@@ -193,38 +206,38 @@ export default async function ProductPage({
     `${product.name} Primer`,
   ]
   const faqVariants = [
-    `${product.name} — Research FAQ`,
+    `${product.name} — FAQs`,
     `Common Questions About ${product.name}`,
-    `${product.name}: Researcher Q&A`,
+    `${product.name}: Buyer Q&A`,
     `Frequently Asked: ${product.name}`,
-    `${product.name} Research — FAQs`,
-    `Questions Researchers Ask About ${product.name}`,
-    `${product.name} — What Researchers Want to Know`,
+    `${product.name} — Q&A`,
+    `Questions About Buying ${product.name}`,
+    `${product.name} — What Buyers Ask`,
     `FAQ — ${product.name}`,
   ]
   const relatedVariants = [
     `Peptides Often Paired with ${product.name}`,
-    `Research Alongside ${product.name}`,
+    `Buy Alongside ${product.name}`,
     `Complementary Peptides to ${product.name}`,
     `Commonly Stacked with ${product.name}`,
-    `More Peptides for ${product.name} Researchers`,
+    `More Peptides Like ${product.name}`,
     `Related to ${product.name}`,
-    `Explored Alongside ${product.name}`,
-    `${product.name} — Companion Compounds`,
+    `Customers Also Buy With ${product.name}`,
+    `${product.name} — Companion Peptides`,
   ]
   const relatedKickerVariants = [
-    `Related Research`,
+    `Related Peptides`,
     `Adjacent Compounds`,
     `Pair With ${product.name}`,
     `In the Same Category`,
-    `Researcher Favorites`,
-    `Also Worth Exploring`,
+    `Customer Favorites`,
+    `Also Worth Buying`,
     `Complementary Picks`,
   ]
   const blogVariants = [
-    `${product.name} — From the Research Blog`,
-    `Research Articles on ${product.name}`,
-    `${product.name} in the Research Blog`,
+    `${product.name} — From the Blog`,
+    `Articles on ${product.name}`,
+    `${product.name} Guides & Articles`,
     `Further Reading on ${product.name}`,
     `Featured ${product.name} Articles`,
     `${product.name} — Deep-Dive Reads`,
@@ -232,22 +245,22 @@ export default async function ProductPage({
     `${product.name} — Editorial Coverage`,
   ]
   const blogKickerVariants = [
-    `Research Blog`,
+    `From the Blog`,
     `Editorial`,
     `Long-Form Reads`,
-    `Research Journal`,
+    `Buyer's Journal`,
     `From Our Writers`,
     `Background Reading`,
   ]
   const finalCtaVariants = [
     `Ready to Order ${product.name}?`,
-    `Order ${product.name} Today`,
-    `Get ${product.name} — Research Grade`,
-    `Start Your ${product.name} Research`,
-    `Purchase ${product.name} Now`,
+    `Buy ${product.name} Today`,
+    `Get ${product.name} — High Purity`,
+    `Order ${product.name} Now`,
+    `Purchase ${product.name} Online`,
     `Secure Your ${product.name} Vial`,
-    `Add ${product.name} to Your Lab`,
-    `Begin Researching ${product.name}`,
+    `Add ${product.name} to Your Cart`,
+    `Buy ${product.name} — Verified Supplier`,
   ]
 
   const h1 = pick(h1Variants)
@@ -348,7 +361,7 @@ export default async function ProductPage({
 
   const benefitsBlock = benefits.length === 0 ? null : (
     <div className="mb-8">
-      <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Research Benefits</p>
+      <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-3">Key Benefits</p>
       {benefitsStyle === 0 && (
         <div className="grid grid-cols-1 gap-2">
           {benefits.map((b, i) => (
@@ -391,26 +404,35 @@ export default async function ProductPage({
     <div className={buyBoxClass}>
       <div className="flex items-center justify-between mb-4">
         <div>
-          <p className="text-xs text-slate-500 mb-1">Available at</p>
-          <p className="text-xl font-bold text-slate-900">Research Grade</p>
+          {product.price != null ? (
+            <>
+              <p className="text-xs text-slate-500 mb-1">Starting at</p>
+              <p className="text-2xl font-bold text-slate-900">${product.price.toFixed(2)}</p>
+            </>
+          ) : (
+            <>
+              <p className="text-xs text-slate-500 mb-1">Available from</p>
+              <p className="text-xl font-bold text-slate-900">Verified Supplier</p>
+            </>
+          )}
         </div>
         <div className="flex items-center gap-1.5">
           <Shield className="w-4 h-4 text-green-600" />
-          <span className="text-sm font-semibold text-green-700">Trusted Supplier</span>
+          <span className="text-sm font-semibold text-green-700">In Stock</span>
         </div>
       </div>
       <Link href={`/out/${slug}`} target="_blank" className="flex items-center justify-center gap-3 w-full py-4 rounded-xl text-base font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors mb-3">
         <ShoppingCart className="w-5 h-5" />
-        Buy {product.name} — Research Grade
+        Buy {product.name} Now
       </Link>
-      <p className="text-xs text-center text-slate-400">PeptidesMaxxing may earn compensation from purchases at no extra cost to you.</p>
+      <p className="text-xs text-center text-slate-400">Fast shipping &middot; COA verified &middot; PeptidesMaxxing may earn from qualifying purchases.</p>
     </div>
   )
 
   const trustItems = [
     { icon: Shield, label: "COA Verified" },
     { icon: CheckCircle, label: "Trusted Supplier" },
-    { icon: ArrowRight, label: "Research Grade" },
+    { icon: ArrowRight, label: "Fast Shipping" },
   ]
   const trustRow = trustRowStyle === 0 ? (
     <div className="flex flex-wrap gap-4 mt-4">
@@ -499,7 +521,7 @@ export default async function ProductPage({
       <div className="max-w-4xl p-4 rounded-xl border border-violet-200 bg-violet-50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
           <p className="text-sm font-semibold text-slate-900">Stack {product.name} with other peptides</p>
-          <p className="text-xs text-slate-500 mt-0.5">Browse pre-built research cycles and protocol combinations.</p>
+          <p className="text-xs text-slate-500 mt-0.5">Browse pre-built peptide stacks and bundle deals.</p>
         </div>
         <Link href="/stacks" className="flex-shrink-0 inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-bold bg-violet-600 text-white hover:bg-violet-700 transition-colors">
           View Stacks <ArrowRight className="w-3.5 h-3.5" />
@@ -525,12 +547,12 @@ export default async function ProductPage({
       <div className="max-w-4xl p-6 rounded-2xl border border-slate-200 bg-gradient-to-r from-slate-50 to-blue-50">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <p className="font-bold text-slate-900 text-lg">Ready to order {product.name}?</p>
-            <p className="text-sm text-slate-500">Research-grade purity — COA verified.</p>
+            <p className="font-bold text-slate-900 text-lg">Buy {product.name} today</p>
+            <p className="text-sm text-slate-500">High purity &middot; COA verified &middot; ships fast.</p>
           </div>
           <Link href={`/out/${slug}`} target="_blank" className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors whitespace-nowrap">
             <ShoppingCart className="w-4 h-4" />
-            Order Now
+            Buy Now
           </Link>
         </div>
       </div>
@@ -575,7 +597,7 @@ export default async function ProductPage({
               <h3 className="font-bold text-slate-900 group-hover:text-blue-600 transition-colors line-clamp-2 mb-2 flex-1">{post.title}</h3>
               <p className="text-xs text-slate-400 flex items-center gap-1">
                 <CheckCircle className="w-3 h-3" />
-                {post.readTime ? `${post.readTime} read` : "Research article"}
+                {post.readTime ? `${post.readTime} read` : "Buyer's guide"}
               </p>
             </Link>
           ))}
@@ -596,12 +618,12 @@ export default async function ProductPage({
           <p className="text-sm font-bold text-slate-900 leading-tight">{primaryCat}</p>
         </div>
         <div className="p-4 rounded-xl border border-slate-200 bg-white">
-          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Grade</p>
-          <p className="text-sm font-bold text-slate-900 leading-tight">Research</p>
+          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Purity</p>
+          <p className="text-sm font-bold text-slate-900 leading-tight">99%+</p>
         </div>
         <div className="p-4 rounded-xl border border-slate-200 bg-white">
-          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Verified</p>
-          <p className="text-sm font-bold text-slate-900 leading-tight">COA</p>
+          <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1">Shipping</p>
+          <p className="text-sm font-bold text-slate-900 leading-tight">Fast &amp; Tracked</p>
         </div>
       </div>
     </section>
@@ -610,11 +632,10 @@ export default async function ProductPage({
   const storageNoteSection = !showStorageNote ? null : (
     <section key="storage" className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
       <div className="max-w-4xl p-5 rounded-xl border border-slate-200 bg-slate-50">
-        <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Handling Note</p>
+        <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Storage &amp; Handling</p>
         <p className="text-sm text-slate-600 leading-relaxed">
-          Lyophilized {product.name} is typically stored per supplier specification. Reconstituted vials
-          are generally held refrigerated. Aseptic technique is standard. Defer to the supplier COA and
-          your lab&apos;s own handling protocol.
+          Ships lyophilized for stability. Store unopened {product.name} per the supplier label.
+          Reconstituted vials are kept refrigerated. Always follow the COA included with your order.
         </p>
       </div>
     </section>
@@ -623,10 +644,10 @@ export default async function ProductPage({
   const categorySpotlightSection = !showCategorySpotlight ? null : (
     <section key="categorySpotlight" className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
       <div className="max-w-4xl p-6 rounded-2xl border border-blue-200 bg-blue-50">
-        <p className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-2">{primaryCat} Research</p>
+        <p className="text-xs font-bold text-blue-700 uppercase tracking-widest mb-2">Shop {primaryCat}</p>
         <p className="text-slate-700 leading-relaxed text-sm mb-3">
-          {product.name} sits within the {primaryCat.toLowerCase()} research area. Explore the full
-          category for companion compounds and background reading curated for this space.
+          {product.name} is part of our {primaryCat.toLowerCase()} peptide collection. Browse the full
+          category to compare prices, dosages, and find the right peptide for your goals.
         </p>
         <Link href={`/categories/${catSlug(primaryCat)}`} className="inline-flex items-center gap-1.5 text-sm font-bold text-blue-700 hover:text-blue-900">
           Browse {primaryCat} <ArrowRight className="w-3.5 h-3.5" />
@@ -637,12 +658,12 @@ export default async function ProductPage({
 
   const safetyCalloutSection = !showSafetyCallout ? null : (
     <section key="safety" className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-      <div className="max-w-4xl p-5 rounded-xl border-l-4 border-red-400 bg-red-50">
-        <p className="text-xs font-bold text-red-700 uppercase tracking-widest mb-2">Compliance Note</p>
-        <p className="text-sm text-red-900 leading-relaxed">
-          {product.name} is supplied strictly for in-vitro and non-clinical laboratory research. It is
-          not a drug, supplement, or cosmetic. Purchasers certify they are qualified researchers or
-          affiliated institutions.
+      <div className="max-w-4xl p-5 rounded-xl border-l-4 border-amber-400 bg-amber-50">
+        <p className="text-xs font-bold text-amber-700 uppercase tracking-widest mb-2">Disclaimer</p>
+        <p className="text-sm text-amber-900 leading-relaxed">
+          {product.name} is sold for laboratory and educational use only and is not a drug,
+          supplement, or food. Not for human or veterinary use. Buyers are responsible for compliance
+          with local regulations.
         </p>
       </div>
     </section>
@@ -658,8 +679,8 @@ export default async function ProductPage({
         </div>
         <div className="p-4 rounded-xl border border-slate-200 bg-white">
           <CheckCircle className="w-5 h-5 text-blue-600 mb-2" />
-          <p className="text-sm font-bold text-slate-900 mb-1">Research-Grade Only</p>
-          <p className="text-xs text-slate-500 leading-relaxed">{product.name} is sold exclusively for controlled laboratory use.</p>
+          <p className="text-sm font-bold text-slate-900 mb-1">99%+ Purity</p>
+          <p className="text-xs text-slate-500 leading-relaxed">{product.name} ships from a verified supplier with documented purity.</p>
         </div>
         <div className="p-4 rounded-xl border border-slate-200 bg-white">
           <FlaskConical className="w-5 h-5 text-blue-600 mb-2" />
@@ -737,10 +758,10 @@ export default async function ProductPage({
       <section className="py-16 border-t border-slate-100 bg-slate-50">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl font-bold text-slate-900 mb-3">{finalCtaHeading}</h2>
-          <p className="text-slate-500 mb-6">Get {product.name} — research grade, COA verified.</p>
+          <p className="text-slate-500 mb-6">Buy {product.name} online — high purity, COA verified, fast shipping.</p>
           <Link href={`/out/${slug}`} target="_blank" className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors">
             <ShoppingCart className="w-5 h-5" />
-            Buy {product.name}
+            Buy {product.name} Now
           </Link>
         </div>
       </section>

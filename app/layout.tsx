@@ -21,21 +21,23 @@ export const metadata: Metadata = {
   title: {
     template: "%s | PeptidesMaxxing",
     default:
-      "PeptidesMaxxing — BPC-157, Tirzepatide, Epithalon & 60+ Peptides",
+      "Buy Peptides Online — BPC-157, Tirzepatide, Epithalon & 60+ More | PeptidesMaxxing",
   },
   description:
-    "BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, CJC-1295, TB-500 — browse 62+ research-grade peptides. Muscle growth, fat loss, anti-aging, cognitive, and longevity stacks.",
+    "Buy peptides online — BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin, CJC-1295, TB-500 and 60+ more. High purity, COA verified, fast shipping. Muscle, fat loss, anti-aging & cognitive stacks.",
   keywords: [
+    "buy peptides online",
+    "peptides for sale",
     "peptidesmaxxing",
     "peptides maxxing",
-    "research peptides 2026",
-    "BPC-157 research",
-    "Tirzepatide peptide",
-    "Epithalon anti-aging",
-    "peptide stacks",
-    "looksmaxxing peptides",
-    "Wolverine Cycle peptides",
-    "Phiogen peptides review",
+    "buy BPC-157",
+    "buy Tirzepatide",
+    "buy Epithalon",
+    "buy Ipamorelin",
+    "buy GHK-Cu",
+    "peptide stacks for sale",
+    "best place to buy peptides",
+    "Phiogen peptides",
   ],
   authors: [{ name: "PeptidesMaxxing Research Team", url: "https://www.peptidesmaxxing.com" }],
   creator: "PeptidesMaxxing",
@@ -56,9 +58,9 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "PeptidesMaxxing",
     title:
-      "PeptidesMaxxing — BPC-157, Tirzepatide, Epithalon & 60+ Peptides",
+      "Buy Peptides Online — BPC-157, Tirzepatide, Epithalon & 60+ More",
     description:
-      "The definitive peptide resource. 62+ research-grade peptides including BPC-157, Tirzepatide, Epithalon, complete cycles, and expert guides.",
+      "Buy peptides online from a trusted supplier. 62+ peptides for sale including BPC-157, Tirzepatide, Epithalon, plus pre-built stacks. High purity, COA verified, fast shipping.",
     url: "https://www.peptidesmaxxing.com",
     locale: "en_US",
     images: [
@@ -75,9 +77,9 @@ export const metadata: Metadata = {
     site: "@peptidesmaxxing",
     creator: "@peptidesmaxxing",
     title:
-      "PeptidesMaxxing — Research Peptides & Cycles",
+      "Buy Peptides Online — PeptidesMaxxing",
     description:
-      "62+ peptides, pre-built cycles, and expert science guides. BPC-157, Tirzepatide, Epithalon, Semax & more.",
+      "62+ peptides for sale, pre-built stacks, and expert guides. BPC-157, Tirzepatide, Epithalon, Semax & more — high purity, COA verified.",
     images: ["https://www.peptidesmaxxing.com/opengraph-image"],
   },
   icons: {
