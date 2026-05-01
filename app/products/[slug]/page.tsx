@@ -315,8 +315,11 @@ export default async function ProductPage({
     description: product.description,
     image: product.imageUrl,
     url: `https://www.peptidesmaxxing.com/products/${slug}`,
-    brand: { "@type": "Brand", name: "PeptidesMaxxing" },
+    brand: { "@type": "Brand", name: "Phiogen", url: "https://phiogen.is" },
+    manufacturer: { "@type": "Organization", name: "Phiogen", url: "https://phiogen.is" },
     category: product.categories[0],
+    sku: slug,
+    mpn: slug,
     offers: {
       "@type": "Offer",
       availability: product.isInStock
@@ -534,9 +537,9 @@ export default async function ProductPage({
     <section key="disclaimer" className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
       <div className="max-w-4xl p-4 rounded-xl border border-amber-200 bg-amber-50">
         <p className="text-xs text-amber-800 leading-relaxed">
-          <strong className="text-amber-900">Research Use Only:</strong> This product is for laboratory
-          research purposes only. Not intended for human consumption. Not approved by the FDA for any
-          therapeutic use. Consult a qualified physician before any use.
+          <strong className="text-amber-900">Disclaimer:</strong> Peptides are sold for laboratory and
+          educational use only. Not for human or veterinary use. Buyers are responsible for compliance
+          with local regulations.
         </p>
       </div>
     </section>

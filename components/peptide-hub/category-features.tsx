@@ -373,7 +373,7 @@ function AntiAgingFeatures() {
       <div>
         <p className="text-xs font-bold uppercase tracking-widest text-purple-600 mb-2">Science Foundation</p>
         <h3 className="text-2xl font-bold text-slate-900 mb-2">The 9 Hallmarks of Aging — Addressed</h3>
-        <p className="text-slate-500 text-sm mb-7">Modern longevity research targets specific molecular mechanisms of biological aging. Each hallmark has at least one research peptide documented to act on it.</p>
+        <p className="text-slate-500 text-sm mb-7">Modern longevity research targets specific molecular mechanisms of biological aging. Each hallmark has at least one peptide documented to act on it.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {hallmarks.map(({ name, peptide, icon: Icon, desc }, i) => (
             <div key={i} className="p-5 rounded-2xl border border-slate-200 bg-white hover:border-purple-200 hover:bg-purple-50 transition-colors group">
@@ -418,7 +418,7 @@ function AntiAgingFeatures() {
         <div className="absolute right-0 bottom-0 w-72 h-72 bg-white/5 rounded-full translate-y-1/3 translate-x-1/3" />
         <p className="text-xs font-bold uppercase tracking-widest text-purple-300 mb-3">Why Timing Matters</p>
         <h4 className="text-xl font-bold mb-2">Key Biomarkers Decline Steadily After Age 25</h4>
-        <p className="text-purple-200 text-sm max-w-lg mb-6">Research peptides targeting the aging cascade work most effectively when the decline is addressed rather than treated after significant loss has occurred.</p>
+        <p className="text-purple-200 text-sm max-w-lg mb-6">Peptides targeting the aging cascade work most effectively when the decline is addressed rather than treated after significant loss has occurred.</p>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {[
             { label: "GH decline", value: "~14%", sub: "per decade after 25" },
@@ -612,7 +612,7 @@ function BrainNerveFeatures() {
       {/* Cognitive domains */}
       <div>
         <p className="text-xs font-bold uppercase tracking-widest text-cyan-600 mb-2">Cognitive Framework</p>
-        <h3 className="text-2xl font-bold text-slate-900 mb-7">Six Domains of Brain Function Targeted by Research Peptides</h3>
+        <h3 className="text-2xl font-bold text-slate-900 mb-7">Six Domains of Brain Function Targeted by Peptides</h3>
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-4">
           {domains.map(({ name, peptide, icon: Icon, desc }, i) => (
             <div key={i} className="p-5 rounded-2xl border border-slate-200 bg-white hover:border-cyan-200 hover:bg-cyan-50 transition-colors group">
@@ -872,7 +872,7 @@ function LibidoFeatures() {
       <div>
         <p className="text-xs font-bold uppercase tracking-widest text-rose-600 mb-2">Mechanism Science</p>
         <h3 className="text-2xl font-bold text-slate-900 mb-2">Three Distinct Sexual Health Pathways</h3>
-        <p className="text-slate-500 text-sm mb-7">Unlike conventional approaches that target only blood flow, research peptides act on three separate biological pathways — enabling researchers to study different dimensions of sexual health physiology.</p>
+        <p className="text-slate-500 text-sm mb-7">Unlike conventional approaches that target only blood flow, peptides act on three separate biological pathways — addressing different dimensions of sexual health physiology.</p>
         <div className="space-y-5">
           {pathways.map((p, i) => (
             <div key={i} className={`rounded-2xl border-2 p-6 ${p.color}`}>
@@ -923,7 +923,7 @@ function LibidoFeatures() {
 
       {/* Cycle comparison */}
       <div>
-        <p className="text-xs font-bold uppercase tracking-widest text-rose-600 mb-2">Research Protocols</p>
+        <p className="text-xs font-bold uppercase tracking-widest text-rose-600 mb-2">Peptide Protocols</p>
         <h3 className="text-2xl font-bold text-slate-900 mb-7">Pre-Built Sexual Health Cycles</h3>
         <div className="grid sm:grid-cols-2 gap-6">
           {cycles.map((c, i) => (
@@ -1176,7 +1176,7 @@ function PeptidesCyclesFeatures() {
       {/* Cycle goal grid */}
       <div>
         <p className="text-xs font-bold uppercase tracking-widest text-violet-600 mb-2">Available Cycles</p>
-        <h3 className="text-2xl font-bold text-slate-900 mb-7">Find the Right Cycle for Your Research Goal</h3>
+        <h3 className="text-2xl font-bold text-slate-900 mb-7">Find the Right Cycle for Your Goal</h3>
         <div className="grid sm:grid-cols-2 gap-5">
           {cyclesByGoal.map((c, i) => (
             <div key={i} className={`rounded-2xl border-2 p-5 ${c.color}`}>
@@ -1358,11 +1358,11 @@ function SuppliesFeatures() {
             </div>
             <div className="p-5 rounded-2xl border border-slate-200 bg-slate-50">
               <p className="font-bold text-slate-900 mb-2">Stability Benefit</p>
-              <p className="text-slate-600 text-sm leading-relaxed">The slight acidity from benzyl alcohol (pH ~5.0) improves peptide stability for most research compounds. Refrigerated reconstituted peptides typically remain stable for 4–6 weeks.</p>
+              <p className="text-slate-600 text-sm leading-relaxed">The slight acidity from benzyl alcohol (pH ~5.0) improves stability for most peptides. Refrigerated reconstituted peptides typically remain stable for 4–6 weeks.</p>
             </div>
             <div className="p-5 rounded-2xl border border-slate-200 bg-white">
               <p className="font-bold text-slate-900 mb-2">Starter Kit Contents</p>
-              <p className="text-slate-600 text-xs leading-relaxed">2× BAC Water (10mL) · 30× Injection Syringes · 5× Reconstitution Syringes · 5× Vent Tips · 100× Alcohol Pads — everything needed to begin a research protocol.</p>
+              <p className="text-slate-600 text-xs leading-relaxed">2× BAC Water (10mL) · 30× Injection Syringes · 5× Reconstitution Syringes · 5× Vent Tips · 100× Alcohol Pads — everything needed to begin a peptide protocol.</p>
             </div>
           </div>
         </div>

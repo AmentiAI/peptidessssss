@@ -6,14 +6,23 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { staticProducts, AFFILIATE_URL } from "@/lib/static-products"
 
 export const metadata: Metadata = {
-  title: "Recovery & Repair Peptides — BPC-157, TB-500, LL-37 | PeptidesMaxxing",
+  title: "Buy Recovery & Repair Peptides Online — BPC-157, TB-500, LL-37 | PeptidesMaxxing",
   description:
-    "Research the top recovery peptides: BPC-157, TB-500, LL-37, Thymosin Alpha-1. Complete protocols for injury repair, tissue regeneration, and anti-inflammatory research.",
+    "Buy top recovery peptides online: BPC-157, TB-500, LL-37, Thymosin Alpha-1. High purity, COA verified, fast shipping. Complete dosing protocols for injury repair and tissue regeneration.",
+  keywords: [
+    "buy recovery peptides",
+    "buy BPC-157",
+    "buy TB-500",
+    "BPC-157 for sale",
+    "TB-500 for sale",
+    "BPC-157 price",
+    "healing peptides for sale",
+  ],
   alternates: { canonical: "https://www.peptidesmaxxing.com/recovery" },
   openGraph: {
-    title: "Recovery & Repair Peptides — BPC-157, TB-500 & More",
+    title: "Buy Recovery & Repair Peptides Online — BPC-157, TB-500 & More",
     description:
-      "BPC-157, TB-500, and 5+ top recovery peptides with full research documentation, protocols, and COA verification.",
+      "BPC-157, TB-500, and 5+ top recovery peptides for sale — high purity, COA verified, fast shipping.",
     url: "https://www.peptidesmaxxing.com/recovery",
     type: "website",
   },
@@ -67,7 +76,7 @@ export default function RecoveryPage() {
         <nav className="flex items-center gap-1.5 text-xs text-slate-400">
           <Link href="/" className="hover:text-slate-600 transition-colors">Home</Link>
           <ChevronRight className="w-3 h-3" />
-          <span className="text-slate-600 font-medium">Recovery & Repair</span>
+          <span className="text-slate-600 font-medium">Buy Recovery Peptides</span>
         </nav>
       </div>
 
@@ -80,11 +89,11 @@ export default function RecoveryPage() {
               <span className="text-xs font-bold text-red-300 uppercase tracking-wider">Recovery & Repair</span>
             </div>
             <h1 className="text-5xl sm:text-6xl font-bold leading-tight mb-6">
-              Recovery &<br />
+              Buy Recovery &<br />
               <span className="text-red-400">Repair Peptides</span>
             </h1>
             <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-              BPC-157, TB-500, and LL-37 are the most researched compounds for injury repair, tendon healing, anti-inflammation, and systemic recovery acceleration. Explore complete protocols and research documentation.
+              BPC-157, TB-500, and LL-37 are the most popular peptides for injury repair, tendon healing, anti-inflammation, and systemic recovery — high purity, COA verified, fast shipping.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -118,9 +127,9 @@ export default function RecoveryPage() {
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <p className="text-xs font-bold text-red-600 uppercase tracking-widest mb-2">Research Compounds</p>
+            <p className="text-xs font-bold text-red-600 uppercase tracking-widest mb-2">Top Sellers</p>
             <h2 className="text-4xl font-bold text-slate-900">Top Recovery Peptides</h2>
-            <p className="text-slate-500 mt-2">COA-verified research peptides for injury repair and tissue regeneration.</p>
+            <p className="text-slate-500 mt-2">COA-verified peptides for injury repair and tissue regeneration — high purity, fast shipping.</p>
           </div>
           <Link href="/categories/recovery-repair" className="hidden sm:flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors">
             View All <ArrowRight className="w-4 h-4" />
@@ -189,9 +198,9 @@ export default function RecoveryPage() {
       <section className="py-16 border-t border-slate-100 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-red-600 uppercase tracking-widest mb-2">Research Mechanisms</p>
+            <p className="text-xs font-bold text-red-600 uppercase tracking-widest mb-2">How They Work</p>
             <h2 className="text-3xl font-bold text-slate-900">How Recovery Peptides Work</h2>
-            <p className="text-slate-500 mt-2 max-w-xl mx-auto">The primary research-documented mechanisms of BPC-157, TB-500, and related compounds.</p>
+            <p className="text-slate-500 mt-2 max-w-xl mx-auto">The primary documented mechanisms of BPC-157, TB-500, and related peptides.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {BENEFITS.map(({ icon: Icon, title, desc, color }) => (
@@ -212,17 +221,17 @@ export default function RecoveryPage() {
         <div className="rounded-3xl bg-gradient-to-r from-red-50 to-orange-50 border border-red-100 p-8 lg:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <p className="text-xs font-bold text-red-600 uppercase tracking-widest mb-3">BPC-157 Research Spotlight</p>
+              <p className="text-xs font-bold text-red-600 uppercase tracking-widest mb-3">BPC-157 Spotlight</p>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">The Gold Standard Recovery Peptide</h2>
               <p className="text-slate-600 leading-relaxed mb-6">
-                Body Protection Compound-157 (BPC-157) is a 15 amino acid peptide derived from a gastric protective protein. Over 400 published studies document its effects on tendon healing, gut repair, angiogenesis, and neuroprotection. It's consistently paired with TB-500 for synergistic recovery research cycles.
+                Body Protection Compound-157 (BPC-157) is a 15 amino acid peptide derived from a gastric protective protein. Over 400 published studies document its effects on tendon healing, gut repair, angiogenesis, and neuroprotection. It's consistently paired with TB-500 for synergistic recovery stacks.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/products/bpc-157" className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-red-500 text-white hover:bg-red-400 transition-colors">
-                  Read BPC-157 Profile <ArrowRight className="w-4 h-4" />
+                  Buy BPC-157 <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link href="/products/bpc-157-tb-500" className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold border border-red-200 text-red-700 hover:bg-red-50 transition-colors">
-                  BPC + TB-500 Combo
+                  Buy BPC + TB-500 Combo
                 </Link>
               </div>
             </div>
@@ -246,9 +255,9 @@ export default function RecoveryPage() {
       {/* FINAL CTA */}
       <section className="py-16 border-t border-slate-100 bg-slate-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">Ready to Research Recovery Peptides?</h2>
+          <h2 className="text-4xl font-bold text-white mb-4">Buy Recovery Peptides — High Purity, Fast Shipping</h2>
           <p className="text-slate-400 mb-8 text-lg max-w-xl mx-auto">
-            Browse our full catalog of recovery compounds — all with complete COA documentation and research protocols.
+            Browse our full catalog of recovery peptides — all with complete COA documentation and dosing protocols.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={AFFILIATE_URL} target="_blank" rel="nofollow sponsored noopener noreferrer"
@@ -260,7 +269,7 @@ export default function RecoveryPage() {
               Browse Full Catalog
             </Link>
           </div>
-          <p className="mt-8 text-xs text-slate-500 max-w-xl mx-auto">All products for research use only. Not for human consumption. Consult a qualified physician.</p>
+          <p className="mt-8 text-xs text-slate-500 max-w-xl mx-auto">Disclaimer: Sold for laboratory and educational use only. Not for human or veterinary use.</p>
         </div>
       </section>
     </PageLayout>

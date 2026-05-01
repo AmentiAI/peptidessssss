@@ -102,7 +102,7 @@ export default async function AuthorPage({
             </div>
           </div>
           <div>
-            <h3 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-4">Research guides</h3>
+            <h3 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-4">Peptide guides</h3>
             <div className="space-y-2">
               {guides.map((g) => (
                 <Link key={g.slug} href={`/guides/${g.slug}`} className="block text-sm text-slate-600 hover:text-blue-600 transition-colors">

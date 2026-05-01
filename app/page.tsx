@@ -32,14 +32,26 @@ import {
 import { staticProducts } from "@/lib/static-products"
 
 export const metadata: Metadata = {
-  title: "PeptidesMaxxing — BPC-157, Tirzepatide & 60+ Peptides",
+  title: "Buy Peptides Online — BPC-157, Tirzepatide & 60+ More",
   description:
-    "62+ research peptides. BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu — muscle growth, anti-aging, fat loss, and cognitive stacks with complete cycle guides.",
+    "Buy 62+ peptides online — BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin and more. High purity, COA verified, fast shipping. Muscle, fat loss, anti-aging & cognitive stacks.",
+  keywords: [
+    "buy peptides online",
+    "peptides for sale",
+    "buy BPC-157",
+    "buy Tirzepatide",
+    "buy Epithalon",
+    "buy Ipamorelin",
+    "buy GHK-Cu",
+    "best place to buy peptides",
+    "peptide stacks for sale",
+    "peptide price",
+  ],
   alternates: { canonical: "https://www.peptidesmaxxing.com" },
   openGraph: {
-    title: "PeptidesMaxxing — Buy BPC-157, Tirzepatide, Epithalon & 60+ Peptides",
+    title: "Buy Peptides Online — BPC-157, Tirzepatide, Epithalon & 60+ More",
     description:
-      "62+ peptides, pre-built cycles, and expert science guides. BPC-157, Tirzepatide, Epithalon, Semax & more.",
+      "62+ peptides for sale, pre-built stacks, and expert guides. BPC-157, Tirzepatide, Epithalon, Semax & more — high purity, COA verified, fast shipping.",
     url: "https://www.peptidesmaxxing.com",
     type: "website",
   },
@@ -60,17 +72,17 @@ const ICON_MAP: Record<string, React.ElementType> = {
 }
 
 const SITE_STATS = [
-  { label: "Research Peptides", value: "62+" },
-  { label: "Peptide Cycles", value: "15+" },
+  { label: "Peptides for Sale", value: "62+" },
+  { label: "Pre-Built Stacks", value: "15+" },
   { label: "COA Verified", value: "≥99%" },
-  { label: "Research Studies", value: "5,000+" },
+  { label: "Studies Cited", value: "5,000+" },
 ]
 
 const TRUST_SIGNALS = [
-  { icon: Shield, label: "COA Verified", desc: "Research grade" },
+  { icon: Shield, label: "COA Verified", desc: "99%+ purity" },
   { icon: TrendingUp, label: "62+ Products", desc: "Full catalog" },
-  { icon: Brain, label: "Research Grade", desc: "For lab use only" },
-  { icon: FlaskConical, label: "Independent Resource", desc: "Science-first editorial" },
+  { icon: Brain, label: "Trusted Supplier", desc: "Lab grade" },
+  { icon: FlaskConical, label: "Fast Shipping", desc: "Tracked & insured" },
 ]
 
 const HERO_SHOWCASE_SLUGS = ["bpc-157-10mg", "tirzepatide-15mg", "epitalon-10mg", "n-acetyl-semax-amidate-30mg"]
@@ -92,7 +104,7 @@ const jsonLd = {
       url: "https://www.peptidesmaxxing.com",
       name: "PeptidesMaxxing",
       description:
-        "62+ research-grade peptides — BPC-157, Tirzepatide, Epithalon, Ipamorelin, GHK-Cu, Semax, TB-500. Muscle growth, fat loss, anti-aging, cognitive, and longevity peptide cycles.",
+        "Buy 62+ peptides online — BPC-157, Tirzepatide, Epithalon, Ipamorelin, GHK-Cu, Semax, TB-500. Muscle growth, fat loss, anti-aging, cognitive, and longevity peptide stacks. High purity, COA verified.",
       inLanguage: "en-US",
     },
     {
@@ -107,7 +119,7 @@ const jsonLd = {
         height: 512,
       },
       description:
-        "Premier independent peptide information resource. BPC-157, Tirzepatide, Epithalon, peptide cycles, and research guides.",
+        "Buy peptides online — BPC-157, Tirzepatide, Epithalon, peptide stacks, and expert guides. High purity, COA verified, fast shipping.",
       sameAs: [
         "https://www.reddit.com/r/PeptidesMaxxing",
         "https://x.com/peptidesmaxxing",
@@ -157,7 +169,7 @@ export default async function HomePage() {
       />
 
       {/* SEO H1 — screen-reader accessible site heading */}
-      <h1 className="sr-only">PeptidesMaxxing — Independent Research Peptide Resource</h1>
+      <h1 className="sr-only">PeptidesMaxxing — Buy Peptides Online</h1>
 
       {/* TOP HERO — Brand headline + product showcase */}
       <section className="relative overflow-hidden bg-white border-b border-slate-100 pt-8 pb-14 lg:pt-10 lg:pb-16">
@@ -167,21 +179,21 @@ export default async function HomePage() {
             <div className="pt-2">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-cyan-200 bg-cyan-50 mb-6">
                 <FlaskConical className="w-3.5 h-3.5 text-cyan-600" />
-                <span className="text-xs font-bold text-cyan-700 uppercase tracking-wider">62+ Research-Grade Peptides</span>
+                <span className="text-xs font-bold text-cyan-700 uppercase tracking-wider">62+ Peptides — High Purity, COA Verified</span>
               </div>
               <h2 className="text-5xl sm:text-6xl font-bold leading-tight mb-6 text-slate-900">
-                The #1 Peptide<br />
-                <span className="text-cyan-500">Research Hub</span>
+                Buy Peptides<br />
+                <span className="text-cyan-500">Online</span>
               </h2>
               <p className="text-lg text-slate-500 mb-8 leading-relaxed max-w-lg">
-                BPC-157, Tirzepatide, Epithalon, Semax — 62+ research-grade peptides with complete science documentation, COA verification, and expert protocols.
+                BPC-157, Tirzepatide, Epithalon, Semax — 62+ peptides for sale with high purity, COA verification, and fast shipping from a trusted supplier.
               </p>
               <div className="flex flex-wrap gap-3 mb-6">
                 <Link
                   href="/products"
                   className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-cyan-500 text-white hover:bg-cyan-400 transition-colors text-base"
                 >
-                  Browse All Peptides <ArrowRight className="w-4 h-4" />
+                  Shop All Peptides <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href={AFFILIATE_URL}
@@ -189,13 +201,13 @@ export default async function HomePage() {
                   rel="nofollow sponsored noopener noreferrer"
                   className="flex items-center gap-2 px-8 py-4 rounded-xl font-semibold border border-slate-200 text-slate-700 hover:border-slate-400 hover:bg-slate-50 transition-all text-base"
                 >
-                  Shop
+                  Buy Now
                 </Link>
                 <Link
                   href="/stacks"
                   className="flex items-center gap-2 px-8 py-4 rounded-xl font-semibold bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors text-base"
                 >
-                  View Cycles
+                  View Stacks
                 </Link>
               </div>
               {/* Search bar */}
@@ -314,10 +326,10 @@ export default async function HomePage() {
       {/* BROWSE BY GOAL */}
       <section className="py-16 border-b border-slate-100 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-10">
-          <p className="text-xs font-bold text-cyan-600 uppercase tracking-widest mb-2">Goal-Based Research</p>
-          <h2 className="text-3xl font-bold text-slate-900">Browse Peptides by Goal</h2>
+          <p className="text-xs font-bold text-cyan-600 uppercase tracking-widest mb-2">Shop by Goal</p>
+          <h2 className="text-3xl font-bold text-slate-900">Buy Peptides by Goal</h2>
           <p className="text-slate-500 mt-2 max-w-lg mx-auto">
-            Curated peptide pages for every research goal — with products, mechanisms, and protocols.
+            Curated peptide pages for every goal — products, mechanisms, and dosing protocols.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
@@ -348,9 +360,9 @@ export default async function HomePage() {
             <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">
               Featured Compounds
             </p>
-            <h2 className="text-4xl font-bold text-slate-900">Top Peptides</h2>
+            <h2 className="text-4xl font-bold text-slate-900">Top Peptides for Sale</h2>
             <p className="text-slate-500 mt-2">
-              Hand-picked for research quality, purity documentation, and COA verification.
+              Hand-picked for purity, COA documentation, and trusted-supplier verification.
             </p>
           </div>
           <Link
@@ -384,9 +396,9 @@ export default async function HomePage() {
             <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">
               Browse by Goal
             </p>
-            <h2 className="text-4xl font-bold text-slate-900">Research Categories</h2>
+            <h2 className="text-4xl font-bold text-slate-900">Shop by Category</h2>
             <p className="text-slate-500 mt-2 max-w-xl mx-auto">
-              Every peptide categorized by research application — from recovery to longevity to weight loss.
+              Every peptide grouped by goal — from recovery to longevity to weight loss.
             </p>
           </div>
 
@@ -440,14 +452,14 @@ export default async function HomePage() {
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-slate-700 bg-slate-800 mb-6">
             <TrendingUp className="w-3.5 h-3.5 text-slate-300" />
             <span className="text-xs font-semibold text-slate-300 uppercase tracking-wider">
-              Peptide Cycles
+              Peptide Stacks
             </span>
           </div>
           <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
-            Pre-Built Peptide Cycles
+            Pre-Built Peptide Stacks
           </h2>
           <p className="text-lg text-slate-400 max-w-xl mx-auto mb-8">
-            Synergistic peptide combinations curated for specific research goals — Wolverine Cycle, Glow Cycle,
+            Synergistic peptide combinations curated for specific goals — Wolverine Stack, Glow Stack,
             Nova Mind, Prime Metabolic, and more.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -455,7 +467,7 @@ export default async function HomePage() {
               href="/stacks"
               className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold bg-white text-slate-900 hover:bg-slate-100 transition-colors"
             >
-              View Peptide Cycles <ArrowRight className="w-4 h-4" />
+              View Peptide Stacks <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               href={AFFILIATE_URL}
@@ -463,7 +475,7 @@ export default async function HomePage() {
               rel="nofollow sponsored noopener noreferrer"
               className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-semibold text-white border border-slate-700 hover:border-slate-500 transition-all"
             >
-              Shop Research Peptides <ArrowRight className="w-4 h-4" />
+              Shop Peptides <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -475,11 +487,11 @@ export default async function HomePage() {
           <div className="flex items-end justify-between mb-10">
             <div>
               <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">
-                Latest Science
+                Latest from the Blog
               </p>
-              <h2 className="text-4xl font-bold text-slate-900">Research Blog</h2>
+              <h2 className="text-4xl font-bold text-slate-900">From the Blog</h2>
               <p className="text-slate-500 mt-2">
-                In-depth guides, mechanism breakdowns, and research reviews.
+                In-depth peptide guides, mechanism breakdowns, and buyer's reviews.
               </p>
             </div>
             <Link
@@ -546,9 +558,9 @@ export default async function HomePage() {
             <p className="text-xs font-bold text-purple-600 uppercase tracking-widest mb-2">
               Protocol Library
             </p>
-            <h2 className="text-4xl font-bold text-slate-900">Research Guides</h2>
+            <h2 className="text-4xl font-bold text-slate-900">Peptide Guides</h2>
             <p className="text-slate-500 mt-2">
-              Complete protocols for reconstitution, stacking, purity testing, and longevity research.
+              Complete protocols for reconstitution, stacking, purity testing, and longevity dosing.
             </p>
           </div>
           <Link
@@ -563,7 +575,7 @@ export default async function HomePage() {
             { href: "/guides/peptide-storage-reconstitution-guide", title: "Peptide Storage & Reconstitution", desc: "Step-by-step protocol for BW ratios, temperature, and stability.", emoji: "🧪" },
             { href: "/guides/gh-peptide-stacking-guide", title: "GH Peptide Stacking Guide", desc: "Ipamorelin + CJC-1295 synergy, dosing, and protocols.", emoji: "📈" },
             { href: "/guides/peptide-purity-testing-guide", title: "Peptide Purity Testing (HPLC)", desc: "How to read COAs, interpret HPLC data, and spot red flags.", emoji: "🔬" },
-            { href: "/guides/longevity-peptide-protocols", title: "Anti-Aging Peptide Protocols", desc: "Epithalon + GHK-Cu longevity stacks and research cycles.", emoji: "✨" },
+            { href: "/guides/longevity-peptide-protocols", title: "Anti-Aging Peptide Protocols", desc: "Epithalon + GHK-Cu longevity stacks and dosing schedules.", emoji: "✨" },
           ].map((g) => (
             <Link
               key={g.href}
@@ -587,14 +599,14 @@ export default async function HomePage() {
       <section className="py-24 border-t border-slate-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">
-            Start Your Research
+            Ready to Buy
           </p>
           <h2 className="text-4xl sm:text-5xl font-bold text-slate-900 mb-6">
-            Ready to Explore the Science?
+            Buy Peptides Online — High Purity, Fast Shipping
           </h2>
           <p className="text-lg text-slate-500 mb-10 max-w-xl mx-auto">
-            Browse 62+ research-grade peptides with complete product documentation
-            and expert research guides.
+            Shop 62+ peptides for sale with complete product documentation,
+            COA verification, and expert dosing guides.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -603,7 +615,7 @@ export default async function HomePage() {
               rel="nofollow sponsored noopener noreferrer"
               className="flex items-center justify-center gap-2 px-10 py-5 rounded-xl text-lg font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
             >
-              Shop Research Peptides <ArrowRight className="w-5 h-5" />
+              Shop Peptides Now <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               href="/products"
@@ -613,20 +625,20 @@ export default async function HomePage() {
             </Link>
           </div>
           <p className="mt-12 text-xs text-slate-400 max-w-2xl mx-auto leading-relaxed">
-            All products are for research use only. Not for human consumption. PeptidesMaxxing may earn compensation from purchases made through links on this site, at no extra cost to you. Consult a qualified physician before any use.
+            Disclaimer: Peptides are sold for laboratory and educational use only. Not for human or veterinary use. Buyers are responsible for compliance with local regulations. PeptidesMaxxing may earn compensation from purchases made through links on this site, at no extra cost to you.
           </p>
         </div>
       </section>
 
-      {/* Research Partner Banner */}
+      {/* Partner Banner */}
       <section className="border-t border-slate-100 bg-violet-50 py-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <p className="text-xs font-bold text-violet-600 uppercase tracking-widest mb-1">Research Partner</p>
+              <p className="text-xs font-bold text-violet-600 uppercase tracking-widest mb-1">Sister Site</p>
               <p className="text-xl font-bold text-slate-900 mb-1">LooksMaxingStack.com</p>
               <p className="text-sm text-slate-500 max-w-lg">
-                Compare peptides side-by-side, explore curated research stacks, and read additional science guides — our research partner for comprehensive looksmaxxing protocols.
+                Compare peptides side-by-side, explore curated stacks, and read additional guides — our sister site for comprehensive looksmaxxing protocols.
               </p>
             </div>
             <div className="flex flex-wrap gap-3 flex-shrink-0">

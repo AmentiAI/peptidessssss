@@ -20,22 +20,30 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { AFFILIATE_URL } from "@/lib/peptide-data"
 
 export const metadata: Metadata = {
-  title: "Peptide Comparison — BPC-157 vs TB-500, Tirzepatide vs Retatrutide & More",
+  title: "Compare Peptides Before You Buy — BPC-157 vs TB-500, Tirzepatide vs Retatrutide & More",
   description:
-    "Side-by-side peptide comparisons: BPC-157 vs TB-500, Ipamorelin vs GHRP-2, CJC-1295 vs Sermorelin, Tirzepatide vs Retatrutide. Mechanism, dosing, half-life, and research evidence compared.",
+    "Side-by-side peptide comparisons to help you choose what to buy: BPC-157 vs TB-500, Ipamorelin vs GHRP-2, CJC-1295 vs Sermorelin, Tirzepatide vs Retatrutide. Mechanism, dosing, price.",
+  keywords: [
+    "compare peptides",
+    "BPC-157 vs TB-500",
+    "Tirzepatide vs Retatrutide",
+    "best peptides to buy",
+    "Ipamorelin vs GHRP-2",
+    "peptide comparison",
+  ],
   alternates: { canonical: "https://www.peptidesmaxxing.com/compare" },
   openGraph: {
-    title: "Peptide Comparison Hub — Side-by-Side Research Analysis",
+    title: "Compare Peptides Before You Buy — Side-by-Side Analysis",
     description:
-      "Compare BPC-157 vs TB-500, Ipamorelin vs GHRP-2, Tirzepatide vs Retatrutide, and more. Mechanism, potency, half-life, and protocol differences explained.",
+      "Compare BPC-157 vs TB-500, Ipamorelin vs GHRP-2, Tirzepatide vs Retatrutide, and more. Choose the right peptide to buy with mechanism, half-life, and dosing breakdowns.",
     url: "https://www.peptidesmaxxing.com/compare",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Peptide Comparison — BPC-157 vs TB-500, Tirzepatide vs Retatrutide",
+    title: "Compare Peptides — BPC-157 vs TB-500, Tirzepatide vs Retatrutide",
     description:
-      "Head-to-head peptide comparisons with mechanism breakdowns, dosing protocols, and research evidence.",
+      "Head-to-head peptide comparisons to help you choose what to buy — mechanism breakdowns, dosing protocols, and price-relevant insights.",
   },
 }
 
@@ -46,12 +54,12 @@ const jsonLd = {
   url: "https://www.peptidesmaxxing.com/compare",
   name: "Peptide Comparison Hub — PeptidesMaxxing",
   description:
-    "Side-by-side comparisons of research peptides: mechanism, dosing, half-life, and research evidence.",
+    "Side-by-side comparisons of peptides to help buyers choose: mechanism, dosing, half-life, and evidence.",
   breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://www.peptidesmaxxing.com" },
-      { "@type": "ListItem", position: 2, name: "Peptide Comparisons", item: "https://www.peptidesmaxxing.com/compare" },
+      { "@type": "ListItem", position: 2, name: "Compare Peptides", item: "https://www.peptidesmaxxing.com/compare" },
     ],
   },
 }
@@ -183,7 +191,7 @@ const COMPARISONS: CompareBlock[] = [
       { label: "Gastrointestinal Tolerability", a: "Moderate — standard GLP-1 class", b: "Moderate–high — additional glucagon effects", winner: "A" },
       { label: "Hepatic Fat Reduction", a: "Significant (NASH trial data)", b: "Very significant — glucagon drives hepatic fat clearance", winner: "B" },
       { label: "Lean Mass Preservation", a: "Moderate — some muscle loss at high doses", b: "Better — glucagon receptor promotes lipolysis over proteolysis", winner: "B" },
-      { label: "Research Availability", a: "Widely available research grade", b: "Available — rapidly expanding catalog", winner: "A" },
+      { label: "Availability", a: "Widely available, lab grade", b: "Available — rapidly expanding catalog", winner: "A" },
     ],
     aStrengths: [
       "Largest and most replicated human trial dataset",
@@ -305,15 +313,14 @@ export default function ComparePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-3 mb-4">
             <Scale className="w-6 h-6 text-blue-600" />
-            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest">Peptide Comparisons</p>
+            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest">Compare Peptides</p>
           </div>
           <h1 className="text-5xl sm:text-6xl font-bold text-slate-900 mb-5 max-w-3xl leading-tight">
-            Head-to-Head<br />Peptide Analysis
+            Compare Peptides<br />Before You Buy
           </h1>
           <p className="text-lg text-slate-600 max-w-2xl mb-8 leading-relaxed">
-            Side-by-side breakdowns of the most-compared research peptide pairs. Mechanism, half-life, dosing,
-            research evidence, and stack compatibility — everything you need to choose the right compound for
-            your research goals.
+            Side-by-side breakdowns of the most-compared peptide pairs. Mechanism, half-life, dosing,
+            evidence, and stack compatibility — everything you need to choose the right peptide to buy.
           </p>
           <div className="flex flex-wrap gap-3">
             {GOAL_FILTERS.slice(1).map((goal) => (
@@ -353,14 +360,14 @@ export default function ComparePage() {
             {
               icon: BarChart3,
               title: "Mechanism-First Analysis",
-              desc: "Each comparison starts with receptor biology and downstream signaling — so you understand why two peptides differ, not just that they do.",
+              desc: "Each comparison starts with receptor biology and downstream signaling — so you understand why two peptides differ before you buy.",
               color: "text-blue-600",
               bg: "bg-blue-50 border-blue-100",
             },
             {
               icon: Target,
-              title: "Research Goal Matching",
-              desc: "Every head-to-head concludes with a 'Best For' recommendation tied to specific research endpoints, not vague generalizations.",
+              title: "Goal-Based Recommendations",
+              desc: "Every head-to-head concludes with a 'Best For' recommendation tied to specific buyer goals, not vague generalizations.",
               color: "text-purple-600",
               bg: "bg-purple-50 border-purple-100",
             },
@@ -399,7 +406,7 @@ export default function ComparePage() {
               <div className="p-6 rounded-2xl bg-slate-900 text-white mb-8">
                 <div className="flex items-start gap-3 mb-3">
                   <Scale className="w-5 h-5 text-slate-300 mt-0.5 shrink-0" />
-                  <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Research Verdict</p>
+                  <p className="text-xs font-bold uppercase tracking-widest text-slate-400">Verdict</p>
                 </div>
                 <p className="text-slate-200 leading-relaxed">{comp.verdict}</p>
               </div>
@@ -492,13 +499,13 @@ export default function ComparePage() {
                   href={`/products/${comp.slugA}`}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
                 >
-                  Research {comp.peptideA} <ArrowRight className="w-4 h-4" />
+                  Buy {comp.peptideA} <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href={`/products/${comp.slugB}`}
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-slate-900 border border-slate-300 hover:border-slate-500 transition-colors"
                 >
-                  Research {comp.peptideB} <ArrowRight className="w-4 h-4" />
+                  Buy {comp.peptideB} <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   href={AFFILIATE_URL}
@@ -506,7 +513,7 @@ export default function ComparePage() {
                   rel="nofollow sponsored noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold text-blue-600 border border-blue-200 hover:border-blue-400 hover:bg-blue-50 transition-colors"
                 >
-                  Shop Both at Phiogen <ArrowRight className="w-4 h-4" />
+                  Shop Both Online <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -519,10 +526,10 @@ export default function ComparePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
             <p className="text-xs font-bold text-purple-600 uppercase tracking-widest mb-2">Decision Framework</p>
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">How to Choose Between Peptides</h2>
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">How to Choose a Peptide to Buy</h2>
             <p className="text-slate-500 max-w-2xl mx-auto">
-              The right peptide for a research protocol depends on four factors. Work through this framework
-              before committing to a compound.
+              The right peptide depends on four factors. Work through this framework
+              before committing to a purchase.
             </p>
           </div>
 
@@ -530,8 +537,8 @@ export default function ComparePage() {
             {[
               {
                 step: "01",
-                title: "Define the Research Endpoint",
-                desc: "What biological outcome is being studied? Tendon repair, GH axis stimulation, metabolic regulation, and telomere biology each require different peptide classes. A recovery peptide will not meaningfully impact GH secretion, and vice versa.",
+                title: "Define Your Goal",
+                desc: "What outcome do you want? Tendon repair, GH axis stimulation, metabolic regulation, and telomere biology each require different peptide classes. A recovery peptide will not meaningfully impact GH secretion, and vice versa.",
                 color: "text-blue-600 bg-blue-100",
               },
               {
@@ -542,14 +549,14 @@ export default function ComparePage() {
               },
               {
                 step: "03",
-                title: "Consider Half-life and Protocol Fit",
-                desc: "CJC-1295 DAC's 6–8 day half-life enables weekly dosing while Sermorelin requires daily injections. The right half-life depends on whether continuous or pulsatile signaling matches your research model.",
+                title: "Consider Half-life and Dosing Fit",
+                desc: "CJC-1295 DAC's 6–8 day half-life enables weekly dosing while Sermorelin requires daily injections. The right half-life depends on whether continuous or pulsatile signaling fits your protocol.",
                 color: "text-emerald-600 bg-emerald-100",
               },
               {
                 step: "04",
                 title: "Check Stack Compatibility",
-                desc: "Many peptides show synergistic effects when combined — BPC-157 + TB-500 for recovery, Ipamorelin + CJC-1295 for GH stimulation. Check whether candidates share complementary or competing pathways before designing a multi-peptide protocol.",
+                desc: "Many peptides show synergistic effects when combined — BPC-157 + TB-500 for recovery, Ipamorelin + CJC-1295 for GH stimulation. Check whether candidates share complementary or competing pathways before buying a multi-peptide stack.",
                 color: "text-orange-600 bg-orange-100",
               },
             ].map(({ step, title, desc, color }) => (
@@ -568,8 +575,8 @@ export default function ComparePage() {
           {/* Combination Recommendations */}
           <div className="rounded-2xl border border-slate-200 bg-white overflow-hidden">
             <div className="p-6 border-b border-slate-100">
-              <h3 className="text-xl font-bold text-slate-900">Commonly Researched Combinations</h3>
-              <p className="text-sm text-slate-500 mt-1">Peptide pairs and stacks with documented synergistic research rationale</p>
+              <h3 className="text-xl font-bold text-slate-900">Popular Peptide Combinations to Buy</h3>
+              <p className="text-sm text-slate-500 mt-1">Peptide pairs and stacks with documented synergistic rationale</p>
             </div>
             <div className="divide-y divide-slate-100">
               {[
@@ -637,20 +644,20 @@ export default function ComparePage() {
           <div className="flex items-start gap-4 p-6 rounded-2xl border border-amber-200 bg-white mb-10">
             <AlertTriangle className="w-6 h-6 text-amber-500 shrink-0 mt-0.5" />
             <div>
-              <p className="font-bold text-slate-900 mb-1">Research Use Only</p>
+              <p className="font-bold text-slate-900 mb-1">Disclaimer</p>
               <p className="text-sm text-slate-600 leading-relaxed">
-                All comparisons on this page are for educational and research purposes. These compounds are not
-                approved for human therapeutic use. No comparison constitutes medical advice. Consult a qualified
-                physician and review applicable regulations before any research use.
+                Peptides are sold for laboratory and educational use only. Not for human or veterinary use.
+                Buyers are responsible for compliance with local regulations. No comparison on this page
+                constitutes medical advice.
               </p>
             </div>
           </div>
 
           <div className="text-center">
-            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Ready to Research?</p>
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Source Research-Grade Peptides</h2>
+            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Ready to Buy?</p>
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Buy Peptides Online — High Purity, Fast Shipping</h2>
             <p className="text-slate-500 mb-8 max-w-lg mx-auto">
-              All peptides reviewed on this page are available from Phiogen with COA documentation,
+              All peptides reviewed on this page are available with COA documentation,
               ≥99% purity verification, and independent HPLC testing.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -660,7 +667,7 @@ export default function ComparePage() {
                 rel="nofollow sponsored noopener noreferrer"
                 className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
               >
-                Shop <ArrowRight className="w-4 h-4" />
+                Shop Peptides Now <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/stacks"

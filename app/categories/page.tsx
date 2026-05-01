@@ -5,21 +5,29 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { getAllCategories, getAllProducts } from "@/lib/peptide-data"
 
 export const metadata: Metadata = {
-  title: "Peptide Categories — Muscle, Fat Loss & Anti-Aging",
+  title: "Buy Peptides by Category — Muscle, Fat Loss & Anti-Aging",
   description:
-    "Browse 62+ research peptides by goal. Muscle growth, anti-aging, fat loss, cognitive, immunity, libido, and skin categories.",
+    "Shop 62+ peptides for sale by goal. Muscle growth, anti-aging, fat loss, cognitive, immunity, libido, and skin categories — high purity, COA verified, fast shipping.",
+  keywords: [
+    "buy peptides by category",
+    "peptide categories",
+    "buy muscle growth peptides",
+    "buy anti-aging peptides",
+    "buy fat loss peptides",
+    "peptides for sale by goal",
+  ],
   alternates: { canonical: "https://www.peptidesmaxxing.com/categories" },
   openGraph: {
-    title: "Peptide Categories — Muscle, Fat Loss & Anti-Aging",
-    description: "Browse 62+ research peptides by goal. Muscle growth, anti-aging, fat loss, cognitive, immunity, libido, and skin categories.",
+    title: "Buy Peptides by Category — Muscle, Fat Loss & Anti-Aging",
+    description: "Shop 62+ peptides for sale by goal. Muscle growth, anti-aging, fat loss, cognitive, immunity, libido, and skin categories.",
     url: "https://www.peptidesmaxxing.com/categories",
     type: "website",
     images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Peptide Categories — Browse by Goal | Muscle, Anti-Aging, Fat Loss & More",
-    description: "Find your peptide: BPC-157 for recovery, Tirzepatide for fat loss, Epithalon for anti-aging, Semax for focus, GHK-Cu for skin — 62+ research-grade options.",
+    title: "Buy Peptides by Category — Muscle, Anti-Aging, Fat Loss & More",
+    description: "Find your peptide: BPC-157 for recovery, Tirzepatide for fat loss, Epithalon for anti-aging, Semax for focus, GHK-Cu for skin — 62+ peptides for sale.",
   },
 }
 
@@ -34,10 +42,10 @@ export default async function CategoriesPage() {
     <PageLayout>
       <section className="py-16 border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Browse by Goal</p>
-          <h1 className="text-5xl font-bold text-slate-900 mb-3">Peptide Categories</h1>
+          <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Shop by Goal</p>
+          <h1 className="text-5xl font-bold text-slate-900 mb-3">Buy Peptides by Category</h1>
           <p className="text-slate-500 text-lg max-w-2xl">
-            Every research peptide organized by primary application. Find the right compounds for your research goals.
+            Every peptide organized by primary application. Find the right compounds for your goals — high purity, COA verified, fast shipping.
           </p>
         </div>
       </section>

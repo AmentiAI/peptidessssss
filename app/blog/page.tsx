@@ -6,12 +6,20 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { getAllBlogPosts } from "@/lib/peptide-data"
 
 export const metadata: Metadata = {
-  title: "Peptide Research Blog — Science, Dosing & Stacking Guides",
+  title: "Peptide Blog — Science, Dosing & Stacking Guides",
   description:
-    "Evidence-based peptide guides: BPC-157 healing, Tirzepatide weight loss, Epithalon longevity, Semax cognition, GHK-Cu skin, Ipamorelin GH stacking, and looksmaxxing peptides.",
+    "Evidence-based peptide articles: BPC-157 healing, Tirzepatide weight loss, Epithalon longevity, Semax cognition, GHK-Cu skin, Ipamorelin GH stacking, and looksmaxxing peptides.",
+  keywords: [
+    "peptide blog",
+    "peptide articles",
+    "BPC-157 guide",
+    "Tirzepatide guide",
+    "peptide stacking",
+    "best peptides",
+  ],
   alternates: { canonical: "https://www.peptidesmaxxing.com/blog" },
   openGraph: {
-    title: "Peptide Research Blog — Science, Dosing & Stacking Guides",
+    title: "Peptide Blog — Science, Dosing & Stacking Guides",
     description: "Evidence-based peptide guides: BPC-157 healing, Tirzepatide weight loss, Epithalon longevity, Semax cognition, GHK-Cu skin, and Ipamorelin GH stacking.",
     url: "https://www.peptidesmaxxing.com/blog",
     type: "website",
@@ -19,7 +27,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Peptide Science Blog — Dosing, Mechanisms & Stacking",
+    title: "Peptide Blog — Dosing, Mechanisms & Stacking",
     description: "BPC-157, Tirzepatide, Epithalon, Semax, GHK-Cu, Ipamorelin — evidence-based peptide articles, dosing guides, mechanisms, and looksmaxxing science.",
   },
 }
@@ -38,12 +46,12 @@ export default async function BlogPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-3 mb-4">
             <BookOpen className="w-6 h-6 text-blue-600" />
-            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest">Research Blog</p>
+            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest">Blog</p>
           </div>
-          <h1 className="text-5xl font-bold text-slate-900 mb-3">Peptide Research Articles</h1>
+          <h1 className="text-5xl font-bold text-slate-900 mb-3">Peptide Articles & Guides</h1>
           <p className="text-slate-500 text-lg max-w-2xl">
-            Evidence-based research articles, mechanism deep-dives, and protocol guides from the PeptidesMaxxing
-            research team.
+            Evidence-based peptide articles, mechanism deep-dives, and protocol guides from the PeptidesMaxxing
+            editorial team.
           </p>
         </div>
       </section>
@@ -53,7 +61,7 @@ export default async function BlogPage() {
           <div className="text-center py-24 text-slate-500">
             <BookOpen className="w-12 h-12 mx-auto mb-4 text-slate-300" />
             <h2 className="text-xl font-semibold text-slate-700 mb-2">Blog posts coming soon</h2>
-            <p className="text-sm">In-depth research articles are being prepared.</p>
+            <p className="text-sm">In-depth peptide articles are being prepared.</p>
             <Link href="/products" className="inline-flex items-center gap-2 mt-6 text-blue-600 font-semibold hover:text-blue-800">
               Browse our peptide catalog <ArrowRight className="w-4 h-4" />
             </Link>

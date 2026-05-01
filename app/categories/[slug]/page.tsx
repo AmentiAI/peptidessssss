@@ -28,21 +28,31 @@ export async function generateMetadata({
   const { slug } = await params
   const cat = await getCategoryBySlug(slug)
   if (!cat) return {}
+  const desc = cat.seoDescription
+    ? cat.seoDescription
+    : `Buy ${cat.name} peptides online — mechanisms, dosing protocols, and the full product catalog. High purity, COA verified, fast shipping.`
   return {
-    title: `Best ${cat.name} Peptides — Benefits, Dosing & Where to Buy`,
-    description: cat.seoDescription ?? `Browse ${cat.name} research peptides. Mechanisms, protocols, and complete product catalog.`,
+    title: `Buy ${cat.name} Peptides Online — Benefits, Dosing & Price`,
+    description: desc,
+    keywords: [
+      `buy ${cat.name.toLowerCase()} peptides`,
+      `${cat.name.toLowerCase()} peptides for sale`,
+      `${cat.name.toLowerCase()} peptide price`,
+      `best ${cat.name.toLowerCase()} peptides`,
+      "peptides for sale",
+    ],
     alternates: { canonical: `https://www.peptidesmaxxing.com/categories/${slug}` },
     openGraph: {
-      title: `Best ${cat.name} Peptides — Benefits, Dosing & Where to Buy`,
-      description: cat.seoDescription ?? `Browse ${cat.name} research peptides.`,
+      title: `Buy ${cat.name} Peptides Online — Benefits, Dosing & Price`,
+      description: desc,
       url: `https://www.peptidesmaxxing.com/categories/${slug}`,
       type: "website",
       images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
-      title: `Best ${cat.name} Peptides — Benefits, Dosing & Where to Buy`,
-      description: cat.seoDescription ?? `Browse ${cat.name} research peptides.`,
+      title: `Buy ${cat.name} Peptides Online — Benefits, Dosing & Price`,
+      description: desc,
     },
   }
 }
@@ -113,6 +123,53 @@ export default async function CategoryPage({
     ? (cat.faq as { question: string; answer: string }[])
     : []
 
+  const categoryUrl = `https://www.peptidesmaxxing.com/categories/${slug}`
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.peptidesmaxxing.com" },
+      { "@type": "ListItem", position: 2, name: "Categories", item: "https://www.peptidesmaxxing.com/categories" },
+      { "@type": "ListItem", position: 3, name: cat.name, item: categoryUrl },
+    ],
+  }
+
+  const itemListJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `${cat.name} Peptides`,
+    numberOfItems: catProducts.length,
+    itemListElement: catProducts.map((p, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      url: `https://www.peptidesmaxxing.com/products/${p.slug}`,
+      name: p.name,
+    })),
+  }
+
+  const collectionPageJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "@id": categoryUrl,
+    url: categoryUrl,
+    name: `Buy ${cat.name} Peptides Online`,
+    description: cat.seoDescription ?? cat.description ?? `${cat.name} peptides catalog.`,
+    isPartOf: { "@type": "WebSite", url: "https://www.peptidesmaxxing.com", name: "PeptidesMaxxing" },
+    breadcrumb: breadcrumbJsonLd,
+    mainEntity: itemListJsonLd,
+  }
+
+  const faqJsonLd = faqItems.length === 0 ? null : {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((f) => ({
+      "@type": "Question",
+      name: f.question,
+      acceptedAnswer: { "@type": "Answer", text: f.answer },
+    })),
+  }
+
   function renderContent(content: string | null) {
     if (!content) return null
     return content.split("\n").map((line, i) => {
@@ -145,6 +202,12 @@ export default async function CategoryPage({
 
   return (
     <PageLayout>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionPageJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListJsonLd) }} />
+      {faqJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      )}
       {/* Hero */}
       <section className="relative py-20 overflow-hidden border-b border-slate-200">
         <div
@@ -172,7 +235,7 @@ export default async function CategoryPage({
             {cat.name}
           </p>
           <h1 className="text-5xl font-bold text-slate-900 mb-4 max-w-3xl">
-            {cat.name} Research Peptides
+            Buy {cat.name} Peptides Online
           </h1>
           <p className="text-lg text-slate-500 max-w-2xl mb-8">
             {cat.heroDescription ?? cat.description}
@@ -186,7 +249,7 @@ export default async function CategoryPage({
             </div>
             <div className="px-4 py-2 rounded-xl border border-slate-200 bg-slate-50">
               <span className="text-sm font-bold text-slate-900">COA Verified</span>
-              <span className="text-sm text-slate-500 ml-1">research grade</span>
+              <span className="text-sm text-slate-500 ml-1">99%+ purity</span>
             </div>
           </div>
         </div>
@@ -211,7 +274,7 @@ export default async function CategoryPage({
             Shop {cat.name} Peptides
           </h2>
           <p className="text-slate-500 mb-6">
-            Research-grade quality — COA verified. For research use only.
+            High purity, COA verified, fast shipping from a trusted supplier.
           </p>
           <a
             href={AFFILIATE_URL}
@@ -219,7 +282,7 @@ export default async function CategoryPage({
             rel="nofollow sponsored noopener noreferrer"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
           >
-            Shop Research Peptides <ArrowRight className="w-4 h-4" />
+            Shop {cat.name} Peptides <ArrowRight className="w-4 h-4" />
           </a>
         </div>
       </section>
@@ -249,9 +312,9 @@ export default async function CategoryPage({
       <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-8">
         <div className="p-6 rounded-2xl border border-slate-200 bg-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
           <div>
-            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Peptide Cycles</p>
+            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-1">Peptide Stacks</p>
             <h3 className="text-lg font-bold text-slate-900">
-              Try a Pre-Built Research Cycle
+              Buy a Pre-Built Peptide Stack
             </h3>
             <p className="text-sm text-slate-500 mt-1">
               Synergistic combinations of {cat.name.toLowerCase()} peptides.
@@ -261,16 +324,16 @@ export default async function CategoryPage({
             href="/stacks"
             className="flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors flex-shrink-0"
           >
-            View Cycles <ArrowRight className="w-4 h-4" />
+            View Stacks <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>
 
-      {/* Related Research Reading */}
+      {/* Related Reading */}
       {relatedReading.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 sm:px-6 pb-8">
           <div className="p-6 rounded-2xl border border-slate-200 bg-white">
-            <p className="text-xs font-bold text-purple-600 uppercase tracking-widest mb-4">Related Research</p>
+            <p className="text-xs font-bold text-purple-600 uppercase tracking-widest mb-4">Related Reading</p>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
               {relatedReading.map((item) => (
                 <Link
@@ -318,10 +381,10 @@ export default async function CategoryPage({
       <section className="py-16 border-t border-slate-100 bg-slate-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl font-bold text-slate-900 mb-4">
-            Start Your {cat.name} Research
+            Buy {cat.name} Peptides Online
           </h2>
           <p className="text-slate-500 mb-8">
-            {catProducts.length} research peptides available — COA verified, research grade.
+            {catProducts.length} peptides for sale — high purity, COA verified, fast shipping.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -336,11 +399,11 @@ export default async function CategoryPage({
               href="/guides"
               className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-slate-900 border-2 border-slate-900 hover:bg-slate-900 hover:text-white transition-all"
             >
-              Research Guides
+              Peptide Guides
             </Link>
           </div>
           <p className="mt-6 text-xs text-slate-400">
-            For research use only. Not for human consumption. Consult a physician.
+            Disclaimer: Sold for laboratory and educational use only. Not for human or veterinary use.
           </p>
         </div>
       </section>

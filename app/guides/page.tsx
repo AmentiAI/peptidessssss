@@ -6,12 +6,19 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { getAllGuides } from "@/lib/peptide-data"
 
 export const metadata: Metadata = {
-  title: "Peptide Research Guides — Dosing, Storage & Stacking",
+  title: "Peptide Guides — Dosing, Storage & Stacking",
   description:
     "How to reconstitute peptides, stack Ipamorelin + CJC-1295, verify purity, and run longevity protocols with Epithalon + GHK-Cu. Complete handling and stacking guides.",
+  keywords: [
+    "peptide guides",
+    "how to reconstitute peptides",
+    "peptide storage",
+    "peptide stacking guide",
+    "peptide dosing guide",
+  ],
   alternates: { canonical: "https://www.peptidesmaxxing.com/guides" },
   openGraph: {
-    title: "Peptide Research Guides — Dosing, Storage & Stacking",
+    title: "Peptide Guides — Dosing, Storage & Stacking",
     description: "BPC-157 storage, Ipamorelin + CJC-1295 GH stacking, HPLC purity testing, Epithalon longevity protocols — complete peptide guides from PeptidesMaxxing.",
     url: "https://www.peptidesmaxxing.com/guides",
     type: "website",
@@ -33,11 +40,11 @@ export default async function GuidesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-3 mb-4">
             <BookOpen className="w-6 h-6 text-blue-600" />
-            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest">Research Guides</p>
+            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest">Peptide Guides</p>
           </div>
-          <h1 className="text-5xl font-bold text-slate-900 mb-3">Peptide Research Guides</h1>
+          <h1 className="text-5xl font-bold text-slate-900 mb-3">Peptide Guides</h1>
           <p className="text-slate-500 text-lg max-w-2xl">
-            Complete, evidence-based guides for peptide researchers — from storage and reconstitution to advanced stacking protocols.
+            Complete, evidence-based guides for peptide buyers — from storage and reconstitution to advanced stacking protocols.
           </p>
         </div>
       </section>
@@ -47,7 +54,7 @@ export default async function GuidesPage() {
           <div className="text-center py-24 text-slate-500">
             <BookOpen className="w-12 h-12 mx-auto mb-4 text-slate-300" />
             <h2 className="text-xl font-semibold text-slate-700 mb-2">Guides coming soon</h2>
-            <p className="text-sm">In-depth research guides are being prepared.</p>
+            <p className="text-sm">In-depth peptide guides are being prepared.</p>
             <Link href="/products" className="inline-flex items-center gap-2 mt-6 text-blue-600 font-semibold hover:text-blue-800">
               Browse our peptide catalog <ArrowRight className="w-4 h-4" />
             </Link>
@@ -74,7 +81,7 @@ export default async function GuidesPage() {
                     />
                     <div className="absolute top-3 left-3">
                       <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-900 text-white">
-                        Guide
+                        Peptide Guide
                       </span>
                     </div>
                   </div>
@@ -104,13 +111,13 @@ export default async function GuidesPage() {
 
         {/* CTA */}
         <div className="mt-12 p-8 rounded-2xl border border-slate-200 bg-slate-50 text-center">
-          <h2 className="text-2xl font-bold text-slate-900 mb-3">Ready to Start Your Research?</h2>
-          <p className="text-slate-500 mb-6">Browse our full range of research peptides.</p>
+          <h2 className="text-2xl font-bold text-slate-900 mb-3">Ready to Buy Peptides?</h2>
+          <p className="text-slate-500 mb-6">Browse our full range of peptides — high purity, COA verified, fast shipping.</p>
           <Link
             href="/products"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
           >
-            Browse Research Peptides <ArrowRight className="w-4 h-4" />
+            Shop All Peptides <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </section>

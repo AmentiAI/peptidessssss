@@ -24,22 +24,31 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { AFFILIATE_URL } from "@/lib/peptide-data"
 
 export const metadata: Metadata = {
-  title: "Peptide Research Protocols — Dosing, Timing & Cycle Guides",
+  title: "Peptide Protocols — Dosing, Timing & Cycle Guides",
   description:
-    "Complete peptide research protocols for muscle growth, fat loss, recovery, anti-aging, and cognitive enhancement. Beginner to advanced dosing schedules, injection timing, and cycle lengths.",
+    "Complete peptide dosing protocols for muscle growth, fat loss, recovery, anti-aging, and cognitive goals. Beginner to advanced dosing schedules, injection timing, and cycle lengths. Buy linked peptides with one click.",
+  keywords: [
+    "peptide protocols",
+    "peptide dosing guide",
+    "BPC-157 protocol",
+    "Ipamorelin CJC-1295 protocol",
+    "Tirzepatide dosing",
+    "Epithalon dosing",
+    "peptide cycle guide",
+  ],
   alternates: { canonical: "https://www.peptidesmaxxing.com/protocols" },
   openGraph: {
-    title: "Peptide Research Protocols — Dosing, Timing & Cycle Library",
+    title: "Peptide Protocols — Dosing, Timing & Cycle Library",
     description:
-      "Detailed research protocols for BPC-157, Ipamorelin + CJC-1295, Tirzepatide, Epithalon, and more. Dosing schedules, half-life tables, and cycle designs.",
+      "Detailed dosing protocols for BPC-157, Ipamorelin + CJC-1295, Tirzepatide, Epithalon, and more. Buy the peptides linked in each protocol.",
     url: "https://www.peptidesmaxxing.com/protocols",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Peptide Research Protocols — Beginner to Advanced Cycle Guides",
+    title: "Peptide Protocols — Beginner to Advanced Cycle Guides",
     description:
-      "BPC-157, Ipamorelin + CJC-1295, Tirzepatide metabolic, Epithalon longevity, and cognitive peptide protocols with full dosing schedules.",
+      "BPC-157, Ipamorelin + CJC-1295, Tirzepatide metabolic, Epithalon longevity, and cognitive peptide protocols with full dosing schedules and buy links.",
   },
 }
 
@@ -48,13 +57,13 @@ const jsonLd = {
   "@type": "WebPage",
   "@id": "https://www.peptidesmaxxing.com/protocols",
   url: "https://www.peptidesmaxxing.com/protocols",
-  name: "Peptide Research Protocols — PeptidesMaxxing",
-  description: "Complete research protocols for peptide dosing, timing, and cycling.",
+  name: "Peptide Protocols — PeptidesMaxxing",
+  description: "Complete dosing protocols for peptides — timing, cycling, and stacking guides.",
   breadcrumb: {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://www.peptidesmaxxing.com" },
-      { "@type": "ListItem", position: 2, name: "Research Protocols", item: "https://www.peptidesmaxxing.com/protocols" },
+      { "@type": "ListItem", position: 2, name: "Peptide Protocols", item: "https://www.peptidesmaxxing.com/protocols" },
     ],
   },
 }
@@ -329,20 +338,20 @@ export default function ProtocolsPage() {
             <p className="text-xs font-bold text-purple-600 uppercase tracking-widest">Protocol Library</p>
           </div>
           <h1 className="text-5xl sm:text-6xl font-bold text-slate-900 mb-5 max-w-3xl leading-tight">
-            Peptide Research<br />Protocol Library
+            Peptide Protocols<br />& Dosing Guides
           </h1>
           <p className="text-lg text-slate-600 max-w-2xl mb-8 leading-relaxed">
-            Complete, evidence-referenced research protocols for every major peptide goal. Each protocol
-            includes compound selection rationale, week-by-week dosing schedules, injection timing,
-            expected research outcomes, and off-cycle considerations.
+            Complete, evidence-referenced dosing protocols for every major peptide goal. Each protocol
+            includes peptide selection rationale, week-by-week dosing schedules, injection timing,
+            expected outcomes, and off-cycle considerations — with direct links to buy each peptide.
           </p>
 
           {/* Stats */}
           <div className="flex flex-wrap gap-6">
             {[
               { label: "Protocols", value: `${PROTOCOLS.length}` },
-              { label: "Compounds Covered", value: "25+" },
-              { label: "Research Goals", value: "6" },
+              { label: "Peptides Covered", value: "25+" },
+              { label: "Goals", value: "6" },
               { label: "Difficulty Levels", value: "3" },
             ].map((s) => (
               <div key={s.label} className="text-center">
@@ -412,7 +421,7 @@ export default function ProtocolsPage() {
                   {/* Compounds Table */}
                   <div className="mb-8">
                     <h3 className="text-sm font-bold text-slate-700 uppercase tracking-wider mb-3 flex items-center gap-2">
-                      <Syringe className="w-4 h-4" /> Compounds
+                      <Syringe className="w-4 h-4" /> Peptides in this Protocol
                     </h3>
                     <div className="rounded-xl border border-slate-200 overflow-hidden">
                       <div className="grid grid-cols-[1fr_1fr_1fr_1fr] bg-slate-50 border-b border-slate-200">
@@ -466,7 +475,7 @@ export default function ProtocolsPage() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div className="p-5 rounded-xl bg-amber-50 border border-amber-100">
                       <h3 className="text-sm font-bold text-slate-700 uppercase tracking-wider mb-3 flex items-center gap-2">
-                        <BookOpen className="w-4 h-4 text-amber-600" /> Research Notes
+                        <BookOpen className="w-4 h-4 text-amber-600" /> Notes
                       </h3>
                       <ul className="space-y-2">
                         {protocol.notes.map((note) => (
@@ -501,7 +510,7 @@ export default function ProtocolsPage() {
                           href={`/products/${c.slug}`}
                           className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold bg-slate-100 text-slate-800 hover:bg-slate-200 transition-colors"
                         >
-                          Research {c.name} <ArrowRight className="w-3 h-3" />
+                          Buy {c.name} <ArrowRight className="w-3 h-3" />
                         </Link>
                       ) : null
                     )}
@@ -511,7 +520,7 @@ export default function ProtocolsPage() {
                       rel="nofollow sponsored noopener noreferrer"
                       className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
                     >
-                      Source All Compounds <ArrowRight className="w-3 h-3" />
+                      Buy All Peptides <ArrowRight className="w-3 h-3" />
                     </Link>
                   </div>
                 </div>
@@ -529,7 +538,7 @@ export default function ProtocolsPage() {
             <h2 className="text-4xl font-bold text-slate-900 mb-3">Peptide Half-Life & Dosing Frequency</h2>
             <p className="text-slate-500 max-w-xl mx-auto">
               Half-life determines dosing frequency and injection timing. Use this table when designing
-              multi-peptide research protocols to avoid under- or over-dosing.
+              multi-peptide protocols to avoid under- or over-dosing.
             </p>
           </div>
 
@@ -563,7 +572,7 @@ export default function ProtocolsPage() {
           <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Universal Guidelines</p>
           <h2 className="text-4xl font-bold text-slate-900">Protocol Design Principles</h2>
           <p className="text-slate-500 mt-2 max-w-xl mx-auto">
-            Core principles that apply across all peptide research protocols regardless of compound or goal.
+            Core principles that apply across all peptide protocols regardless of peptide or goal.
           </p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -614,21 +623,20 @@ export default function ProtocolsPage() {
           <div className="flex items-start gap-4 p-6 rounded-2xl border border-amber-200 bg-white mb-10">
             <AlertTriangle className="w-6 h-6 text-amber-500 shrink-0 mt-0.5" />
             <div>
-              <p className="font-bold text-slate-900 mb-1">Research Use Only</p>
+              <p className="font-bold text-slate-900 mb-1">Disclaimer</p>
               <p className="text-sm text-slate-600 leading-relaxed">
-                All protocols on this page are designed for educational and research purposes only. These compounds
-                are not approved for human therapeutic use by the FDA or equivalent regulatory bodies. Dosing,
-                timing, and cycle recommendations reflect published research literature and are not medical advice.
-                Always consult a qualified healthcare provider before any research use.
+                Peptides are sold for laboratory and educational use only. Not for human or veterinary use.
+                Buyers are responsible for compliance with local regulations. Dosing, timing, and cycle
+                information on this page reflects published literature and is not medical advice.
               </p>
             </div>
           </div>
 
           <div className="text-center">
-            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Source Your Research Compounds</p>
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Phiogen — COA Verified, ≥99% Purity</h2>
+            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Buy Your Peptides</p>
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">High Purity, COA Verified, Fast Shipping</h2>
             <p className="text-slate-500 mb-8 max-w-lg mx-auto">
-              Every compound listed in our protocols is available with third-party HPLC verification and
+              Every peptide listed in our protocols is available with third-party HPLC verification and
               complete certificate of analysis documentation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -638,13 +646,13 @@ export default function ProtocolsPage() {
                 rel="nofollow sponsored noopener noreferrer"
                 className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
               >
-                Shop <ArrowRight className="w-4 h-4" />
+                Shop Peptides Now <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/guides"
                 className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-slate-900 border-2 border-slate-300 hover:border-slate-900 transition-colors"
               >
-                Read Research Guides
+                Read Peptide Guides
               </Link>
             </div>
           </div>

@@ -6,14 +6,23 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { staticProducts, AFFILIATE_URL } from "@/lib/static-products"
 
 export const metadata: Metadata = {
-  title: "Cognitive & Brain Peptides — Semax, Selank, Cerebrolysin | PeptidesMaxxing",
+  title: "Buy Cognitive & Brain Peptides Online — Semax, Selank, Cerebrolysin | PeptidesMaxxing",
   description:
-    "Research the top cognitive and neuroprotective peptides: Semax, Selank, Cerebrolysin, DSIP. BDNF upregulation, anxiety reduction, memory consolidation, and neuroprotection.",
+    "Buy top cognitive and neuroprotective peptides online: Semax, Selank, Cerebrolysin, DSIP. High purity, COA verified, fast shipping. BDNF upregulation, focus, memory & neuroprotection.",
+  keywords: [
+    "buy cognitive peptides",
+    "buy nootropic peptides",
+    "buy Semax",
+    "buy Selank",
+    "buy Cerebrolysin",
+    "Semax for sale",
+    "nootropic peptides for sale",
+  ],
   alternates: { canonical: "https://www.peptidesmaxxing.com/cognitive" },
   openGraph: {
-    title: "Cognitive Peptides — Semax, Selank, Cerebrolysin",
+    title: "Buy Cognitive Peptides Online — Semax, Selank, Cerebrolysin",
     description:
-      "Top brain health research compounds — Semax, Selank, Cerebrolysin with full science documentation and COA verification.",
+      "Top brain peptides for sale — Semax, Selank, Cerebrolysin with COA verification and fast shipping.",
     url: "https://www.peptidesmaxxing.com/cognitive",
     type: "website",
   },
@@ -66,7 +75,7 @@ export default function CognitivePage() {
         <nav className="flex items-center gap-1.5 text-xs text-slate-400">
           <Link href="/" className="hover:text-slate-600 transition-colors">Home</Link>
           <ChevronRight className="w-3 h-3" />
-          <span className="text-slate-600 font-medium">Cognitive Peptides</span>
+          <span className="text-slate-600 font-medium">Buy Cognitive Peptides</span>
         </nav>
       </div>
 
@@ -79,11 +88,11 @@ export default function CognitivePage() {
               <span className="text-xs font-bold text-blue-300 uppercase tracking-wider">Brain & Cognitive</span>
             </div>
             <h1 className="text-5xl sm:text-6xl font-bold leading-tight mb-6">
-              Cognitive &<br />
+              Buy Cognitive &<br />
               <span className="text-blue-400">Brain Peptides</span>
             </h1>
             <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-              Semax boosts BDNF 800%. Selank eliminates anxiety without sedation. Cerebrolysin delivers neurotrophic factors directly. These are the most researched nootropic peptides — with complete research documentation.
+              Semax boosts BDNF 800%. Selank reduces anxiety without sedation. Cerebrolysin delivers neurotrophic factors directly. The most popular nootropic peptides for sale — high purity, COA verified, fast shipping.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -117,9 +126,9 @@ export default function CognitivePage() {
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Research Compounds</p>
+            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Top Sellers</p>
             <h2 className="text-4xl font-bold text-slate-900">Top Cognitive Peptides</h2>
-            <p className="text-slate-500 mt-2">Research-grade brain peptides with complete COA documentation and science profiles.</p>
+            <p className="text-slate-500 mt-2">High purity brain peptides with complete COA documentation and dosing guides.</p>
           </div>
           <Link href="/categories/brain-nerve" className="hidden sm:flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors">
             View All <ArrowRight className="w-4 h-4" />
@@ -188,9 +197,9 @@ export default function CognitivePage() {
       <section className="py-16 border-t border-slate-100 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">Research Mechanisms</p>
+            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">How They Work</p>
             <h2 className="text-3xl font-bold text-slate-900">How Cognitive Peptides Work</h2>
-            <p className="text-slate-500 mt-2 max-w-xl mx-auto">Four key neuroscience pathways targeted by top research-grade cognitive peptides.</p>
+            <p className="text-slate-500 mt-2 max-w-xl mx-auto">Four key neuroscience pathways targeted by the top cognitive peptides.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {BENEFITS.map(({ icon: Icon, title, desc, color }) => (
@@ -214,11 +223,11 @@ export default function CognitivePage() {
               <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Nootropic Spotlight</p>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">Semax: The BDNF Amplifier</h2>
               <p className="text-slate-600 leading-relaxed mb-6">
-                Semax is an ACTH-derived peptide developed by the Institute of Molecular Genetics (Russia). Research shows it increases BDNF levels by up to 800%, enhances working memory, accelerates stroke recovery, and provides significant neuroprotection. Often paired with Selank for synergistic cognitive research stacks.
+                Semax is an ACTH-derived peptide developed by the Institute of Molecular Genetics (Russia). Studies show it increases BDNF levels by up to 800%, enhances working memory, accelerates stroke recovery, and provides significant neuroprotection. Often paired with Selank for synergistic cognitive stacks.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/products/semax" className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-blue-600 text-white hover:bg-blue-500 transition-colors">
-                  Read Semax Profile <ArrowRight className="w-4 h-4" />
+                  Buy Semax <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link href="/products/selank-semax" className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold border border-blue-200 text-blue-700 hover:bg-blue-50 transition-colors">
                   Selank + Semax Stack
@@ -245,9 +254,9 @@ export default function CognitivePage() {
       {/* FINAL CTA */}
       <section className="py-16 border-t border-slate-100 bg-slate-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">Explore Brain Optimization Research</h2>
+          <h2 className="text-4xl font-bold text-white mb-4">Buy Cognitive Peptides — High Purity, Fast Shipping</h2>
           <p className="text-slate-400 mb-8 text-lg max-w-xl mx-auto">
-            Browse Semax, Selank, Cerebrolysin and more — all with ≥99% purity documentation and complete research profiles.
+            Browse Semax, Selank, Cerebrolysin and more — all with ≥99% purity documentation and dosing guides.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={AFFILIATE_URL} target="_blank" rel="nofollow sponsored noopener noreferrer"
@@ -259,7 +268,7 @@ export default function CognitivePage() {
               Browse Full Catalog
             </Link>
           </div>
-          <p className="mt-8 text-xs text-slate-500 max-w-xl mx-auto">All products for research use only. Not for human consumption. Consult a qualified physician.</p>
+          <p className="mt-8 text-xs text-slate-500 max-w-xl mx-auto">Disclaimer: Sold for laboratory and educational use only. Not for human or veterinary use.</p>
         </div>
       </section>
     </PageLayout>

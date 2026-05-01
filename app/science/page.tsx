@@ -21,14 +21,22 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { AFFILIATE_URL } from "@/lib/peptide-data"
 
 export const metadata: Metadata = {
-  title: "The Science of Peptides — Mechanisms, Receptors & Research Evidence",
+  title: "The Science of Peptides — Mechanisms, Receptors & Evidence",
   description:
-    "How peptides work at the molecular level: receptor binding, signal transduction, gene expression, and downstream biological effects. From GPCR pharmacology to telomerase activation — complete mechanistic science.",
+    "How peptides work at the molecular level: receptor binding, signal transduction, gene expression, and biological effects. Understand how each peptide works before you buy.",
+  keywords: [
+    "how peptides work",
+    "peptide mechanisms",
+    "peptide pharmacology",
+    "GPCR peptides",
+    "BPC-157 mechanism",
+    "Tirzepatide mechanism",
+  ],
   alternates: { canonical: "https://www.peptidesmaxxing.com/science" },
   openGraph: {
-    title: "Peptide Science — Mechanisms, Receptors & Research Evidence",
+    title: "The Science of Peptides — Mechanisms, Receptors & Evidence",
     description:
-      "How peptides work: GPCR binding, GH axis regulation, tissue repair mechanisms, metabolic signaling, and cognitive neuroplasticity. Science-first breakdown of research peptide pharmacology.",
+      "How peptides work: GPCR binding, GH axis regulation, tissue repair, metabolic signaling, and neuroplasticity. Science-first peptide breakdowns.",
     url: "https://www.peptidesmaxxing.com/science",
     type: "website",
   },
@@ -45,7 +53,7 @@ const jsonLd = {
   "@type": "Article",
   "@id": "https://www.peptidesmaxxing.com/science",
   url: "https://www.peptidesmaxxing.com/science",
-  headline: "The Science of Research Peptides",
+  headline: "The Science of Peptides",
   description: "Comprehensive guide to peptide mechanisms: GPCR pharmacology, GH axis regulation, tissue repair, metabolic signaling, and cognitive neuroplasticity.",
   author: { "@type": "Organization", name: "PeptidesMaxxing" },
   publisher: {
@@ -126,7 +134,7 @@ TB-500's mechanism is fundamentally different. As a synthetic fragment of Thymos
     color: "text-orange-600",
     bg: "bg-orange-50 border-orange-100",
     accent: "#ea580c",
-    overview: `Incretin peptides mimic or modulate hormones secreted by the gut in response to food intake. The two primary incretin hormones — GLP-1 (glucagon-like peptide-1) and GIP (glucose-dependent insulinotropic polypeptide) — regulate insulin secretion, appetite, gastric emptying, and energy homeostasis. Research peptides in this class represent the most clinically validated peptide category, with Tirzepatide and similar compounds producing mean weight loss of 20%+ in Phase 3 trials.`,
+    overview: `Incretin peptides mimic or modulate hormones secreted by the gut in response to food intake. The two primary incretin hormones — GLP-1 (glucagon-like peptide-1) and GIP (glucose-dependent insulinotropic polypeptide) — regulate insulin secretion, appetite, gastric emptying, and energy homeostasis. Peptides in this class represent the most clinically validated peptide category, with Tirzepatide and similar compounds producing mean weight loss of 20%+ in Phase 3 trials.`,
     mechanism: `GLP-1 receptor agonists bind the GLP-1R receptor, a class B GPCR (secretin family). Activation triggers adenylyl cyclase via Gs coupling, increasing intracellular cAMP. In the pancreatic beta cell, this triggers insulin secretion in a glucose-dependent manner — a critical safety feature that prevents hypoglycemia. In the brain, GLP-1R activation in the hypothalamus (particularly the arcuate nucleus and nucleus tractus solitarius) suppresses appetite by reducing NPY/AgRP neuron activity and increasing POMC neuron firing.
 
 Tirzepatide (GIP/GLP-1 dual agonist) adds GIP receptor agonism to this profile. While GIP was historically considered "diabetogenic" in obese states, GIP receptor agonism combined with GLP-1 agonism produces synergistic weight loss exceeding either alone. The mechanism appears to involve enhanced adipose tissue GIP receptor sensitivity when GLP-1 receptors are co-activated.
@@ -256,18 +264,18 @@ export default function SciencePage() {
             <p className="text-xs font-bold text-blue-400 uppercase tracking-widest">Peptide Science</p>
           </div>
           <h1 className="text-5xl sm:text-6xl font-bold text-white mb-5 max-w-3xl leading-tight">
-            The Science Behind<br />Research Peptides
+            The Science<br />of Peptides
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl mb-10 leading-relaxed">
             Receptor pharmacology, signal transduction, gene expression, and downstream biological effects —
-            a mechanistic deep-dive into how the most important research peptides actually work at the molecular level.
+            a mechanistic deep-dive into how the most popular peptides actually work at the molecular level.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
               { label: "Peptide Families", value: `${PEPTIDE_FAMILIES.length}` },
               { label: "Receptor Systems", value: "12+" },
               { label: "Signaling Pathways", value: "20+" },
-              { label: "Research Citations", value: "5,000+" },
+              { label: "Studies Cited", value: "5,000+" },
             ].map((s) => (
               <div key={s.label} className="p-4 rounded-xl bg-white/10 border border-white/10 text-center">
                 <div className="text-2xl font-bold text-white">{s.value}</div>
@@ -294,7 +302,7 @@ export default function SciencePage() {
               <p className="text-slate-600 leading-relaxed">
                 The human body produces thousands of endogenous peptides, ranging from dipeptides like carnosine to
                 the 51-amino acid insulin. These endogenous peptides function as hormones, neurotransmitters, growth
-                factors, immune modulators, and antimicrobial agents. Research peptides are either identical to these
+                factors, immune modulators, and antimicrobial agents. The peptides sold on this site are either identical to these
                 endogenous compounds or are modified analogs designed to enhance stability, potency, or selectivity.
               </p>
               <p className="text-slate-600 leading-relaxed">
@@ -341,7 +349,7 @@ export default function SciencePage() {
             <p className="text-xs font-bold text-purple-600 uppercase tracking-widest mb-2">Receptor Pharmacology</p>
             <h2 className="text-4xl font-bold text-slate-900 mb-4">How Peptides Signal Inside Cells</h2>
             <p className="text-slate-500 max-w-2xl mx-auto">
-              Almost all research peptides exert their effects through cell surface receptors — predominantly
+              Almost all peptides exert their effects through cell surface receptors — predominantly
               G protein-coupled receptors (GPCRs). Understanding GPCR pharmacology is the key to understanding
               why timing, dosing, and cycling matter.
             </p>
@@ -405,8 +413,8 @@ export default function SciencePage() {
           <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2">By Mechanism</p>
           <h2 className="text-4xl font-bold text-slate-900 mb-4">Peptide Families & Mechanisms</h2>
           <p className="text-slate-500 max-w-xl mx-auto">
-            Research peptides are grouped by receptor family and biological function.
-            Understanding these families is the foundation of rational protocol design.
+            Peptides are grouped by receptor family and biological function.
+            Understanding these families is the foundation of choosing the right peptide to buy.
           </p>
         </div>
 
@@ -462,7 +470,7 @@ export default function SciencePage() {
                     </div>
 
                     <div className="p-5 rounded-xl border border-slate-200 bg-white">
-                      <h4 className="text-sm font-bold text-slate-700 uppercase tracking-wider mb-3">Key Research Points</h4>
+                      <h4 className="text-sm font-bold text-slate-700 uppercase tracking-wider mb-3">Key Points</h4>
                       <ul className="space-y-2">
                         {family.keyPoints.map((p) => (
                           <li key={p} className="flex items-start gap-2 text-xs text-slate-600">
@@ -482,7 +490,7 @@ export default function SciencePage() {
                       href={`/products/${c.slug}`}
                       className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-semibold bg-slate-100 text-slate-800 hover:bg-slate-200 transition-colors"
                     >
-                      Explore {c.name} <ArrowRight className="w-3 h-3" />
+                      Buy {c.name} <ArrowRight className="w-3 h-3" />
                     </Link>
                   ))}
                 </div>
@@ -500,8 +508,8 @@ export default function SciencePage() {
             <h2 className="text-4xl font-bold text-slate-900 mb-3">Routes of Administration & Bioavailability</h2>
             <p className="text-slate-500 max-w-xl mx-auto">
               Bioavailability — the fraction of administered compound that reaches systemic circulation in active
-              form — varies dramatically by administration route. This table defines the research-relevant parameters
-              for each route used in peptide research.
+              form — varies dramatically by administration route. This table defines the parameters
+              for each route used with peptides.
             </p>
           </div>
 
@@ -552,7 +560,7 @@ export default function SciencePage() {
                 This is why Semax and Selank are specifically formulated as intranasal preparations. Their
                 CNS bioavailability via the intranasal route substantially exceeds what would be achievable
                 via subcutaneous injection for brain-targeted peptides — explaining why Russian clinical
-                research on these compounds defaults to nasal administration.
+                studies on these compounds default to nasal administration.
               </p>
             </div>
           </div>
@@ -565,8 +573,8 @@ export default function SciencePage() {
           <p className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Evidence Hierarchy</p>
           <h2 className="text-4xl font-bold text-slate-900 mb-4">How to Evaluate Peptide Research</h2>
           <p className="text-slate-500 max-w-xl mx-auto">
-            Not all peptide evidence is created equal. The research quality hierarchy matters when
-            interpreting claims and setting protocol expectations.
+            Not all peptide evidence is created equal. The evidence quality hierarchy matters when
+            interpreting claims and setting expectations before you buy.
           </p>
         </div>
 
@@ -629,19 +637,18 @@ export default function SciencePage() {
           <div className="flex items-start gap-4 p-6 rounded-2xl border border-amber-200 bg-white mb-10">
             <AlertTriangle className="w-6 h-6 text-amber-500 shrink-0 mt-0.5" />
             <div>
-              <p className="font-bold text-slate-900 mb-1">For Educational and Research Purposes Only</p>
+              <p className="font-bold text-slate-900 mb-1">Disclaimer</p>
               <p className="text-sm text-slate-600 leading-relaxed">
-                The mechanistic information on this page is intended for educational and research purposes. None of it constitutes
-                medical advice or a recommendation for human therapeutic use. Research peptides are not approved drugs.
-                Regulations governing their purchase, possession, and use vary by jurisdiction. Always consult qualified legal
-                and medical professionals before conducting any research involving these compounds.
+                Peptides are sold for laboratory and educational use only. Not for human or veterinary use.
+                Buyers are responsible for compliance with local regulations. The mechanistic information on
+                this page is educational and is not medical advice.
               </p>
             </div>
           </div>
 
           <div className="text-center">
-            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Continue Researching</p>
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">Explore Products, Protocols & Comparisons</h2>
+            <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">Ready to Buy?</p>
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Shop Peptides, View Protocols & Compare</h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center flex-wrap">
               <Link
                 href="/products"
@@ -667,7 +674,7 @@ export default function SciencePage() {
                 rel="nofollow sponsored noopener noreferrer"
                 className="flex items-center justify-center gap-2 px-7 py-4 rounded-xl font-semibold text-blue-600 border-2 border-blue-200 hover:border-blue-500 transition-colors"
               >
-                Shop
+                Shop Peptides
               </Link>
             </div>
           </div>

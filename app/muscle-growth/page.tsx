@@ -6,14 +6,23 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { staticProducts, AFFILIATE_URL } from "@/lib/static-products"
 
 export const metadata: Metadata = {
-  title: "Muscle Growth Peptides — IGF-1LR3, GHRP-2, Ipamorelin | PeptidesMaxxing",
+  title: "Buy Muscle Growth Peptides Online — IGF-1LR3, GHRP-2, Ipamorelin | PeptidesMaxxing",
   description:
-    "Research the top muscle growth peptides: IGF-1LR3, GHRP-2, Ipamorelin, CJC-1295, ACE-031, AICAR, MK-677. IGF-1 pathway activation, GH pulse amplification, and protein synthesis.",
+    "Buy top muscle growth peptides online: IGF-1LR3, GHRP-2, Ipamorelin, CJC-1295, ACE-031, AICAR, MK-677. High purity, COA verified, fast shipping. IGF-1 & GH pathway peptides.",
+  keywords: [
+    "buy muscle growth peptides",
+    "buy IGF-1 LR3",
+    "buy Ipamorelin",
+    "buy CJC-1295",
+    "buy GHRP-2",
+    "muscle peptides for sale",
+    "buy MK-677",
+  ],
   alternates: { canonical: "https://www.peptidesmaxxing.com/muscle-growth" },
   openGraph: {
-    title: "Muscle Growth Peptides — IGF-1LR3, GHRP-2, Ipamorelin",
+    title: "Buy Muscle Growth Peptides Online — IGF-1LR3, GHRP-2, Ipamorelin",
     description:
-      "Top muscle growth research compounds — IGF-1LR3, GHRP-2, Ipamorelin with full science documentation and COA verification.",
+      "Top muscle growth peptides for sale — IGF-1LR3, GHRP-2, Ipamorelin with COA verification and fast shipping.",
     url: "https://www.peptidesmaxxing.com/muscle-growth",
     type: "website",
   },
@@ -68,7 +77,7 @@ export default function MuscleGrowthPage() {
         <nav className="flex items-center gap-1.5 text-xs text-slate-400">
           <Link href="/" className="hover:text-slate-600 transition-colors">Home</Link>
           <ChevronRight className="w-3 h-3" />
-          <span className="text-slate-600 font-medium">Muscle Growth Peptides</span>
+          <span className="text-slate-600 font-medium">Buy Muscle Growth Peptides</span>
         </nav>
       </div>
 
@@ -81,11 +90,11 @@ export default function MuscleGrowthPage() {
               <span className="text-xs font-bold text-green-300 uppercase tracking-wider">Muscle Growth & Performance</span>
             </div>
             <h1 className="text-5xl sm:text-6xl font-bold leading-tight mb-6">
-              Muscle Growth &<br />
+              Buy Muscle Growth &<br />
               <span className="text-green-400">Performance Peptides</span>
             </h1>
             <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-              IGF-1LR3 activates the anabolic pathway directly. GHRP-2 and Ipamorelin amplify natural GH pulses. ACE-031 targets myostatin. These are the most researched compounds for muscle hypertrophy science.
+              IGF-1LR3 activates the anabolic pathway directly. GHRP-2 and Ipamorelin amplify natural GH pulses. ACE-031 targets myostatin. The most popular peptides for muscle hypertrophy — high purity, COA verified, fast shipping.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -119,9 +128,9 @@ export default function MuscleGrowthPage() {
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <p className="text-xs font-bold text-green-600 uppercase tracking-widest mb-2">Research Compounds</p>
+            <p className="text-xs font-bold text-green-600 uppercase tracking-widest mb-2">Top Sellers</p>
             <h2 className="text-4xl font-bold text-slate-900">Top Muscle Growth Peptides</h2>
-            <p className="text-slate-500 mt-2">Research-grade anabolic compounds with complete COA documentation and science profiles.</p>
+            <p className="text-slate-500 mt-2">High purity anabolic compounds with complete COA documentation and dosing guides.</p>
           </div>
           <Link href="/categories/muscle-growth" className="hidden sm:flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors">
             View All <ArrowRight className="w-4 h-4" />
@@ -190,9 +199,9 @@ export default function MuscleGrowthPage() {
       <section className="py-16 border-t border-slate-100 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-green-600 uppercase tracking-widest mb-2">Research Mechanisms</p>
+            <p className="text-xs font-bold text-green-600 uppercase tracking-widest mb-2">How They Work</p>
             <h2 className="text-3xl font-bold text-slate-900">How Muscle Growth Peptides Work</h2>
-            <p className="text-slate-500 mt-2 max-w-xl mx-auto">Four primary anabolic pathways targeted by the most-researched muscle growth compounds.</p>
+            <p className="text-slate-500 mt-2 max-w-xl mx-auto">Four primary anabolic pathways targeted by the most popular muscle growth peptides.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {BENEFITS.map(({ icon: Icon, title, desc, color }) => (
@@ -213,14 +222,14 @@ export default function MuscleGrowthPage() {
         <div className="rounded-3xl bg-gradient-to-r from-green-50 to-emerald-50 border border-green-100 p-8 lg:p-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <p className="text-xs font-bold text-green-600 uppercase tracking-widest mb-3">Popular Research Stack</p>
+              <p className="text-xs font-bold text-green-600 uppercase tracking-widest mb-3">Popular Stack</p>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">CJC-1295 + Ipamorelin Stack</h2>
               <p className="text-slate-600 leading-relaxed mb-6">
-                The most researched GH peptide stack combines CJC-1295 (GHRH analogue) with Ipamorelin (ghrelin mimetic) for synergistic GH pulse amplification. CJC-1295 extends the GH pulse duration while Ipamorelin increases GH release amplitude — together producing sustained, supra-physiological GH levels for anabolic research.
+                The most popular GH peptide stack combines CJC-1295 (GHRH analogue) with Ipamorelin (ghrelin mimetic) for synergistic GH pulse amplification. CJC-1295 extends the GH pulse duration while Ipamorelin increases GH release amplitude — together producing sustained, supra-physiological GH levels.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/products/cjc-1295-ipamorelin" className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-green-600 text-white hover:bg-green-500 transition-colors">
-                  View Stack Profile <ArrowRight className="w-4 h-4" />
+                  Buy This Stack <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link href="/guides/gh-peptide-stacking-guide" className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold border border-green-200 text-green-700 hover:bg-green-50 transition-colors">
                   GH Stacking Guide
@@ -248,16 +257,16 @@ export default function MuscleGrowthPage() {
       <section className="py-12 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="rounded-2xl bg-slate-900 p-8 text-center">
           <p className="text-xs font-bold text-green-400 uppercase tracking-widest mb-3">Pre-Built Stacks</p>
-          <h2 className="text-3xl font-bold text-white mb-4">Ready to Research? View the Wolverine Cycle</h2>
+          <h2 className="text-3xl font-bold text-white mb-4">Buy the Wolverine Cycle</h2>
           <p className="text-slate-400 mb-6 max-w-lg mx-auto">
-            The Wolverine Cycle is our most popular pre-built stack combining the top recovery and muscle peptides for comprehensive research.
+            The Wolverine Cycle is our most popular pre-built stack combining the top recovery and muscle peptides — fast shipping and high purity.
           </p>
           <div className="flex flex-wrap gap-3 justify-center">
             <Link href="/products/wolverine-cycle" className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-green-600 text-white hover:bg-green-500 transition-colors">
-              View Wolverine Cycle <ArrowRight className="w-4 h-4" />
+              Buy Wolverine Cycle <ArrowRight className="w-4 h-4" />
             </Link>
             <Link href="/stacks" className="flex items-center gap-2 px-8 py-4 rounded-xl font-semibold border border-slate-700 text-slate-200 hover:border-slate-500 transition-all">
-              All Peptide Cycles
+              All Peptide Stacks
             </Link>
           </div>
         </div>
@@ -266,9 +275,9 @@ export default function MuscleGrowthPage() {
       {/* FINAL CTA */}
       <section className="py-16 border-t border-slate-100 bg-slate-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">Explore Muscle Growth Research</h2>
+          <h2 className="text-4xl font-bold text-white mb-4">Buy Muscle Growth Peptides — High Purity, Fast Shipping</h2>
           <p className="text-slate-400 mb-8 text-lg max-w-xl mx-auto">
-            Browse IGF-1LR3, GHRP-2, Ipamorelin and more — all with ≥99% purity documentation and complete research profiles.
+            Browse IGF-1LR3, GHRP-2, Ipamorelin and more — all with ≥99% purity documentation and dosing guides.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={AFFILIATE_URL} target="_blank" rel="nofollow sponsored noopener noreferrer"
@@ -280,7 +289,7 @@ export default function MuscleGrowthPage() {
               Browse Full Catalog
             </Link>
           </div>
-          <p className="mt-8 text-xs text-slate-500 max-w-xl mx-auto">All products for research use only. Not for human consumption. Consult a qualified physician.</p>
+          <p className="mt-8 text-xs text-slate-500 max-w-xl mx-auto">Disclaimer: Sold for laboratory and educational use only. Not for human or veterinary use.</p>
         </div>
       </section>
     </PageLayout>

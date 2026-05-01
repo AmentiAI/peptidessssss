@@ -173,7 +173,7 @@ export default async function StackGuidePage({
           <div className="flex items-center gap-3 mb-6">
             <span className="text-4xl">{stack.emoji}</span>
             <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-slate-900 text-white">
-              Peptide Stack Guide
+              Peptide Stack
             </span>
           </div>
           <h1 className="text-4xl sm:text-5xl font-bold text-slate-900 leading-tight mb-4">
@@ -260,7 +260,7 @@ export default async function StackGuidePage({
               </div>
               <p className="text-slate-700 leading-relaxed font-medium">{stack.protocol}</p>
               <p className="text-xs text-slate-500 mt-3">
-                For laboratory use only. Not for human consumption.
+                For laboratory and educational use only.
               </p>
             </section>
 
@@ -304,9 +304,9 @@ export default async function StackGuidePage({
             {/* Disclaimer */}
             <div className="p-4 rounded-xl border border-amber-200 bg-amber-50">
               <p className="text-xs text-amber-800 leading-relaxed">
-                <strong className="text-amber-900">For Laboratory Use Only:</strong> All information
-                is for educational purposes. Not medical advice. Not for human consumption. Consult
-                a qualified physician before any use.
+                <strong className="text-amber-900">Disclaimer:</strong> Peptides are sold for laboratory
+                and educational use only. Not for human or veterinary use. Buyers are responsible for
+                compliance with local regulations.
               </p>
             </div>
           </div>
@@ -315,9 +315,9 @@ export default async function StackGuidePage({
           <aside className="space-y-5 lg:sticky lg:top-24">
             {/* Buy CTA */}
             <div className="p-5 rounded-2xl border border-slate-200 bg-slate-50">
-              <p className="text-sm font-bold text-slate-900 mb-1">Source This Stack</p>
+              <p className="text-sm font-bold text-slate-900 mb-1">Buy This Stack</p>
               <p className="text-xs text-slate-500 mb-4">
-                All peptides available from our trusted supplier.
+                All peptides available from our trusted supplier — high purity, COA verified.
               </p>
               <Link
                 href={`/out/${slug}`}
@@ -325,7 +325,7 @@ export default async function StackGuidePage({
                 className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors mb-2"
               >
                 <ShoppingCart className="w-4 h-4" />
-                Shop All Stack Peptides
+                Buy All Stack Peptides
               </Link>
               <p className="text-xs text-center text-slate-400">
                 PeptidesMaxxing may earn compensation from purchases at no extra cost to you.
@@ -393,10 +393,10 @@ export default async function StackGuidePage({
               </Link>
             </div>
 
-            {/* Research Reading */}
+            {/* Further Reading */}
             <div className="p-5 rounded-2xl border border-slate-200 bg-white">
               <p className="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-                Research Reading
+                Further Reading
               </p>
               <div className="space-y-1 mb-4">
                 {readingLinks.blogs.map((b) => (
@@ -432,13 +432,13 @@ export default async function StackGuidePage({
       <section className="py-16 border-t border-slate-100 bg-slate-50">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-xs font-bold text-blue-600 uppercase tracking-widest mb-3">
-            Source This Stack
+            Buy This Stack
           </p>
           <h2 className="text-3xl font-bold text-slate-900 mb-3">
-            Ready to Order the {stack.name}?
+            Ready to Buy the {stack.name}?
           </h2>
           <p className="text-slate-500 mb-8">
-            {stack.peptides.join(" + ")} — all available research grade.
+            {stack.peptides.join(" + ")} — high purity, COA verified, fast shipping.
           </p>
           <a
             href={AFFILIATE_URL}
@@ -447,7 +447,7 @@ export default async function StackGuidePage({
             className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
           >
             <ShoppingCart className="w-5 h-5" />
-            Shop All Stack Peptides
+            Buy All Stack Peptides
           </a>
         </div>
       </section>

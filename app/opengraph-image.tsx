@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og"
 
 export const runtime = "edge"
-export const alt = "PeptidesMaxxing — Research Peptides & Cycles"
+export const alt = "PeptidesMaxxing — Buy Peptides Online"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
@@ -66,7 +66,7 @@ export default async function OgImage() {
             lineHeight: 1.4,
           }}
         >
-          Research Peptides, Cycles & Science — Independent Research Authority
+          Buy Peptides Online — High Purity, COA Verified, Fast Shipping
         </div>
 
         {/* Bottom badge */}
@@ -85,7 +85,7 @@ export default async function OgImage() {
         >
           <div style={{ width: 8, height: 8, borderRadius: 999, background: "#22c55e" }} />
           <span style={{ color: "#cbd5e1", fontSize: 16, fontWeight: 600 }}>
-            62+ Research-Grade Peptides • For Laboratory Use Only
+            62+ Peptides for Sale • High Purity • COA Verified
           </span>
         </div>
       </div>

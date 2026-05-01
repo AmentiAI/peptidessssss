@@ -9,16 +9,16 @@ const PRODUCT_LINKS = [
   { href: "/categories/anti-aging", label: "Anti-Aging" },
   { href: "/categories/weight-loss", label: "Weight Loss" },
   { href: "/categories/brain-nerve", label: "Brain / Nerve" },
-  { href: "/stacks", label: "Peptide Cycles" },
+  { href: "/stacks", label: "Peptide Stacks" },
 ]
 
 const RESOURCE_LINKS = [
-  { href: "/blog", label: "Research Blog" },
-  { href: "/guides", label: "Research Guides" },
-  { href: "/protocols", label: "Research Protocols" },
-  { href: "/compare", label: "Peptide Comparisons" },
+  { href: "/blog", label: "Blog" },
+  { href: "/guides", label: "Peptide Guides" },
+  { href: "/protocols", label: "Peptide Protocols" },
+  { href: "/compare", label: "Compare Peptides" },
   { href: "/science", label: "Peptide Science" },
-  { href: "/tools", label: "Research Tools" },
+  { href: "/tools", label: "Peptide Tools" },
   { href: "/about", label: "About PeptidesMaxxing" },
   { href: "/editorial-standards", label: "Editorial Standards" },
   { href: "/privacy", label: "Privacy Policy" },
@@ -28,7 +28,7 @@ const RESOURCE_LINKS = [
 const PARTNER_LINKS = [
   { href: "https://looksmaxingstack.com", label: "LooksMaxingStack.com" },
   { href: "https://looksmaxingstack.com/compare", label: "Compare Peptides" },
-  { href: "https://looksmaxingstack.com/stacks", label: "Research Stacks" },
+  { href: "https://looksmaxingstack.com/stacks", label: "Peptide Stacks" },
   { href: "https://looksmaxingstack.com/guides", label: "Partner Guides" },
 ]
 
@@ -40,10 +40,10 @@ export function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
-              { icon: Shield, label: "Research Grade", sub: "For laboratory use only" },
-              { icon: Award, label: "COA Verified", sub: "Research grade" },
+              { icon: Shield, label: "High Purity", sub: "99%+ verified" },
+              { icon: Award, label: "COA Verified", sub: "Lab tested" },
               { icon: ExternalLink, label: "62+ Products", sub: "Full catalog available" },
-              { icon: ExternalLink, label: "Independent Resource", sub: "Science-first editorial" },
+              { icon: ExternalLink, label: "Fast Shipping", sub: "Tracked & insured" },
             ].map(({ icon: Icon, label, sub }) => (
               <div key={label} className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 bg-slate-100">
@@ -76,11 +76,11 @@ export function Footer() {
             </span>
           </Link>
           <p className="text-sm text-slate-500 leading-relaxed mb-4">
-            The definitive independent resource for research peptide information.
+            The definitive independent peptide buyer's guide — high purity, COA verified.
           </p>
           <div className="p-3 rounded-xl border border-amber-200 bg-amber-50">
             <p className="text-xs text-amber-800 leading-relaxed">
-              For research use only. Not for human consumption.
+              Sold for laboratory and educational use only. Not for human or veterinary use.
             </p>
           </div>
         </div>
@@ -117,7 +117,7 @@ export function Footer() {
                 rel="nofollow sponsored noopener noreferrer"
                 className="text-sm text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1"
               >
-                Shop Research Peptides <ExternalLink className="w-3 h-3" />
+                Shop Peptides Now <ExternalLink className="w-3 h-3" />
               </a>
             </li>
           </ul>
@@ -125,7 +125,7 @@ export function Footer() {
 
         {/* Partner */}
         <div>
-          <h4 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-4">Research Partner</h4>
+          <h4 className="text-sm font-bold text-slate-900 uppercase tracking-widest mb-4">Sister Site</h4>
           <ul className="space-y-2.5">
             {PARTNER_LINKS.map((link) => (
               <li key={link.href}>
@@ -168,7 +168,7 @@ export function Footer() {
       <div className="border-t border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-slate-400 text-center sm:text-left">
-            © {new Date().getFullYear()} PeptidesMaxxing. All rights reserved. For research use only.
+            © {new Date().getFullYear()} PeptidesMaxxing. All rights reserved. Sold for laboratory and educational use only.
           </p>
           <div className="flex items-center gap-4 text-xs text-slate-400">
             <a href="/privacy" className="hover:text-slate-600 transition-colors">Privacy</a>

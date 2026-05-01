@@ -7,21 +7,29 @@ import { ProductCard } from "@/components/peptide-hub/product-card"
 import { getAllStackGuides } from "@/lib/stack-guides"
 
 export const metadata: Metadata = {
-  title: "Peptide Cycles & Stacks — Pre-Built Research Protocols",
+  title: "Buy Peptide Stacks Online — Pre-Built Synergistic Combinations",
   description:
-    "Pre-built peptide cycles: Wolverine (healing), Glow Plus (anti-aging), Nova Mind (cognitive), Prime Metabolic (fat loss), T-Force (immunity), Eros (libido). Full research protocols.",
+    "Buy pre-built peptide stacks: Wolverine (healing), Glow Plus (anti-aging), Nova Mind (cognitive), Prime Metabolic (fat loss), T-Force (immunity), Eros (libido). High purity, COA verified, fast shipping.",
+  keywords: [
+    "buy peptide stacks",
+    "peptide stacks for sale",
+    "pre-built peptide stacks",
+    "best peptide stacks",
+    "buy peptide cycles",
+    "peptide bundles",
+  ],
   alternates: { canonical: "https://www.peptidesmaxxing.com/stacks" },
   openGraph: {
-    title: "Peptide Cycles & Stacks — Pre-Built Research Protocols",
-    description: "Pre-built peptide cycles: Wolverine (healing), Glow Plus (anti-aging), Nova Mind (cognitive), Prime Metabolic (fat loss), T-Force (immunity), Eros (libido). Full protocols.",
+    title: "Buy Peptide Stacks Online — Pre-Built Synergistic Combinations",
+    description: "Buy pre-built peptide stacks: Wolverine (healing), Glow Plus (anti-aging), Nova Mind (cognitive), Prime Metabolic (fat loss), T-Force (immunity), Eros (libido).",
     url: "https://www.peptidesmaxxing.com/stacks",
     type: "website",
     images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Peptide Cycles & Stacks — Pre-Built Research Protocols",
-    description: "Pre-built peptide cycles: Wolverine (healing), Glow Plus (anti-aging), Nova Mind (cognitive), Prime Metabolic (fat loss), T-Force (immunity), Eros (libido).",
+    title: "Buy Peptide Stacks Online — Pre-Built Synergistic Combinations",
+    description: "Buy pre-built peptide stacks: Wolverine (healing), Glow Plus (anti-aging), Nova Mind (cognitive), Prime Metabolic (fat loss), T-Force (immunity), Eros (libido).",
   },
 }
 
@@ -42,15 +50,15 @@ export default async function StacksPage() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-slate-200 bg-slate-50 mb-6">
             <Package className="w-3.5 h-3.5 text-slate-600" />
             <span className="text-xs font-semibold text-slate-600 tracking-wider uppercase">
-              Peptide Cycles & Stacks
+              Buy Peptide Stacks
             </span>
           </div>
           <h1 className="text-5xl sm:text-6xl font-bold text-slate-900 mb-4">
-            Peptide Cycles & Stacks
+            Buy Peptide Stacks
           </h1>
           <p className="text-lg text-slate-500 max-w-2xl mx-auto">
             Pre-built synergistic peptide combinations designed for specific
-            goals with complementary mechanisms.
+            goals — high purity, COA verified, fast shipping.
           </p>
         </div>
       </section>
@@ -114,7 +122,7 @@ export default async function StacksPage() {
               </p>
               <h2 className="text-3xl font-bold text-slate-900">Peptide Cycles</h2>
               <p className="text-slate-500 mt-1">
-                Multi-week programs targeting specific research goals.
+                Multi-week peptide programs targeting specific goals.
               </p>
             </div>
           </div>
@@ -152,10 +160,10 @@ export default async function StacksPage() {
       <section className="py-16 border-t border-slate-100 bg-slate-50">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-3xl font-bold text-slate-900 mb-4">
-            Browse Individual Peptides
+            Buy Individual Peptides
           </h2>
           <p className="text-slate-500 mb-8">
-            Build your own custom research protocol from our 62+ individual peptides.
+            Build your own custom stack from our 62+ peptides for sale.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
@@ -170,11 +178,11 @@ export default async function StacksPage() {
               rel="nofollow sponsored noopener noreferrer"
               className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-slate-900 border-2 border-slate-900 hover:bg-slate-900 hover:text-white transition-all"
             >
-              Shop Research Peptides <ArrowRight className="w-4 h-4" />
+              Shop Peptides Now <ArrowRight className="w-4 h-4" />
             </a>
           </div>
           <p className="mt-6 text-xs text-slate-400">
-            For research use only. Not for human consumption. Consult a physician before any use.
+            Disclaimer: Sold for laboratory and educational use only. Not for human or veterinary use.
           </p>
         </div>
       </section>

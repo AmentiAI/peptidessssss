@@ -6,21 +6,21 @@ import { AFFILIATE_URL } from "@/lib/peptide-data"
 import { getAuthor, authorPersonSchema, DEFAULT_AUTHOR_SLUG } from "@/lib/authors"
 
 export const metadata: Metadata = {
-  title: "About PeptidesMaxxing — Research Standards & Mission",
+  title: "About PeptidesMaxxing — Quality Standards & Mission",
   description:
-    "PeptidesMaxxing is an independent research authority covering 62+ research peptides. Read our transparency disclosure, sourcing standards, and research philosophy.",
+    "PeptidesMaxxing is an independent peptide buyer's guide covering 62+ peptides. Read our transparency disclosure, sourcing standards, and editorial philosophy.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/about" },
   openGraph: {
-    title: "About PeptidesMaxxing — Research Standards & Mission",
-    description: "PeptidesMaxxing is an independent research authority covering 62+ research peptides. Read our transparency disclosure, sourcing standards, and research philosophy.",
+    title: "About PeptidesMaxxing — Quality Standards & Mission",
+    description: "PeptidesMaxxing is an independent peptide buyer's guide covering 62+ peptides. Read our transparency disclosure and quality standards.",
     url: "https://www.peptidesmaxxing.com/about",
     type: "website",
     images: [{ url: "https://www.peptidesmaxxing.com/opengraph-image", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "About PeptidesMaxxing — Research Standards & Mission",
-    description: "PeptidesMaxxing is an independent research authority covering 62+ research peptides. Full transparency disclosure and sourcing philosophy.",
+    title: "About PeptidesMaxxing — Quality Standards & Mission",
+    description: "PeptidesMaxxing is an independent peptide buyer's guide covering 62+ peptides.",
   },
 }
 
@@ -30,7 +30,7 @@ const organizationJsonLd = {
   "@id": "https://www.peptidesmaxxing.com/#organization",
   name: "PeptidesMaxxing",
   url: "https://www.peptidesmaxxing.com",
-  description: "PeptidesMaxxing is an independent research resource covering 62+ research peptides including BPC-157, Tirzepatide, Epithalon, Semax, and GHK-Cu.",
+  description: "PeptidesMaxxing is an independent peptide buyer's guide covering 62+ peptides including BPC-157, Tirzepatide, Epithalon, Semax, and GHK-Cu.",
   sameAs: [
     "https://www.reddit.com/r/PeptidesMaxxing",
     "https://x.com/peptidesmaxxing",
@@ -60,25 +60,25 @@ export default function AboutPage() {
             </div>
             <div>
               <h1 className="text-4xl font-bold text-slate-900">About PeptidesMaxxing</h1>
-              <p className="text-slate-500">The definitive research peptide resource</p>
+              <p className="text-slate-500">The definitive peptide buyer's guide</p>
             </div>
           </div>
 
           <div className="space-y-6 text-slate-600 leading-relaxed">
             <p className="text-lg">
-              PeptidesMaxxing was created by peptide researchers for peptide researchers. Our mission is to provide
-              the most accurate, up-to-date, and scientifically grounded information on research peptides
-              available anywhere online.
+              PeptidesMaxxing was created to help buyers find the best peptides online. Our mission is to provide
+              the most accurate, up-to-date, and scientifically grounded information on peptides
+              available anywhere — so you can buy with confidence.
             </p>
             <p>
-              We review, compare, and evaluate peptides based on published research literature, purity
+              We review, compare, and evaluate peptides based on published literature, purity
               standards, and supplier quality. Every product recommendation on PeptidesMaxxing has been vetted
-              for research quality, purity documentation, and supplier reliability.
+              for purity documentation, COA verification, and supplier reliability.
             </p>
             <p>
-              Our team brings together expertise in biochemistry, pharmacology, and research methodology to
-              provide content that goes beyond surface-level descriptions. We read the primary research, we
-              understand the mechanisms, and we present it clearly.
+              Our team brings together expertise in biochemistry, pharmacology, and content publishing to
+              provide guides that go beyond surface-level descriptions. We read the primary research, we
+              understand the mechanisms, and we present it clearly to buyers.
             </p>
           </div>
 
@@ -148,29 +148,26 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Research Disclaimer */}
-        <div className="mt-6 p-8 rounded-2xl border border-red-200 bg-red-50">
+        {/* Disclaimer */}
+        <div className="mt-6 p-8 rounded-2xl border border-amber-200 bg-amber-50">
           <h2 className="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-3">
-            <Award className="w-6 h-6 text-red-500" />
-            Research Use Only Disclaimer
+            <Award className="w-6 h-6 text-amber-600" />
+            Disclaimer
           </h2>
           <div className="space-y-4 text-slate-600 leading-relaxed">
             <p>
               <strong className="text-slate-900">
-                All peptides listed on PeptidesMaxxing are sold strictly for laboratory research purposes only.
+                Peptides listed on PeptidesMaxxing are sold for laboratory and educational use only.
               </strong>
             </p>
             <ul className="list-disc list-inside space-y-2 text-sm">
-              <li>Not for human consumption</li>
-              <li>Not for veterinary use</li>
+              <li>Not for human or veterinary use</li>
               <li>Not intended to treat, cure, prevent, or diagnose any disease</li>
-              <li>Not approved by the FDA for any therapeutic use (unless specifically noted)</li>
-              <li>Must be handled by qualified research personnel in appropriate laboratory settings</li>
+              <li>Not approved by the FDA for any therapeutic use</li>
+              <li>Buyers are responsible for compliance with local regulations</li>
             </ul>
             <p>
-              The information on this website is for educational purposes only. It is not intended as medical
-              advice and should not be construed as such. Always consult a qualified healthcare professional
-              before any use of research compounds.
+              The information on this website is for educational purposes only and is not medical advice.
             </p>
           </div>
         </div>
@@ -195,7 +192,7 @@ export default function AboutPage() {
 
         {/* CTA */}
         <div className="mt-10 text-center">
-          <p className="text-slate-500 mb-6">Ready to explore our research peptide catalog?</p>
+          <p className="text-slate-500 mb-6">Ready to buy peptides online?</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={AFFILIATE_URL}
@@ -203,13 +200,13 @@ export default function AboutPage() {
               rel="nofollow sponsored noopener noreferrer"
               className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
             >
-              Shop Research Peptides <ArrowRight className="w-4 h-4" />
+              Shop Peptides Now <ArrowRight className="w-4 h-4" />
             </a>
             <Link
               href="/guides"
               className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-slate-900 border-2 border-slate-900 hover:bg-slate-900 hover:text-white transition-all"
             >
-              Research Guides <ArrowRight className="w-4 h-4" />
+              Peptide Guides <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

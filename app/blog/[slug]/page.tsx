@@ -32,7 +32,7 @@ export async function generateMetadata({
     title: { absolute: titleStr },
     description: post.description,
     keywords: post.tags,
-    authors: [{ name: post.author ?? "PeptidesMaxxing Research Team" }],
+    authors: [{ name: post.author ?? "PeptidesMaxxing Editorial Team" }],
     alternates: { canonical: `https://www.peptidesmaxxing.com/blog/${slug}` },
     openGraph: {
       title: titleStr,
@@ -41,7 +41,7 @@ export async function generateMetadata({
       siteName: "PeptidesMaxxing",
       type: "article",
       publishedTime: post.date?.toISOString(),
-      authors: [post.author ?? "PeptidesMaxxing Research Team"],
+      authors: [post.author ?? "PeptidesMaxxing Editorial Team"],
       images: post.imageUrl ? [{ url: post.imageUrl, width: 1200, height: 630, alt: post.title }] : [],
     },
     twitter: {
@@ -170,7 +170,7 @@ export default async function BlogPostPage({
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://www.peptidesmaxxing.com" },
-      { "@type": "ListItem", position: 2, name: "Research Blog", item: "https://www.peptidesmaxxing.com/blog" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.peptidesmaxxing.com/blog" },
       { "@type": "ListItem", position: 3, name: post.title, item: `https://www.peptidesmaxxing.com/blog/${slug}` },
     ],
   }
@@ -245,7 +245,7 @@ export default async function BlogPostPage({
 
         {/* Partner CTA */}
         <div className="mt-8 p-5 rounded-2xl border border-violet-200 bg-violet-50">
-          <p className="text-xs font-bold text-violet-600 uppercase tracking-widest mb-1">Research Partner</p>
+          <p className="text-xs font-bold text-violet-600 uppercase tracking-widest mb-1">Sister Site</p>
           <p className="font-semibold text-slate-900 mb-1">Compare Peptides Side-by-Side</p>
           <p className="text-sm text-slate-500 mb-3">
             Use LooksMaxingStack&apos;s interactive comparison tool to evaluate peptide mechanisms, half-lives, dosing, and protocols head-to-head.
@@ -268,9 +268,9 @@ export default async function BlogPostPage({
 
         {/* Buy CTA */}
         <div className="mt-6 p-6 rounded-2xl border border-slate-200 bg-slate-50 text-center">
-          <h3 className="font-bold text-slate-900 mb-2">Explore Research Peptides</h3>
+          <h3 className="font-bold text-slate-900 mb-2">Buy Peptides Online</h3>
           <p className="text-sm text-slate-500 mb-4">
-            Browse our full research peptide catalog — for research use only.
+            Browse our full peptide catalog — high purity, COA verified, fast shipping.
           </p>
           <a
             href={AFFILIATE_URL}
@@ -278,16 +278,16 @@ export default async function BlogPostPage({
             rel="nofollow sponsored noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
           >
-            Shop Research Peptides <ArrowRight className="w-4 h-4" />
+            Shop Peptides Now <ArrowRight className="w-4 h-4" />
           </a>
         </div>
 
         {/* Disclaimer */}
         <div className="mt-6 p-4 rounded-xl border border-amber-200 bg-amber-50">
           <p className="text-xs text-amber-800 leading-relaxed">
-            <strong className="text-amber-900">Research Use Only:</strong> All information is for
-            educational and research purposes. Not medical advice. For research use only. Not for human
-            consumption. Consult a qualified physician.
+            <strong className="text-amber-900">Disclaimer:</strong> Peptides are sold for laboratory
+            and educational use only. Not for human or veterinary use. Buyers are responsible for
+            compliance with local regulations.
           </p>
         </div>
       </div>
@@ -296,7 +296,7 @@ export default async function BlogPostPage({
       {related.length > 0 && (
         <section className="py-12 border-t border-slate-100">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">More Research Articles</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mb-6">More Articles</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {related.map((p) => (
                 <Link

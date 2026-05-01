@@ -6,14 +6,23 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { staticProducts, AFFILIATE_URL } from "@/lib/static-products"
 
 export const metadata: Metadata = {
-  title: "Anti-Aging Peptides — Epithalon, GHK-Cu, MOTS-C | PeptidesMaxxing",
+  title: "Buy Anti-Aging Peptides Online — Epithalon, GHK-Cu, MOTS-C | PeptidesMaxxing",
   description:
-    "Research the top anti-aging and longevity peptides: Epithalon, GHK-Cu, MOTS-C, Thymulin. Telomere extension, collagen synthesis, and mitochondrial biogenesis research.",
+    "Buy the top anti-aging and longevity peptides online: Epithalon, GHK-Cu, MOTS-C, Thymulin. High purity, COA verified, fast shipping. Telomere extension, collagen synthesis, mitochondrial biogenesis.",
+  keywords: [
+    "buy anti-aging peptides",
+    "anti-aging peptides for sale",
+    "buy Epithalon",
+    "buy GHK-Cu",
+    "buy MOTS-C",
+    "longevity peptides for sale",
+    "Epithalon price",
+  ],
   alternates: { canonical: "https://www.peptidesmaxxing.com/anti-aging" },
   openGraph: {
-    title: "Anti-Aging Peptides — Epithalon, GHK-Cu, MOTS-C",
+    title: "Buy Anti-Aging Peptides Online — Epithalon, GHK-Cu, MOTS-C",
     description:
-      "Top longevity research compounds — Epithalon, GHK-Cu, MOTS-C with full science documentation and COA verification.",
+      "Top longevity peptides for sale — Epithalon, GHK-Cu, MOTS-C with COA verification and fast shipping.",
     url: "https://www.peptidesmaxxing.com/anti-aging",
     type: "website",
   },
@@ -67,7 +76,7 @@ export default function AntiAgingPage() {
         <nav className="flex items-center gap-1.5 text-xs text-slate-400">
           <Link href="/" className="hover:text-slate-600 transition-colors">Home</Link>
           <ChevronRight className="w-3 h-3" />
-          <span className="text-slate-600 font-medium">Anti-Aging Peptides</span>
+          <span className="text-slate-600 font-medium">Buy Anti-Aging Peptides</span>
         </nav>
       </div>
 
@@ -80,11 +89,11 @@ export default function AntiAgingPage() {
               <span className="text-xs font-bold text-purple-300 uppercase tracking-wider">Anti-Aging & Longevity</span>
             </div>
             <h1 className="text-5xl sm:text-6xl font-bold leading-tight mb-6">
-              Anti-Aging &<br />
+              Buy Anti-Aging &<br />
               <span className="text-purple-400">Longevity Peptides</span>
             </h1>
             <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-              Epithalon activates telomerase. GHK-Cu rewires 300+ genes. MOTS-C restores mitochondrial efficiency. These are the most researched longevity compounds — with complete science documentation and ≥99% COA purity.
+              Epithalon activates telomerase. GHK-Cu rewires 300+ genes. MOTS-C restores mitochondrial efficiency. The most popular longevity peptides for sale — high purity, COA verified, fast shipping.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -118,9 +127,9 @@ export default function AntiAgingPage() {
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <p className="text-xs font-bold text-purple-600 uppercase tracking-widest mb-2">Research Compounds</p>
+            <p className="text-xs font-bold text-purple-600 uppercase tracking-widest mb-2">Top Sellers</p>
             <h2 className="text-4xl font-bold text-slate-900">Top Anti-Aging Peptides</h2>
-            <p className="text-slate-500 mt-2">Research-grade longevity compounds with full COA verification and science documentation.</p>
+            <p className="text-slate-500 mt-2">High purity longevity compounds with full COA verification and complete dosing guides.</p>
           </div>
           <Link href="/categories/anti-aging" className="hidden sm:flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors">
             View All <ArrowRight className="w-4 h-4" />
@@ -189,9 +198,9 @@ export default function AntiAgingPage() {
       <section className="py-16 border-t border-slate-100 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-purple-600 uppercase tracking-widest mb-2">Research Mechanisms</p>
+            <p className="text-xs font-bold text-purple-600 uppercase tracking-widest mb-2">How They Work</p>
             <h2 className="text-3xl font-bold text-slate-900">How Anti-Aging Peptides Work</h2>
-            <p className="text-slate-500 mt-2 max-w-xl mx-auto">Four primary longevity pathways targeted by the most-researched anti-aging peptides.</p>
+            <p className="text-slate-500 mt-2 max-w-xl mx-auto">Four primary longevity pathways targeted by the most popular anti-aging peptides.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {BENEFITS.map(({ icon: Icon, title, desc, color }) => (
@@ -219,7 +228,7 @@ export default function AntiAgingPage() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/products/epithalon" className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-purple-600 text-white hover:bg-purple-500 transition-colors">
-                  Read Epithalon Profile <ArrowRight className="w-4 h-4" />
+                  Buy Epithalon <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link href="/guides/longevity-peptide-protocols" className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold border border-purple-200 text-purple-700 hover:bg-purple-50 transition-colors">
                   View Longevity Protocols
@@ -246,9 +255,9 @@ export default function AntiAgingPage() {
       {/* FINAL CTA */}
       <section className="py-16 border-t border-slate-100 bg-slate-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">Explore the Science of Longevity</h2>
+          <h2 className="text-4xl font-bold text-white mb-4">Buy Anti-Aging Peptides — High Purity, Fast Shipping</h2>
           <p className="text-slate-400 mb-8 text-lg max-w-xl mx-auto">
-            Browse Epithalon, GHK-Cu, MOTS-C and more — all with ≥99% purity documentation and complete research guides.
+            Browse Epithalon, GHK-Cu, MOTS-C and more — all with ≥99% purity documentation and complete dosing guides.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={AFFILIATE_URL} target="_blank" rel="nofollow sponsored noopener noreferrer"
@@ -260,7 +269,7 @@ export default function AntiAgingPage() {
               View Longevity Protocols
             </Link>
           </div>
-          <p className="mt-8 text-xs text-slate-500 max-w-xl mx-auto">All products for research use only. Not for human consumption. Consult a qualified physician.</p>
+          <p className="mt-8 text-xs text-slate-500 max-w-xl mx-auto">Disclaimer: Sold for laboratory and educational use only. Not for human or veterinary use.</p>
         </div>
       </section>
     </PageLayout>

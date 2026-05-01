@@ -20,10 +20,10 @@ const GOAL_LINKS = [
 ]
 
 const MORE_LINKS = [
-  { href: "/stacks",    label: "Cycles & Stacks", desc: "Pre-built research protocols",  icon: Layers },
-  { href: "/protocols", label: "Protocols",        desc: "Dosing & research guides",      icon: FlaskConical },
+  { href: "/stacks",    label: "Stacks", desc: "Pre-built peptide stacks",  icon: Layers },
+  { href: "/protocols", label: "Protocols",        desc: "Dosing & cycle guides",      icon: FlaskConical },
   { href: "/guides",    label: "Guides",           desc: "In-depth peptide guides",       icon: BookOpen },
-  { href: "/blog",      label: "Blog",             desc: "News & research updates",       icon: BookOpen },
+  { href: "/blog",      label: "Blog",             desc: "News & buyer's articles",       icon: BookOpen },
 ]
 
 export function Navigation() {
@@ -234,7 +234,7 @@ export function Navigation() {
             <Link href="/products"  onClick={() => setMobileOpen(false)} className="px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Products</Link>
             <Link href="/compare"   onClick={() => setMobileOpen(false)} className="px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Compare</Link>
             <Link href="/science"   onClick={() => setMobileOpen(false)} className="px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Science</Link>
-            <Link href="/stacks"    onClick={() => setMobileOpen(false)} className="px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Cycles & Stacks</Link>
+            <Link href="/stacks"    onClick={() => setMobileOpen(false)} className="px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Peptide Stacks</Link>
             <Link href="/protocols" onClick={() => setMobileOpen(false)} className="px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Protocols</Link>
             <Link href="/guides"    onClick={() => setMobileOpen(false)} className="px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Guides</Link>
             <Link href="/blog"      onClick={() => setMobileOpen(false)} className="px-4 py-3 rounded-lg text-sm font-medium text-slate-700 hover:bg-slate-50">Blog</Link>

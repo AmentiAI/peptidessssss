@@ -6,14 +6,23 @@ import { PageLayout } from "@/components/peptide-hub/page-layout"
 import { staticProducts, AFFILIATE_URL } from "@/lib/static-products"
 
 export const metadata: Metadata = {
-  title: "Fat Loss Peptides — Tirzepatide, Retatrutide, AOD9604 | PeptidesMaxxing",
+  title: "Buy Fat Loss Peptides Online — Tirzepatide, Retatrutide, AOD9604 | PeptidesMaxxing",
   description:
-    "Research the top fat loss peptides: Tirzepatide, Retatrutide, Cagrilintide, AOD9604, 5-Amino-1MQ. GLP-1 agonists, lipolysis enhancers, and metabolic research compounds.",
+    "Buy top fat loss peptides online: Tirzepatide, Retatrutide, Cagrilintide, AOD9604, 5-Amino-1MQ. High purity, COA verified, fast shipping. GLP-1 agonists, lipolysis & metabolic peptides.",
+  keywords: [
+    "buy fat loss peptides",
+    "buy Tirzepatide",
+    "buy Retatrutide",
+    "buy AOD9604",
+    "Tirzepatide for sale",
+    "Retatrutide price",
+    "GLP-1 peptides for sale",
+  ],
   alternates: { canonical: "https://www.peptidesmaxxing.com/fat-loss" },
   openGraph: {
-    title: "Fat Loss Peptides — Tirzepatide, Retatrutide & More",
+    title: "Buy Fat Loss Peptides Online — Tirzepatide, Retatrutide & More",
     description:
-      "GLP-1 agonists and metabolic peptides — Tirzepatide, Retatrutide, 5-Amino-1MQ with full research documentation.",
+      "GLP-1 agonists and metabolic peptides for sale — Tirzepatide, Retatrutide, 5-Amino-1MQ with COA verification.",
     url: "https://www.peptidesmaxxing.com/fat-loss",
     type: "website",
   },
@@ -67,7 +76,7 @@ export default function FatLossPage() {
         <nav className="flex items-center gap-1.5 text-xs text-slate-400">
           <Link href="/" className="hover:text-slate-600 transition-colors">Home</Link>
           <ChevronRight className="w-3 h-3" />
-          <span className="text-slate-600 font-medium">Fat Loss Peptides</span>
+          <span className="text-slate-600 font-medium">Buy Fat Loss Peptides</span>
         </nav>
       </div>
 
@@ -80,11 +89,11 @@ export default function FatLossPage() {
               <span className="text-xs font-bold text-orange-300 uppercase tracking-wider">Fat Loss & Metabolic</span>
             </div>
             <h1 className="text-5xl sm:text-6xl font-bold leading-tight mb-6">
-              Fat Loss &<br />
+              Buy Fat Loss &<br />
               <span className="text-orange-400">Metabolic Peptides</span>
             </h1>
             <p className="text-lg text-slate-300 mb-8 leading-relaxed">
-              From next-gen GLP-1 triple agonists like Retatrutide to hGH fragments like AOD9604 and NNMT inhibitors — the most researched compounds for metabolic optimization and fat loss research.
+              From next-gen GLP-1 triple agonists like Retatrutide to hGH fragments like AOD9604 and NNMT inhibitors — the most popular metabolic peptides for sale, high purity, COA verified, fast shipping.
             </p>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -118,9 +127,9 @@ export default function FatLossPage() {
       <section className="py-20 max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex items-end justify-between mb-10">
           <div>
-            <p className="text-xs font-bold text-orange-600 uppercase tracking-widest mb-2">Research Compounds</p>
+            <p className="text-xs font-bold text-orange-600 uppercase tracking-widest mb-2">Top Sellers</p>
             <h2 className="text-4xl font-bold text-slate-900">Top Fat Loss Peptides</h2>
-            <p className="text-slate-500 mt-2">Next-generation metabolic research compounds with complete COA documentation.</p>
+            <p className="text-slate-500 mt-2">Next-generation metabolic peptides with complete COA documentation and dosing guides.</p>
           </div>
           <Link href="/categories/weight-loss" className="hidden sm:flex items-center gap-2 text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors">
             View All <ArrowRight className="w-4 h-4" />
@@ -189,9 +198,9 @@ export default function FatLossPage() {
       <section className="py-16 border-t border-slate-100 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-12">
-            <p className="text-xs font-bold text-orange-600 uppercase tracking-widest mb-2">Research Mechanisms</p>
+            <p className="text-xs font-bold text-orange-600 uppercase tracking-widest mb-2">How They Work</p>
             <h2 className="text-3xl font-bold text-slate-900">How Fat Loss Peptides Work</h2>
-            <p className="text-slate-500 mt-2 max-w-xl mx-auto">Four primary mechanisms across the most researched metabolic peptide categories.</p>
+            <p className="text-slate-500 mt-2 max-w-xl mx-auto">Four primary mechanisms across the most popular metabolic peptide categories.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {BENEFITS.map(({ icon: Icon, title, desc, color }) => (
@@ -215,14 +224,14 @@ export default function FatLossPage() {
               <p className="text-xs font-bold text-orange-600 uppercase tracking-widest mb-3">Spotlight Comparison</p>
               <h2 className="text-3xl font-bold text-slate-900 mb-4">Tirzepatide vs Retatrutide</h2>
               <p className="text-slate-600 leading-relaxed mb-6">
-                Tirzepatide is a dual GLP-1/GIP agonist with extensive clinical research. Retatrutide adds a third agonism (GCG) for triple-receptor activation — making it one of the most potent metabolic research compounds available. Both are available from Phiogen with ≥99% purity COA.
+                Tirzepatide is a dual GLP-1/GIP agonist with extensive clinical research. Retatrutide adds a third agonism (GCG) for triple-receptor activation — making it one of the most potent metabolic peptides available. Both are available with ≥99% purity COA and fast shipping.
               </p>
               <div className="flex flex-wrap gap-3">
                 <Link href="/products/tirzepatide" className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold bg-orange-500 text-white hover:bg-orange-400 transition-colors">
-                  Tirzepatide Profile <ArrowRight className="w-4 h-4" />
+                  Buy Tirzepatide <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link href="/products/retatrutide" className="flex items-center gap-2 px-6 py-3 rounded-xl font-semibold border border-orange-200 text-orange-700 hover:bg-orange-50 transition-colors">
-                  Retatrutide Profile
+                  Buy Retatrutide
                 </Link>
               </div>
             </div>
@@ -246,9 +255,9 @@ export default function FatLossPage() {
       {/* FINAL CTA */}
       <section className="py-16 border-t border-slate-100 bg-slate-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <h2 className="text-4xl font-bold text-white mb-4">Start Your Metabolic Research</h2>
+          <h2 className="text-4xl font-bold text-white mb-4">Buy Fat Loss Peptides — High Purity, Fast Shipping</h2>
           <p className="text-slate-400 mb-8 text-lg max-w-xl mx-auto">
-            Browse GLP-1 agonists, hGH fragments, and NNMT inhibitors — all with ≥99% purity documentation.
+            Browse GLP-1 agonists, hGH fragments, and NNMT inhibitors — all with ≥99% purity documentation and fast shipping.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href={AFFILIATE_URL} target="_blank" rel="nofollow sponsored noopener noreferrer"
@@ -260,7 +269,7 @@ export default function FatLossPage() {
               Browse Full Catalog
             </Link>
           </div>
-          <p className="mt-8 text-xs text-slate-500 max-w-xl mx-auto">All products for research use only. Not for human consumption. Consult a qualified physician.</p>
+          <p className="mt-8 text-xs text-slate-500 max-w-xl mx-auto">Disclaimer: Sold for laboratory and educational use only. Not for human or veterinary use.</p>
         </div>
       </section>
     </PageLayout>

@@ -1,4 +1,5 @@
 import type { NextConfig } from "next"
+import { PRODUCT_REDIRECTS } from "./lib/product-redirects"
 
 const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
@@ -36,6 +37,13 @@ const nextConfig: NextConfig = {
     ]
   },
   async redirects() {
+    const productRedirects = Object.entries(PRODUCT_REDIRECTS).map(
+      ([from, to]) => ({
+        source: `/products/${from}`,
+        destination: `/products/${to}`,
+        permanent: true,
+      }),
+    )
     return [
       {
         source: "/:path*",
@@ -43,6 +51,7 @@ const nextConfig: NextConfig = {
         destination: "https://www.peptidesmaxxing.com/:path*",
         permanent: true,
       },
+      ...productRedirects,
     ]
   },
 }

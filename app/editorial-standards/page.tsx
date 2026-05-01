@@ -7,12 +7,12 @@ import { getAuthor, authorPersonSchema, DEFAULT_AUTHOR_SLUG } from "@/lib/author
 export const metadata: Metadata = {
   title: "Editorial Standards — PeptidesMaxxing",
   description:
-    "How PeptidesMaxxing sources, reviews, and updates research peptide content. Full editorial workflow, citation standards, affiliate transparency, and correction policy.",
+    "How PeptidesMaxxing sources, reviews, and updates peptide content. Full editorial workflow, citation standards, affiliate transparency, and correction policy.",
   alternates: { canonical: "https://www.peptidesmaxxing.com/editorial-standards" },
   openGraph: {
     title: "Editorial Standards — PeptidesMaxxing",
     description:
-      "How PeptidesMaxxing sources, reviews, and updates research peptide content. Full editorial workflow, citation standards, affiliate transparency, and correction policy.",
+      "How PeptidesMaxxing sources, reviews, and updates peptide content. Full editorial workflow, citation standards, affiliate transparency, and correction policy.",
     url: "https://www.peptidesmaxxing.com/editorial-standards",
     type: "article",
   },
@@ -33,7 +33,7 @@ export default function EditorialStandardsPage() {
     name: "Editorial Standards",
     url: "https://www.peptidesmaxxing.com/editorial-standards",
     description:
-      "How PeptidesMaxxing sources, reviews, and updates research peptide content.",
+      "How PeptidesMaxxing sources, reviews, and updates peptide content.",
     inLanguage: "en-US",
     isPartOf: {
       "@type": "WebSite",
@@ -64,8 +64,8 @@ export default function EditorialStandardsPage() {
     },
     {
       icon: AlertCircle,
-      title: "Research-only framing",
-      body: "Every peptide discussed is discussed in a research context. Dosing ranges cited reflect published laboratory and clinical research — not medical recommendations. No article on this site is medical advice, and nothing here is intended to diagnose, treat, cure, or prevent any disease. Consumers should consult a licensed healthcare professional before any use.",
+      title: "Educational framing",
+      body: "Peptides are sold for laboratory and educational use only. Dosing ranges cited reflect published laboratory and clinical research — not medical recommendations. No article on this site is medical advice, and nothing here is intended to diagnose, treat, cure, or prevent any disease. Buyers are responsible for compliance with local regulations.",
     },
     {
       icon: FileCheck,
@@ -111,8 +111,8 @@ export default function EditorialStandardsPage() {
       <section className="py-8 max-w-4xl mx-auto px-4 sm:px-6">
         <div className="p-6 rounded-2xl border border-amber-200 bg-amber-50">
           <p className="text-sm text-amber-900 leading-relaxed">
-            <strong>Research use only.</strong> All peptides discussed on PeptidesMaxxing are referenced for
-            laboratory research and are not intended for human consumption. See the full disclosure at{" "}
+            <strong>Disclaimer.</strong> Peptides discussed on PeptidesMaxxing are sold for
+            laboratory and educational use only. Not for human or veterinary use. See the full disclosure at{" "}
             <Link href="/about" className="underline underline-offset-2">/about</Link>.
           </p>
         </div>

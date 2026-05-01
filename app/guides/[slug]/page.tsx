@@ -159,7 +159,7 @@ export default async function GuidePage({
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://www.peptidesmaxxing.com" },
-      { "@type": "ListItem", position: 2, name: "Research Guides", item: "https://www.peptidesmaxxing.com/guides" },
+      { "@type": "ListItem", position: 2, name: "Peptide Guides", item: "https://www.peptidesmaxxing.com/guides" },
       { "@type": "ListItem", position: 3, name: guide.title, item: `https://www.peptidesmaxxing.com/guides/${slug}` },
     ],
   }
@@ -203,7 +203,7 @@ export default async function GuidePage({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-8">
         <div className="max-w-4xl">
           <span className="inline-block px-3 py-1 rounded-full text-xs font-bold bg-slate-900 text-white mb-4">
-            Research Guide
+            Peptide Guide
           </span>
           <h1 className="article-headline text-4xl font-bold text-slate-900 leading-tight mb-4">{guide.title}</h1>
           <p className="article-summary text-lg text-slate-500 mb-6">{guide.description}</p>
@@ -239,30 +239,30 @@ export default async function GuidePage({
             {/* Disclaimer */}
             <div className="mt-8 p-4 rounded-xl border border-amber-200 bg-amber-50">
               <p className="text-xs text-amber-800 leading-relaxed">
-                <strong className="text-amber-900">Research Use Only:</strong> All information is for
-                educational and research purposes. Not medical advice. For research use only. Not for human
-                consumption. Consult a qualified physician.
+                <strong className="text-amber-900">Disclaimer:</strong> Peptides are sold for laboratory
+                and educational use only. Not for human or veterinary use. Buyers are responsible for
+                compliance with local regulations.
               </p>
             </div>
           </article>
 
           <aside className="space-y-6">
             <div className="p-5 rounded-2xl border border-slate-200 bg-slate-50">
-              <p className="text-sm font-bold text-slate-900 mb-3">Ready to Research?</p>
-              <p className="text-xs text-slate-500 mb-4">Browse research peptides.</p>
+              <p className="text-sm font-bold text-slate-900 mb-3">Ready to Buy?</p>
+              <p className="text-xs text-slate-500 mb-4">Browse peptides — high purity, COA verified.</p>
               <Link
                 href="/products"
                 className="flex items-center justify-center gap-2 py-3 rounded-xl text-sm font-bold bg-slate-900 text-white hover:bg-slate-700 transition-colors"
               >
-                Browse Peptides <ArrowRight className="w-4 h-4" />
+                Shop All Peptides <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
 
             {/* Partner widget */}
             <div className="p-5 rounded-2xl border border-violet-200 bg-violet-50">
-              <p className="text-xs font-bold text-violet-600 uppercase tracking-widest mb-2">Research Partner</p>
+              <p className="text-xs font-bold text-violet-600 uppercase tracking-widest mb-2">Sister Site</p>
               <p className="text-sm font-bold text-slate-900 mb-1">LooksMaxingStack.com</p>
-              <p className="text-xs text-slate-500 mb-4 leading-relaxed">Compare peptides head-to-head, explore curated stacks, and read additional research guides.</p>
+              <p className="text-xs text-slate-500 mb-4 leading-relaxed">Compare peptides head-to-head, explore curated stacks, and read additional guides.</p>
               <div className="space-y-2">
                 <a href="https://looksmaxingstack.com/compare" target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-xs font-semibold text-violet-600 hover:text-violet-800 transition-colors">
@@ -270,11 +270,11 @@ export default async function GuidePage({
                 </a>
                 <a href="https://looksmaxingstack.com/stacks" target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-xs font-semibold text-violet-600 hover:text-violet-800 transition-colors">
-                  <ExternalLink className="w-3 h-3" /> Research Stacks
+                  <ExternalLink className="w-3 h-3" /> Peptide Stacks
                 </a>
                 <a href="https://looksmaxingstack.com/guides" target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-xs font-semibold text-violet-600 hover:text-violet-800 transition-colors">
-                  <ExternalLink className="w-3 h-3" /> Research Guides
+                  <ExternalLink className="w-3 h-3" /> Peptide Guides
                 </a>
                 <a href="https://looksmaxingstack.com" target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-1.5 text-xs font-semibold text-violet-600 hover:text-violet-800 transition-colors">
